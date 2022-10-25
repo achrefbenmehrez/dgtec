@@ -2,13 +2,17 @@
     $categories = App\Models\Category::all();
     $brands = App\Models\Brand::all();
 ?>
-<header class="fixed z-30 w-full pb-4 -relative bg-secondary-700 sm:pb-0">
+<header class="fixed z-30 w-full pb-4 -relative bg-secondary-700 sm:pb-0" style="{
+    .bg-secondary-700 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(162, 168, 164 / var(--tw-bg-opacity));
+}}">
     <div class="mx-auto max-w-big">
         <div class="flex flex-wrap items-center justify-between sm:h-16 md:justify-start">
             <div class="flex justify-center w-full px-4 py-4 sm:w-auto sm:py-0 sm:justify-start sm:px-6">
                 <a href="{{ route('home') }}">
-                    <span class="sr-only">SQP</span>
-                    <img class="w-auto h-8 " src="{{ asset('storage/img/logo_white.png') }}" alt="">
+                    <span class="sr-only">dgTec</span>
+                    <img class="w-auto h-8 " src="{{ asset('storage/img/DGTEC Logo blue.png') }}" alt="">
                 </a>
             </div>
 
