@@ -27,7 +27,7 @@
 
         <div class="grid grid-cols-4">
             <div class="hidden lg:block lg:col-span-1">
-                <a href="https://sqp.fr/espace-client/commandes" target="_self" rel=""
+                <a href="{{ route('client.commandes') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Historique de commande</p>
                 </a>
-                <a href="https://sqp.fr/espace-client/paniers" target="_self" rel=""
+                <a href="{{ route('client.paniers') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -47,7 +47,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Paniers</p>
                 </a>
-                <a href="https://sqp.fr/espace-client/devis" target="_self" rel=""
+                <a href="{{ route('client.devis') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -57,7 +57,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Devis</p>
                 </a>
-                <a href="https://sqp.fr/espace-client/catalogues-et-tarifs" target="_self" rel=""
+                <a href="{{ route('client.cataloguesTarifs') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -67,8 +67,8 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Tarifs et catalogues</p>
                 </a>
-                <a href="https://sqp.fr/espace-client/adresses" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
+                <a href="{{ route('client.adresses') }}" target="_self" rel=""
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 pointer-events-none bg-primary-500">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -77,7 +77,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Adresses de livraison</p>
                 </a>
-                <a href="https://sqp.fr/espace-client/factures" target="_self" rel=""
+                <a href="{{ route('client.factures') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -88,7 +88,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Factures, avoirs et
                         échéances</p>
                 </a>
-                <a href="https://sqp.fr/espace-client/informations-societe" target="_self" rel=""
+                <a href="{{ route('client.informationsSociete') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -98,8 +98,8 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Informations société</p>
                 </a>
-                <a href="https://sqp.fr/espace-client/utilisateurs" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 pointer-events-none bg-primary-500">
+                <a href="{{ route('client.utilisateurs') }}" target="_self" rel=""
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -109,7 +109,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Gestion des utilisateurs
                     </p>
                 </a>
-                <a href="https://sqp.fr/espace-client/sav" target="_self" rel=""
+                <a href="{{ route('client.sav') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" viewBox="0 0 24 24">
@@ -134,7 +134,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">NASEXCHANGE</p>
                 </a>
 
-                <a href="/logout"
+                <a href="{{ route('logout') }}"
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md bg-secondary-600 hover:bg-primary-500">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -145,6 +145,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase">Déconnexion</p>
                 </a>
             </div>
+
 
             <div class="px-4 col-span-full lg:col-span-3">
                 <div wire:id="XKGetzdtQihB68DJBZSB" class="grid items-center w-full grid-cols-2 gap-4 text-white"

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Adresse;
+use App\Models\AdresseFacturation;
 use Illuminate\Http\Request;
 
-class AdresseController extends Controller
+class AdresseFacturationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class AdresseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Adresse  $adresse
+     * @param  \App\Models\AdresseFacturation  $adresseFacturation
      * @return \Illuminate\Http\Response
      */
-    public function show(Adresse $adresse)
+    public function show(AdresseFacturation $adresseFacturation)
     {
         //
     }
@@ -52,10 +52,10 @@ class AdresseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Adresse  $adresse
+     * @param  \App\Models\AdresseFacturation  $adresseFacturation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Adresse $adresse)
+    public function edit(AdresseFacturation $adresseFacturation)
     {
         //
     }
@@ -64,10 +64,10 @@ class AdresseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Adresse  $adresse
+     * @param  \App\Models\AdresseFacturation  $adresseFacturation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Adresse $adresse)
+    public function update(Request $request, AdresseFacturation $adresseFacturation)
     {
         //
     }
@@ -75,10 +75,10 @@ class AdresseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Adresse  $adresse
+     * @param  \App\Models\AdresseFacturation  $adresseFacturation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Adresse $adresse)
+    public function destroy(AdresseFacturation $adresseFacturation)
     {
         //
     }

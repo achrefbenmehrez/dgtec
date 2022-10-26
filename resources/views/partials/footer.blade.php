@@ -792,49 +792,49 @@
 
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-reconditionnes"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS reconditionnés
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-accessoires-nas"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 Accessoires NAS
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-contrat-de-service-nas"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 Contrat de service NAS
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-unites-dextension"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 Unités d&#039;extension
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-12-disques"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 12 disques
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-4-disques"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 4 disques
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-8-disques"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 8 disques
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-1-disque"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 1 disque
                             </a>
                         </li>
@@ -843,43 +843,43 @@
 
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-2-disques"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 2 disques
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-5-disques"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 5 disques
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-6-disques"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 6 disques
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-16-disques"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 16 disques
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-24-disques"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 24 disques
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-9-disques"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 9 Disques
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-nas-3-disques"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 NAS 3 Disques
                             </a>
                         </li>
@@ -951,37 +951,37 @@
 
                         <li>
                             <a href="https://sqp.fr/distributeur-externe-thunderbolt-2"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 Externe Thunderbolt
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-accessoires-tours"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 Accessoires tours
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-boitiers-vides-2"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 Boitiers vides
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-externe-usb-c"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 Externe USB-C
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-boitiers-vides"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 Boitiers vides
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-externe-crypte"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  hover:text-white whitespace-nowra">
                                 Externe crypté
                             </a>
                         </li>
@@ -990,31 +990,31 @@
 
                         <li>
                             <a href="https://sqp.fr/distributeur-externe-thunderbolt"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 Externe Thunderbolt
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-externe-usb"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 Externe USB
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-accessoires-disque-externe"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 Accessoires disque externe
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-contrat-de-service"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 Contrat de service
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-externe-usb-c-2"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 Externe USB C
                             </a>
                         </li>
@@ -1082,55 +1082,55 @@
 
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-sony"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Sony
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-autre"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Autre
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-nec"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour NEC
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-gateway"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm  whitespace-nowra">
                                 RAM pour Gateway
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-intel"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Intel
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-siemens"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Siemens
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-lexmark"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Lexmark
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-toshiba"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Toshiba
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-sun"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Sun
                             </a>
                         </li>
@@ -1139,55 +1139,55 @@
 
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-acer"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Acer
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-samsung"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Samsung
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-lenovo"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Lenovo
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-ibm"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour IBM
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-hp"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour HP
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-fujitsu"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Fujitsu
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-dell"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Dell
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-asus"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Asus
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-ram-pour-apple"
-                                class="text-sm text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-sm hover:text-gray-300 whitespace-nowra">
                                 RAM pour Apple
                             </a>
                         </li>
@@ -1199,14 +1199,14 @@
     </div>
 </div>
 
-<footer class="bg-secondary-900">
+<footer>
     <div class="px-4 py-12 mx-auto max-w-big sm:px-6 lg:py-16 lg:px-8">
         <div class="flex flex-col items-center justify-center w-full mb-16">
             <a class="mb-4" href="https://sqp.fr/">
                 <span class="sr-only">SQP</span>
-                <img class="w-auto h-8 " src="https://sqp.fr/web/img/logo_primary.png" alt="">
+                <img class="w-auto h-8 " src="{{ asset('storage/img/DGTEC Logo blue.png') }}" alt="">
             </a>
-            <h3 class="text-sm font-bold text-white uppercase">
+            <h3 class="text-sm font-bold uppercase">
                 leader français de la mémoire spécifique, depuis 1986
             </h3>
         </div>
@@ -1219,89 +1219,89 @@
 
                     <li>
                         <a href="https://sqp.fr/notre-societe"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Notre société
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/votre-commande"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Votre commande
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/frais-de-port-et-taxes"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Frais de port et taxes
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/partenariats-et-sponsoring"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Partenariats et sponsoring
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/reception-de-votre-commande"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Réception de votre commande
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                        <a href="#" class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Service après vente
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                        <a href="#" class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Un conseillé dédié
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/livraison"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Livraison
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/nos-catalogues"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Nos catalogues
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/contrats-de-service"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Contrats de service
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/ouverture-de-compte"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Ouverture de compte
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/paiement"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Paiement
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/garanties"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Garanties
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/conditions-generales-de-vente"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Conditions générales de vente
                         </a>
                     </li>
                     <li>
                         <a href="https://sqp.fr/securite-et-droit-des-donnees"
-                            class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                            class="text-base hover:text-gray-300 hover:whitespace-nowra">
                             Sécurité et droit des données
                         </a>
                     </li>
@@ -1317,31 +1317,31 @@
 
                         <li>
                             <a href="https://sqp.fr/guide-dachat-nas"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 hover:whitespace-nowra">
                                 Guide d&#039;achat NAS
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/guide-dachat-san"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 hover:whitespace-nowra">
                                 Guide d&#039;achat SAN
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/guide-dachat-hdd-ssd"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 hover:whitespace-nowra">
                                 Guide d&#039;achat HDD / SSD
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/guide-dachat-memoire-ram"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 hover:whitespace-nowra">
                                 Guide d&#039;achat Mémoire RAM
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/guide-dachat-memoire-flash"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 hover:whitespace-nowra">
                                 Guide d&#039;achat Mémoire Flash
                             </a>
                         </li>
@@ -1354,7 +1354,7 @@
                     <ul class="mt-4 space-y-2">
                         <li>
                             <a href="{{ route("connexion") }}"
-                                class="flex text-base text-gray-300 transition-colors hover:text-tertiary-500">
+                                class="flex text-base  transition-colors hover:text-tertiary-500">
                                 <svg class="w-6 h-6 mr-4 text-tertiary-500" transform="scale(1.2,1.2)"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.727 31.727">
                                     <path fill="currentColor"
@@ -1364,7 +1364,7 @@
                         </li>
                         <li>
                             <a href="https://sqp.fr/espace-client/sav"
-                                class="flex text-base text-gray-300 transition-colors hover:text-tertiary-500">
+                                class="flex text-base  transition-colors hover:text-tertiary-500">
                                 <svg class="w-6 h-6 mr-4 text-tertiary-500" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24">
@@ -1375,7 +1375,7 @@
                         </li>
                         <li>
                             <a href="#"
-                                class="flex text-base text-gray-300 transition-colors hover:text-tertiary-500">
+                                class="flex text-base  transition-colors hover:text-tertiary-500">
                                 <svg class="w-6 h-6 mr-4 text-tertiary-500" transform="scale(1.1,1.1)"
                                     class="w-8 h-8 fill-current xl:mr-2" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 32.75 30.964">
@@ -1416,7 +1416,7 @@
                                     stroke-width="2" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                </svg> 04 72 13 83 83
+                                </svg> +216 36 208 694
                             </a>
                         </li>
                         <li>
@@ -1444,55 +1444,55 @@
                     <ul class="mt-4 space-y-2">
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-akitio"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Akitio
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-asus"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Asus
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-atto"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 ATTO
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-bestor"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 BeStor
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-crucial"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Crucial
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-d-link"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 D-LINK
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-dell"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Dell
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-eaton"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Eaton
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-finisar"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Finisar
                             </a>
                         </li>
@@ -1500,55 +1500,55 @@
                     <ul class="mt-2 sm:mt-4 lg:mt-2 space-y-2">
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-highpoint"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Highpoint
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-hp"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 HP
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-ibm"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 IBM
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-icydock"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 IcyDock
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-intel"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Intel
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-keyspan"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 KEYSPAN
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-lg"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 LG
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-liteon"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 LiteOn
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-lmp"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 LMP
                             </a>
                         </li>
@@ -1558,55 +1558,55 @@
                     <ul class="mt-4 space-y-2">
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-logitech"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Logitech
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-micron"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Micron
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-mobility-labs"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Mobility Labs
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-nakivo"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Nakivo
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-owc"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 OWC
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-promise"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Promise
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-qnap"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 QNAP
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-qsan"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 QSAN
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-retrospect"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Retrospect
                             </a>
                         </li>
@@ -1614,55 +1614,55 @@
                     <ul class="mt-2 sm:mt-4 lg:mt-2 space-y-2">
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-samsung"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Samsung
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-sandisk"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Sandisk
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-seagate"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Seagate
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-sqp"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 SQP
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-synology"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Synology
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-terramaster"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 TerraMaster
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-toshiba"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Toshiba
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-transcend"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 Transcend
                             </a>
                         </li>
                         <li>
                             <a href="https://sqp.fr/distributeur-solutions-wd"
-                                class="text-base text-gray-300 hover:text-white whitespace-nowra">
+                                class="text-base hover:text-gray-300 whitespace-nowra">
                                 WD
                             </a>
                         </li>
@@ -1726,8 +1726,8 @@
                 <div wire:id="ohtmJNTzs7OT4Buy92ib"
                     wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;ohtmJNTzs7OT4Buy92ib&quot;,&quot;name&quot;:&quot;website.newsletter.registrationForm&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;bf3265f0&quot;,&quot;data&quot;:{&quot;form&quot;:[],&quot;honeyInputs&quot;:{&quot;honey_present&quot;:null,&quot;honey_time&quot;:&quot;eyJpdiI6IjRXYWZ4T2xtTzNvRWF6b3hOb2tpMlE9PSIsInZhbHVlIjoiYUd4d2JNQU1nUDNDdGlQbFBOUmwreWcwMWtGc2c1R2JXbzhJb1FzNE9tUT0iLCJtYWMiOiI1ODBjODczN2FhY2U1ZWYzZTdhMmVhNmRiNzQ5ZjZjYmVkM2ZjNmEzODVkZThmNjc5M2NmOTViYTQ5MjlmZTMyIiwidGFnIjoiIn0=&quot;,&quot;honey_javascript&quot;:null,&quot;honey_recaptcha_token&quot;:null}},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;18098e5396b27d8f93d1d4c747e0a773dee9668e63f3a3c80a9b5488b450a5f0&quot;}}"
                     class="flex flex-col w-full h-full p-12 xl:h-auto bg-primary-500">
-                    <p class="mb-2 font-bold text-center text-white uppercase ">newsletter</p>
-                    <p class="mb-2 text-base text-white">Inscrivez vous à la newsletter, et <b>recevez
+                    <p class="mb-2 font-bold text-center uppercase ">newsletter</p>
+                    <p class="mb-2 text-base">Inscrivez vous à la newsletter, et <b>recevez
                             gratuitement</b> les offres spéciales par e-mail.</p>
                     <form action="#" class="flex flex-col mt-2" wire:submit.prevent="submit">
                         <script src="https://www.google.com/recaptcha/api.js?render=6LeGTkYiAAAAAFLqmq3FgFnToFPbSyW-EDk58lph" defer></script>
@@ -1910,7 +1910,7 @@ data-turbolinks-eval="false"></script>
 <script data-turbo-eval="false" data-turbolinks-eval="false">
 window.livewire = new Livewire();
 window.Livewire = window.livewire;
-window.livewire_app_url = '';
+window.livewire_app_url = 'https://sqp.fr/';
 window.livewire_token = 'PCIdl4vqyR7f17boKPzp7XDmnYufdBcoxmVZdNqE';
 window.deferLoadingAlpine = function(callback) {
     window.addEventListener('livewire:load', function() {

@@ -22,6 +22,23 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('fax')->nullable();
+            $table->string("moyen_payement")->nullable();
+            $table->string("transporteur");
+
+            $table->foreignId('societe_id')
+                ->constrained('societes')
+                ->cascadeOnDelete();
+
+            $table->foreignId('adresse_facturation_id')
+                ->constrained('adresse_facturations')
+                ->cascadeOnDelete();
+
+            $table->foreignId('adresse_livraison_id')
+                ->nullable()
+                ->constrained('adresse_livraisons')
+                ->cascadeOnDelete();
+
             $table->rememberToken();
             $table->timestamps();
         });

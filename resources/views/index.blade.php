@@ -141,7 +141,7 @@
                         </style>
                         <div class="relative h-128">
                             <div class="relative z-10 flex h-full px-8 mx-auto max-w-big">
-                                <div class="flex flex-col items-center justify-center w-full px-8 lg:items-start">
+                                <div class="flex flex-col items-center justify-center w-full px-8 lg:items-start text-dark">
                                     <p class="text-3xl uppercase text-secondary-600 font-base"><b>Depuis 1986,</b>
                                         SQP est le leader français
                                     </p>
@@ -368,7 +368,7 @@
     </div>
 
     <div class="relative py-8 mb-16 bg-secondary-700" x-data>
-        <div class="mx-auto text-white max-w-big">
+        <div class="mx-auto text-white max-w-big" style="color: black;">
             <h3 class="text-xl font-semibold text-center">Leader français de la mémoire spécifique, depuis 1986
             </h3>
             <p class="mt-4 text-center">Facilitez vos achats, grâce aux configurateurs :</p>
@@ -387,7 +387,7 @@
                         <p class="text-sm text-center">
                             <b>Sélectionnez</b> rapidement la mémoire qui correspond à votre produit <b>Apple</b>
                         </p>
-                        <a class="button group --has-trailing mt-8 --is-small --is-white --is-outlined --translate-icon-on-hover"
+                        <a class="button group --has-trailing mt-8 --is-small text-dark --is-outlined --translate-icon-on-hover"
                             href="{{ route('selecteurApple') }}">
 
 
@@ -432,7 +432,7 @@
                             <b>Sélectionnez</b> vos caractéristiques principales et <b>obtenez</b> le listing de
                             mémoires correspondant
                         </p>
-                        <a class="button group --has-trailing mt-8 --is-small --is-white --is-outlined --translate-icon-on-hover"
+                        <a class="button group --has-trailing mt-8 --is-small text-dark --is-outlined --translate-icon-on-hover"
                             href="{{ route("selecteurMemoire") }}">
 
 
@@ -564,7 +564,7 @@
                             Utilisez un <b>configurateur complet</b> pour déterminer le NAS qui correspond à vos
                             besoins
                         </p>
-                        <a class="button group --has-trailing mt-8 --is-small --is-white --is-outlined --translate-icon-on-hover"
+                        <a class="button group --has-trailing mt-8 --is-small text-dark --is-outlined --translate-icon-on-hover"
                             href="{{ route("configurateurNas") }}">
 
 
@@ -710,7 +710,7 @@
                             <b>Sélectionnez</b> vos caractéristiques principales et <b>obtenez</b> le listing de NAS
                             correspondant
                         </p>
-                        <a class="button group --has-trailing mt-8 --is-small --is-white --is-outlined --translate-icon-on-hover"
+                        <a class="button group --has-trailing mt-8 --is-small text-dark --is-outlined --translate-icon-on-hover"
                             href="{{ route("selecteurNas") }}">
 
 
@@ -817,7 +817,7 @@
                             <b>Sélectionnez</b> le nombre et la capacité des disques de votre NAS pour
                             <b>comparer</b> les différents niveaux de RAID disponibles
                         </p>
-                        <a class="button group --has-trailing mt-8 --is-small --is-white --is-outlined --translate-icon-on-hover"
+                        <a class="button group --has-trailing mt-8 --is-small text-dark --is-outlined --translate-icon-on-hover"
                             href="{{ route("comparateurRaid") }}">
 
 

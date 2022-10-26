@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('adresses', function (Blueprint $table) {
+        Schema::create('adresse_livraisons', function (Blueprint $table) {
             $table->id();
+            $table->string("destinataire");
+            $table->string("adresse");
+            $table->string("complement");
+            $table->string("code_postal");
+            $table->string("ville");
+            $table->string("pays");
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adresses');
+        Schema::dropIfExists('adresse_livraisons');
     }
 };
