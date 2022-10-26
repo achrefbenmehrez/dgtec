@@ -1,6 +1,6 @@
 <?php
-    $categories = App\Models\Category::all();
-    $brands = App\Models\Brand::all();
+$categories = App\Models\Category::all();
+$brands = App\Models\Brand::all();
 ?>
 <header class="fixed z-30 w-full pb-4 -relative bg-secondary-700 sm:pb-0">
     <div class="mx-auto max-w-big">
@@ -15,8 +15,8 @@
             <div class="hidden mr-8 lg:flex lg:flex-1">
                 <form class="relative w-full text-secondary-700" action="https://sqp.fr/recherche">
                     <button class="absolute inset-y-0 flex items-center right-2" aria-hidden="true">
-                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                            fill="currentColor" aria-hidden="true">
+                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
                             <path fill-rule="evenodd"
                                 d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
                                 clip-rule="evenodd" />
@@ -49,16 +49,20 @@
 
 
 
-                <div class="relative h-full group">
-                    <a href="{{ route('connexion') }}"
-                        class="relative inline-flex items-center justify-center h-full px-8 py-2 text-xs font-semibold uppercase transition border border-transparent shadow-sm whitespace-nowrap hover:bg-black hover:bg-opacity-25">
-                        <svg class="w-6 h-6 shrink-0 lg:mr-2" transform="scale(1.2,1.2)"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.727 31.727">
-                            <path fill="currentColor"
-                                d="M27.08 4.646A15.863 15.863 0 0 0 4.646 27.08 15.863 15.863 0 0 0 27.08 4.646ZM7.953 27.413a8.033 8.033 0 0 1 15.821 0 13.974 13.974 0 0 1-15.821 0Zm2.867-13.541a5.044 5.044 0 1 1 5.044 5.044 5.05 5.05 0 0 1-5.045-5.044Zm14.564 12.252a9.907 9.907 0 0 0-5.759-6.466 6.9 6.9 0 1 0-7.523 0 9.906 9.906 0 0 0-5.759 6.466 14 14 0 1 1 19.042 0Zm0 0" />
-                        </svg> <span class="sr-only lg:not-sr-only xl:whitespace-nowrap">Mon compte</span>
-                    </a>
-                </div>
+                @if (!Auth::check())
+                    <div class="relative h-full group">
+                        <a href="{{ route('connexion') }}"
+                            class="relative inline-flex items-center justify-center h-full px-8 py-2 text-xs font-semibold uppercase transition border border-transparent shadow-sm whitespace-nowrap hover:bg-black hover:bg-opacity-25">
+                            <svg class="w-6 h-6 shrink-0 lg:mr-2" transform="scale(1.2,1.2)"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.727 31.727">
+                                <path fill="currentColor"
+                                    d="M27.08 4.646A15.863 15.863 0 0 0 4.646 27.08 15.863 15.863 0 0 0 27.08 4.646ZM7.953 27.413a8.033 8.033 0 0 1 15.821 0 13.974 13.974 0 0 1-15.821 0Zm2.867-13.541a5.044 5.044 0 1 1 5.044 5.044 5.05 5.05 0 0 1-5.045-5.044Zm14.564 12.252a9.907 9.907 0 0 0-5.759-6.466 6.9 6.9 0 1 0-7.523 0 9.906 9.906 0 0 0-5.759 6.466 14 14 0 1 1 19.042 0Zm0 0" />
+                            </svg> <span class="sr-only lg:not-sr-only xl:whitespace-nowrap">Mon compte</span>
+                        </a>
+                    </div>
+                @else
+
+                @endif
 
 
                 <div wire:id="bD6b1YTtJ4U8BfxTkdWR"
@@ -240,8 +244,7 @@
                 </span>
                 <span class="block sm:ml-2 sm:inline-block">
                     <a href="https://sqp.fr/la-garantie-j1-et-le-service-premium-nasexchange"
-                        class="font-bold underline"> Lire la suite <span
-                            aria-hidden="true">&rarr;</span></a>
+                        class="font-bold underline"> Lire la suite <span aria-hidden="true">&rarr;</span></a>
                 </span>
             </p>
         </div>
@@ -250,8 +253,8 @@
                 class="flex p-2 rounded-md hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-white"
                 @click="displayFeaturedPost = false">
                 <span class="sr-only">Fermer</span>
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg> </button>
         </div>

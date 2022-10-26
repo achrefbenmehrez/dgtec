@@ -25,7 +25,7 @@
             </h1>
 
             <p class="mt-4 text-sm font-bold uppercase text-secondary-300">
-                (NefoussiJaafarDGTEC)
+                ({{ Auth::user()->login }})
             </p>
         </header>
 

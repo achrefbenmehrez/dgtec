@@ -48,11 +48,10 @@ class AuthController extends Controller
 
         $credentials = $request->only('login', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
+            return redirect()->intended('espace-client')
                 ->withSuccess('You have Successfully logged in');
         }
 
-        dd($request);
         return redirect("connexion")->withSuccess('Oops! You have entered invalid credentials');
     }
 
@@ -117,7 +116,7 @@ class AuthController extends Controller
             'adresse_facturation_id' => $adresseFacturation->id,
         ]);
 
-        return redirect("dashboard")->withSuccess('Great! You have Successfully logged in');
+        return redirect("connexion")->withSuccess('Great! You have Successfully logged in');
     }
 
     /**

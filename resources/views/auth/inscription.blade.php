@@ -296,7 +296,7 @@
 
                                             <input name="company_legal_status"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.company_legal_status" required
+                                                id="form.company_legal_status"
                                                 wire:model="form.company_legal_status">
 
 
@@ -317,7 +317,7 @@
 
                                             <input name="company_ape"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.company_ape" required wire:model="form.company_ape">
+                                                id="form.company_ape" wire:model="form.company_ape">
 
 
 
@@ -337,7 +337,7 @@
 
                                             <input name="company_accountant_name"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.company_accountant_name" required
+                                                id="form.company_accountant_name"
                                                 wire:model="form.company_accountant_name">
 
 
@@ -358,7 +358,7 @@
 
                                             <input name="company_accountant_email"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.company_accountant_email" required type="email"
+                                                id="form.company_accountant_email" type="email"
                                                 wire:model="form.company_accountant_email">
 
 
