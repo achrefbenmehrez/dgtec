@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-full px-4 py-8 mx-auto max-w-big">
         <header class="flex flex-col items-center w-full px-2 mb-8">
-            <ol class="flex justify-center text-xs text-white uppercase">
+            <ol class="flex justify-center text-xs uppercase">
                 <li class="flex items-center h-8">
                     <a href="https://sqp.fr">Accueil</a>
                 </li>
@@ -27,7 +27,7 @@
 
         <div class="grid grid-cols-4">
             <div class="hidden lg:block lg:col-span-1">
-                <a href="{{ route("client.commandes") }}" target="_self" rel=""
+                <a href="{{ route('client.commandes') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Historique de commande</p>
                 </a>
-                <a href="{{ route("client.paniers") }}" target="_self" rel=""
+                <a href="{{ route('client.paniers') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -47,7 +47,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Paniers</p>
                 </a>
-                <a href="{{ route("client.devis") }}" target="_self" rel=""
+                <a href="{{ route('client.devis') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -57,7 +57,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Devis</p>
                 </a>
-                <a href="{{ route("client.cataloguesTarifs") }}" target="_self" rel=""
+                <a href="{{ route('client.cataloguesTarifs') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -67,8 +67,8 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Tarifs et catalogues</p>
                 </a>
-                <a href="{{ route("client.adresses") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 pointer-events-none bg-primary-500">
+                <a href="{{ route('client.adresses') }}" target="_self" rel=""
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -77,7 +77,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Adresses de livraison</p>
                 </a>
-                <a href="{{ route("client.factures") }}" target="_self" rel=""
+                <a href="{{ route('client.factures') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -88,7 +88,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Factures, avoirs et
                         échéances</p>
                 </a>
-                <a href="{{ route("client.informationsSociete") }}" target="_self" rel=""
+                <a href="{{ route('client.informationsSociete') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -98,7 +98,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Informations société</p>
                 </a>
-                <a href="{{ route("client.utilisateurs") }}" target="_self" rel=""
+                <a href="{{ route('client.utilisateurs') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -109,15 +109,15 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Gestion des utilisateurs
                     </p>
                 </a>
-                <a href="{{ route("client.sav") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
-                    <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24">
+                <a href="{{ route('client.sav') }}" target="_self" rel=""
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-primary-500 pointer-events-none">
+                    <svg class="w-10 h-10 mr-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24">
                         <path
                             d="M23.27 19.743l-11.946-11.945c-.557-.557-.842-1.331-.783-2.115.115-1.485-.395-3.009-1.529-4.146-1.03-1.028-2.376-1.537-3.723-1.537-.507 0-1.015.072-1.505.216l3.17 3.17c.344 1.589-1.959 3.918-3.567 3.567l-3.169-3.17c-.145.492-.218 1-.218 1.509 0 1.347.51 2.691 1.538 3.721 1.135 1.136 2.66 1.646 4.146 1.53.783-.06 1.557.226 2.113.783l11.946 11.944c.468.468 1.103.73 1.763.73 1.368 0 2.494-1.108 2.494-2.494 0-.638-.244-1.276-.73-1.763zm-1.77 2.757c-.553 0-1-.448-1-1s.447-1 1-1 1 .448 1 1-.447 1-1 1zm-7.935-15.289l5.327-5.318c.584-.584 1.348-.877 2.113-.877.764 0 1.529.292 2.113.877.589.587.882 1.357.882 2.125 0 .764-.291 1.528-.873 2.11l-5.326 5.318-1.039-1.039 5.067-5.059c.169-.168.167-.441-.001-.609-.169-.169-.441-.17-.61-.001l-5.068 5.058-.89-.89 5.067-5.059c.169-.169.168-.441 0-.611-.169-.168-.443-.17-.611 0l-5.067 5.058-1.084-1.083zm-3.53 9.18l-5.227 5.185c-.227.229-.423.488-.574.774l-.301.58-2.1 1.07-.833-.834 1.025-2.146.58-.302c.286-.15.561-.329.79-.558l5.227-5.185 1.413 1.416z">
                         </path>
                     </svg>
-                    <p class="text-xs font-semibold text-center text-white uppercase ">Service après-vente</p>
+                    <p class="text-xs font-semibold text-center uppercase ">Service après-vente</p>
                 </a>
                 <a href="https://sqp.fr/espace-client/nasexchange" target="_blank" rel="noopener noreferrer"
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600"
@@ -134,7 +134,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">NASEXCHANGE</p>
                 </a>
 
-                <a href="{{ route("logout") }}"
+                <a href="{{ route('logout') }}"
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md bg-secondary-600 hover:bg-primary-500">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -151,7 +151,30 @@
                 <div wire:id="uKnDWrKeCr7Od9vR1Ecs" class="grid items-center w-full grid-cols-2 gap-4 text-white"
                     x-data="{ view_details: false }" x-init="$wire.loadItems = true">
                     <div class="grid items-center justify-between w-full grid-cols-1 gap-4 xl:grid-cols-5 col-span-full">
+
                         <div class="flex col-span-full">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            @if (session()->has('success'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('success') }}
+                                </div>
+                            @endif
+
+                            @if (session()->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif
+
                             <button class="button group --has-trailing ml-auto --is-primary --is-small"
                                 wire:click.prevent="addRMA" wire:loading.class="--is-loading">
 
@@ -180,175 +203,8 @@
                             </button>
                         </div>
 
-                        <div wire:id="FkRuZAeIGgI8fOH7Pe7G" class="fixed inset-0 z-50 overflow-y-auto"
-                            aria-labelledby="modal-title" role="dialog" aria-modal="true" x-show="modal"
-                            @open-modal="modal = true" @close-modal="modal = false" x-data="{ modal: false }"
-                            style="display: none;">
-                            <div
-                                class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center md:items-center sm:p-0">
-
-                                <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"
-                                    @click.self="modal = !modal; $wire.cancel()" x-show="modal"
-                                    x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
-                                    x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
-                                    x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                                    style="display: none;"></div>
-
-                                <!-- This element is to trick the browser into centering the modal contents. -->
-                                <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
-                                    aria-hidden="true">​</span>
-
-                                <form wire:submit.prevent=""
-                                    class="inline-block w-full overflow-hidden text-left align-bottom transition-all transform bg-white rounded-sm shadow-xl sm:my-8 sm:align-middle sm:max-w-3xl"
-                                    x-show="modal" x-transition:enter="ease-out duration-300"
-                                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-                                    x-transition:leave="ease-in duration-200"
-                                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-                                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                    style="display: none;">
-                                    <div class="flex">
-                                        <div class="w-full px-4 pt-5 pb-4 bg-secondary-700 sm:p-6 sm:pb-16">
-
-                                            <h3 class="text-lg font-medium leading-6 text-center" id="modal-title">
-                                                Demander un retour
-                                            </h3>
-
-                                            <p class="mt-4 text-sm text-center">
-                                                Pour demander un échange ou un avoir/reprise, veuillez renseigner
-                                                les informations ci-dessous:
-                                            </p>
-
-                                            <p class="mt-4 text-sm text-center">
-                                                Si votre demande porte sur un <b>contrat de service SQP</b>,
-                                                veuillez utiliser <a href="https://sqp.fr/espace-client/nasexchange"
-                                                    target="_blank" class="link">notre interface
-                                                    NASEXCHANGE</a>
-                                            </p>
-
-                                            <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4">
-                                                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
-                                                    <label for="type"
-                                                        class="py-2 flex flex-col text-sm font-medium text-white sm:mt-px ">
-                                                        Type
-                                                    </label>
-
-                                                    <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                                        <select wire:model.defer="type" id="type" name="type"
-                                                            class="block w-full border-transparent rounded-sm shadow-sm bg-secondary-600 focus:ring-primary-500 focus:border-primary-500 sm:text-sm">
-                                                            <option value="FACTURE">Numéro de facture</option>
-                                                            <option value="SERIE">Numéro de série</option>
-                                                            <option value="CODART">Code produit</option>
-                                                            <option value="COMMANDE">Numéro de commande</option>
-                                                            <option value="CDECLI">Numéro de commande client
-                                                            </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
-                                                    <label for="number"
-                                                        class="py-2 flex flex-col text-sm font-medium text-white sm:mt-px ">
-                                                        Numéro
-                                                    </label>
-
-                                                    <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                                        <div
-                                                            class="relative flex max-w-lg bg-red-400 rounded-md shadow-sm">
-
-                                                            <input
-                                                                class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                                id="number"
-                                                                wire:loading.disabled="wire:loading.disabled"
-                                                                wire:model.defer="number">
-
-
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="hidden w-full bg-bottom bg-cover md:block"
-                                            style="background-image: url(https://sqp.fr/web/img/bg_sav.jpg)">
-
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="flex flex-col items-center justify-between w-full px-4 py-8 bg-secondary-600 sm:px-6 sm:flex-row-reverse">
-                                        <button class="button group --has-trailing --is-primary --is-small" type="button"
-                                            wire:loading.class="--is-loading" wire:click="search">
-
-
-                                            <span class="button__caption">
-                                                <span class="w-full">
-                                                    Rechercher
-                                                </span>
-                                            </span>
-
-                                            <span class="button__trailing">
-                                                <svg class="h-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                                    aria-hidden="true">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                                </svg>
-                                            </span>
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group --has-leading mt-4 --is-secondary --is-small sm:mt-0"
-                                            @click.prevent="modal = !modal; $wire.cancel()">
-
-                                            <div class="button__leading">
-                                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd"
-                                                        d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg>
-                                            </div>
-
-                                            <span class="button__caption">
-                                                <span class="w-full">
-                                                    Annuler
-                                                </span>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-
                         <div class="w-full col-span-full xl:col-span-1 xl:col-start-4">
-                            <label class="flex flex-col py-2 text-xs font-medium text-white uppercase sm:mt-px"
+                            <label class="flex flex-col py-2 text-xs font-medium text-dark uppercase sm:mt-px"
                                 for="month">Mois</label>
                             <input
                                 class="block w-full h-8 px-4 py-2 placeholder-opacity-50 border-transparent rounded-sm text-secondary-300 placeholder-secondary-300 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm bg-secondary-600 flatpickr-input"
@@ -358,7 +214,7 @@
                         </div>
 
                         <div class="w-full col-span-full xl:col-span-1">
-                            <label class="flex flex-col py-2 text-xs font-medium text-white uppercase sm:mt-px"
+                            <label class="flex flex-col py-2 text-xs font-medium text-dark uppercase sm:mt-px"
                                 for="search">Recherche</label>
                             <input
                                 class="block w-full h-8 px-4 py-2 placeholder-opacity-50 border-transparent rounded-sm col-span-full lg:col-span-1 text-secondary-300 placeholder-secondary-300 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm bg-secondary-600"
@@ -369,7 +225,7 @@
 
                     <div class="relative mt-4 overflow-y-auto col-span-full" wire:loading.class="hidden"
                         wire:target="month,search">
-                        <table class="w-full mb-4">
+                        <table class="w-full mb-4 text-dark">
                             <tbody>
                                 <tr>
                                     <td colspan="5">
@@ -386,6 +242,138 @@
                         </div>
 
                     </div>
+
+                    <form action="{{ route('sav.store') }}" method="post"
+                        class="inline-block w-full overflow-hidden text-left align-bottom transition-all transform bg-white rounded-sm shadow-xl sm:my-8 sm:align-middle sm:max-w-3xl"
+                        style="margin-left: auto;
+                        margin-right: auto;">
+                        @csrf
+                        <div class="flex d-flex justify-content-center">
+                            <div class="w-full px-4 pt-5 pb-4 bg-secondary-700 sm:p-6 sm:pb-16">
+
+                                <h3 class="text-lg font-medium leading-6 text-center" id="modal-title"
+                                    style="color: black;">
+                                    Demander un retour
+                                </h3>
+
+                                <p class="mt-4 text-sm text-center" style="color: black;">
+                                    Pour demander un échange ou un avoir/reprise, veuillez renseigner les informations
+                                    ci-dessous:
+                                </p>
+
+                                <p class="mt-4 text-sm text-center" style="color: black;">
+                                    Si votre demande porte sur un <b>contrat de service DGTEC</b>, veuillez utiliser <a
+                                        href="https://sqp.fr/espace-client/nasexchange" target="_blank"
+                                        class="link">notre interface NASEXCHANGE</a>
+                                </p>
+
+                                <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4">
+                                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
+                                        <label for="type" style="color: black;"
+                                            class="py-2 flex flex-col text-sm font-medium sm:mt-px ">
+                                            Type
+                                        </label>
+
+                                        <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                            <select wire:model.defer="type" id="type" name="type"
+                                                name="type" style="color: black;"
+                                                class="block w-full border-transparent rounded-sm shadow-sm bg-secondary-600 focus:ring-primary-500 focus:border-primary-500 sm:text-sm">
+                                                <option value="FACTURE" style="color: black;">Numéro de facture</option>
+                                                <option value="SERIE" style="color: black;">Numéro de série</option>
+                                                <option value="CODART" style="color: black;">Code produit</option>
+                                                <option value="COMMANDE" style="color: black;">Numéro de commande</option>
+                                                <option value="CDECLI" style="color: black;">Numéro de commande client
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
+                                        <label for="number" style="color: black;"
+                                            class="py-2 flex flex-col text-sm font-medium sm:mt-px ">
+                                            Numéro
+                                        </label>
+
+                                        <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                            <div class="relative flex max-w-lg bg-red-400 rounded-md shadow-sm">
+
+                                                <input name="numero"
+                                                    class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
+                                                    id="number" wire:loading.disabled="wire:loading.disabled"
+                                                    wire:model.defer="number">
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex flex-col items-center justify-between w-full px-4 py-8 bg-secondary-600 sm:px-6 sm:flex-row-reverse">
+                            <button class="button group --has-trailing --is-primary --is-small">
+
+
+                                <span class="button__caption">
+                                    <span class="w-full">
+                                        Rechercher
+                                    </span>
+                                </span>
+
+                                <span class="button__trailing">
+                                    <svg class="h-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                </span>
+
+                                <span class="button__spinner">
+                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10"
+                                            stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </button>
+
+                            <button class="button group --has-leading mt-4 --is-secondary --is-small sm:mt-0"
+                                @click.prevent="modal = !modal; $wire.cancel()">
+
+                                <div class="button__leading">
+                                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+
+                                <span class="button__caption">
+                                    <span class="w-full">
+                                        Annuler
+                                    </span>
+                                </span>
+
+
+                                <span class="button__spinner">
+                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10"
+                                            stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
 
                     <div class="relative hidden overflow-y-hidden col-span-full h-96" wire:loading.class.remove="hidden"
                         wire:target="month,search">

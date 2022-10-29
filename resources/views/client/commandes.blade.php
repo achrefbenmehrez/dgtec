@@ -28,14 +28,14 @@
         <div class="grid grid-cols-4">
             <div class="hidden lg:block lg:col-span-1">
                 <a href="{{ route("client.commandes") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
-                    <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-primary-500 pointer-events-none">
+                    <svg class="w-10 h-10 mr-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
                         <path
                             d="M2.978 8.358 0 5.74 8.707 1l3.341 2.345L15.258 1 24 5.639l-3.014 2.68.014.008 3 4.115-3 1.634v4.122L12 23l-9-4.802v-4.115l1 .544v2.971l7.501 4.002v-7.889L9 17.345l-9-4.893 2.978-4.094zm9.523 5.366v7.875L20 17.598v-2.977l-5 2.724-2.499-3.621zM1.479 12.118l7.208 3.918 1.847-2.684L3.303 9.61l-1.824 2.508zm11.989 1.247 1.844 2.671 7.208-3.927-1.822-2.498-7.23 3.754zM3.991 8.84l8.01-4.43L20 8.847 12.029 13 3.991 8.84zM1.735 5.934l2.106 1.851 7.16-3.953L8.64 2.175 1.735 5.934zm11.273-2.052 7.076 3.901 2.176-1.935-6.918-3.671-2.334 1.705z">
                         </path>
                     </svg>
-                    <p class="text-xs font-semibold text-center text-white uppercase ">Historique de commande</p>
+                    <p class="text-xs font-semibold text-center uppercase ">Historique de commande</p>
                 </a>
                 <a href="{{ route("client.paniers") }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
@@ -68,7 +68,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Tarifs et catalogues</p>
                 </a>
                 <a href="{{ route("client.adresses") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 pointer-events-none bg-primary-500">
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -150,7 +150,7 @@
                 <div wire:id="tATkGPf26swAQ1xQsBvb" class="grid items-center w-full grid-cols-2 gap-4 text-white"
                     x-data="{ view_details: false }" x-init="$wire.loadItems = true">
 
-                    <div class="grid items-center justify-between w-full grid-cols-1 gap-4 xl:grid-cols-5 col-span-full">
+                    <div class="grid items-center justify-between w-full grid-cols-1 gap-4 xl:grid-cols-5 col-span-full text-dark">
                         <div class="flex items-end justify-center h-full pb-4 space-x-8 xl:justify-start xl:col-span-2">
                             <div class="flex items-center">
                                 <span class="inline-block w-4 h-4 rounded-full bg-primary-400"></span>
@@ -163,7 +163,7 @@
                         </div>
 
                         <div class="w-full col-span-full xl:col-span-1 xl:col-start-4">
-                            <label class="flex flex-col py-2 text-xs font-medium text-white uppercase sm:mt-px"
+                            <label class="flex flex-col py-2 text-xs font-medium uppercase sm:mt-px"
                                 for="month">Mois</label>
                             <input
                                 class="block w-full h-8 px-4 py-2 placeholder-opacity-50 border-transparent rounded-sm text-secondary-300 placeholder-secondary-300 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm bg-secondary-600 flatpickr-input"
@@ -173,7 +173,7 @@
                         </div>
 
                         <div class="w-full col-span-full xl:col-span-1">
-                            <label class="flex flex-col py-2 text-xs font-medium text-white uppercase sm:mt-px"
+                            <label class="flex flex-col py-2 text-xs font-medium uppercase sm:mt-px"
                                 for="search">Recherche</label>
                             <input
                                 class="block w-full h-8 px-4 py-2 placeholder-opacity-50 border-transparent rounded-sm col-span-full lg:col-span-1 text-secondary-300 placeholder-secondary-300 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm bg-secondary-600"
@@ -184,7 +184,7 @@
 
                     <div class="relative mt-4 overflow-y-auto col-span-full">
 
-                        <table class="w-full mb-4">
+                        <table class="w-full mb-4 text-dark">
                             <tbody>
                                 <tr>
                                     <td colspan="5">

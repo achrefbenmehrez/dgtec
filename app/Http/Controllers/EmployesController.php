@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employes;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class EmployesController extends Controller
 {
@@ -35,7 +37,20 @@ class EmployesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $employe = User::create([
+            'nom' => $data['nom'],
+            'prenom' => $data['prenom'],
+            'email' => $data['email'],
+            'login' => $data['login'],
+            'telephone' => $data['telephone'],
+            'password' => Str::random(),
+            'societe_id' => auth()->user()->societe_id,
+            'adresse_facturation_id' => auth()->user()->adresse_facturation_id,
+        ]);
+
+        return redirect()->route('client.utilisateurs')->with('success', 'L\'employé a bien été ajouté');
     }
 
     /**

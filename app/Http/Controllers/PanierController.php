@@ -14,7 +14,7 @@ class PanierController extends Controller
      */
     public function index()
     {
-        //
+        return view('paniers.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class PanierController extends Controller
      */
     public function show(Panier $panier)
     {
-        //
+        
     }
 
     /**

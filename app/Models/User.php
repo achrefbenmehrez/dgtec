@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +26,6 @@ class User extends Authenticatable
         'password',
         'societe_id',
         'login',
-        'adresse_livraison_id',
         'adresse_facturation_id'
     ];
 
@@ -48,18 +48,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function adresseLivraison()
+    public function adressesLivraison()
     {
-        return $this->hasOne(AdresseLivraison::class);
+        return $this->hasMany(AdresseLivraison::class);
     }
 
     public function adresseFacturation()
     {
-        return $this->hasOne(AdresseFacturation::class);
+        return $this->belongsTo(AdresseFacturation::class);
     }
 
     public function societe()
     {
-        return $this->hasOne(Societe::class);
+        return $this->belongsTo(Societe::class);
+    }
+
+    public function panier()
+    {
+        return $this->belongsTo(Panier::class);
     }
 }

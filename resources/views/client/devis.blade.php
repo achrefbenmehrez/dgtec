@@ -4,11 +4,11 @@
     <div class="w-full px-4 py-8 mx-auto max-w-big">
         <header class="flex flex-col items-center w-full px-2 mb-8">
             <ol class="flex justify-center text-xs text-white uppercase">
-                <li class="flex items-center h-8">
+                <li class="flex items-center h-8 text-dark">
                     <a href="https://sqp.fr">Accueil</a>
                 </li>
 
-                <li class="flex items-center h-8 pl-2">
+                <li class="flex items-center h-8 pl-2 text-dark">
                     <span class="pr-2">
                         <svg class="h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             aria-hidden="true">
@@ -48,14 +48,14 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Paniers</p>
                 </a>
                 <a href="{{ route("client.devis") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
-                    <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-primary-500 pointer-events-none">
+                    <svg class="w-10 h-10 mr-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
                             d="M13 6c3.469 0 2 5 2 5s5-1.594 5 2v9H8V6h5zm.827-2H6v20h16V12.158C22 9.766 16.989 4 13.827 4zM14 2l-3-2H2v22h2V2h10z">
                         </path>
                     </svg>
-                    <p class="text-xs font-semibold text-center text-white uppercase ">Devis</p>
+                    <p class="text-xs font-semibold text-center uppercase ">Devis</p>
                 </a>
                 <a href="{{ route("client.cataloguesTarifs") }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
@@ -68,7 +68,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Tarifs et catalogues</p>
                 </a>
                 <a href="{{ route("client.adresses") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 pointer-events-none bg-primary-500">
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -148,12 +148,12 @@
 
 
             <div class="px-4 col-span-full lg:col-span-3">
-                <div wire:id="q6zYo9998ohlhQYvyqEz" class="grid items-center w-full grid-cols-2 gap-4 text-white"
+                <div wire:id="q6zYo9998ohlhQYvyqEz" class="grid items-center w-full grid-cols-2 gap-4 text-dark"
                     x-data="{ view_details: false }" x-init="$wire.loadItems = true">
 
                     <div class="grid items-center justify-between w-full grid-cols-1 gap-4 lg:grid-cols-5 col-span-full">
                         <div class="w-full col-span-full xl:col-span-1 xl:col-start-4">
-                            <label class="flex flex-col py-2 text-xs font-medium text-white uppercase sm:mt-px"
+                            <label class="flex flex-col py-2 text-xs font-medium text-dark uppercase sm:mt-px"
                                 for="month">Mois</label>
                             <input
                                 class="block w-full h-8 px-4 py-2 placeholder-opacity-50 border-transparent rounded-sm text-secondary-300 placeholder-secondary-300 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm bg-secondary-600 flatpickr-input"
@@ -163,7 +163,7 @@
                         </div>
 
                         <div class="w-full col-span-full xl:col-span-1">
-                            <label class="flex flex-col py-2 text-xs font-medium text-white uppercase sm:mt-px"
+                            <label class="flex flex-col py-2 text-xs font-medium text-dark uppercase sm:mt-px"
                                 for="search">Recherche</label>
                             <input
                                 class="block w-full h-8 px-4 py-2 placeholder-opacity-50 border-transparent rounded-sm col-span-full lg:col-span-1 text-secondary-300 placeholder-secondary-300 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm bg-secondary-600"
@@ -174,7 +174,7 @@
 
                     <div class="relative mt-4 overflow-y-auto col-span-full">
 
-                        <table class="w-full mb-4">
+                        <table class="w-full mb-4 text-dark">
                             <tbody>
                                 <tr>
                                     <td colspan="5">
@@ -265,17 +265,17 @@
                                                 <table class="hidden w-full rounded md:table" style="">
                                                     <tbody>
                                                         <tr>
-                                                            <th class="text-xs font-medium text-left text-white uppercase">
+                                                            <th class="text-xs font-medium text-left text-dark uppercase">
                                                                 <div class="px-4 py-2">Produit</div>
                                                             </th>
                                                             <th
-                                                                class="text-xs font-medium text-right text-white uppercase whitespace-nowrap">
+                                                                class="text-xs font-medium text-right text-dark uppercase whitespace-nowrap">
                                                                 <div class="px-4 py-2">
                                                                     Prix unitaire HT
                                                                 </div>
                                                             </th>
                                                             <th
-                                                                class="text-xs font-medium text-center text-white uppercase">
+                                                                class="text-xs font-medium text-center text-dark uppercase">
                                                                 <div class="px-4 py-2">
                                                                     Quantité
                                                                 </div>

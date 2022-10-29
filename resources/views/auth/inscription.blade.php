@@ -7,7 +7,7 @@
 
         <div class="w-full max-w-5xl space-y-8">
 
-            <h2 class="mb-4 text-2xl font-bold text-primary-500">Créer mon compte SQP</h2>
+            <h2 class="mb-4 text-2xl font-bold text-primary-500">Créer mon compte DGTEC</h2>
 
             <form class="space-y-8" method="POST" action="{{ route('inscription.post') }}" enctype="multipart/form-data">
                 @csrf
@@ -21,6 +21,16 @@
                                 </h3>
                             </div>
 
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="mt-6 space-y-6 sm:mt-5 sm:space-y-5">
                                 <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
                                     <label for="form.account_first_name"
@@ -33,7 +43,7 @@
 
                                             <input name="prenom"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.account_first_name" required wire:model="form.account_first_name">
+                                                id="form.account_first_name" required wire:model="form.account_first_name" value="{{ old('prenom') }}">
 
 
 
@@ -52,7 +62,7 @@
 
                                             <input name="nom"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.account_last_name" required wire:model="form.account_last_name">
+                                                id="form.account_last_name" required wire:model="form.account_last_name" value="{{ old("nom") }}">
 
 
 
@@ -71,7 +81,8 @@
 
                                             <input name="telephone"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.account_phone" required wire:model="form.account_phone">
+                                                type="number" min="0" max="999999999" id="form.account_phone"
+                                                required wire:model="form.account_phone" value="{{ old("telephone") }}">
 
 
 
@@ -91,7 +102,7 @@
                                             <input name="email"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                 id="form.account_email" required type="email"
-                                                wire:model="form.account_email">
+                                                wire:model="form.account_email" value="{{ old("email") }}">
 
 
 
@@ -110,7 +121,7 @@
 
                                             <input name="login"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.account_login" required wire:model="form.account_login">
+                                                id="form.account_login" required wire:model="form.account_login" value="{{ old("login") }}">
 
 
 
@@ -179,7 +190,7 @@
 
                                             <input name="company_name"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.company_name" required wire:model="form.company_name">
+                                                id="form.company_name" required wire:model="form.company_name" value="{{ old("company_name") }}">
 
 
 
@@ -199,7 +210,7 @@
                                             <input name="business_name"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                 id="form.company_business_name" required
-                                                wire:model="form.company_business_name">
+                                                wire:model="form.company_business_name" value="{{ old("business_name") }}">
 
 
 
@@ -216,9 +227,9 @@
                                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                                         <div class="relative flex max-w-lg bg-red-400 rounded-md shadow-sm">
 
-                                            <input name="company_phone"
+                                            <input name="company_phone" type="number"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.company_phone" required wire:model="form.company_phone">
+                                                id="form.company_phone" required wire:model="form.company_phone" value="{{ old("company_phone") }}">
 
 
 
@@ -238,7 +249,7 @@
 
                                             <input name="company_website"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.company_website" wire:model="form.company_website">
+                                                id="form.company_website" wire:model="form.company_website" value="{{ old("company_website") }}">
 
 
 
@@ -258,7 +269,7 @@
                                             <input name="company_business_id"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                 id="form.company_business_id" required
-                                                wire:model="form.company_business_id">
+                                                wire:model="form.company_business_id" value="{{ old("company_business_id") }}">
 
 
 
@@ -278,7 +289,7 @@
                                                 class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
                                                 Sélectionner un fichier
                                                 <input id="form.company_kbis" name="form.company_kbis" type="file"
-                                                    name="company_kbis" class="sr-only">
+                                                    name="company_kbis" class="sr-only" value="{{ old("company_kbis") }}">
                                             </label>
                                         </div>
                                     </div>
@@ -296,8 +307,7 @@
 
                                             <input name="company_legal_status"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.company_legal_status"
-                                                wire:model="form.company_legal_status">
+                                                id="form.company_legal_status" wire:model="form.company_legal_status" value="{{ old("company_legal_status") }}">
 
 
 
@@ -317,7 +327,7 @@
 
                                             <input name="company_ape"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.company_ape" wire:model="form.company_ape">
+                                                id="form.company_ape" wire:model="form.company_ape" value="{{ old("company_ape") }}">
 
 
 
@@ -338,7 +348,7 @@
                                             <input name="company_accountant_name"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                 id="form.company_accountant_name"
-                                                wire:model="form.company_accountant_name">
+                                                wire:model="form.company_accountant_name" value="{{ old("company_accountant_name") }}">
 
 
 
@@ -359,7 +369,7 @@
                                             <input name="company_accountant_email"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                 id="form.company_accountant_email" type="email"
-                                                wire:model="form.company_accountant_email">
+                                                wire:model="form.company_accountant_email" value="{{ old("company_account_email") }}">
 
 
 
@@ -376,7 +386,7 @@
 
                                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                                         <div class="flex items-center">
-                                            <input id="toggle-factures" name="factures" type="checkbox">
+                                            <input id="toggle-factures" name="factures" type="checkbox" value="1" value="{{ old("factures") }}">
                                         </div>
                                     </div>
                                 </div>
@@ -401,8 +411,7 @@
 
                                             <input name="billing_address_name"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.billing_address_name" required
-                                                wire:model="form.billing_address_name">
+                                                id="form.billing_address_name" wire:model="form.billing_address_name" value="{{ old("billing_address_name") }}">
 
 
 
@@ -421,8 +430,8 @@
 
                                             <input name="billing_address_address1"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.billing_address_address1" required
-                                                wire:model="form.billing_address_address1">
+                                                id="form.billing_address_address1"
+                                                wire:model="form.billing_address_address1" value="{{ old("billing_address_address1") }}">
 
 
 
@@ -442,8 +451,8 @@
 
                                             <input name="billing_address_address2"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.billing_address_address2" required
-                                                wire:model="form.billing_address_address2">
+                                                id="form.billing_address_address2"
+                                                wire:model="form.billing_address_address2" value="{{ old("billing_address_address2") }}">
 
 
 
@@ -463,7 +472,7 @@
                                             <input name="billing_address_postcode"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                 id="form.billing_address_postcode"
-                                                wire:model="form.billing_address_postcode">
+                                                wire:model="form.billing_address_postcode" value="{{ old("billing_address_postcode") }}">
 
 
 
@@ -482,7 +491,7 @@
 
                                             <input name="billing_address_city"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.billing_address_city" wire:model="form.billing_address_city">
+                                                id="form.billing_address_city" wire:model="form.billing_address_city" value="{{ old("billing_address_city") }}">
 
 
 
@@ -502,7 +511,7 @@
                                             <input name="billing_address_country"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                 id="form.billing_address_country"
-                                                wire:model="form.billing_address_country">
+                                                wire:model="form.billing_address_country" value="{{ old("billing_address_country") }}">
 
 
 
@@ -545,8 +554,8 @@
 
                                                 <input name="delivery_address_name"
                                                     class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                    id="form.delivery_address_name" required
-                                                    wire:model="form.delivery_address_name">
+                                                    id="form.delivery_address_name"
+                                                    wire:model="form.delivery_address_name" value="{{ old("delivery_address_name") }}">
 
 
 
@@ -565,8 +574,10 @@
 
                                                 <input name="delivery_address_address1"
                                                     class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                    id="form.delivery_address_address1" required
-                                                    wire:model="form.delivery_address_address1">
+                                                    id="form.delivery_address_address1"
+                                                    wire:model="form.delivery_address_address1"
+                                                    value="{{ old("delivery_address_address1") }}"    
+                                                >
 
 
 
@@ -586,8 +597,10 @@
 
                                                 <input name="delivery_address_address2"
                                                     class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                    id="form.delivery_address_address2" required
-                                                    wire:model="form.delivery_address_address2">
+                                                    id="form.delivery_address_address2"
+                                                    wire:model="form.delivery_address_address2"
+                                                    value="{{ old("billing_address_address2") }}"
+                                                >
 
 
 
@@ -607,7 +620,9 @@
                                                 <input name="delivery_address_postcode"
                                                     class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                     id="form.delivery_address_postcode"
-                                                    wire:model="form.delivery_address_postcode">
+                                                    wire:model="form.delivery_address_postcode"
+                                                    value="{{ old("billing_address_postcode") }}"    
+                                                >
 
 
 
@@ -627,7 +642,9 @@
                                                 <input name="delivery_address_city"
                                                     class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                     id="form.delivery_address_city"
-                                                    wire:model="form.delivery_address_city">
+                                                    wire:model="form.delivery_address_city"
+                                                    value="{{ old("billing_address_city") }}"    
+                                                >
 
 
 
@@ -647,7 +664,9 @@
                                                 <input name="delivery_address_country"
                                                     class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                     id="form.delivery_address_country"
-                                                    wire:model="form.delivery_address_country">
+                                                    wire:model="form.delivery_address_country"
+                                                    value="{{ old("billing_address_country") }}"    
+                                                >
 
 
 

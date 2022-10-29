@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-full px-4 py-8 mx-auto max-w-big">
         <header class="flex flex-col items-center w-full px-2 mb-8">
-            <ol class="flex justify-center text-xs text-white uppercase">
+            <ol class="flex justify-center text-xs uppercase">
                 <li class="flex items-center h-8">
                     <a href="https://sqp.fr">Accueil</a>
                 </li>
@@ -27,7 +27,7 @@
 
         <div class="grid grid-cols-4">
             <div class="hidden lg:block lg:col-span-1">
-                <a href="{{ route("client.commandes") }}" target="_self" rel=""
+                <a href="{{ route('client.commandes') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Historique de commande</p>
                 </a>
-                <a href="{{ route("client.paniers") }}" target="_self" rel=""
+                <a href="{{ route('client.paniers') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -47,7 +47,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Paniers</p>
                 </a>
-                <a href="{{ route("client.devis") }}" target="_self" rel=""
+                <a href="{{ route('client.devis') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -57,7 +57,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Devis</p>
                 </a>
-                <a href="{{ route("client.cataloguesTarifs") }}" target="_self" rel=""
+                <a href="{{ route('client.cataloguesTarifs') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -67,8 +67,8 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Tarifs et catalogues</p>
                 </a>
-                <a href="{{ route("client.adresses") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 pointer-events-none bg-primary-500">
+                <a href="{{ route('client.adresses') }}" target="_self" rel=""
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -77,7 +77,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Adresses de livraison</p>
                 </a>
-                <a href="{{ route("client.factures") }}" target="_self" rel=""
+                <a href="{{ route('client.factures') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -88,17 +88,17 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Factures, avoirs et
                         échéances</p>
                 </a>
-                <a href="{{ route("client.informationsSociete") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
-                    <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                <a href="{{ route('client.informationsSociete') }}" target="_self" rel=""
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 pointer-events-none bg-primary-500">
+                    <svg class="w-10 h-10 mr-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
                         <path
                             d="M21 22h2v2H1v-2h2V0h18v22zm-10-3H9v4h2v-4zm4 0h-2v4h2v-4zm4-17H5v20h2v-5h10v5h2V2zM7 13h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm-8-3h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zM7 7h2v2H7V7zm4 0h2v2h-2V7zm4 0h2v2h-2V7zM7 4h2v2H7V4zm4 0h2v2h-2V4zm4 0h2v2h-2V4z">
                         </path>
                     </svg>
-                    <p class="text-xs font-semibold text-center text-white uppercase ">Informations société</p>
+                    <p class="text-xs font-semibold text-center uppercase ">Informations société</p>
                 </a>
-                <a href="{{ route("client.utilisateurs") }}" target="_self" rel=""
+                <a href="{{ route('client.utilisateurs') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -109,7 +109,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Gestion des utilisateurs
                     </p>
                 </a>
-                <a href="{{ route("client.sav") }}" target="_self" rel=""
+                <a href="{{ route('client.sav') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" viewBox="0 0 24 24">
@@ -134,7 +134,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">NASEXCHANGE</p>
                 </a>
 
-                <a href="{{ route("logout") }}"
+                <a href="{{ route('logout') }}"
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md bg-secondary-600 hover:bg-primary-500">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -154,21 +154,21 @@
                         x-data="" x-init="$wire.loadBalance = true">
 
                         <div class="flex flex-col items-center justify-center py-8">
-                            <p class="text-xs uppercase text-primary-500">Votre encours total</p>
+                            <p class="text-xs uppercase text-dark">Votre encours total</p>
                             <p class="mt-1 text-3xl tracking-tighter">
                                 <span x-animate-price="0">0,00</span> €
                             </p>
                         </div>
 
                         <div class="flex flex-col items-center justify-center py-8">
-                            <p class="text-xs uppercase text-primary-500">Votre encours utilisé</p>
+                            <p class="text-xs uppercase text-dark">Votre encours utilisé</p>
                             <p class="mt-1 text-3xl tracking-tighter">
                                 <span x-animate-price="0">0,00</span> €
                             </p>
                         </div>
 
                         <div class="flex flex-col items-center justify-center py-8">
-                            <p class="text-xs uppercase text-primary-500">Votre encours restant</p>
+                            <p class="text-xs uppercase text-dark">Votre encours restant</p>
                             <p class="mt-1 text-3xl tracking-tighter">
                                 <span x-animate-price="0">0,00</span> €
                             </p>
@@ -185,45 +185,64 @@
                                     d="M14 18.597V19H4v-.417c-.004-1.112.044-1.747 1.324-2.043 1.403-.324 2.787-.613 2.122-1.841C5.473 11.062 6.883 9 9 9c2.077 0 3.521 1.985 1.556 5.699-.647 1.22.688 1.51 2.121 1.841 1.284.297 1.328.936 1.323 2.057zM20 9h-4v2h4V9zm0 4h-4v2h4v-2zm0 4h-4v2h4v-2zM16 5v2h6v14H2V7h6V5H0v18h24V5h-8zm-6-4v6h4V1h-4zm2 4c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z">
                                 </path>
                             </svg>
-                            <p class="mt-4 text-xs font-semibold uppercase">Compte client</p>
+                            <p class="mt-4 text-xs font-semibold uppercase text-dark" style="color: black;">Compte client
+                            </p>
                             <div class="w-full h-full px-4 pt-8 pb-12 mt-4 rounded-sm shadow-md bg-secondary-600">
                                 <table class="w-full text-sm">
                                     <tbody>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Nom</td>
-                                            <td class="py-2 font-bold">DGTEC</td>
+                                            <td class="py-2 font-bold">{{ auth()->user()->nom }}</td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Raison sociale
                                             </td>
-                                            <td class="py-2 font-bold">DGTEC</td>
+                                            <td class="py-2 font-bold">{{ auth()->user()->societe->raisonSociale }}</td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Adresse email
                                             </td>
-                                            <td class="py-2 font-bold">jn@dgtec.tn</td>
+                                            <td class="py-2 font-bold">{{ auth()->user()->email }}</td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Téléphone</td>
-                                            <td class="py-2 font-bold">0021622009539</td>
+                                            <td class="py-2 font-bold">{{ auth()->user()->telephone }}</td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Fax</td>
-                                            <td class="py-2 font-bold">-</td>
+                                            <td class="py-2 font-bold">
+                                                @if (auth()->user()->fax)
+                                                    {{ auth()->user()->fax }}
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td class="py-2 text-xs uppercase text-secondary-300">Moyen de
-                                                paiement</td>
-                                            <td class="py-2 font-bold">CB</td>
+                                            <td class="py-2 text-xs uppercase text-secondary-300">Moyen de payement
+                                            </td>
+                                            <td class="py-2 font-bold">
+                                                @if (auth()->user()->moyenPayement)
+                                                    {{ auth()->user()->moyenPayement }}
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Transporteur
                                             </td>
-                                            <td class="py-2 font-bold">CHRONO</td>
+                                            <td class="py-2 font-bold">
+                                                @if (auth()->user()->transporteur)
+                                                    {{ auth()->user()->transporteur }}
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Code client</td>
-                                            <td class="py-2 font-bold">DGTE00</td>
+                                            <td class="py-2 font-bold">{{ auth()->user()->id }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -237,35 +256,40 @@
                                     d="M12 3c2.131 0 4 1.73 4 3.702 0 2.05-1.714 4.941-4 8.561-2.286-3.62-4-6.511-4-8.561C8 4.73 9.869 3 12 3zm0-2C8.852 1 6 3.553 6 6.702 6 9.85 8.602 13.609 12 19c3.398-5.391 6-9.15 6-12.298C18 3.553 15.149 1 12 1zm0 8c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2zm8 6h-3.135c-.385.641-.798 1.309-1.232 2h3.131l.5 1H15l-.344.544-.289.456h.558l.858 2H8.295l.858-2h.479l-.289-.456L9 18H6.958l-1.011-1h2.42c-.435-.691-.848-1.359-1.232-2H4l-4 8h24l-4-8zM7.206 21h-3.97L5 17.472 6.516 19h1.549l-.859 2zm8.808-2h3.75l1 2h-3.892l-.858-2z">
                                 </path>
                             </svg>
-                            <p class="mt-4 text-xs font-semibold uppercase">Adresse de facturation</p>
+                            <p class="mt-4 text-xs font-semibold uppercase text-dark" style="color: black;">Adresse de
+                                facturation</p>
                             <div class="w-full h-full px-4 pt-8 pb-12 mt-4 rounded-sm shadow-md bg-secondary-600">
                                 <table class="w-full text-sm">
                                     <tbody>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Destinataire
                                             </td>
-                                            <td class="py-2 font-bold">DGTEC</td>
+                                            <td class="py-2 font-bold">
+                                                {{ auth()->user()->adresseFacturation->destinataire }}</td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Adresse</td>
-                                            <td class="py-2 font-bold">Titanium Tower -Office N°4 Les Jardins du
-                                                Lac 2</td>
+                                            <td class="py-2 font-bold">{{ auth()->user()->adresseFacturation->adresse }}
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Complément</td>
-                                            <td class="py-2 font-bold">-</td>
+                                            <td class="py-2 font-bold">
+                                                {{ auth()->user()->adresseFacturation->complement }}</td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Code postal</td>
-                                            <td class="py-2 font-bold">1053</td>
+                                            <td class="py-2 font-bold">
+                                                {{ auth()->user()->adresseFacturation->code_postal }}</td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Ville</td>
-                                            <td class="py-2 font-bold">TUNIS TUNISIE</td>
+                                            <td class="py-2 font-bold">{{ auth()->user()->adresseFacturation->ville }}
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="py-2 text-xs uppercase text-secondary-300">Pays</td>
-                                            <td class="py-2 font-bold">TN</td>
+                                            <td class="py-2 font-bold">{{ auth()->user()->adresseFacturation->pays }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -280,35 +304,49 @@
                                     d="M5 11v1h8V5H3V4c0-.552.448-1 1-1h10c.552 0 1 .448 1 1v2h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035V16c0 1.089-.743 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-4c0 1.656-1.344 3-3 3s-3-1.344-3-3H4c-.552 0-1-.448-1-1v-6H1V9h7v2H5zm3 5.8c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm10 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zM15 14H5v2h.765c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h5.53c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1H22v-4.575l-1.711-2.929C20.11 8.189 19.781 8 19.426 8H15v6zm1-5v3h5l-1.427-2.496c-.178-.312-.509-.504-.868-.504H16zM0 6h8v2H0V6z">
                                 </path>
                             </svg>
-                            <p class="mt-4 text-xs font-semibold uppercase">Adresse de livraison principale</p>
+                            <p class="mt-4 text-xs font-semibold uppercase text-dark" style="color: black;">Adresse de
+                                livraison principale</p>
                             <div class="w-full h-full px-4 pt-8 pb-12 mt-4 rounded-sm shadow-md bg-secondary-600">
                                 <table class="w-full text-sm">
                                     <tbody>
-                                        <tr>
-                                            <td class="py-2 text-xs uppercase text-secondary-300">Destinataire
-                                            </td>
-                                            <td class="py-2 font-bold">GENERAL TRANSPORTS SERVICES</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="py-2 text-xs uppercase text-secondary-300">Adresse</td>
-                                            <td class="py-2 font-bold">NELLY PARRIMOND Tel +33 4.91.58.48.86</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="py-2 text-xs uppercase text-secondary-300">Complément</td>
-                                            <td class="py-2 font-bold">36 RUE EMMANUEL EYDOUX</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="py-2 text-xs uppercase text-secondary-300">Code postal</td>
-                                            <td class="py-2 font-bold">13016</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="py-2 text-xs uppercase text-secondary-300">Ville</td>
-                                            <td class="py-2 font-bold">MARSEILLE</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="py-2 text-xs uppercase text-secondary-300">Pays</td>
-                                            <td class="py-2 font-bold">FR</td>
-                                        </tr>
+                                        @if (auth()->user()->adressesLivraison->first())
+                                            <tr>
+                                                <td class="py-2 text-xs uppercase text-secondary-300">Destinataire
+                                                </td>
+                                                <td class="py-2 font-bold">
+                                                    {{ auth()->user()->adressesLivraison->first()->destinataire }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 text-xs uppercase text-secondary-300">Adresse</td>
+                                                <td class="py-2 font-bold">
+                                                    {{ auth()->user()->adressesLivraison->first()->adresse }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 text-xs uppercase text-secondary-300">Complément</td>
+                                                <td class="py-2 font-bold">
+                                                    {{ auth()->user()->adressesLivraison->first()->complement }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 text-xs uppercase text-secondary-300">Code postal</td>
+                                                <td class="py-2 font-bold">
+                                                    {{ auth()->user()->adressesLivraison->first()->code_postal }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 text-xs uppercase text-secondary-300">Ville</td>
+                                                <td class="py-2 font-bold">
+                                                    {{ auth()->user()->adressesLivraison->first()->ville }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 text-xs uppercase text-secondary-300">Pays</td>
+                                                <td class="py-2 font-bold">
+                                                    {{ auth()->user()->adressesLivraison->first()->pays }}</td>
+                                            </tr>
+                                        @else
+                                            <tr>
+                                                Aucune Adresse de Livraison
+                                            </tr>
+                                        @endif
+
                                     </tbody>
                                 </table>
                             </div>

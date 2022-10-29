@@ -4,11 +4,11 @@
     <div class="w-full px-4 py-8 mx-auto max-w-big">
         <header class="flex flex-col items-center w-full px-2 mb-8">
             <ol class="flex justify-center text-xs text-white uppercase">
-                <li class="flex items-center h-8">
+                <li class="flex items-center h-8 text-dark">
                     <a href="https://sqp.fr">Accueil</a>
                 </li>
 
-                <li class="flex items-center h-8 pl-2">
+                <li class="flex items-center h-8 pl-2 text-dark">
                     <span class="pr-2">
                         <svg class="h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             aria-hidden="true">
@@ -38,14 +38,14 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Historique de commande</p>
                 </a>
                 <a href="{{ route("client.paniers") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
-                    <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-primary-500 pointer-events-none">
+                    <svg class="w-10 h-10 mr-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
                             d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
                         </path>
                     </svg>
-                    <p class="text-xs font-semibold text-center text-white uppercase ">Paniers</p>
+                    <p class="text-xs font-semibold text-center uppercase ">Paniers</p>
                 </a>
                 <a href="{{ route("client.devis") }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
@@ -68,7 +68,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Tarifs et catalogues</p>
                 </a>
                 <a href="{{ route("client.adresses") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 pointer-events-none bg-primary-500">
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -165,7 +165,7 @@
                                     <td colspan="5">
                                         <div
                                             class="flex flex-col items-center justify-center w-full mb-16 bg-secondary-700">
-                                            <span class="mt-4 text-sm">Aucun panier</span>
+                                            <span class="mt-4 text-sm text-dark">Aucun panier</span>
                                         </div>
                                     </td>
                                 </tr>

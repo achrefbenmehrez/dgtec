@@ -2,13 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdresseLivraison;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
     public function index()
     {
-        return view('client.index');
+        $promos = Product::whereNotNull('dateFinPromo');
+        $homePromos = $promos->take(4);
+
+        $nouveautes = Product::latest();
+        $homeNouveautes = $nouveautes->take(4);
+
+        return view('client.index', [
+            'promosCount' => $promos->count(),
+            'homePromos' => $homePromos,
+            'nouveautesCount' => $nouveautes->count(),
+            'homeNouveautes' => $homeNouveautes
+        ]);
     }
 
     public function commandes()
@@ -33,7 +47,11 @@ class ClientController extends Controller
 
     public function adresses()
     {
-        return view('client.adresses');
+        $adresses = Auth::user()->adressesLivraison;
+
+        return view('client.adresses', [
+            'adresses' => $adresses
+        ]);
     }
 
     public function factures()

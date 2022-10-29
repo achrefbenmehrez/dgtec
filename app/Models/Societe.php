@@ -25,6 +25,6 @@ class Societe extends Model
 
     public function employes()
     {
-        return $this->hasMany(Employee::class);
+        return $this->hasMany(User::class);
     }
 }

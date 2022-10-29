@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    public $fillable = ['title', 'parent_id']; // Ici on défini les champs que l'on veut pouvoir remplir
+    public $fillable = ['title', 'parent_id', 'slug']; // Ici on défini les champs que l'on veut pouvoir remplir
 
     /**
      * Get the index name for the model.
@@ -31,6 +31,6 @@ class Category extends Model
 
     public function products()
     {
-        return $this->hasMany(Product::class); // hasMany = N:1
+        return $this->belongsToMany(Product::class, 'category_product', 'category_id', 'product_id'); // belongsToMany = N:N
     }
 }

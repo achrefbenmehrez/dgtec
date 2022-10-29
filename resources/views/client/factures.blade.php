@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-full px-4 py-8 mx-auto max-w-big">
         <header class="flex flex-col items-center w-full px-2 mb-8">
-            <ol class="flex justify-center text-xs text-white uppercase">
+            <ol class="flex justify-center text-xs uppercase">
                 <li class="flex items-center h-8">
                     <a href="https://sqp.fr">Accueil</a>
                 </li>
@@ -68,7 +68,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Tarifs et catalogues</p>
                 </a>
                 <a href="{{ route("client.adresses") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 pointer-events-none bg-primary-500">
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -78,14 +78,14 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Adresses de livraison</p>
                 </a>
                 <a href="{{ route("client.factures") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
-                    <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-primary-500 pointer-events-none">
+                    <svg class="w-10 h-10 mr-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
                             d="M6 12h10v1H6v-1zm7.816-3H6v1h9.047c-.45-.283-.863-.618-1.231-1zM6 7h6.5c-.134-.32-.237-.656-.319-1H6v1zm13 3.975v2.568C19 17.65 13 16 13 16s1.518 6-2.638 6H3V2h9.5c.312-.749.763-1.424 1.316-2H1v24h10.189C14.352 24 21 16.777 21 14.386V10.5c-.623.26-1.297.421-2 .475zM23 4.5C23 6.985 20.985 9 18.5 9S14 6.985 14 4.5 16.015 0 18.5 0 23 2.015 23 4.5zm-2.156-.882-.696-.696-2.116 2.169-.992-.941-.696.697 1.688 1.637 2.812-2.866z">
                         </path>
                     </svg>
-                    <p class="text-xs font-semibold text-center text-white uppercase ">Factures, avoirs et
+                    <p class="text-xs font-semibold text-center uppercase ">Factures, avoirs et
                         échéances</p>
                 </a>
                 <a href="{{ route("client.informationsSociete") }}" target="_self" rel=""
@@ -148,7 +148,7 @@
 
 
             <div class="px-4 col-span-full lg:col-span-3">
-                <div wire:id="9E88EXvXCos9vKwQ1S8L" class="grid items-center w-full grid-cols-2 gap-4 text-white"
+                <div wire:id="9E88EXvXCos9vKwQ1S8L" class="grid items-center w-full grid-cols-2 gap-4"
                     x-data="{ view_details: false }" x-init="$wire.loadItems = true">
 
                     <div class="grid items-center justify-between w-full grid-cols-1 gap-4 xl:grid-cols-5 col-span-full">
@@ -168,7 +168,7 @@
                         </div>
 
                         <div class="w-full col-span-full xl:col-span-1">
-                            <label class="flex flex-col py-2 text-xs font-medium text-white uppercase sm:mt-px"
+                            <label class="flex flex-col py-2 text-xs font-medium uppercase sm:mt-px"
                                 for="month">Mois</label>
                             <input
                                 class="block w-full h-8 px-4 py-2 placeholder-opacity-50 border-transparent rounded-sm text-secondary-300 placeholder-secondary-300 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm bg-secondary-600 flatpickr-input"
@@ -178,7 +178,7 @@
                         </div>
 
                         <div class="w-full col-span-full xl:col-span-1">
-                            <label class="flex flex-col py-2 text-xs font-medium text-white uppercase sm:mt-px"
+                            <label class="flex flex-col py-2 text-xs font-medium uppercase sm:mt-px"
                                 for="state">Type</label>
                             <select
                                 class="block w-full h-8 px-4 py-2 placeholder-opacity-50 border-transparent rounded-sm text-secondary-300 placeholder-secondary-300 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm bg-secondary-600"

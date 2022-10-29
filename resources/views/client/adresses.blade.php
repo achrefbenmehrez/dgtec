@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-full px-4 py-8 mx-auto max-w-big">
         <header class="flex flex-col items-center w-full px-2 mb-8">
-            <ol class="flex justify-center text-xs text-white uppercase">
+            <ol class="flex justify-center text-xs uppercase">
                 <li class="flex items-center h-8">
                     <a href="https://sqp.fr">Accueil</a>
                 </li>
@@ -16,7 +16,7 @@
                                 d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
                         </svg> </span>
-                    <a href="{{ route("client.index") }}">Mon compte</a>
+                    <a href="{{ route('client.index') }}">Mon compte</a>
                 </li>
             </ol>
 
@@ -27,7 +27,7 @@
 
         <div class="grid grid-cols-4">
             <div class="hidden lg:block lg:col-span-1">
-                <a href="{{ route("client.commandes") }}" target="_self" rel=""
+                <a href="{{ route('client.commandes') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Historique de commande</p>
                 </a>
-                <a href="{{ route("client.paniers") }}" target="_self" rel=""
+                <a href="{{ route('client.paniers') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -47,7 +47,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Paniers</p>
                 </a>
-                <a href="{{ route("client.devis") }}" target="_self" rel=""
+                <a href="{{ route('client.devis') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -57,7 +57,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Devis</p>
                 </a>
-                <a href="{{ route("client.cataloguesTarifs") }}" target="_self" rel=""
+                <a href="{{ route('client.cataloguesTarifs') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -67,17 +67,17 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Tarifs et catalogues</p>
                 </a>
-                <a href="{{ route("client.adresses") }}" target="_self" rel=""
+                <a href="{{ route('client.adresses') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 pointer-events-none bg-primary-500">
-                    <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="w-10 h-10 mr-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
                             d="M17.492 15.432c-.433 0-.855-.087-1.253-.259l.467-1.082c.25.107.514.162.786.162.222 0 .441-.037.651-.11l.388 1.112c-.334.118-.683.177-1.039.177zM6.57 15.41c-.373 0-.741-.066-1.093-.195l.407-1.105c.221.081.451.122.686.122.26 0 .514-.05.754-.148l.447 1.09c-.382.157-.786.236-1.201.236zm8.67-.783-1.659-.945.583-1.024 1.66.945-.584 1.024zm-6.455-.02-.605-1.011 1.639-.981.605 1.011-1.639.981zm3.918-1.408c-.243-.101-.5-.153-.764-.153-.23 0-.457.04-.674.119l-.401-1.108c.346-.125.708-.188 1.075-.188.42 0 .83.082 1.217.244l-.453 1.086zm7.327-.163c-.534 0-.968.433-.968.968 0 .535.434.968.968.968.535 0 .969-.434.969-.968 0-.535-.434-.968-.969-.968zm-16.061 0c-.535 0-.969.433-.969.968 0 .535.434.968.969.968s.969-.434.969-.968c0-.535-.434-.968-.969-.968zM22 12.204v6.683l-4 2.479V17h-1v4.141l-4-2.885V15h-2v3.255L7 21.14V17H6v4.365l-4-2.479V5.592l4 2.479V12h1V8.073l4-2.886V10h2V5.187l1.577 1.138C14.238 5.624 14 4.807 14 3.801l.019-.345L12 2 6.455 6 0 2v18l6.455 4L12 20l5.545 4L24 20V8.382l-.039.047c-.831.982-1.614 1.918-1.961 3.775zm2-8.403C24 1.702 22.1 0 20 0s-4 1.702-4 3.801c0 3.121 3.188 3.451 4 8.199.812-4.748 4-5.078 4-8.199zM18.5 4c0-.829.672-1.5 1.5-1.5s1.5.671 1.5 1.5-.672 1.5-1.5 1.5-1.5-.671-1.5-1.5zm-.548 8c-.212-.992-.547-1.724-.952-2.334V12h.952z">
                         </path>
                     </svg>
-                    <p class="text-xs font-semibold text-center text-white uppercase ">Adresses de livraison</p>
+                    <p class="text-xs font-semibold text-center uppercase ">Adresses de livraison</p>
                 </a>
-                <a href="{{ route("client.factures") }}" target="_self" rel=""
+                <a href="{{ route('client.factures') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -88,7 +88,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Factures, avoirs et
                         échéances</p>
                 </a>
-                <a href="{{ route("client.informationsSociete") }}" target="_self" rel=""
+                <a href="{{ route('client.informationsSociete') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -98,7 +98,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Informations société</p>
                 </a>
-                <a href="{{ route("client.utilisateurs") }}" target="_self" rel=""
+                <a href="{{ route('client.utilisateurs') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -109,7 +109,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Gestion des utilisateurs
                     </p>
                 </a>
-                <a href="{{ route("client.sav") }}" target="_self" rel=""
+                <a href="{{ route('client.sav') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" viewBox="0 0 24 24">
@@ -134,7 +134,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">NASEXCHANGE</p>
                 </a>
 
-                <a href="{{ route("logout") }}"
+                <a href="{{ route('logout') }}"
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md bg-secondary-600 hover:bg-primary-500">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -173,7 +173,7 @@
                                                     </path>
                                                 </svg>
                                             </div>
-                                            <span class="mt-4 text-sm font-bold uppercase">Adresses de
+                                            <span class="mt-4 text-sm font-bold uppercase text-dark">Adresses de
                                                 livraison</span>
                                         </div>
                                         <div class="w-auto p-4 mt-4 mb-8 rounded-sm bg-secondary-500">
@@ -199,64 +199,62 @@
                                 </tr>
 
                                 <tr>
-                                    <th class="hidden px-12 text-xs text-left uppercase lg:table-cell">Libellé
+                                    <th class="hidden px-12 text-xs text-left uppercase lg:table-cell text-dark">Libellé
                                     </th>
-                                    <th class="hidden text-xs text-left uppercase lg:table-cell">Destinataire</th>
-                                    <th class="hidden text-xs text-left uppercase lg:table-cell">Adresse</th>
-                                    <th class="hidden text-xs text-left uppercase lg:table-cell">Code postal</th>
-                                    <th class="hidden text-xs text-left uppercase lg:table-cell">Ville</th>
-                                    <th class="hidden text-xs text-left uppercase lg:table-cell">Pays</th>
-                                    <th class="hidden px-12 text-xs text-center uppercase lg:table-cell"><span
+                                    <th class="hidden text-xs text-left uppercase lg:table-cell text-dark">Destinataire</th>
+                                    <th class="hidden text-xs text-left uppercase lg:table-cell text-dark">Adresse</th>
+                                    <th class="hidden text-xs text-left uppercase lg:table-cell text-dark">Code postal</th>
+                                    <th class="hidden text-xs text-left uppercase lg:table-cell text-dark">Ville</th>
+                                    <th class="hidden text-xs text-left uppercase lg:table-cell text-dark">Pays</th>
+                                    <th class="hidden px-12 text-xs text-center uppercase lg:table-cell text-dark"><span
                                             class="sr-only">Actions</span></th>
                                 </tr>
                                 <tr class="border-t-4 border-secondary-700 w-full bg-secondary-600 bg-opacity-75">
+                                    @foreach ($adresses as $adresse)
                                     <td>
-                                        <div class="py-8 text-center lg:pl-12 lg:text-left">
+                                            <div class="py-8 text-center lg:pl-12 lg:text-left">
 
-                                            GENERAL TRANSPORTS SERVICES
+                                                {{ $adresse->complement }}
 
-                                            <div class="mt-4 text-xs text-secondary-300 lg:hidden">
-                                                GENERAL TRANSPORTS SERVICES <br>
-                                                NELLY PARRIMOND Tel +33 4.91.58.48.86 <br>
-                                                36 RUE EMMANUEL EYDOUX <br>
-                                                13016 / MARSEILLE / FR
+                                                <div class="mt-4 text-xs text-secondary-300 lg:hidden">
+                                                    GENERAL TRANSPORTS SERVICES <br>
+                                                    NELLY PARRIMOND Tel +33 4.91.58.48.86 <br>
+                                                    36 RUE EMMANUEL EYDOUX <br>
+                                                    13016 / MARSEILLE / FR
+                                                </div>
+
+                                                <div class="flex items-center justify-center mt-4 lg:hidden">
+                                                </div>
                                             </div>
-
-                                            <div class="flex items-center justify-center mt-4 lg:hidden">
-                                            </div>
-                                        </div>
                                     </td>
 
                                     <td class="hidden text-xs text-secondary-300 lg:table-cell">
                                         <span>
-                                            GENERAL TRANSPORTS SERVICES
+                                            {{ $adresse->destinataire }}
                                         </span>
                                     </td>
 
                                     <td class="hidden text-xs text-secondary-300 lg:table-cell">
                                         <div>
-                                            NELLY PARRIMOND Tel +33 4.91.58.48.86
-                                        </div>
-                                        <div>
-                                            36 RUE EMMANUEL EYDOUX
+                                            {{ $adresse->adresse }}
                                         </div>
                                     </td>
 
                                     <td class="hidden text-xs text-secondary-300 lg:table-cell">
                                         <span>
-                                            13016
+                                            {{ $adresse->code_postal }}
                                         </span>
                                     </td>
 
                                     <td class="hidden text-xs text-secondary-300 lg:table-cell">
                                         <span>
-                                            MARSEILLE
+                                            {{ $adresse->ville }}
                                         </span>
                                     </td>
 
                                     <td class="hidden text-xs text-secondary-300 lg:table-cell">
                                         <span>
-                                            FR
+                                            {{ $adresse->pays }}
                                         </span>
                                     </td>
 
@@ -264,6 +262,7 @@
                                         <div class="flex justify-center px-12 py-8">
                                         </div>
                                     </td>
+                                    @endforeach
                                 </tr>
 
                                 <tr>
@@ -306,7 +305,7 @@
                                 <tr>
                                     <td colspan="7">
                                         <div
-                                            class="flex flex-col items-center justify-center w-full mb-16 bg-secondary-700">
+                                            class="flex flex-col items-center justify-center w-full mb-16 bg-secondary-700 text-dark">
                                             <span class="mt-4 text-sm">Aucune adresse de livraison directe</span>
                                         </div>
                                     </td>

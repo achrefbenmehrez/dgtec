@@ -14,6 +14,7 @@ class AdresseLivraison extends Model
         'code_postal',
         'ville',
         'pays',
+        'user_id'
     ];
 
     use HasFactory;

@@ -3,7 +3,23 @@
 @section('content')
     <div class="w-full py-8 mx-auto mt-4 mb-4 max-w-7xl">
         <header class="flex flex-col items-center w-full px-2">
-            <ol class="flex text-xs text-white uppercase jusitfy-center">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @if (session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
+
+            <ol class="flex text-xs uppercase jusitfy-center">
                 <li class="flex items-center h-8">
                     <a href="https://sqp.fr">Accueil</a>
                 </li>
@@ -16,7 +32,7 @@
                                 d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
                         </svg> </span>
-                    <a href="{{ route("client.index") }}">Mon compte</a>
+                    <a href="{{ route('client.index') }}">Mon compte</a>
                 </li>
             </ol>
 
@@ -30,7 +46,7 @@
         </header>
 
         <div class="grid grid-cols-1 gap-8 px-4 mt-12 mb-12 sm:grid-cols-2 lg:grid-cols-4">
-            <a href="{{ route("client.commandes") }}" target="_self" rel=""
+            <a href="{{ route('client.commandes') }}" target="_self" rel=""
                 class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-600 hover:!bg-primary-500">
                 <svg class="w-10 h-10 mx-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -40,7 +56,7 @@
                 </svg>
                 <p class="mt-8 text-xs font-semibold text-center text-white uppercase">Historique de commande</p>
             </a>
-            <a href="{{ route("client.paniers") }}" target="_self" rel=""
+            <a href="{{ route('client.paniers') }}" target="_self" rel=""
                 class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-600 hover:!bg-primary-500">
                 <svg class="w-10 h-10 mx-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24">
@@ -50,7 +66,7 @@
                 </svg>
                 <p class="mt-8 text-xs font-semibold text-center text-white uppercase">Paniers</p>
             </a>
-            <a href="{{ route("client.devis") }}" target="_self" rel=""
+            <a href="{{ route('client.devis') }}" target="_self" rel=""
                 class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-600 hover:!bg-primary-500">
                 <svg class="w-10 h-10 mx-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24">
@@ -60,7 +76,7 @@
                 </svg>
                 <p class="mt-8 text-xs font-semibold text-center text-white uppercase">Devis</p>
             </a>
-            <a href="{{ route("client.cataloguesTarifs") }}" target="_self" rel=""
+            <a href="{{ route('client.cataloguesTarifs') }}" target="_self" rel=""
                 class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-600 hover:!bg-primary-500">
                 <svg class="w-10 h-10 mx-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24">
@@ -70,7 +86,7 @@
                 </svg>
                 <p class="mt-8 text-xs font-semibold text-center text-white uppercase">Tarifs et catalogues</p>
             </a>
-            <a href="{{ route("client.adresses") }}" target="_self" rel=""
+            <a href="{{ route('client.adresses') }}" target="_self" rel=""
                 class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-600 hover:!bg-primary-500">
                 <svg class="w-10 h-10 mx-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24">
@@ -80,7 +96,7 @@
                 </svg>
                 <p class="mt-8 text-xs font-semibold text-center text-white uppercase">Adresses de livraison</p>
             </a>
-            <a href="{{ route("client.factures") }}" target="_self" rel=""
+            <a href="{{ route('client.factures') }}" target="_self" rel=""
                 class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-600 hover:!bg-primary-500">
                 <svg class="w-10 h-10 mx-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24">
@@ -90,7 +106,7 @@
                 </svg>
                 <p class="mt-8 text-xs font-semibold text-center text-white uppercase">Factures, avoirs et échéances</p>
             </a>
-            <a href="{{ route("client.informationsSociete") }}" target="_self" rel=""
+            <a href="{{ route('client.informationsSociete') }}" target="_self" rel=""
                 class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-600 hover:!bg-primary-500">
                 <svg class="w-10 h-10 mx-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -100,7 +116,7 @@
                 </svg>
                 <p class="mt-8 text-xs font-semibold text-center text-white uppercase">Informations société</p>
             </a>
-            <a href="{{ route("client.utilisateurs") }}" target="_self" rel=""
+            <a href="{{ route('client.utilisateurs') }}" target="_self" rel=""
                 class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-600 hover:!bg-primary-500">
                 <svg class="w-10 h-10 mx-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24">
@@ -110,7 +126,7 @@
                 </svg>
                 <p class="mt-8 text-xs font-semibold text-center text-white uppercase">Gestion des utilisateurs</p>
             </a>
-            <a href="{{ route("client.sav") }}" target="_self" rel=""
+            <a href="{{ route('client.sav') }}" target="_self" rel=""
                 class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-600 hover:!bg-primary-500">
                 <svg class="w-10 h-10 mx-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" viewBox="0 0 24 24">
@@ -135,8 +151,8 @@
                 <p class="mt-8 text-xs font-semibold text-center text-white uppercase">NASEXCHANGE</p>
             </a>
 
-            <a href="{{ route("logout") }}"
-                class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-700 hover:bg-primary-500">
+            <a href="{{ route('logout') }}"
+                class="flex flex-col px-4 pt-8 pb-12 transition rounded-sm shadow-md bg-secondary-500 hover:bg-primary-500">
                 <svg class="w-10 h-10 mx-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
                     <path
@@ -153,464 +169,48 @@
                 <div class="relative flex justify-center w-full lg:justify-start">
                     <hr class="absolute w-full border-secondary-600" style="z-index: -1">
                     <a href="#" @click.prevent="tab = 0; swiper.slideTo(1)"
-                        class="inline-flex items-center h-8 px-4 mx-2 -mt-4 text-sm font-bold uppercase lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700 text-tertiary-500"
-                        :class="tab == 0 ? 'text-tertiary-500' : 'text-gray-300 hover:text-white'">Promotions</a>
+                        class="inline-flex items-center h-8 px-4 mx-2 -mt-4 text-sm font-bold uppercase lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700"
+                        :class="tab == 0 ? 'text-tertiary-500' : 'text-gray-300 hover:text-white'" x-cloak>Promotions</a>
                     <a href="#" @click.prevent="tab = 1; swiper.slideTo(2)"
-                        class="inline-flex items-center h-8 px-4 mx-2 -mt-4 text-sm font-bold uppercase lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700 text-gray-300 hover:text-white"
-                        :class="tab == 1 ? 'text-tertiary-500' : 'text-gray-300 hover:text-white'">Nouveautés</a>
+                        class="inline-flex items-center h-8 px-4 mx-2 -mt-4 text-sm font-bold uppercase lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700"
+                        :class="tab == 1 ? 'text-tertiary-500' : 'text-gray-300 hover:text-white'" x-cloak>Nouveautés</a>
                 </div>
 
-                <div class="overflow-x-hidden swiper-container swiper-initialized swiper-horizontal swiper-pointer-events"
-                    x-ref="container">
-                    <div class="swiper-wrapper"
-                        style="transition-duration: 0ms; transform: translate3d(-1248px, 0px, 0px);"
-                        id="swiper-wrapper-2d11aab54a4d2e93" aria-live="polite">
-                        <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4 swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next"
-                            data-swiper-slide-index="1" role="group" aria-label="2 / 2" style="width: 1248px;">
-                            <a wire:id="wVzbKCcEAhUqJASVxRmP"
-                                href="https://sqp.fr/distributeur-m2/ssd-crucial-p3-plus-m2-2280-1tb-pcie-40-x4-nvme-012-dwpd"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_1024_768.jpg 1024w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_856_642.jpg 856w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_716_537.jpg 716w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_599_449.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3NjgiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9Ijc2OCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FHQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVEMvOGQ2SnBrdmwzT29RUlA2TTRGSzQ3RlVmRTN3MmYrWXJiZjhBZndVWEVJZmloNGFCL3dDUXRiZjkvQlRBdWFiNDUwWFY1Zkx0TCtHWi9SSEJwWEhZL0xmOXF3ZVBMbjRqeXBwajNxV2c3eDV4VVJSVFBCdFRnK0tsdS84QW84bXBPUDhBZ1ZhRUZPMWgrSzhrbjcwNmt2OEEzMVFCOUwvc2EyWGo5ZkhLTnFyWGh0eC96MXppc2Fua2F3dDFQMDB2dkFXaDZsTVpiblQ0SlhQOFRJRFd4a1Z2K0ZZK0cvOEFvRlczL2ZBb0FQOEFoV0hodi9vRTIzL2ZzVUFYdE44RjZQcEQ3N1N4aGhiMVZRS1ZyZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/65278/medias/46580/ssd1t-crucp3-65278.jpg"
-                                        width="1024" height="768">
-
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD1T-CRUCP3+</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>CT1000P3PSSD8</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Crucial P3 Plus - M.2 2280 1TB - PCIe 4.0 x4 NVMe - 0.12 DWPD</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">101,12€ HT</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-secondary-300">Épuisé
-                                            provisoirement</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:wVzbKCcEAhUqJASVxRmP --> <a wire:id="KX4gG89uWzRdPW3lW71i"
-                                href="https://sqp.fr/distributeur-m2/ssd-crucial-p3-plus-m2-2280-500gb-pcie-40-x4-nvme-012-dwpd"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/65277/medias/46579/responsive-images/ssd500-crucp3-65277___media_library_original_1024_768.jpg 1024w, https://sqp.fr/storage/products/products/65277/medias/46579/responsive-images/ssd500-crucp3-65277___media_library_original_856_642.jpg 856w, https://sqp.fr/storage/products/products/65277/medias/46579/responsive-images/ssd500-crucp3-65277___media_library_original_716_537.jpg 716w, https://sqp.fr/storage/products/products/65277/medias/46579/responsive-images/ssd500-crucp3-65277___media_library_original_599_449.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3NjgiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9Ijc2OCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FHQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVEMvOGQ2SnBrdmwzT29RUlA2TTRGSzQ3RlVmRTN3MmYrWXJiZjhBZndVWEVJZmloNGFCL3dDUXRiZjkvQlRBdWFiNDUwWFY1Zkx0TCtHWi9SSEJwWEhZL0xmOXF3ZVBMbjRqeXBwajNxV2c3eDV4VVJSVFBCdFRnK0tsdS84QW84bXBPUDhBZ1ZhRUZPMWgrSzhrbjcwNmt2OEEzMVFCOUwvc2EyWGo5ZkhLTnFyWGh0eC96MXppc2Fua2F3dDFQMDB2dkFXaDZsTVpiblQ0SlhQOFRJRFd4a1Z2K0ZZK0cvOEFvRlczL2ZBb0FQOEFoV0hodi9vRTIzL2ZzVUFYdE44RjZQcEQ3N1N4aGhiMVZRS1ZyZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/65277/medias/46579/ssd500-crucp3-65277.jpg"
-                                        width="1024" height="768">
-
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD500-CRUCP3+</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>CT500P3PSSD8</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Crucial P3 Plus - M.2 2280 500GB - PCIe 4.0 x4 NVMe - 0.12 DWPD</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">64,04€ HT</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-secondary-300">Épuisé
-                                            provisoirement</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:KX4gG89uWzRdPW3lW71i --> <a wire:id="fsRQbWx51SESvahaBf1e"
-                                href="https://sqp.fr/distributeur-m2/ssd-crucial-p3-plus-m2-2280-4tb-pcie-40-x4-nvme-011-dwpd"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/65280/medias/46582/responsive-images/ssd4t-crucp3-65280___media_library_original_1024_768.jpg 1024w, https://sqp.fr/storage/products/products/65280/medias/46582/responsive-images/ssd4t-crucp3-65280___media_library_original_856_642.jpg 856w, https://sqp.fr/storage/products/products/65280/medias/46582/responsive-images/ssd4t-crucp3-65280___media_library_original_716_537.jpg 716w, https://sqp.fr/storage/products/products/65280/medias/46582/responsive-images/ssd4t-crucp3-65280___media_library_original_599_449.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3NjgiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9Ijc2OCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FHQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVEMvOGQ2SnBrdmwzT29RUlA2TTRGSzQ3RlVmRTN3MmYrWXJiZjhBZndVWEVJZmloNGFCL3dDUXRiZjkvQlRBdWFiNDUwWFY1Zkx0TCtHWi9SSEJwWEhZL0xmOXF3ZVBMbjRqeXBwajNxV2c3eDV4VVJSVFBCdFRnK0tsdS84QW84bXBPUDhBZ1ZhRUZPMWgrSzhrbjcwNmt2OEEzMVFCOUwvc2EyWGo5ZkhLTnFyWGh0eC96MXppc2Fua2F3dDFQMDB2dkFXaDZsTVpiblQ0SlhQOFRJRFd4a1Z2K0ZZK0cvOEFvRlczL2ZBb0FQOEFoV0hodi9vRTIzL2ZzVUFYdE44RjZQcEQ3N1N4aGhiMVZRS1ZyZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/65280/medias/46582/ssd4t-crucp3-65280.jpg"
-                                        width="1024" height="768">
-
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD4T-CRUCP3+</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>CT4000P3PSSD8</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Crucial P3 Plus - M.2 2280 4TB - PCIe 4.0 x4 NVMe - 0.11 DWPD</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">432,58€ HT</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-secondary-300">Épuisé
-                                            provisoirement</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:fsRQbWx51SESvahaBf1e --> <a wire:id="sjtIG6f6Bg0UPceG9dVU"
-                                href="https://sqp.fr/distributeur-m2/ssd-crucial-p3-plus-m2-2280-2tb-pcie-40-x4-nvme-012-dwpd"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/65279/medias/46581/responsive-images/ssd2t-crucp3-65279___media_library_original_1024_768.jpg 1024w, https://sqp.fr/storage/products/products/65279/medias/46581/responsive-images/ssd2t-crucp3-65279___media_library_original_856_642.jpg 856w, https://sqp.fr/storage/products/products/65279/medias/46581/responsive-images/ssd2t-crucp3-65279___media_library_original_716_537.jpg 716w, https://sqp.fr/storage/products/products/65279/medias/46581/responsive-images/ssd2t-crucp3-65279___media_library_original_599_449.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3NjgiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9Ijc2OCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FHQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVEMvOGQ2SnBrdmwzT29RUlA2TTRGSzQ3RlVmRTN3MmYrWXJiZjhBZndVWEVJZmloNGFCL3dDUXRiZjkvQlRBdWFiNDUwWFY1Zkx0TCtHWi9SSEJwWEhZL0xmOXF3ZVBMbjRqeXBwajNxV2c3eDV4VVJSVFBCdFRnK0tsdS84QW84bXBPUDhBZ1ZhRUZPMWgrSzhrbjcwNmt2OEEzMVFCOUwvc2EyWGo5ZkhLTnFyWGh0eC96MXppc2Fua2F3dDFQMDB2dkFXaDZsTVpiblQ0SlhQOFRJRFd4a1Z2K0ZZK0cvOEFvRlczL2ZBb0FQOEFoV0hodi9vRTIzL2ZzVUFYdE44RjZQcEQ3N1N4aGhiMVZRS1ZyZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/65279/medias/46581/ssd2t-crucp3-65279.jpg"
-                                        width="1024" height="768">
-
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD2T-CRUCP3+</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>CT2000P3PSSD8</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Crucial P3 Plus - M.2 2280 2TB - PCIe 4.0 x4 NVMe - 0.12 DWPD</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">204,49€ HT</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-secondary-300">Épuisé
-                                            provisoirement</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:sjtIG6f6Bg0UPceG9dVU -->
-                            <div class="grid col-span-full">
-                                <a class="button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover --is-primary"
-                                    href="https://sqp.fr/nouveautes-stockage-professionnel">
-
-
-                                    <span class="button__caption">
-                                        Toutes les nouveautés (151 produits)
-                                    </span>
-
-                                    <span class="button__trailing">
-                                        <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </span>
-
-                                    <span class="button__spinner">
-                                        <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24">
-                                            <circle class="opacity-25" cx="12" cy="12" r="10"
-                                                stroke="currentColor" stroke-width="4"></circle>
-                                            <path class="opacity-75" fill="currentColor"
-                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                            </path>
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4 swiper-slide-active"
-                            data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 1248px;">
-                            <a wire:id="JM4YHV1KhDsckDWQN0pd"
-                                href="https://sqp.fr/distributeur-25/ssd-samsung-870-qvo-25-1tb-sata-6gbps-033-dwpd-promo-jusquau-3108-sur-stock-dispo"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_768_768.jpg 768w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_642_642.jpg 642w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_537_537.jpg 537w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_449_449.jpg 449w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_376_376.jpg 376w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzY4IDc2OCI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2OCIgaGVpZ2h0PSI3NjgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBSUFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBL1JMeEY4WXREOE5YWnQ3dTRWSkIySnFsRnNEbjUvMmxmQ2x1UG12Rkg0MCtSaU0rWDlyRHdaRVNHdmsvNzZvNVdNMS9DZjdSZmhmeGhxSzJWamRxOHpkQURTY1dnUGtYOXBUVjJnOFp6TDVoSHRtdWlHeExQblB4RDRvTWU1VE13UDFxd09JdU5Za3ZKU0VtWS9qU0E5dy9aSk0vL0N5TGZkSXhIb1RVVDJCSFFmdFdhaE5INCtuVlZZajJGRU5nWjgzNjlPU2hrbGpjajZWYkFUUWRPKzJoWkk0bXdmYWdSOUwvQUxLK2d5UWVPN2VReGtmaFV6MkdqN244Vy9zN2VHZkdPb3RlWDFxcnlucVNLNTFKb281dTUvWTc4RDNTYlpMQkdIMHA4ekFtc1AyUnZCV25vRmlzVVVEL0FHYVhNd09zOEwvQXp3LzRVdkZ1Yk8yVkpCMElGRGsyQi8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/60604/medias/43297/ssd1t-sam870qvopromo-60604.jpg"
-                                        width="768" height="768">
-
-                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
-                                        <img class="block object-contain object-left w-auto h-full mb-2"
-                                            srcset="https://sqp.fr/storage/products/brands/11/medias/30/responsive-images/samsung___media_library_original_290_96.png 290w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkwIDk2Ij4KCTxpbWFnZSB3aWR0aD0iMjkwIiBoZWlnaHQ9Ijk2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWRBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9RdXp0dkhHdkkyN1dwTkV0OGdvL3dCa2dhNWJCT2R3S3NpZzhjRGNSajczUEFCcitGZmg5QjRZbFc0azFQVk5WdUZVcUpkVHY1YmtwbkdkdTlqdHpnWnhqb0tBTlBWdkdPa2FLam04djRJTm5VTTRCb0E4NTFqKzFQRk9yUzMrbTZacU9tUk1nVDdTODk1Wm01QUxZK1dHTmlRT2NGd09IeXVRU2FBUFh3T2FBR3ovQU9xYjZVQWMvd0NIdkNlaG1KTlRPamFmL2FVOFpTVzgreXA1MGk3czRaOFpJNEhVOWhRQnB0NFcwVmlTZElzQ1QzTnNuK0ZBSC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                <div class="overflow-x-hidden swiper-container" x-ref="container">
+                    <div class="swiper-wrapper">
+                        <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4">
+
+                            @foreach ($homePromos as $promo)
+                                <a wire:id="ZEZUkSEQmNA0GkvMpaJX"
+                                    wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;ZEZUkSEQmNA0GkvMpaJX&quot;,&quot;name&quot;:&quot;website.products.item&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;da7ad6ef&quot;,&quot;data&quot;:{&quot;product&quot;:[],&quot;viewName&quot;:&quot;website.products.livewire.item.forGrid&quot;,&quot;quantity&quot;:1},&quot;dataMeta&quot;:{&quot;models&quot;:{&quot;product&quot;:{&quot;class&quot;:&quot;App\\Domain\\Products\\Models\\Product&quot;,&quot;id&quot;:60604,&quot;relations&quot;:[&quot;url&quot;,&quot;media&quot;,&quot;media.model&quot;,&quot;brand&quot;,&quot;brand.media&quot;,&quot;promotion&quot;],&quot;connection&quot;:&quot;mysql&quot;}}},&quot;checksum&quot;:&quot;a2b35a4ee1f5d03a92cbb4465fa195b04ca6449e545894eb3b1dddbbb4077885&quot;}}"
+                                    href="https://sqp.fr/distributeur-25/ssd-samsung-870-qvo-25-1tb-sata-6gbps-033-dwpd-promo-jusquau-3108-sur-stock-dispo"
+                                    class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
+                                    <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
+                                        <img class="h-full w-full object-contain"
+                                            srcset="https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_768_768.jpg 768w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_642_642.jpg 642w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_537_537.jpg 537w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_449_449.jpg 449w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_376_376.jpg 376w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzY4IDc2OCI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2OCIgaGVpZ2h0PSI3NjgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBSUFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBL1JMeEY4WXREOE5YWnQ3dTRWSkIySnFsRnNEbjUvMmxmQ2x1UG12Rkg0MCtSaU0rWDlyRHdaRVNHdmsvNzZvNVdNMS9DZjdSZmhmeGhxSzJWamRxOHpkQURTY1dnUGtYOXBUVjJnOFp6TDVoSHRtdWlHeExQblB4RDRvTWU1VE13UDFxd09JdU5Za3ZKU0VtWS9qU0E5dy9aSk0vL0N5TGZkSXhIb1RVVDJCSFFmdFdhaE5INCtuVlZZajJGRU5nWjgzNjlPU2hrbGpjajZWYkFUUWRPKzJoWkk0bXdmYWdSOUwvQUxLK2d5UWVPN2VReGtmaFV6MkdqN244Vy9zN2VHZkdPb3RlWDFxcnlucVNLNTFKb281dTUvWTc4RDNTYlpMQkdIMHA4ekFtc1AyUnZCV25vRmlzVVVEL0FHYVhNd09zOEwvQXp3LzRVdkZ1Yk8yVkpCMElGRGsyQi8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
                                             onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                            sizes="6vw"
-                                            src="https://sqp.fr/storage/products/brands/11/medias/30/samsung.png"
-                                            width="290" height="96">
+                                            sizes="1px"
+                                            src="https://sqp.fr/storage/products/products/60604/medias/43297/ssd1t-sam870qvopromo-60604.jpg"
+                                            width="768" height="768">
 
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-                                    <div
-                                        class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
-                                        Promo jusqu'au 04/11/2022
-                                    </div>
+                                        <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
+                                            <img class="block object-contain object-left w-auto h-full mb-2"
+                                                srcset="https://sqp.fr/storage/products/brands/11/medias/30/responsive-images/samsung___media_library_original_290_96.png 290w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkwIDk2Ij4KCTxpbWFnZSB3aWR0aD0iMjkwIiBoZWlnaHQ9Ijk2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWRBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9RdXp0dkhHdkkyN1dwTkV0OGdvL3dCa2dhNWJCT2R3S3NpZzhjRGNSajczUEFCcitGZmg5QjRZbFc0azFQVk5WdUZVcUpkVHY1YmtwbkdkdTlqdHpnWnhqb0tBTlBWdkdPa2FLam04djRJTm5VTTRCb0E4NTFqKzFQRk9yUzMrbTZacU9tUk1nVDdTODk1Wm01QUxZK1dHTmlRT2NGd09IeXVRU2FBUFh3T2FBR3ovQU9xYjZVQWMvd0NIdkNlaG1KTlRPamFmL2FVOFpTVzgreXA1MGk3czRaOFpJNEhVOWhRQnB0NFcwVmlTZElzQ1QzTnNuK0ZBSC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                                onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
+                                                sizes="1px"
+                                                src="https://sqp.fr/storage/products/brands/11/medias/30/samsung.png"
+                                                width="290" height="96">
 
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
+                                        <div
+                                            class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
+                                            Promo jusqu&#039;au 04/11/2022
+                                        </div>
+
+                                        <table class="w-full text-xs uppercase border-separate"
+                                            style="border-spacing: 0 .25rem">
                                             <tr class="text-primary-500">
                                                 <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
                                                 <th>SSD1T-SAM870QVO/PROMO</th>
@@ -619,416 +219,83 @@
                                                 <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
                                                 <th>MZ-77Q1T0BW-PROMO</th>
                                             </tr>
-                                        </tbody>
-                                    </table>
+                                        </table>
 
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Samsung 870 QVO - 2,5" 1TB - SATA 6Gbps - 0.33 DWPD - Promo jusqu'au 31/08 sur stock
-                                        dispo</span>
+                                        <span
+                                            class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
+                                            Samsung 870 QVO - 2,5&quot; 1TB - SATA 6Gbps - 0.33 DWPD - Promo jusqu&#039;au
+                                            31/08 sur stock dispo</span>
 
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">61,50€ HT</p>
-                                        <p class="mt-1 text-xs font-bold text-center uppercase text-secondary-300">+0,02€
-                                            d'éco-participation</p>
+
+                                        <div class="mb-2">
+                                            <p class="text-xs font-bold text-center uppercase text-primary-500">En stock
+                                            </p>
+                                        </div>
+
+                                        <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
+                                            <button class="button group --is-outlined --is-small --is-tertiary"
+                                                wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
+                                                type="button">
+
+
+                                                <span class="button__caption">
+                                                    Comparer
+                                                </span>
+
+
+                                                <span class="button__spinner">
+                                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24">
+                                                        <circle class="opacity-25" cx="12" cy="12"
+                                                            r="10" stroke="currentColor" stroke-width="4">
+                                                        </circle>
+                                                        <path class="opacity-75" fill="currentColor"
+                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+
+                                            <a class="button group w-full px-4 text-center --is-small --is-tertiary"
+                                                wire:loading.class="--is-loading" type="button"
+                                                href="{{ route('addToCart', $promo->slug) }}">
+
+
+                                                <span class="button__caption">
+                                                    <span class="sr-only">Ajouter au panier</span>
+                                                    <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
+                                                    </svg>
+                                                </span>
+
+
+                                                <span class="button__spinner">
+                                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24">
+                                                        <circle class="opacity-25" cx="12" cy="12"
+                                                            r="10" stroke="currentColor" stroke-width="4">
+                                                        </circle>
+                                                        <path class="opacity-75" fill="currentColor"
+                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </div>
                                     </div>
+                                </a>
+                            @endforeach
 
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-primary-500">En stock</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:JM4YHV1KhDsckDWQN0pd --> <a wire:id="drKOb9wUmIKnDBxSSciS"
-                                href="https://sqp.fr/distributeur-25/ssd-samsung-870-evo-25-1tb-sata-6gbps-033-dwpd-promo-jusquau-3108-sur-stock-dispo"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_1024_714.jpg 1024w, https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_856_597.jpg 856w, https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_716_499.jpg 716w, https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_599_418.jpg 599w, https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_501_349.jpg 501w, https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_419_292.jpg 419w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3MTQiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjcxNCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FGZ0FnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEE4cDhWK01GZmY4d3pYUVpIa1hpSHhBMHhmYWMwcmpzY0JxVjlJN0hxS2tZM3cxY3lqVjR5RDNwTkFkZHIzaWg1Sm1HLzlhcTRDYVo0bTB3VzVXNWgzdjYwZ01yeEhxdW1YY095MmdDTjYwQVovaFNFZjJwR1NPTTBBVDYzcERSM2pMNXVhQUwvQUlLOFBRM21ySWs1OHhQU2xjWkw0cThNd1FhdklrSjJJTzFNQzc0UDhOckpxa1E4d1VBZi85az0iPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/61611/medias/43304/ssd1t-sam870evopromo-61611.jpg"
-                                        width="1024" height="714">
-
-                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
-                                        <img class="block object-contain object-left w-auto h-full mb-2"
-                                            srcset="https://sqp.fr/storage/products/brands/11/medias/30/responsive-images/samsung___media_library_original_290_96.png 290w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkwIDk2Ij4KCTxpbWFnZSB3aWR0aD0iMjkwIiBoZWlnaHQ9Ijk2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWRBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9RdXp0dkhHdkkyN1dwTkV0OGdvL3dCa2dhNWJCT2R3S3NpZzhjRGNSajczUEFCcitGZmg5QjRZbFc0azFQVk5WdUZVcUpkVHY1YmtwbkdkdTlqdHpnWnhqb0tBTlBWdkdPa2FLam04djRJTm5VTTRCb0E4NTFqKzFQRk9yUzMrbTZacU9tUk1nVDdTODk1Wm01QUxZK1dHTmlRT2NGd09IeXVRU2FBUFh3T2FBR3ovQU9xYjZVQWMvd0NIdkNlaG1KTlRPamFmL2FVOFpTVzgreXA1MGk3czRaOFpJNEhVOWhRQnB0NFcwVmlTZElzQ1QzTnNuK0ZBSC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                            sizes="6vw"
-                                            src="https://sqp.fr/storage/products/brands/11/medias/30/samsung.png"
-                                            width="290" height="96">
-
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-                                    <div
-                                        class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
-                                        Promo jusqu'au 04/11/2022
-                                    </div>
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD1T-SAM870EVO/PROMO</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>MZ-77E1T0B/EU-PROMO</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Samsung 870 EVO - 2,5" 1TB - SATA 6Gbps - 0.33 DWPD - Promo jusqu'au 31/08 sur stock
-                                        dispo</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">98,50€ HT</p>
-                                        <p class="mt-1 text-xs font-bold text-center uppercase text-secondary-300">+0,02€
-                                            d'éco-participation</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-primary-500">En stock</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:drKOb9wUmIKnDBxSSciS --> <a wire:id="tYou0Lhv8xkf6iPszgEn"
-                                href="https://sqp.fr/distributeur-25/ssd-samsung-870-evo-25-500gb-sata-6gbps-033-dwpd-promo-jusquau-3108-sur-stock-dispo"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_1024_714.jpg 1024w, https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_856_597.jpg 856w, https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_716_499.jpg 716w, https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_599_418.jpg 599w, https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_501_349.jpg 501w, https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_419_292.jpg 419w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3MTQiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjcxNCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FGZ0FnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEE4cDhWK01GZmY4d3pYUVpIa1hpSHhBMHhmYWMwcmpzY0JxVjlJN0hxS2tZM3cxY3lqVjR5RDNwTkFkZHIzaWg1Sm1HLzlhcTRDYVo0bTB3VzVXNWgzdjYwZ01yeEhxdW1YY095MmdDTjYwQVovaFNFZjJwR1NPTTBBVDYzcERSM2pMNXVhQUwvQUlLOFBRM21ySWs1OHhQU2xjWkw0cThNd1FhdklrSjJJTzFNQzc0UDhOckpxa1E4d1VBZi85az0iPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/61612/medias/43305/ssd500-sam870evopromo-61612.jpg"
-                                        width="1024" height="714">
-
-                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
-                                        <img class="block object-contain object-left w-auto h-full mb-2"
-                                            srcset="https://sqp.fr/storage/products/brands/11/medias/30/responsive-images/samsung___media_library_original_290_96.png 290w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkwIDk2Ij4KCTxpbWFnZSB3aWR0aD0iMjkwIiBoZWlnaHQ9Ijk2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWRBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9RdXp0dkhHdkkyN1dwTkV0OGdvL3dCa2dhNWJCT2R3S3NpZzhjRGNSajczUEFCcitGZmg5QjRZbFc0azFQVk5WdUZVcUpkVHY1YmtwbkdkdTlqdHpnWnhqb0tBTlBWdkdPa2FLam04djRJTm5VTTRCb0E4NTFqKzFQRk9yUzMrbTZacU9tUk1nVDdTODk1Wm01QUxZK1dHTmlRT2NGd09IeXVRU2FBUFh3T2FBR3ovQU9xYjZVQWMvd0NIdkNlaG1KTlRPamFmL2FVOFpTVzgreXA1MGk3czRaOFpJNEhVOWhRQnB0NFcwVmlTZElzQ1QzTnNuK0ZBSC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                            sizes="6vw"
-                                            src="https://sqp.fr/storage/products/brands/11/medias/30/samsung.png"
-                                            width="290" height="96">
-
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-                                    <div
-                                        class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
-                                        Promo jusqu'au 04/11/2022
-                                    </div>
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD500-SAM870EVO/PROMO</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>MZ-77E500B/EU-PROMO</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Samsung 870 EVO - 2,5" 500GB - SATA 6Gbps - 0.33 DWPD - Promo jusqu'au 31/08 sur
-                                        stock dispo</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">43,50€ HT</p>
-                                        <p class="mt-1 text-xs font-bold text-center uppercase text-secondary-300">+0,02€
-                                            d'éco-participation</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-primary-500">En stock</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:tYou0Lhv8xkf6iPszgEn --> <a wire:id="EapFBOJGCj8UVyzAGG1H"
-                                href="https://sqp.fr/distributeur-pcie-2/ssd-samsung-980-m2-2280-1tb-pcie-30-x4-nvme-033-dwpd-promo-jusquau-3108-sur-stock-dispo"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/62310/medias/43308/responsive-images/ssd1t-sam980promo-62310___media_library_original_768_768.jpg 768w, https://sqp.fr/storage/products/products/62310/medias/43308/responsive-images/ssd1t-sam980promo-62310___media_library_original_642_642.jpg 642w, https://sqp.fr/storage/products/products/62310/medias/43308/responsive-images/ssd1t-sam980promo-62310___media_library_original_537_537.jpg 537w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzY4IDc2OCI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2OCIgaGVpZ2h0PSI3NjgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBSUFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBL1UvSW9BTWlnQXlLQURJb0ErT3ZpbCsyczNnTHhCTHB3dGQ1VHZTdUI1VHFmL0JUYzZmTVl6WmNpbUJSaC80S2l0TklFRmxqUGVuWUQxZjRLL3R5TjhTL0VrZW10YTdBL2NWak9YS1hHTnhQaXIrdy9jK1B2RWsycEMrS2IrMWFXSnVlWVh2L0FBVEJhOWxMdnFCSk5QWVFsdjhBOEV1STR5Q2I3bW5jRDE3NElmc1BRZkMzWFUxQTNIbWxlbWF6bkhtS1RzZll1QlZraGdVQUdCUUFZRkFILzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/62310/medias/43308/ssd1t-sam980promo-62310.jpg"
-                                        width="768" height="768">
-
-                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
-                                        <img class="block object-contain object-left w-auto h-full mb-2"
-                                            srcset="https://sqp.fr/storage/products/brands/11/medias/30/responsive-images/samsung___media_library_original_290_96.png 290w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkwIDk2Ij4KCTxpbWFnZSB3aWR0aD0iMjkwIiBoZWlnaHQ9Ijk2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWRBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9RdXp0dkhHdkkyN1dwTkV0OGdvL3dCa2dhNWJCT2R3S3NpZzhjRGNSajczUEFCcitGZmg5QjRZbFc0azFQVk5WdUZVcUpkVHY1YmtwbkdkdTlqdHpnWnhqb0tBTlBWdkdPa2FLam04djRJTm5VTTRCb0E4NTFqKzFQRk9yUzMrbTZacU9tUk1nVDdTODk1Wm01QUxZK1dHTmlRT2NGd09IeXVRU2FBUFh3T2FBR3ovQU9xYjZVQWMvd0NIdkNlaG1KTlRPamFmL2FVOFpTVzgreXA1MGk3czRaOFpJNEhVOWhRQnB0NFcwVmlTZElzQ1QzTnNuK0ZBSC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                            sizes="6vw"
-                                            src="https://sqp.fr/storage/products/brands/11/medias/30/samsung.png"
-                                            width="290" height="96">
-
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-                                    <div
-                                        class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
-                                        Promo jusqu'au 04/11/2022
-                                    </div>
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD1T-SAM980/PROMO</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>MZ-V8V1T0BW-PROMO</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Samsung 980 - M.2 2280 1TB - PCIe 3.0 x4 NVMe - 0.33 DWPD - Promo jusqu'au 31/08 sur
-                                        stock dispo</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">74,00€ HT</p>
-                                        <p class="mt-1 text-xs font-bold text-center uppercase text-secondary-300">+0,02€
-                                            d'éco-participation</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-primary-500">En stock</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:EapFBOJGCj8UVyzAGG1H -->
+                            <!-- Livewire Component wire-end:PDNgyxQn71w9dxjF72qM -->
                             <div class="grid col-span-full">
                                 <a class="button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover --is-primary"
                                     href="https://sqp.fr/promotions-stockage-professionnel">
 
 
                                     <span class="button__caption">
-                                        Toutes les promotions (9 produits)
+                                        Toutes les promotions ({{ $promosCount }} produits)
                                     </span>
 
                                     <span class="button__trailing">
@@ -1036,7 +303,7 @@
                                             fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
                                                 d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
+                                                clip-rule="evenodd" />
                                         </svg>
                                     </span>
 
@@ -1054,25 +321,26 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4 swiper-slide-next swiper-slide-duplicate-prev"
-                            data-swiper-slide-index="1" role="group" aria-label="2 / 2" style="width: 1248px;">
-                            <a wire:id="wVzbKCcEAhUqJASVxRmP"
-                                href="https://sqp.fr/distributeur-m2/ssd-crucial-p3-plus-m2-2280-1tb-pcie-40-x4-nvme-012-dwpd"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_1024_768.jpg 1024w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_856_642.jpg 856w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_716_537.jpg 716w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_599_449.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3NjgiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9Ijc2OCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FHQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVEMvOGQ2SnBrdmwzT29RUlA2TTRGSzQ3RlVmRTN3MmYrWXJiZjhBZndVWEVJZmloNGFCL3dDUXRiZjkvQlRBdWFiNDUwWFY1Zkx0TCtHWi9SSEJwWEhZL0xmOXF3ZVBMbjRqeXBwajNxV2c3eDV4VVJSVFBCdFRnK0tsdS84QW84bXBPUDhBZ1ZhRUZPMWgrSzhrbjcwNmt2OEEzMVFCOUwvc2EyWGo5ZkhLTnFyWGh0eC96MXppc2Fua2F3dDFQMDB2dkFXaDZsTVpiblQ0SlhQOFRJRFd4a1Z2K0ZZK0cvOEFvRlczL2ZBb0FQOEFoV0hodi9vRTIzL2ZzVUFYdE44RjZQcEQ3N1N4aGhiMVZRS1ZyZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/65278/medias/46580/ssd1t-crucp3-65278.jpg"
-                                        width="1024" height="768">
+                        <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4">
 
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
+                            @foreach ($homeNouveautes as $nouveaute)
+                                <a wire:id="oGjxfKfWqwWrIj7jkipc"
+                                    wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;oGjxfKfWqwWrIj7jkipc&quot;,&quot;name&quot;:&quot;website.products.item&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;aa3f45af&quot;,&quot;data&quot;:{&quot;product&quot;:[],&quot;viewName&quot;:&quot;website.products.livewire.item.forGrid&quot;,&quot;quantity&quot;:1},&quot;dataMeta&quot;:{&quot;models&quot;:{&quot;product&quot;:{&quot;class&quot;:&quot;App\\Domain\\Products\\Models\\Product&quot;,&quot;id&quot;:65278,&quot;relations&quot;:[&quot;url&quot;,&quot;media&quot;,&quot;media.model&quot;,&quot;brand&quot;,&quot;brand.media&quot;,&quot;promotion&quot;,&quot;arrival&quot;],&quot;connection&quot;:&quot;mysql&quot;}}},&quot;checksum&quot;:&quot;555740e3daa22ed5a7706d0a1e838e69447d319fa3ecd938064aea16b1763ac5&quot;}}"
+                                    href="https://sqp.fr/distributeur-m2/ssd-crucial-p3-plus-m2-2280-1tb-pcie-40-x4-nvme-012-dwpd"
+                                    class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
+                                    <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
+                                        <img class="h-full w-full object-contain"
+                                            srcset="https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_1024_768.jpg 1024w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_856_642.jpg 856w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_716_537.jpg 716w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_599_449.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3NjgiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9Ijc2OCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FHQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVEMvOGQ2SnBrdmwzT29RUlA2TTRGSzQ3RlVmRTN3MmYrWXJiZjhBZndVWEVJZmloNGFCL3dDUXRiZjkvQlRBdWFiNDUwWFY1Zkx0TCtHWi9SSEJwWEhZL0xmOXF3ZVBMbjRqeXBwajNxV2c3eDV4VVJSVFBCdFRnK0tsdS84QW84bXBPUDhBZ1ZhRUZPMWgrSzhrbjcwNmt2OEEzMVFCOUwvc2EyWGo5ZkhLTnFyWGh0eC96MXppc2Fua2F3dDFQMDB2dkFXaDZsTVpiblQ0SlhQOFRJRFd4a1Z2K0ZZK0cvOEFvRlczL2ZBb0FQOEFoV0hodi9vRTIzL2ZzVUFYdE44RjZQcEQ3N1N4aGhiMVZRS1ZyZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
+                                            sizes="1px"
+                                            src="https://sqp.fr/storage/products/products/65278/medias/46580/ssd1t-crucp3-65278.jpg"
+                                            width="1024" height="768">
 
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
+                                    </div>
+                                    <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
+
+                                        <table class="w-full text-xs uppercase border-separate"
+                                            style="border-spacing: 0 .25rem">
                                             <tr class="text-primary-500">
                                                 <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
                                                 <th>SSD1T-CRUCP3+</th>
@@ -1081,373 +349,81 @@
                                                 <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
                                                 <th>CT1000P3PSSD8</th>
                                             </tr>
-                                        </tbody>
-                                    </table>
+                                        </table>
 
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Crucial P3 Plus - M.2 2280 1TB - PCIe 4.0 x4 NVMe - 0.12 DWPD</span>
+                                        <span
+                                            class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
+                                            Crucial P3 Plus - M.2 2280 1TB - PCIe 4.0 x4 NVMe - 0.12 DWPD</span>
 
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">101,12€ HT</p>
+
+                                        <div class="mb-2">
+                                            <p class="text-xs font-bold text-center uppercase text-secondary-300">Épuisé
+                                                provisoirement</p>
+                                        </div>
+
+                                        <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
+                                            <button class="button group --is-outlined --is-small --is-tertiary"
+                                                wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
+                                                type="button">
+
+
+                                                <span class="button__caption">
+                                                    Comparer
+                                                </span>
+
+
+                                                <span class="button__spinner">
+                                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24">
+                                                        <circle class="opacity-25" cx="12" cy="12"
+                                                            r="10" stroke="currentColor" stroke-width="4">
+                                                        </circle>
+                                                        <path class="opacity-75" fill="currentColor"
+                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+
+                                            <a class="button group w-full px-4 text-center --is-small --is-tertiary"
+                                                wire:loading.class="--is-loading"
+                                                href="{{ route('addToCart', $nouveaute->slug) }}" type="button">
+
+
+                                                <span class="button__caption">
+                                                    <span class="sr-only">Ajouter au panier</span>
+                                                    <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
+                                                    </svg>
+                                                </span>
+
+
+                                                <span class="button__spinner">
+                                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24">
+                                                        <circle class="opacity-25" cx="12" cy="12"
+                                                            r="10" stroke="currentColor" stroke-width="4">
+                                                        </circle>
+                                                        <path class="opacity-75" fill="currentColor"
+                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </div>
                                     </div>
+                                </a>
+                            @endforeach
 
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-secondary-300">Épuisé
-                                            provisoirement</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:wVzbKCcEAhUqJASVxRmP --> <a wire:id="KX4gG89uWzRdPW3lW71i"
-                                href="https://sqp.fr/distributeur-m2/ssd-crucial-p3-plus-m2-2280-500gb-pcie-40-x4-nvme-012-dwpd"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/65277/medias/46579/responsive-images/ssd500-crucp3-65277___media_library_original_1024_768.jpg 1024w, https://sqp.fr/storage/products/products/65277/medias/46579/responsive-images/ssd500-crucp3-65277___media_library_original_856_642.jpg 856w, https://sqp.fr/storage/products/products/65277/medias/46579/responsive-images/ssd500-crucp3-65277___media_library_original_716_537.jpg 716w, https://sqp.fr/storage/products/products/65277/medias/46579/responsive-images/ssd500-crucp3-65277___media_library_original_599_449.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3NjgiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9Ijc2OCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FHQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVEMvOGQ2SnBrdmwzT29RUlA2TTRGSzQ3RlVmRTN3MmYrWXJiZjhBZndVWEVJZmloNGFCL3dDUXRiZjkvQlRBdWFiNDUwWFY1Zkx0TCtHWi9SSEJwWEhZL0xmOXF3ZVBMbjRqeXBwajNxV2c3eDV4VVJSVFBCdFRnK0tsdS84QW84bXBPUDhBZ1ZhRUZPMWgrSzhrbjcwNmt2OEEzMVFCOUwvc2EyWGo5ZkhLTnFyWGh0eC96MXppc2Fua2F3dDFQMDB2dkFXaDZsTVpiblQ0SlhQOFRJRFd4a1Z2K0ZZK0cvOEFvRlczL2ZBb0FQOEFoV0hodi9vRTIzL2ZzVUFYdE44RjZQcEQ3N1N4aGhiMVZRS1ZyZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/65277/medias/46579/ssd500-crucp3-65277.jpg"
-                                        width="1024" height="768">
-
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD500-CRUCP3+</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>CT500P3PSSD8</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Crucial P3 Plus - M.2 2280 500GB - PCIe 4.0 x4 NVMe - 0.12 DWPD</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">64,04€ HT</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-secondary-300">Épuisé
-                                            provisoirement</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:KX4gG89uWzRdPW3lW71i --> <a wire:id="fsRQbWx51SESvahaBf1e"
-                                href="https://sqp.fr/distributeur-m2/ssd-crucial-p3-plus-m2-2280-4tb-pcie-40-x4-nvme-011-dwpd"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/65280/medias/46582/responsive-images/ssd4t-crucp3-65280___media_library_original_1024_768.jpg 1024w, https://sqp.fr/storage/products/products/65280/medias/46582/responsive-images/ssd4t-crucp3-65280___media_library_original_856_642.jpg 856w, https://sqp.fr/storage/products/products/65280/medias/46582/responsive-images/ssd4t-crucp3-65280___media_library_original_716_537.jpg 716w, https://sqp.fr/storage/products/products/65280/medias/46582/responsive-images/ssd4t-crucp3-65280___media_library_original_599_449.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3NjgiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9Ijc2OCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FHQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVEMvOGQ2SnBrdmwzT29RUlA2TTRGSzQ3RlVmRTN3MmYrWXJiZjhBZndVWEVJZmloNGFCL3dDUXRiZjkvQlRBdWFiNDUwWFY1Zkx0TCtHWi9SSEJwWEhZL0xmOXF3ZVBMbjRqeXBwajNxV2c3eDV4VVJSVFBCdFRnK0tsdS84QW84bXBPUDhBZ1ZhRUZPMWgrSzhrbjcwNmt2OEEzMVFCOUwvc2EyWGo5ZkhLTnFyWGh0eC96MXppc2Fua2F3dDFQMDB2dkFXaDZsTVpiblQ0SlhQOFRJRFd4a1Z2K0ZZK0cvOEFvRlczL2ZBb0FQOEFoV0hodi9vRTIzL2ZzVUFYdE44RjZQcEQ3N1N4aGhiMVZRS1ZyZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/65280/medias/46582/ssd4t-crucp3-65280.jpg"
-                                        width="1024" height="768">
-
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD4T-CRUCP3+</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>CT4000P3PSSD8</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Crucial P3 Plus - M.2 2280 4TB - PCIe 4.0 x4 NVMe - 0.11 DWPD</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">432,58€ HT</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-secondary-300">Épuisé
-                                            provisoirement</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:fsRQbWx51SESvahaBf1e --> <a wire:id="sjtIG6f6Bg0UPceG9dVU"
-                                href="https://sqp.fr/distributeur-m2/ssd-crucial-p3-plus-m2-2280-2tb-pcie-40-x4-nvme-012-dwpd"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/65279/medias/46581/responsive-images/ssd2t-crucp3-65279___media_library_original_1024_768.jpg 1024w, https://sqp.fr/storage/products/products/65279/medias/46581/responsive-images/ssd2t-crucp3-65279___media_library_original_856_642.jpg 856w, https://sqp.fr/storage/products/products/65279/medias/46581/responsive-images/ssd2t-crucp3-65279___media_library_original_716_537.jpg 716w, https://sqp.fr/storage/products/products/65279/medias/46581/responsive-images/ssd2t-crucp3-65279___media_library_original_599_449.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3NjgiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9Ijc2OCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FHQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVEMvOGQ2SnBrdmwzT29RUlA2TTRGSzQ3RlVmRTN3MmYrWXJiZjhBZndVWEVJZmloNGFCL3dDUXRiZjkvQlRBdWFiNDUwWFY1Zkx0TCtHWi9SSEJwWEhZL0xmOXF3ZVBMbjRqeXBwajNxV2c3eDV4VVJSVFBCdFRnK0tsdS84QW84bXBPUDhBZ1ZhRUZPMWgrSzhrbjcwNmt2OEEzMVFCOUwvc2EyWGo5ZkhLTnFyWGh0eC96MXppc2Fua2F3dDFQMDB2dkFXaDZsTVpiblQ0SlhQOFRJRFd4a1Z2K0ZZK0cvOEFvRlczL2ZBb0FQOEFoV0hodi9vRTIzL2ZzVUFYdE44RjZQcEQ3N1N4aGhiMVZRS1ZyZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/65279/medias/46581/ssd2t-crucp3-65279.jpg"
-                                        width="1024" height="768">
-
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD2T-CRUCP3+</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>CT2000P3PSSD8</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Crucial P3 Plus - M.2 2280 2TB - PCIe 4.0 x4 NVMe - 0.12 DWPD</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">204,49€ HT
-                                        </p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-secondary-300">Épuisé
-                                            provisoirement</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:sjtIG6f6Bg0UPceG9dVU -->
                             <div class="grid col-span-full">
                                 <a class="button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover --is-primary"
                                     href="https://sqp.fr/nouveautes-stockage-professionnel">
 
 
                                     <span class="button__caption">
-                                        Toutes les nouveautés (151 produits)
+                                        Toutes les nouveautés ({{ $nouveautesCount }} Produits)
                                     </span>
 
                                     <span class="button__trailing">
@@ -1455,489 +431,7 @@
                                             fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
                                                 d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </span>
-
-                                    <span class="button__spinner">
-                                        <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24">
-                                            <circle class="opacity-25" cx="12" cy="12" r="10"
-                                                stroke="currentColor" stroke-width="4"></circle>
-                                            <path class="opacity-75" fill="currentColor"
-                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                            </path>
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4 swiper-slide-duplicate swiper-slide-duplicate-active"
-                            data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 1248px;">
-                            <a wire:id="JM4YHV1KhDsckDWQN0pd"
-                                href="https://sqp.fr/distributeur-25/ssd-samsung-870-qvo-25-1tb-sata-6gbps-033-dwpd-promo-jusquau-3108-sur-stock-dispo"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_768_768.jpg 768w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_642_642.jpg 642w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_537_537.jpg 537w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_449_449.jpg 449w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_376_376.jpg 376w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzY4IDc2OCI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2OCIgaGVpZ2h0PSI3NjgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBSUFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBL1JMeEY4WXREOE5YWnQ3dTRWSkIySnFsRnNEbjUvMmxmQ2x1UG12Rkg0MCtSaU0rWDlyRHdaRVNHdmsvNzZvNVdNMS9DZjdSZmhmeGhxSzJWamRxOHpkQURTY1dnUGtYOXBUVjJnOFp6TDVoSHRtdWlHeExQblB4RDRvTWU1VE13UDFxd09JdU5Za3ZKU0VtWS9qU0E5dy9aSk0vL0N5TGZkSXhIb1RVVDJCSFFmdFdhaE5INCtuVlZZajJGRU5nWjgzNjlPU2hrbGpjajZWYkFUUWRPKzJoWkk0bXdmYWdSOUwvQUxLK2d5UWVPN2VReGtmaFV6MkdqN244Vy9zN2VHZkdPb3RlWDFxcnlucVNLNTFKb281dTUvWTc4RDNTYlpMQkdIMHA4ekFtc1AyUnZCV25vRmlzVVVEL0FHYVhNd09zOEwvQXp3LzRVdkZ1Yk8yVkpCMElGRGsyQi8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/60604/medias/43297/ssd1t-sam870qvopromo-60604.jpg"
-                                        width="768" height="768">
-
-                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
-                                        <img class="block object-contain object-left w-auto h-full mb-2"
-                                            srcset="https://sqp.fr/storage/products/brands/11/medias/30/responsive-images/samsung___media_library_original_290_96.png 290w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkwIDk2Ij4KCTxpbWFnZSB3aWR0aD0iMjkwIiBoZWlnaHQ9Ijk2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWRBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9RdXp0dkhHdkkyN1dwTkV0OGdvL3dCa2dhNWJCT2R3S3NpZzhjRGNSajczUEFCcitGZmg5QjRZbFc0azFQVk5WdUZVcUpkVHY1YmtwbkdkdTlqdHpnWnhqb0tBTlBWdkdPa2FLam04djRJTm5VTTRCb0E4NTFqKzFQRk9yUzMrbTZacU9tUk1nVDdTODk1Wm01QUxZK1dHTmlRT2NGd09IeXVRU2FBUFh3T2FBR3ovQU9xYjZVQWMvd0NIdkNlaG1KTlRPamFmL2FVOFpTVzgreXA1MGk3czRaOFpJNEhVOWhRQnB0NFcwVmlTZElzQ1QzTnNuK0ZBSC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                            sizes="6vw"
-                                            src="https://sqp.fr/storage/products/brands/11/medias/30/samsung.png"
-                                            width="290" height="96">
-
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-                                    <div
-                                        class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
-                                        Promo jusqu'au 04/11/2022
-                                    </div>
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD1T-SAM870QVO/PROMO</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>MZ-77Q1T0BW-PROMO</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Samsung 870 QVO - 2,5" 1TB - SATA 6Gbps - 0.33 DWPD - Promo jusqu'au 31/08 sur stock
-                                        dispo</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">61,50€ HT</p>
-                                        <p class="mt-1 text-xs font-bold text-center uppercase text-secondary-300">+0,02€
-                                            d'éco-participation</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-primary-500">En stock</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:JM4YHV1KhDsckDWQN0pd --> <a wire:id="drKOb9wUmIKnDBxSSciS"
-                                href="https://sqp.fr/distributeur-25/ssd-samsung-870-evo-25-1tb-sata-6gbps-033-dwpd-promo-jusquau-3108-sur-stock-dispo"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_1024_714.jpg 1024w, https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_856_597.jpg 856w, https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_716_499.jpg 716w, https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_599_418.jpg 599w, https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_501_349.jpg 501w, https://sqp.fr/storage/products/products/61611/medias/43304/responsive-images/ssd1t-sam870evopromo-61611___media_library_original_419_292.jpg 419w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3MTQiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjcxNCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FGZ0FnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEE4cDhWK01GZmY4d3pYUVpIa1hpSHhBMHhmYWMwcmpzY0JxVjlJN0hxS2tZM3cxY3lqVjR5RDNwTkFkZHIzaWg1Sm1HLzlhcTRDYVo0bTB3VzVXNWgzdjYwZ01yeEhxdW1YY095MmdDTjYwQVovaFNFZjJwR1NPTTBBVDYzcERSM2pMNXVhQUwvQUlLOFBRM21ySWs1OHhQU2xjWkw0cThNd1FhdklrSjJJTzFNQzc0UDhOckpxa1E4d1VBZi85az0iPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/61611/medias/43304/ssd1t-sam870evopromo-61611.jpg"
-                                        width="1024" height="714">
-
-                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
-                                        <img class="block object-contain object-left w-auto h-full mb-2"
-                                            srcset="https://sqp.fr/storage/products/brands/11/medias/30/responsive-images/samsung___media_library_original_290_96.png 290w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkwIDk2Ij4KCTxpbWFnZSB3aWR0aD0iMjkwIiBoZWlnaHQ9Ijk2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWRBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9RdXp0dkhHdkkyN1dwTkV0OGdvL3dCa2dhNWJCT2R3S3NpZzhjRGNSajczUEFCcitGZmg5QjRZbFc0azFQVk5WdUZVcUpkVHY1YmtwbkdkdTlqdHpnWnhqb0tBTlBWdkdPa2FLam04djRJTm5VTTRCb0E4NTFqKzFQRk9yUzMrbTZacU9tUk1nVDdTODk1Wm01QUxZK1dHTmlRT2NGd09IeXVRU2FBUFh3T2FBR3ovQU9xYjZVQWMvd0NIdkNlaG1KTlRPamFmL2FVOFpTVzgreXA1MGk3czRaOFpJNEhVOWhRQnB0NFcwVmlTZElzQ1QzTnNuK0ZBSC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                            sizes="6vw"
-                                            src="https://sqp.fr/storage/products/brands/11/medias/30/samsung.png"
-                                            width="290" height="96">
-
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-                                    <div
-                                        class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
-                                        Promo jusqu'au 04/11/2022
-                                    </div>
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD1T-SAM870EVO/PROMO</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>MZ-77E1T0B/EU-PROMO</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Samsung 870 EVO - 2,5" 1TB - SATA 6Gbps - 0.33 DWPD - Promo jusqu'au 31/08 sur stock
-                                        dispo</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">98,50€ HT</p>
-                                        <p class="mt-1 text-xs font-bold text-center uppercase text-secondary-300">+0,02€
-                                            d'éco-participation</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-primary-500">En stock</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:drKOb9wUmIKnDBxSSciS --> <a wire:id="tYou0Lhv8xkf6iPszgEn"
-                                href="https://sqp.fr/distributeur-25/ssd-samsung-870-evo-25-500gb-sata-6gbps-033-dwpd-promo-jusquau-3108-sur-stock-dispo"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_1024_714.jpg 1024w, https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_856_597.jpg 856w, https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_716_499.jpg 716w, https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_599_418.jpg 599w, https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_501_349.jpg 501w, https://sqp.fr/storage/products/products/61612/medias/43305/responsive-images/ssd500-sam870evopromo-61612___media_library_original_419_292.jpg 419w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3MTQiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjcxNCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FGZ0FnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEE4cDhWK01GZmY4d3pYUVpIa1hpSHhBMHhmYWMwcmpzY0JxVjlJN0hxS2tZM3cxY3lqVjR5RDNwTkFkZHIzaWg1Sm1HLzlhcTRDYVo0bTB3VzVXNWgzdjYwZ01yeEhxdW1YY095MmdDTjYwQVovaFNFZjJwR1NPTTBBVDYzcERSM2pMNXVhQUwvQUlLOFBRM21ySWs1OHhQU2xjWkw0cThNd1FhdklrSjJJTzFNQzc0UDhOckpxa1E4d1VBZi85az0iPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/61612/medias/43305/ssd500-sam870evopromo-61612.jpg"
-                                        width="1024" height="714">
-
-                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
-                                        <img class="block object-contain object-left w-auto h-full mb-2"
-                                            srcset="https://sqp.fr/storage/products/brands/11/medias/30/responsive-images/samsung___media_library_original_290_96.png 290w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkwIDk2Ij4KCTxpbWFnZSB3aWR0aD0iMjkwIiBoZWlnaHQ9Ijk2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWRBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9RdXp0dkhHdkkyN1dwTkV0OGdvL3dCa2dhNWJCT2R3S3NpZzhjRGNSajczUEFCcitGZmg5QjRZbFc0azFQVk5WdUZVcUpkVHY1YmtwbkdkdTlqdHpnWnhqb0tBTlBWdkdPa2FLam04djRJTm5VTTRCb0E4NTFqKzFQRk9yUzMrbTZacU9tUk1nVDdTODk1Wm01QUxZK1dHTmlRT2NGd09IeXVRU2FBUFh3T2FBR3ovQU9xYjZVQWMvd0NIdkNlaG1KTlRPamFmL2FVOFpTVzgreXA1MGk3czRaOFpJNEhVOWhRQnB0NFcwVmlTZElzQ1QzTnNuK0ZBSC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                            sizes="6vw"
-                                            src="https://sqp.fr/storage/products/brands/11/medias/30/samsung.png"
-                                            width="290" height="96">
-
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-                                    <div
-                                        class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
-                                        Promo jusqu'au 04/11/2022
-                                    </div>
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD500-SAM870EVO/PROMO</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>MZ-77E500B/EU-PROMO</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Samsung 870 EVO - 2,5" 500GB - SATA 6Gbps - 0.33 DWPD - Promo jusqu'au 31/08 sur
-                                        stock dispo</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">43,50€ HT</p>
-                                        <p class="mt-1 text-xs font-bold text-center uppercase text-secondary-300">+0,02€
-                                            d'éco-participation</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-primary-500">En stock</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:tYou0Lhv8xkf6iPszgEn --> <a wire:id="EapFBOJGCj8UVyzAGG1H"
-                                href="https://sqp.fr/distributeur-pcie-2/ssd-samsung-980-m2-2280-1tb-pcie-30-x4-nvme-033-dwpd-promo-jusquau-3108-sur-stock-dispo"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
-                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/62310/medias/43308/responsive-images/ssd1t-sam980promo-62310___media_library_original_768_768.jpg 768w, https://sqp.fr/storage/products/products/62310/medias/43308/responsive-images/ssd1t-sam980promo-62310___media_library_original_642_642.jpg 642w, https://sqp.fr/storage/products/products/62310/medias/43308/responsive-images/ssd1t-sam980promo-62310___media_library_original_537_537.jpg 537w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzY4IDc2OCI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2OCIgaGVpZ2h0PSI3NjgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBSUFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBL1UvSW9BTWlnQXlLQURJb0ErT3ZpbCsyczNnTHhCTHB3dGQ1VHZTdUI1VHFmL0JUYzZmTVl6WmNpbUJSaC80S2l0TklFRmxqUGVuWUQxZjRLL3R5TjhTL0VrZW10YTdBL2NWak9YS1hHTnhQaXIrdy9jK1B2RWsycEMrS2IrMWFXSnVlWVh2L0FBVEJhOWxMdnFCSk5QWVFsdjhBOEV1STR5Q2I3bW5jRDE3NElmc1BRZkMzWFUxQTNIbWxlbWF6bkhtS1RzZll1QlZraGdVQUdCUUFZRkFILzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="20vw"
-                                        src="https://sqp.fr/storage/products/products/62310/medias/43308/ssd1t-sam980promo-62310.jpg"
-                                        width="768" height="768">
-
-                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
-                                        <img class="block object-contain object-left w-auto h-full mb-2"
-                                            srcset="https://sqp.fr/storage/products/brands/11/medias/30/responsive-images/samsung___media_library_original_290_96.png 290w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkwIDk2Ij4KCTxpbWFnZSB3aWR0aD0iMjkwIiBoZWlnaHQ9Ijk2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWRBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9RdXp0dkhHdkkyN1dwTkV0OGdvL3dCa2dhNWJCT2R3S3NpZzhjRGNSajczUEFCcitGZmg5QjRZbFc0azFQVk5WdUZVcUpkVHY1YmtwbkdkdTlqdHpnWnhqb0tBTlBWdkdPa2FLam04djRJTm5VTTRCb0E4NTFqKzFQRk9yUzMrbTZacU9tUk1nVDdTODk1Wm01QUxZK1dHTmlRT2NGd09IeXVRU2FBUFh3T2FBR3ovQU9xYjZVQWMvd0NIdkNlaG1KTlRPamFmL2FVOFpTVzgreXA1MGk3czRaOFpJNEhVOWhRQnB0NFcwVmlTZElzQ1QzTnNuK0ZBSC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
-                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                            sizes="6vw"
-                                            src="https://sqp.fr/storage/products/brands/11/medias/30/samsung.png"
-                                            width="290" height="96">
-
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-                                    <div
-                                        class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
-                                        Promo jusqu'au 04/11/2022
-                                    </div>
-
-                                    <table class="w-full text-xs uppercase border-separate"
-                                        style="border-spacing: 0 .25rem">
-                                        <tbody>
-                                            <tr class="text-primary-500">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                                <th>SSD1T-SAM980/PROMO</th>
-                                            </tr>
-                                            <tr class="text-secondary-300">
-                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                                <th>MZ-V8V1T0BW-PROMO</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Samsung 980 - M.2 2280 1TB - PCIe 3.0 x4 NVMe - 0.33 DWPD - Promo jusqu'au 31/08 sur
-                                        stock dispo</span>
-
-                                    <div class="mb-4">
-                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">74,00€ HT</p>
-                                        <p class="mt-1 text-xs font-bold text-center uppercase text-secondary-300">+0,02€
-                                            d'éco-participation</p>
-                                    </div>
-
-                                    <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-primary-500">En stock</p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
-                                        <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                Comparer
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
-
-
-                                            <span class="button__caption">
-                                                <span class="sr-only">Ajouter au panier</span>
-                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-
-
-                                            <span class="button__spinner">
-                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none" viewBox="0 0 24 24">
-                                                    <circle class="opacity-25" cx="12" cy="12"
-                                                        r="10" stroke="currentColor" stroke-width="4">
-                                                    </circle>
-                                                    <path class="opacity-75" fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Livewire Component wire-end:EapFBOJGCj8UVyzAGG1H -->
-                            <div class="grid col-span-full">
-                                <a class="button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover --is-primary"
-                                    href="https://sqp.fr/promotions-stockage-professionnel">
-
-
-                                    <span class="button__caption">
-                                        Toutes les promotions (9 produits)
-                                    </span>
-
-                                    <span class="button__trailing">
-                                        <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                            fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
+                                                clip-rule="evenodd" />
                                         </svg>
                                     </span>
 
@@ -1955,129 +449,7 @@
                             </div>
                         </div>
                     </div>
-                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                 </div>
             </div>
         </div>
-
-        <div class="relative z-10 px-4 py-8 mb-16 bg-secondary-700">
-            <div class="mx-auto max-w-big">
-                <div class="relative flex justify-center w-full lg:justify-start">
-                    <hr class="absolute w-full border-secondary-600" style="z-index: -1">
-                    <p
-                        class="inline-flex items-center h-8 px-4 mx-2 -mt-4 text-sm font-bold uppercase text-tertiary-500 lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700">
-                        Actualités</p>
-                </div>
-                <div class="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-
-                    <div class="flex flex-col bg-secondary-600 xl:col-span-2">
-                        <div class="w-full h-48">
-                            <img class="object-cover w-full h-full"
-                                srcset="https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_660_225.jpg 660w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_552_188.jpg 552w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_462_158.jpg 462w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_386_132.jpg 386w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_323_110.jpg 323w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_270_92.jpg 270w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_226_77.jpg 226w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_189_64.jpg 189w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNjYwIDIyNSI+Cgk8aW1hZ2Ugd2lkdGg9IjY2MCIgaGVpZ2h0PSIyMjUiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBQ3dBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBK2ZkUStLYzk3cGZsU044cEdLK2hkVnlWajVWWU9NTlVlVDZBc2MvaWk3dWNodDJldGVSV1RjdEQxYWRhRkNIdnV4Sm9VaTZCNHZtdWR3Qlk1QXJhZ3VVd3IxSTRoZTZlbDY3OFVybVhTRWlEY2RLOUgycjJPSllLRjdubWwweC9zNWVUMHJtUFVsc2MxbzAwa1Z6Y0ZHS24xRmNyM1Buc3cxYVRHeFR5UzZzUzdsajcwNGJuWmdrbEE2TFUyUDhBWjhmTmRaNjNRLy9aIj4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
-                                onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="36vw" src="https://sqp.fr/storage/blog/posts/11/medias/45907/NS1.jpg"
-                                width="660" height="225">
-
-                        </div>
-                        <div class="flex flex-col justify-between flex-1 p-4">
-                            <h3 class="text-sm font-medium text-white uppercase">
-                                La garantie J+1 et le service premium NASExchange
-                            </h3>
-                            <a href="https://sqp.fr/la-garantie-j1-et-le-service-premium-nasexchange"
-                                class="mt-8 text-sm font-bold uppercase text-primary-500 hover:text-primary-600">Lire la
-                                suite</a>
-                        </div>
-                    </div>
-                    <div class="flex flex-col bg-secondary-600 ">
-                        <div class="w-full h-48">
-                            <img class="object-cover w-full h-full"
-                                srcset="https://sqp.fr/storage/blog/posts/10/medias/45890/responsive-images/logo_QNAP_LOGO_K70___media_library_original_354_236.png 354w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMzU0IDIzNiI+Cgk8aW1hZ2Ugd2lkdGg9IjM1NCIgaGVpZ2h0PSIyMzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBRlFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBL1JnMytoaUpYLzRRbTlMRmlDZzBkY2dESEo3WU9UMzdIcHhrQWIvYVdpZjlDTGYvQVBnb1QvR2dCeHY5REVTdi93QUlUZWxpeEJRYU91UUJqazlzSEo3OWowNHlBTi90TFJQK2hGdi9BUHdVSi9qUUI1UiswejhLZkdQeDUrR2FlSGJieEI0Y3RUQnFFT291SjVwNDdhN1FKSTNrU09xa2JWVnhLQnRZL3VveVFNaHdBZk85dCt3bjQ5dDlMbEE4UmVDTFc1L2RwYTI4R3IzWGtHM1V0Y09OeHQ4Z0t4aWtVQUVmTVdKQndTQVY0djhBZ256NHljTFpIeEY0T3Q5RnVHZ3ViOHgzbHkwWG1La2hWMWo4a0pLeVJ2S1ZKWlNGa1kvS0d5UUQ2eCtEUHczMVA0SWZEMnc4TGFWNGgwaStqUmpjeVhsL2VTdTByN1VkL0xSaVZpaUNCY0lnQVZUdXlXWXV3QjZWL3dBS3g4TS85QTMvQU1qeS93RHhWQUIvd3JId3ovMERmL0k4di94VkFCL3dySHd6L3dCQTMveVBMLzhBRlVBSC9Dc2ZEUDhBMERmL0FDUEwvd0RGVUFmLzJRPT0iPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
-                                onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="17vw"
-                                src="https://sqp.fr/storage/blog/posts/10/medias/45890/logo_QNAP_LOGO_K70.png"
-                                width="354" height="236">
-
-                        </div>
-                        <div class="flex flex-col justify-between flex-1 p-4">
-                            <h3 class="text-sm font-medium text-white uppercase">
-                                Dernières nouveautés QNAP
-                            </h3>
-                            <a href="https://sqp.fr/dernieres-nouveautes-qnap"
-                                class="mt-8 text-sm font-bold uppercase text-primary-500 hover:text-primary-600">Lire la
-                                suite</a>
-                        </div>
-                    </div>
-                    <div class="flex flex-col bg-secondary-600 ">
-                        <div class="w-full h-48">
-                            <img class="object-cover w-full h-full"
-                                srcset="https://sqp.fr/storage/blog/posts/8/medias/45926/responsive-images/FS3410___media_library_original_283_185.jpg 283w, https://sqp.fr/storage/blog/posts/8/medias/45926/responsive-images/FS3410___media_library_original_236_154.jpg 236w, https://sqp.fr/storage/blog/posts/8/medias/45926/responsive-images/FS3410___media_library_original_198_129.jpg 198w, https://sqp.fr/storage/blog/posts/8/medias/45926/responsive-images/FS3410___media_library_original_165_108.jpg 165w, https://sqp.fr/storage/blog/posts/8/medias/45926/responsive-images/FS3410___media_library_original_138_90.jpg 138w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjgzIDE4NSI+Cgk8aW1hZ2Ugd2lkdGg9IjI4MyIgaGVpZ2h0PSIxODUiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBRlFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBKzUvRTl0TkxlS1k1L0xycFpnaTE0ZnNwNFpBWG5FZ29HenFGNlZSSTZnRHhueDM0L3dCSnRyOG9kVGhpZGVxbHhVTW96dEErTTJoYWZPRGM2dkFWL3dCOFVYQm5UTiswUDRPVEEvdFdFbi9lRk82Rlk2M3c5NDYwcnhOYmlheXVrbFE5d2FkeEg1OS9GTHdRTlE4VjNMdnFWMHVUMEIvK3ZYTmMyc2NhZmhwQXg1MUs2UDhBd0wvNjlGd0cvd0RDcjdWV0IvdEM2Sno2L3dEMTZMZ2o2dCtBT2hmMmJvc1NKZFNzQi9lTldtSm8vOWs9Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
-                                onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="17vw" src="https://sqp.fr/storage/blog/posts/8/medias/45926/FS3410.jpg"
-                                width="283" height="185">
-
-                        </div>
-                        <div class="flex flex-col justify-between flex-1 p-4">
-                            <h3 class="text-sm font-medium text-white uppercase">
-                                Synology® annonce le NAS Full Flash FS3410 - pour les entreprises et les studios de
-                                production
-                            </h3>
-                            <a href="https://sqp.fr/synology-annonce-le-nas-full-flash-fs3410-pour-les-entreprises-et-les-studios-de-production"
-                                class="mt-8 text-sm font-bold uppercase text-primary-500 hover:text-primary-600">Lire la
-                                suite</a>
-                        </div>
-                    </div>
-                    <div class="flex flex-col bg-secondary-600 ">
-                        <div class="w-full h-48">
-                            <img class="object-cover w-full h-full"
-                                srcset="https://sqp.fr/storage/blog/posts/6/medias/45930/responsive-images/SSDSamsung___media_library_original_236_184.jpg 236w, https://sqp.fr/storage/blog/posts/6/medias/45930/responsive-images/SSDSamsung___media_library_original_197_154.jpg 197w, https://sqp.fr/storage/blog/posts/6/medias/45930/responsive-images/SSDSamsung___media_library_original_165_129.jpg 165w, https://sqp.fr/storage/blog/posts/6/medias/45930/responsive-images/SSDSamsung___media_library_original_138_108.jpg 138w, https://sqp.fr/storage/blog/posts/6/medias/45930/responsive-images/SSDSamsung___media_library_original_115_90.jpg 115w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjM2IDE4NCI+Cgk8aW1hZ2Ugd2lkdGg9IjIzNiIgaGVpZ2h0PSIxODQiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBR1FBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBK0JQQlBoYXkxYm05ZllEMHBYQTdZL0RYUVdKQ3paeFRBNHZ4VjRHRnBjLzZBZDhZb0E1S2JUcDRDUXlIaWdEbzlLMUZiYlNsdzIxODlhbnFCNmw4T3ByRFViR1ZyK1Rhd0hCSm9iUUhHNi9ONU9yM0FpbkloQjRwcGdjOXF0OUVJU053WnFBTUhUcmxCY1JKTWYzT2VhWUhxYWEzNGRzZE1qVzNsSWt4OHd6VU9OeHAySUx2VS9ETjNiNWR6NXBYcjcwMHJBM2M4dTFSa2E5bDhra3haK1dxRVZxQUpEOTJnQkQyb0FaUUIvL1oiPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
-                                onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="17vw" src="https://sqp.fr/storage/blog/posts/6/medias/45930/SSDSamsung.jpg"
-                                width="236" height="184">
-
-                        </div>
-                        <div class="flex flex-col justify-between flex-1 p-4">
-                            <h3 class="text-sm font-medium text-white uppercase">
-                                Samsung SSD Entreprise, jusqu'à 30 teras
-                            </h3>
-                            <a href="https://sqp.fr/samsung-ssd-entreprise-jusqua-30-teras"
-                                class="mt-8 text-sm font-bold uppercase text-primary-500 hover:text-primary-600">Lire la
-                                suite</a>
-                        </div>
-                    </div>
-
-                    <div class="grid col-span-full">
-                        <a class="button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover --is-primary"
-                            href="https://sqp.fr/liste-des-actualites">
-
-
-                            <span class="button__caption">
-                                Toutes les actualités
-                            </span>
-
-                            <span class="button__trailing">
-                                <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                    fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </span>
-
-                            <span class="button__spinner">
-                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10"
-                                        stroke="currentColor" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor"
-                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                    </path>
-                                </svg>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-@endsection
+    @endsection

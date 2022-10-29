@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('password');
             $table->integer('fax')->nullable();
             $table->string("moyen_payement")->nullable();
-            $table->string("transporteur");
+            $table->string("transporteur")->nullable();
 
             $table->foreignId('societe_id')
                 ->constrained('societes')
@@ -38,7 +38,7 @@ return new class extends Migration
                 ->nullable()
                 ->constrained('adresse_livraisons')
                 ->cascadeOnDelete();
-
+                
             $table->rememberToken();
             $table->timestamps();
         });

@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string("destinataire");
             $table->string("adresse");
-            $table->string("complement");
+            $table->string("complement")->nullable();
             $table->string("code_postal");
             $table->string("ville");
             $table->string("pays");
+
             $table->timestamps();
         });
     }
