@@ -260,7 +260,7 @@
                                 <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
                                     <label for="form.company_business_id"
                                         class="py-2 flex flex-col text-sm font-medium sm:mt-px ">
-                                        SIRET
+                                        Identifiant unique
                                     </label>
 
                                     <div class="mt-1 sm:mt-0 sm:col-span-2">
@@ -280,7 +280,7 @@
                                 <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
                                     <label for="form.company_kbis"
                                         class="py-2 flex flex-col text-sm font-medium sm:mt-px ">
-                                        KBIS
+                                        RNE
                                     </label>
 
                                     <div class="mt-1 sm:mt-0 sm:col-span-2">
@@ -308,26 +308,6 @@
                                             <input name="company_legal_status"
                                                 class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
                                                 id="form.company_legal_status" wire:model="form.company_legal_status" value="{{ old("company_legal_status") }}">
-
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
-                                    <label for="form.company_ape"
-                                        class="py-2 flex flex-col text-sm font-medium sm:mt-px ">
-                                        APE
-                                        <span class="mt-1 text-xs text-secondary-300 font-base">Facultatif</span>
-                                    </label>
-
-                                    <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                        <div class="relative flex max-w-lg bg-red-400 rounded-md shadow-sm">
-
-                                            <input name="company_ape"
-                                                class="bg-secondary-300 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                id="form.company_ape" wire:model="form.company_ape" value="{{ old("company_ape") }}">
 
 
 

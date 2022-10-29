@@ -19,10 +19,9 @@ return new class extends Migration
             $table->string("nomCommercial");
             $table->integer("numTel");
             $table->string("siteWeb")->nullable();
-            $table->string("siret");
-            $table->string("kbis");
+            $table->string("identifiantUnique");
+            $table->string("RNE");
             $table->string("formeJuridique")->nullable();
-            $table->string("ape")->nullable();
             $table->string("nomComptable")->nullable();
             $table->string("emailComptable")->nullable();
             $table->boolean("formatPapier")->nullable();
