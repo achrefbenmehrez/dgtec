@@ -1011,7 +1011,8 @@
                                         </button>
 
                                         <a class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:loading.class="--is-loading" type="button" href="{{ route('addToCart', $promo->slug) }}">
+                                            wire:loading.class="--is-loading" type="button"
+                                            href="{{ route('addToCart', $promo->slug) }}">
 
 
                                             <span class="button__caption">
@@ -1138,8 +1139,9 @@
                                             </span>
                                         </button>
 
-                                        <a class="button group w-full px-4 text-center --is-small --is-tertiary" wire:loading.class="--is-loading" href="{{ route('addToCart', $nouveaute->slug) }}"
-                                            type="button">
+                                        <a class="button group w-full px-4 text-center --is-small --is-tertiary"
+                                            wire:loading.class="--is-loading"
+                                            href="{{ route('addToCart', $nouveaute->slug) }}" type="button">
 
 
                                             <span class="button__caption">
@@ -1200,125 +1202,6 @@
                             </a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="relative z-10 px-4 py-8 mb-16 bg-secondary-700">
-        <div class="mx-auto max-w-big">
-            <div class="relative flex justify-center w-full lg:justify-start">
-                <hr class="absolute w-full border-secondary-600" style="z-index: -1">
-                <p
-                    class="inline-flex items-center h-8 px-4 mx-2 -mt-4 text-sm font-bold uppercase text-tertiary-500 lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700">
-                    Actualités</p>
-            </div>
-            <div class="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-
-                <div class="flex flex-col bg-secondary-600 xl:col-span-2">
-                    <div class="w-full h-48">
-                        <img class="object-cover w-full h-full"
-                            srcset="https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_660_225.jpg 660w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_552_188.jpg 552w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_462_158.jpg 462w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_386_132.jpg 386w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_323_110.jpg 323w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_270_92.jpg 270w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_226_77.jpg 226w, https://sqp.fr/storage/blog/posts/11/medias/45907/responsive-images/NS1___media_library_original_189_64.jpg 189w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNjYwIDIyNSI+Cgk8aW1hZ2Ugd2lkdGg9IjY2MCIgaGVpZ2h0PSIyMjUiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBQ3dBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBK2ZkUStLYzk3cGZsU044cEdLK2hkVnlWajVWWU9NTlVlVDZBc2MvaWk3dWNodDJldGVSV1RjdEQxYWRhRkNIdnV4Sm9VaTZCNHZtdWR3Qlk1QXJhZ3VVd3IxSTRoZTZlbDY3OFVybVhTRWlEY2RLOUgycjJPSllLRjdubWwweC9zNWVUMHJtUFVsc2MxbzAwa1Z6Y0ZHS24xRmNyM1Buc3cxYVRHeFR5UzZzUzdsajcwNGJuWmdrbEE2TFUyUDhBWjhmTmRaNjNRLy9aIj4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
-                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                            sizes="1px" src="https://sqp.fr/storage/blog/posts/11/medias/45907/NS1.jpg"
-                            width="660" height="225">
-
-                    </div>
-                    <div class="flex flex-col justify-between flex-1 p-4">
-                        <h3 class="text-sm font-medium text-white uppercase">
-                            La garantie J+1 et le service premium NASExchange
-                        </h3>
-                        <a href="https://sqp.fr/la-garantie-j1-et-le-service-premium-nasexchange"
-                            class="mt-8 text-sm font-bold uppercase text-primary-500 hover:text-primary-600">Lire
-                            la suite</a>
-                    </div>
-                </div>
-                <div class="flex flex-col bg-secondary-600 ">
-                    <div class="w-full h-48">
-                        <img class="object-cover w-full h-full"
-                            srcset="https://sqp.fr/storage/blog/posts/10/medias/45890/responsive-images/logo_QNAP_LOGO_K70___media_library_original_354_236.png 354w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMzU0IDIzNiI+Cgk8aW1hZ2Ugd2lkdGg9IjM1NCIgaGVpZ2h0PSIyMzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBRlFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBL1JnMytoaUpYLzRRbTlMRmlDZzBkY2dESEo3WU9UMzdIcHhrQWIvYVdpZjlDTGYvQVBnb1QvR2dCeHY5REVTdi93QUlUZWxpeEJRYU91UUJqazlzSEo3OWowNHlBTi90TFJQK2hGdi9BUHdVSi9qUUI1UiswejhLZkdQeDUrR2FlSGJieEI0Y3RUQnFFT291SjVwNDdhN1FKSTNrU09xa2JWVnhLQnRZL3VveVFNaHdBZk85dCt3bjQ5dDlMbEE4UmVDTFc1L2RwYTI4R3IzWGtHM1V0Y09OeHQ4Z0t4aWtVQUVmTVdKQndTQVY0djhBZ256NHljTFpIeEY0T3Q5RnVHZ3ViOHgzbHkwWG1La2hWMWo4a0pLeVJ2S1ZKWlNGa1kvS0d5UUQ2eCtEUHczMVA0SWZEMnc4TGFWNGgwaStqUmpjeVhsL2VTdTByN1VkL0xSaVZpaUNCY0lnQVZUdXlXWXV3QjZWL3dBS3g4TS85QTMvQU1qeS93RHhWQUIvd3JId3ovMERmL0k4di94VkFCL3dySHd6L3dCQTMveVBMLzhBRlVBSC9Dc2ZEUDhBMERmL0FDUEwvd0RGVUFmLzJRPT0iPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
-                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                            sizes="1px"
-                            src="https://sqp.fr/storage/blog/posts/10/medias/45890/logo_QNAP_LOGO_K70.png"
-                            width="354" height="236">
-
-                    </div>
-                    <div class="flex flex-col justify-between flex-1 p-4">
-                        <h3 class="text-sm font-medium text-white uppercase">
-                            Dernières nouveautés QNAP
-                        </h3>
-                        <a href="https://sqp.fr/dernieres-nouveautes-qnap"
-                            class="mt-8 text-sm font-bold uppercase text-primary-500 hover:text-primary-600">Lire
-                            la suite</a>
-                    </div>
-                </div>
-                <div class="flex flex-col bg-secondary-600 ">
-                    <div class="w-full h-48">
-                        <img class="object-cover w-full h-full"
-                            srcset="https://sqp.fr/storage/blog/posts/8/medias/45926/responsive-images/FS3410___media_library_original_283_185.jpg 283w, https://sqp.fr/storage/blog/posts/8/medias/45926/responsive-images/FS3410___media_library_original_236_154.jpg 236w, https://sqp.fr/storage/blog/posts/8/medias/45926/responsive-images/FS3410___media_library_original_198_129.jpg 198w, https://sqp.fr/storage/blog/posts/8/medias/45926/responsive-images/FS3410___media_library_original_165_108.jpg 165w, https://sqp.fr/storage/blog/posts/8/medias/45926/responsive-images/FS3410___media_library_original_138_90.jpg 138w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjgzIDE4NSI+Cgk8aW1hZ2Ugd2lkdGg9IjI4MyIgaGVpZ2h0PSIxODUiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBRlFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBKzUvRTl0TkxlS1k1L0xycFpnaTE0ZnNwNFpBWG5FZ29HenFGNlZSSTZnRHhueDM0L3dCSnRyOG9kVGhpZGVxbHhVTW96dEErTTJoYWZPRGM2dkFWL3dCOFVYQm5UTiswUDRPVEEvdFdFbi9lRk82Rlk2M3c5NDYwcnhOYmlheXVrbFE5d2FkeEg1OS9GTHdRTlE4VjNMdnFWMHVUMEIvK3ZYTmMyc2NhZmhwQXg1MUs2UDhBd0wvNjlGd0cvd0RDcjdWV0IvdEM2Sno2L3dEMTZMZ2o2dCtBT2hmMmJvc1NKZFNzQi9lTldtSm8vOWs9Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
-                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                            sizes="1px" src="https://sqp.fr/storage/blog/posts/8/medias/45926/FS3410.jpg"
-                            width="283" height="185">
-
-                    </div>
-                    <div class="flex flex-col justify-between flex-1 p-4">
-                        <h3 class="text-sm font-medium text-white uppercase">
-                            Synology® annonce le NAS Full Flash FS3410 - pour les entreprises et les studios de
-                            production
-                        </h3>
-                        <a href="https://sqp.fr/synology-annonce-le-nas-full-flash-fs3410-pour-les-entreprises-et-les-studios-de-production"
-                            class="mt-8 text-sm font-bold uppercase text-primary-500 hover:text-primary-600">Lire
-                            la suite</a>
-                    </div>
-                </div>
-                <div class="flex flex-col bg-secondary-600 ">
-                    <div class="w-full h-48">
-                        <img class="object-cover w-full h-full"
-                            srcset="https://sqp.fr/storage/blog/posts/6/medias/45930/responsive-images/SSDSamsung___media_library_original_236_184.jpg 236w, https://sqp.fr/storage/blog/posts/6/medias/45930/responsive-images/SSDSamsung___media_library_original_197_154.jpg 197w, https://sqp.fr/storage/blog/posts/6/medias/45930/responsive-images/SSDSamsung___media_library_original_165_129.jpg 165w, https://sqp.fr/storage/blog/posts/6/medias/45930/responsive-images/SSDSamsung___media_library_original_138_108.jpg 138w, https://sqp.fr/storage/blog/posts/6/medias/45930/responsive-images/SSDSamsung___media_library_original_115_90.jpg 115w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjM2IDE4NCI+Cgk8aW1hZ2Ugd2lkdGg9IjIzNiIgaGVpZ2h0PSIxODQiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBR1FBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBK0JQQlBoYXkxYm05ZllEMHBYQTdZL0RYUVdKQ3paeFRBNHZ4VjRHRnBjLzZBZDhZb0E1S2JUcDRDUXlIaWdEbzlLMUZiYlNsdzIxODlhbnFCNmw4T3ByRFViR1ZyK1Rhd0hCSm9iUUhHNi9ONU9yM0FpbkloQjRwcGdjOXF0OUVJU053WnFBTUhUcmxCY1JKTWYzT2VhWUhxYWEzNGRzZE1qVzNsSWt4OHd6VU9OeHAySUx2VS9ETjNiNWR6NXBYcjcwMHJBM2M4dTFSa2E5bDhra3haK1dxRVZxQUpEOTJnQkQyb0FaUUIvL1oiPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
-                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                            sizes="1px" src="https://sqp.fr/storage/blog/posts/6/medias/45930/SSDSamsung.jpg"
-                            width="236" height="184">
-
-                    </div>
-                    <div class="flex flex-col justify-between flex-1 p-4">
-                        <h3 class="text-sm font-medium text-white uppercase">
-                            Samsung SSD Entreprise, jusqu&#039;à 30 teras
-                        </h3>
-                        <a href="https://sqp.fr/samsung-ssd-entreprise-jusqua-30-teras"
-                            class="mt-8 text-sm font-bold uppercase text-primary-500 hover:text-primary-600">Lire
-                            la suite</a>
-                    </div>
-                </div>
-
-                <div class="grid col-span-full">
-                    <a class="button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover --is-primary"
-                        href="https://sqp.fr/liste-des-actualites">
-
-
-                        <span class="button__caption">
-                            Toutes les actualités
-                        </span>
-
-                        <span class="button__trailing">
-                            <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </span>
-
-                        <span class="button__spinner">
-                            <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10"
-                                    stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor"
-                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                </path>
-                            </svg>
-                        </span>
-                    </a>
                 </div>
             </div>
         </div>
