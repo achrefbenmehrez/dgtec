@@ -15,10 +15,20 @@ return new class extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->string("commentaire");
+            $table->enum('etat', ['Livré', 'En cours', 'Annulé']);
+            $table->enum('type', ['En Local', 'Livraison']);
+            $table->boolean('livraisonPartielle')->default(0);
+            $table->string('referenceClient')->nullable();
 
-            $table->foreignId('panier_id')
-                ->constrained('paniers');
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->nullable();
+
+            $table->foreignId('adresse_livraison_id')
+                ->constrained('adresse_livraisons')
+                ->nullable();
+
+            $table->longText('donnees_panier');
 
             $table->timestamps();
         });

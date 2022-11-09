@@ -78,7 +78,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(category $category)
+    public function edit(Category $category)
     {
         $categories = Category::all()->where('id', '!=', $category->id);
 
@@ -100,8 +100,7 @@ class CategoryController extends Controller
         $this->validate(
             $request,
             [
-                'title' => ['required', 'string', 'max:255'],
-                'parent_id' => ['exists:categories,id']
+                'title' => ['required', 'string', 'max:255']
             ]
         );
 

@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div wire:id="O2i7rVUI8Gugh3W1OPdf"
-        wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;O2i7rVUI8Gugh3W1OPdf&quot;,&quot;name&quot;:&quot;website.products.familyProductsListing&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;distributeur-san-simple-controleur&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[],&quot;path&quot;:&quot;https:\/\/sqp.fr\/distributeur-san-simple-controleur?filters%5Btype%5D%5B0%5D=NAS&quot;},&quot;serverMemo&quot;:{&quot;children&quot;:{&quot;grid-39128-0&quot;:{&quot;id&quot;:&quot;OHJ9N9cNvvAv4oaZuiEp&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-39827-1&quot;:{&quot;id&quot;:&quot;E55VW182ES3CRythwMD6&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-41802-2&quot;:{&quot;id&quot;:&quot;YD2AIgNQ3qhDLgXw1PlI&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-41808-3&quot;:{&quot;id&quot;:&quot;LLS4JPE7rrIBVIlskB5r&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-41813-4&quot;:{&quot;id&quot;:&quot;WImNfxNfi6ebTGcTHdQI&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-41817-5&quot;:{&quot;id&quot;:&quot;5QuJU0ElsR4SDbmc20xV&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-44372-6&quot;:{&quot;id&quot;:&quot;4N88ZrJs169EBJX9lrVG&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-44738-7&quot;:{&quot;id&quot;:&quot;oXeUlg8ZZiNjGyBdQ6Es&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-44865-8&quot;:{&quot;id&quot;:&quot;QeOmvYkvyfBtKWThD0k0&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-45555-9&quot;:{&quot;id&quot;:&quot;BjKAhL9aGQnlVFdpK18s&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-45557-10&quot;:{&quot;id&quot;:&quot;N3ffu1wxNGB9bJZQvBCS&quot;,&quot;tag&quot;:&quot;a&quot;},&quot;grid-45560-11&quot;:{&quot;id&quot;:&quot;kLDg4ixYIh31PBBheRN8&quot;,&quot;tag&quot;:&quot;a&quot;}},&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;11ea3065&quot;,&quot;data&quot;:{&quot;family&quot;:[],&quot;viewName&quot;:&quot;website.products.livewire.listing.main&quot;,&quot;filters&quot;:{&quot;type&quot;:[&quot;NAS&quot;]},&quot;sortBy&quot;:&quot;&quot;,&quot;sortDirection&quot;:&quot;&quot;,&quot;perPage&quot;:20,&quot;display&quot;:&quot;grid&quot;,&quot;query&quot;:&quot;&quot;,&quot;page&quot;:1,&quot;paginators&quot;:{&quot;page&quot;:1}},&quot;dataMeta&quot;:{&quot;models&quot;:{&quot;family&quot;:{&quot;class&quot;:&quot;App\\Domain\\Products\\Models\\Family&quot;,&quot;id&quot;:2892,&quot;relations&quot;:[&quot;url&quot;],&quot;connection&quot;:&quot;mysql&quot;}}},&quot;checksum&quot;:&quot;4bb1429afb9401f09db0de9caefe744c4b42b59fa6982c79d89dfa944612d748&quot;}}"
-        class="w-full px-4">
+    <link rel="stylesheet" href="{{ asset('dist/css/jquery.toast.min.css') }}">
+    <div class="w-full px-4">
         <div class="gap-8 mx-auto mt-8 sm:grid sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 max-w-big">
             <div class="relative pt-1 col-span-full md:col-span-1">
 
@@ -17,10 +16,8 @@
                     </div>
 
 
-
-                    <form action="#" method="get" x-ref="filterForm"
+                    <form action="" method="get"
                         class="w-full pb-8 shadow-lg md:relative md:w-auto bg-secondary-700 md:shadow-none md:block"
-                        @click.outside="if ($event.target.closest('button') != $refs.filterButton) filterMenu = false"
                         x-show="filterMenu" x-transition:enter="transition ease-out duration-100"
                         x-transition:enter-start="transform h-0 " x-transition:enter-end="transform h-full scale-100""
                         x-transition:leave=" transition ease-in duration-75"
@@ -36,9 +33,9 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <input id="search" name="search"
+                            <input id="search" name="searchFilter"
                                 class="block w-full h-10 py-2 pl-4 pr-8 text-white placeholder-opacity-50 border-transparent rounded-sm placeholder-secondary-300 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm bg-secondary-600"
-                                wire:model="query" type="search">
+                                type="search">
                         </div>
 
 
@@ -84,27 +81,25 @@
                                 class="absolute left-0 z-10 mt-2 origin-top-left rounded-sm shadow-lg bg-secondary-600 ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 
-                                <div class="grid grid-flow-col pt-2 grid-rows-2    ">
-                                    <label
-                                        for='brand-qsan'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='brand-qsan' name='filters[brand][]' type="checkbox"
-                                            wire:model.defer='filters.brand.0'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="QSAN">
+                                <div class="grid grid-flow-col pt-2 grid-rows-2">
+                                    @foreach ($brands as $brand)
+                                        <label
+                                            for='nas-capacitetotale-0'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
+                                            <input id='nas-capacitetotale-0' name='filters[marque]' type="radio"
+                                                class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
+                                                value="{{ $brand->id }}">
 
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">QSAN
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(12)</small>
-                                    </label>
-
+                                            <span
+                                                class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">{{ $brand->title }}
+                                            </span>
+                                            <small class="w-8 text-center text-secondary-300">(12)</small>
+                                        </label>
+                                    @endforeach
                                 </div>
 
                                 <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
-                                    <button
-                                        class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover --is-primary"
-                                        type="button" wire:loading.class="--is-loading"
-                                        @click="await $wire.filter().then(e => open = false)">
+                                    <button class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover"
+                                        type="submit" wire:loading.class="--is-loading">
 
 
                                         <span class="button__caption">
@@ -177,27 +172,25 @@
                                 class="absolute left-0 z-10 mt-2 origin-top-left rounded-sm shadow-lg bg-secondary-600 ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 
-                                <div class="grid grid-flow-col pt-2 grid-rows-2    ">
-                                    <label
-                                        for='nas-capacitetotale-0'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-capacitetotale-0' name='filters[NAS_CapaciteTotale][]'
-                                            type="checkbox" wire:model.defer='filters.NAS_CapaciteTotale.0'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="0">
+                                <div class="grid grid-flow-col pt-2 grid-rows-2">
+                                    @foreach ($capacites as $capacite)
+                                        <label
+                                            for='nas-capacitetotale-0'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
+                                            <input id='nas-capacitetotale-0' name='filters[capacite]' type="radio"
+                                                class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
+                                                value="{{ $capacite }}">
 
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">0
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(12)</small>
-                                    </label>
-
+                                            <span
+                                                class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">{{ $capacite }}
+                                            </span>
+                                            <small class="w-8 text-center text-secondary-300">(12)</small>
+                                        </label>
+                                    @endforeach
                                 </div>
 
                                 <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
-                                    <button
-                                        class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover --is-primary"
-                                        type="button" wire:loading.class="--is-loading"
-                                        @click="await $wire.filter().then(e => open = false)">
+                                    <button class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover"
+                                        wire:loading.class="--is-loading">
 
 
                                         <span class="button__caption">
@@ -227,17 +220,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <label for='nas-boitiernu-1'
-                            class="flex items-center justify-between px-3 py-2 mb-3 text-sm cursor-pointer">
-                            <input id='nas-boitiernu-1' name='filters[NAS_BoitierNu][]' type="checkbox"
-                                wire:model.defer="filters.NAS_BoitierNu.1" wire:change="filter"
-                                class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                value="1" />
-
-                            <span class="ml-3 font-medium text-white">Boitier nu
-                            </span>
-                        </label>
 
                         <div class="relative mb-3 text-left" x-data="{ 'open': false }">
 
@@ -281,63 +263,25 @@
                                 class="absolute left-0 z-10 mt-2 origin-top-left rounded-sm shadow-lg bg-secondary-600 ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 
-                                <div class="grid grid-flow-col pt-2 grid-rows-2 grid-rows-4   ">
-                                    <label
-                                        for='nas-nbdisquedur-12'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-nbdisquedur-12' name='filters[NAS_NbDisqueDur][]' type="checkbox"
-                                            wire:model.defer='filters.NAS_NbDisqueDur.0'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="12">
+                                <div class="grid grid-flow-col pt-2 grid-rows-2 grid-rows-4">
+                                    @foreach ($nbreBaies as $nbreBaie)
+                                        <label
+                                            for='nas-nbdisquedur-12'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
+                                            <input id='nas-nbdisquedur-12' name='filters[nbreBaies]' type="radio"
+                                                class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
+                                                value="{{ $nbreBaie }}">
 
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">12
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(3)</small>
-                                    </label>
-                                    <label
-                                        for='nas-nbdisquedur-16'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-nbdisquedur-16' name='filters[NAS_NbDisqueDur][]' type="checkbox"
-                                            wire:model.defer='filters.NAS_NbDisqueDur.1'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="16">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">16
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(3)</small>
-                                    </label>
-                                    <label
-                                        for='nas-nbdisquedur-24'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-nbdisquedur-24' name='filters[NAS_NbDisqueDur][]' type="checkbox"
-                                            wire:model.defer='filters.NAS_NbDisqueDur.2'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="24">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">24
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(3)</small>
-                                    </label>
-                                    <label
-                                        for='nas-nbdisquedur-26'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-nbdisquedur-26' name='filters[NAS_NbDisqueDur][]' type="checkbox"
-                                            wire:model.defer='filters.NAS_NbDisqueDur.3'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="26">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">26
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(3)</small>
-                                    </label>
-
+                                            <span
+                                                class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">{{ $nbreBaie }}
+                                            </span>
+                                            <small class="w-8 text-center text-secondary-300">(3)</small>
+                                        </label>
+                                    @endforeach
                                 </div>
 
                                 <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
-                                    <button
-                                        class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover --is-primary"
-                                        type="button" wire:loading.class="--is-loading"
-                                        @click="await $wire.filter().then(e => open = false)">
+                                    <button class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover"
+                                        type="submit" wire:loading.class="--is-loading">
 
 
                                         <span class="button__caption">
@@ -367,331 +311,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="relative mb-3 text-left" x-data="{ 'open': false }">
-
-                            <button class="button group w-full px-4 --is-secondary" type="button" @click="open = !open">
-
-
-                                <span class="button__caption">
-                                    <div
-                                        class="w-full pr-2 overflow-hidden text-left normal-case text-ellipsis whitespace-nowrap">
-                                        Nbre ports 10GbE</div>
-                                    <span
-                                        class="absolute top-0 inline-flex items-center justify-center h-full ml-2 -mr-2 transition-transform transform right-4">
-                                        <svg class="h-5 text-primary-500" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clip-rule="evenodd" />
-                                        </svg> </span>
-                                </span>
-
-
-                                <span class="button__spinner">
-                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24">
-                                        <circle class="opacity-25" cx="12" cy="12" r="10"
-                                            stroke="currentColor" stroke-width="4"></circle>
-                                        <path class="opacity-75" fill="currentColor"
-                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                        </path>
-                                    </svg>
-                                </span>
-                            </button>
-
-                            <div @click.outside="open = false" x-show="open"
-                                x-transition:enter="transition ease-out duration-100"
-                                x-transition:enter-start="transform opacity-0 scale-95"
-                                x-transition:enter-end="transform opacity-100 scale-100"
-                                x-transition:leave=" transition ease-in duration-75"
-                                x-transition:leave-start="transform opacity-100 scale-100"
-                                x-transition:leave-end=" transform opacity-0 scale-95" style="display: none"
-                                class="absolute left-0 z-10 mt-2 origin-top-left rounded-sm shadow-lg bg-secondary-600 ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-
-                                <div class="grid grid-flow-col pt-2 grid-rows-2    ">
-                                    <label
-                                        for='nas-nbports10gbe-2-x-10gbs-base-t-par-controler'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-nbports10gbe-2-x-10gbs-base-t-par-controler'
-                                            name='filters[NAS_NbPorts10GbE][]' type="checkbox"
-                                            wire:model.defer='filters.NAS_NbPorts10GbE.0'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="2 X 10Gb/s Base-T par contrôler">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">2
-                                            X 10Gb/s Base-T par contrôler
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(1)</small>
-                                    </label>
-                                    <label
-                                        for='nas-nbports10gbe-2-x-10gbs-base-t-par-controleur'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-nbports10gbe-2-x-10gbs-base-t-par-controleur'
-                                            name='filters[NAS_NbPorts10GbE][]' type="checkbox"
-                                            wire:model.defer='filters.NAS_NbPorts10GbE.1'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="2 X 10Gb/s Base-T par contrôleur">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">2
-                                            X 10Gb/s Base-T par contrôleur
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(11)</small>
-                                    </label>
-
-                                </div>
-
-                                <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
-                                    <button
-                                        class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover --is-primary"
-                                        type="button" wire:loading.class="--is-loading"
-                                        @click="await $wire.filter().then(e => open = false)">
-
-
-                                        <span class="button__caption">
-                                            Filtrer
-                                        </span>
-
-                                        <span class="button__trailing">
-                                            <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor" aria-hidden="true">
-                                                <path fill-rule="evenodd"
-                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
-
-                                        <span class="button__spinner">
-                                            <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24">
-                                                <circle class="opacity-25" cx="12" cy="12" r="10"
-                                                    stroke="currentColor" stroke-width="4"></circle>
-                                                <path class="opacity-75" fill="currentColor"
-                                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="relative mb-3 text-left" x-data="{ 'open': false }">
-
-                            <button class="button group w-full px-4 --is-secondary" type="button" @click="open = !open">
-
-
-                                <span class="button__caption">
-                                    <div
-                                        class="w-full pr-2 overflow-hidden text-left normal-case text-ellipsis whitespace-nowrap">
-                                        Nbre ports GbE</div>
-                                    <span
-                                        class="absolute top-0 inline-flex items-center justify-center h-full ml-2 -mr-2 transition-transform transform right-4">
-                                        <svg class="h-5 text-primary-500" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clip-rule="evenodd" />
-                                        </svg> </span>
-                                </span>
-
-
-                                <span class="button__spinner">
-                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24">
-                                        <circle class="opacity-25" cx="12" cy="12" r="10"
-                                            stroke="currentColor" stroke-width="4"></circle>
-                                        <path class="opacity-75" fill="currentColor"
-                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                        </path>
-                                    </svg>
-                                </span>
-                            </button>
-
-                            <div @click.outside="open = false" x-show="open"
-                                x-transition:enter="transition ease-out duration-100"
-                                x-transition:enter-start="transform opacity-0 scale-95"
-                                x-transition:enter-end="transform opacity-100 scale-100"
-                                x-transition:leave=" transition ease-in duration-75"
-                                x-transition:leave-start="transform opacity-100 scale-100"
-                                x-transition:leave-end=" transform opacity-0 scale-95" style="display: none"
-                                class="absolute left-0 z-10 mt-2 origin-top-left rounded-sm shadow-lg bg-secondary-600 ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-
-                                <div class="grid grid-flow-col pt-2 grid-rows-2    ">
-                                    <label
-                                        for='nas-nbportsgbe-1-administration-par-controler'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-nbportsgbe-1-administration-par-controler'
-                                            name='filters[NAS_NbPortsGbE][]' type="checkbox"
-                                            wire:model.defer='filters.NAS_NbPortsGbE.0'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="1 (Administration) par contrôler">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">1
-                                            (Administration) par contrôler
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(1)</small>
-                                    </label>
-                                    <label
-                                        for='nas-nbportsgbe-1-administration-par-controleur'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-nbportsgbe-1-administration-par-controleur'
-                                            name='filters[NAS_NbPortsGbE][]' type="checkbox"
-                                            wire:model.defer='filters.NAS_NbPortsGbE.1'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="1 (Administration) par contrôleur">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">1
-                                            (Administration) par contrôleur
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(11)</small>
-                                    </label>
-
-                                </div>
-
-                                <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
-                                    <button
-                                        class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover --is-primary"
-                                        type="button" wire:loading.class="--is-loading"
-                                        @click="await $wire.filter().then(e => open = false)">
-
-
-                                        <span class="button__caption">
-                                            Filtrer
-                                        </span>
-
-                                        <span class="button__trailing">
-                                            <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor" aria-hidden="true">
-                                                <path fill-rule="evenodd"
-                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
-
-                                        <span class="button__spinner">
-                                            <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24">
-                                                <circle class="opacity-25" cx="12" cy="12" r="10"
-                                                    stroke="currentColor" stroke-width="4"></circle>
-                                                <path class="opacity-75" fill="currentColor"
-                                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="relative mb-3 text-left" x-data="{ 'open': false }">
-
-                            <button class="button group w-full px-4 --is-secondary" type="button" @click="open = !open">
-
-
-                                <span class="button__caption">
-                                    <div
-                                        class="w-full pr-2 overflow-hidden text-left normal-case text-ellipsis whitespace-nowrap">
-                                        Slots d&#039;extension</div>
-                                    <span
-                                        class="absolute top-0 inline-flex items-center justify-center h-full ml-2 -mr-2 transition-transform transform right-4">
-                                        <svg class="h-5 text-primary-500" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clip-rule="evenodd" />
-                                        </svg> </span>
-                                </span>
-
-
-                                <span class="button__spinner">
-                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24">
-                                        <circle class="opacity-25" cx="12" cy="12" r="10"
-                                            stroke="currentColor" stroke-width="4"></circle>
-                                        <path class="opacity-75" fill="currentColor"
-                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                        </path>
-                                    </svg>
-                                </span>
-                            </button>
-
-                            <div @click.outside="open = false" x-show="open"
-                                x-transition:enter="transition ease-out duration-100"
-                                x-transition:enter-start="transform opacity-0 scale-95"
-                                x-transition:enter-end="transform opacity-100 scale-100"
-                                x-transition:leave=" transition ease-in duration-75"
-                                x-transition:leave-start="transform opacity-100 scale-100"
-                                x-transition:leave-end=" transform opacity-0 scale-95" style="display: none"
-                                class="absolute left-0 z-10 mt-2 origin-top-left rounded-sm shadow-lg bg-secondary-600 ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-
-                                <div class="grid grid-flow-col pt-2 grid-rows-2    ">
-                                    <label
-                                        for='nas-slotsextension-2-slots-host-par-controleur'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-slotsextension-2-slots-host-par-controleur'
-                                            name='filters[NAS_SlotsExtension][]' type="checkbox"
-                                            wire:model.defer='filters.NAS_SlotsExtension.0'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="2 slots Host par contrôleur">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">2
-                                            slots Host par contrôleur
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(12)</small>
-                                    </label>
-
-                                </div>
-
-                                <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
-                                    <button
-                                        class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover --is-primary"
-                                        type="button" wire:loading.class="--is-loading"
-                                        @click="await $wire.filter().then(e => open = false)">
-
-
-                                        <span class="button__caption">
-                                            Filtrer
-                                        </span>
-
-                                        <span class="button__trailing">
-                                            <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor" aria-hidden="true">
-                                                <path fill-rule="evenodd"
-                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
-
-                                        <span class="button__spinner">
-                                            <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24">
-                                                <circle class="opacity-25" cx="12" cy="12" r="10"
-                                                    stroke="currentColor" stroke-width="4"></circle>
-                                                <path class="opacity-75" fill="currentColor"
-                                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <label for='nas-alimredondante-1'
-                            class="flex items-center justify-between px-3 py-2 mb-3 text-sm cursor-pointer">
-                            <input id='nas-alimredondante-1' name='filters[NAS_AlimRedondante][]' type="checkbox"
-                                wire:model.defer="filters.NAS_AlimRedondante.1" wire:change="filter"
-                                class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                value="1" />
-
-                            <span class="ml-3 font-medium text-white">Alimentation redondante
-                            </span>
-                        </label>
 
                         <div class="relative mb-3 text-left" x-data="{ 'open': false }">
 
@@ -735,144 +354,35 @@
                                 class="absolute left-0 z-10 mt-2 origin-top-left rounded-sm shadow-lg bg-secondary-600 ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 
-                                <div class="grid grid-flow-col pt-2 grid-rows-2    ">
+                                <div class="grid grid-flow-col pt-2 grid-rows-2 grid-rows-4">
                                     <label
-                                        for='nas-rackoutour-rack'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-rackoutour-rack' name='filters[NAS_RackOuTour][]' type="checkbox"
-                                            wire:model.defer='filters.NAS_RackOuTour.0'
+                                        for='nas-nbdisquedur-12'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
+                                        <input id='nas-nbdisquedur-12' name='filters[typeBoitier]' type="radio"
                                             class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
                                             value="Rack">
 
                                         <span
                                             class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">Rack
                                         </span>
-                                        <small class="w-8 text-center text-secondary-300">(12)</small>
-                                    </label>
-
-                                </div>
-
-                                <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
-                                    <button
-                                        class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover --is-primary"
-                                        type="button" wire:loading.class="--is-loading"
-                                        @click="await $wire.filter().then(e => open = false)">
-
-
-                                        <span class="button__caption">
-                                            Filtrer
-                                        </span>
-
-                                        <span class="button__trailing">
-                                            <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor" aria-hidden="true">
-                                                <path fill-rule="evenodd"
-                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
-
-                                        <span class="button__spinner">
-                                            <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24">
-                                                <circle class="opacity-25" cx="12" cy="12" r="10"
-                                                    stroke="currentColor" stroke-width="4"></circle>
-                                                <path class="opacity-75" fill="currentColor"
-                                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="relative mb-3 text-left" x-data="{ 'open': false }">
-
-                            <button class="button group w-full px-4 --is-secondary" type="button" @click="open = !open">
-
-
-                                <span class="button__caption">
-                                    <div
-                                        class="w-full pr-2 overflow-hidden text-left normal-case text-ellipsis whitespace-nowrap">
-                                        Vitesse du processeur (Ghz)</div>
-                                    <span
-                                        class="absolute top-0 inline-flex items-center justify-center h-full ml-2 -mr-2 transition-transform transform right-4">
-                                        <svg class="h-5 text-primary-500" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clip-rule="evenodd" />
-                                        </svg> </span>
-                                </span>
-
-
-                                <span class="button__spinner">
-                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24">
-                                        <circle class="opacity-25" cx="12" cy="12" r="10"
-                                            stroke="currentColor" stroke-width="4"></circle>
-                                        <path class="opacity-75" fill="currentColor"
-                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                        </path>
-                                    </svg>
-                                </span>
-                            </button>
-
-                            <div @click.outside="open = false" x-show="open"
-                                x-transition:enter="transition ease-out duration-100"
-                                x-transition:enter-start="transform opacity-0 scale-95"
-                                x-transition:enter-end="transform opacity-100 scale-100"
-                                x-transition:leave=" transition ease-in duration-75"
-                                x-transition:leave-start="transform opacity-100 scale-100"
-                                x-transition:leave-end=" transform opacity-0 scale-95" style="display: none"
-                                class="absolute left-0 z-10 mt-2 origin-top-left rounded-sm shadow-lg bg-secondary-600 ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-
-                                <div class="grid grid-flow-col pt-2 grid-rows-2    ">
-                                    <label
-                                        for='nas-vitesseprocesseur-0'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-vitesseprocesseur-0' name='filters[NAS_VitesseProcesseur][]'
-                                            type="checkbox" wire:model.defer='filters.NAS_VitesseProcesseur.0'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="0">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">0
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(5)</small>
-                                    </label>
-                                    <label
-                                        for='nas-vitesseprocesseur-16'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-vitesseprocesseur-16' name='filters[NAS_VitesseProcesseur][]'
-                                            type="checkbox" wire:model.defer='filters.NAS_VitesseProcesseur.1'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="1.6">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">1.6
-                                        </span>
-                                        <small class="w-8 text-center text-secondary-300">(4)</small>
-                                    </label>
-                                    <label
-                                        for='nas-vitesseprocesseur-27'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                        <input id='nas-vitesseprocesseur-27' name='filters[NAS_VitesseProcesseur][]'
-                                            type="checkbox" wire:model.defer='filters.NAS_VitesseProcesseur.2'
-                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                            value="2.7">
-
-                                        <span
-                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">2.7
-                                        </span>
                                         <small class="w-8 text-center text-secondary-300">(3)</small>
                                     </label>
 
+                                    <label
+                                        for='nas-nbdisquedur-12'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
+                                        <input id='nas-nbdisquedur-12' name='filters[typeBoitier]' type="radio"
+                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
+                                            value="Tour">
+
+                                        <span
+                                            class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">Tour
+                                        </span>
+                                        <small class="w-8 text-center text-secondary-300">(3)</small>
+                                    </label>
                                 </div>
 
                                 <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
-                                    <button
-                                        class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover --is-primary"
-                                        type="button" wire:loading.class="--is-loading"
-                                        @click="await $wire.filter().then(e => open = false)">
+                                    <button class="button group --has-trailing mr-0 --is-small --translate-icon-on-hover"
+                                        type="submit" wire:loading.class="--is-loading">
 
 
                                         <span class="button__caption">
@@ -903,8 +413,8 @@
                             </div>
                         </div>
 
-                        <a class="button group --has-trailing w-full mt-4 --is-small --is-secondary md:--is-primary"
-                            type="button" href="https://sqp.fr/distributeur-san-simple-controleur">
+                        <a class="button group --has-trailing w-full mt-4 --is-small --is-secondary md: " type="button"
+                            href="{{ $url }}">
 
 
                             <span class="button__caption">
@@ -942,8 +452,8 @@
                             Configurateurs</p>
                     </div>
 
-                    <a href="https://sqp.fr/selecteur-de-memoire-apple"
-                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-500 hover:border-white">
+                    <a href="{{ route('selecteurApple') }}"
+                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-400 hover:border-white">
                         <h3 class="mb-4 text-xs font-semibold uppercase col-span-full text-primary-500">
                             Mémoires Apple
                         </h3>
@@ -961,8 +471,8 @@
                         </p>
                     </a>
 
-                    <a href="https://sqp.fr/selecteur-de-memoire"
-                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-500 hover:border-white">
+                    <a href="{{ route('selecteurMemoire') }}"
+                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-400 hover:border-white">
                         <h3 class="mb-4 text-xs font-semibold uppercase col-span-full text-primary-500">
                             Configurateur mémoire
                         </h3>
@@ -982,8 +492,8 @@
                     </a>
 
 
-                    <a href="https://sqp.fr/configurateur-de-nas"
-                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-500 hover:border-white">
+                    <a href="{{ route('configurateurNas') }}"
+                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-400 hover:border-white">
                         <h3 class="mb-4 text-xs font-semibold uppercase col-span-full text-primary-500">
                             Configurateur NAS
                         </h3>
@@ -1088,8 +598,8 @@
                         </p>
                     </a>
 
-                    <a href="https://sqp.fr/selecteur-de-nas"
-                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-500 hover:border-white">
+                    <a href="{{ route('selecteurNas') }}"
+                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-400 hover:border-white">
                         <h3 class="mb-4 text-xs font-semibold uppercase col-span-full text-primary-500">
                             Sélecteur NAS
                         </h3>
@@ -1209,8 +719,8 @@
                         </p>
                     </a>
 
-                    <a href="https://sqp.fr/comparateur-de-raid"
-                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-500 hover:border-white">
+                    <a href="{{ route('comparateurRaid') }}"
+                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-400 hover:border-white">
                         <h3 class="mb-4 text-xs font-semibold uppercase col-span-full text-primary-500">
                             Comparateur RAID
                         </h3>
@@ -1231,22 +741,17 @@
                                         <path id="Tracé_205" data-name="Tracé 205"
                                             d="M69.5,38.2l-7.565-6.724L60.227,33.4l7.561,6.721a1.265,1.265,0,0,1,.435.951,1.278,1.278,0,0,1-.275.779L46.357,69.391,2.574,29.517,31.446,9.13a1.25,1.25,0,0,1,1.568.084L43.49,18.582l.619-.693a7.423,7.423,0,0,1-.184-2.372l-9.2-8.229a3.907,3.907,0,0,0-4.761-.263L1.075,27.425a2.533,2.533,0,0,0-.234,3.956L44.631,71.3a2.528,2.528,0,0,0,3.709-.318L69.975,43.437a3.817,3.817,0,0,0,.823-2.363A3.861,3.861,0,0,0,69.5,38.2"
                                             transform="translate(0 1.821)" fill="currentColor" />
-                                        <rect id="Rectangle_220" data-name="Rectangle 220" width="14.063"
-                                            height="2.573" transform="translate(44.754 64.871) rotate(-51.869)"
-                                            fill="currentColor" />
-                                        <rect id="Rectangle_221" data-name="Rectangle 221" width="2.361"
-                                            height="2.573"
+                                        <rect id="Rectangle_220" data-name="Rectangle 220" width="14.063" height="2.573"
+                                            transform="translate(44.754 64.871) rotate(-51.869)" fill="currentColor" />
+                                        <rect id="Rectangle_221" data-name="Rectangle 221" width="2.361" height="2.573"
                                             transform="matrix(0.617, -0.787, 0.787, 0.617, 55.935, 50.633)"
                                             fill="currentColor" />
-                                        <rect id="Rectangle_222" data-name="Rectangle 222" width="2.355"
-                                            height="2.574"
+                                        <rect id="Rectangle_222" data-name="Rectangle 222" width="2.355" height="2.574"
                                             transform="matrix(0.618, -0.786, 0.786, 0.618, 59.979, 45.48)"
                                             fill="currentColor" />
-                                        <rect id="Rectangle_223" data-name="Rectangle 223" width="2.575"
-                                            height="10.66" transform="translate(17.596 63.467) rotate(-47.638)"
-                                            fill="currentColor" />
-                                        <rect id="Rectangle_224" data-name="Rectangle 224" width="2.573"
-                                            height="2.425"
+                                        <rect id="Rectangle_223" data-name="Rectangle 223" width="2.575" height="10.66"
+                                            transform="translate(17.596 63.467) rotate(-47.638)" fill="currentColor" />
+                                        <rect id="Rectangle_224" data-name="Rectangle 224" width="2.573" height="2.425"
                                             transform="matrix(0.685, -0.729, 0.729, 0.685, 27.748, 72.659)"
                                             fill="currentColor" />
                                         <path id="Tracé_206" data-name="Tracé 206"
@@ -1302,7 +807,7 @@
                 <div>
                     <ol class="flex text-xs text-white uppercase jusitfy-center" wire:ignore>
                         <li class="flex items-center h-8">
-                            <a href="https://sqp.fr/">Accueil</a>
+                            <a href="{{ route('home') }}">Accueil</a>
                         </li>
 
                         <li class="flex items-center h-8 pl-2">
@@ -1311,22 +816,35 @@
                                     fill="currentColor" aria-hidden="true">
                                     <path fill-rule="evenodd"
                                         d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
+                                        clip-rule="evenodd"></path>
                                 </svg> </span>
-                            <a href="https://sqp.fr/distributeur-stockage-san">Stockage SAN</a>
+                            @if (isset($query))
+                                <a href="{{ route('recherche', ['searchQuery', $query]) }}">{{ $query }}</a>
+                            @else
+                                @if (isset($category))
+                                    <a href="{{ route('produits.index', $category->slug) }}">{{ $category->title }}</a>
+                                @endif
+                            @endif
                         </li>
                     </ol>
 
-                    <h2 class="mb-4 text-2xl font-bold uppercase text-primary-500">SAN simple contrôleur</h2>
+                    @if (isset($query))
+                        <h2 class="mb-4 text-2xl font-bold uppercase text-primary-500">{{ $query }}</h2>
+                    @else
+                        @if (isset($category))
+                            <h2 class="mb-4 text-2xl font-bold uppercase text-primary-500">{{ $category->title }}</h2>
+                        @endif
+                    @endif
                 </div>
 
 
 
                 <div class="grid flex-wrap items-center justify-between w-full grid-cols-1 gap-4 lg:flex">
-                    <div class="text-lg text-white"><span class="text-primary-500">12</span> produits</div>
+                    <div class="text-lg text-white"><span class="text-primary-500">{{ count($produits) }}</span>
+                        produits</div>
 
-                    <div class="relative text-left lg:ml-4" x-data="{ 'open': false }">
-                        <button class="button group w-full px-4 --is-secondary" type="button" @click="open = !open">
+                    <div class="relative text-left lg:ml-4">
+                        <button class="button group w-full px-4 --is-secondary" type="button">
 
 
                             <span class="button__caption">
@@ -1356,8 +874,7 @@
                             </span>
                         </button>
 
-                        <div @click.outside="open = false" x-show="open"
-                            x-transition:enter="transition ease-out duration-100"
+                        <div x-transition:enter="transition ease-out duration-100"
                             x-transition:enter-start="transform opacity-0 scale-95"
                             x-transition:enter-end="transform opacity-100 scale-100"
                             x-transition:leave=" transition ease-in duration-75"
@@ -1367,8 +884,7 @@
                             role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 
                             <div class="">
-                                <button type="button" @click="await $wire.setPerPage(10); open = false"
-                                    for="per-page-10"
+                                <button type="button" for="per-page-10"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         <span class="font-bold text-white">10</span> produits par page
@@ -1376,22 +892,20 @@
                                     <div class="w-4 mr-0 shrink-0">
                                     </div>
                                 </button>
-                                <button type="button" @click="await $wire.setPerPage(20); open = false"
-                                    for="per-page-20"
+                                <button type="button" for="per-page-20"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         <span class="font-bold text-white">20</span> produits par page
                                     </div>
                                     <div class="w-4 mr-0 shrink-0">
                                         <svg class="h-4 text-primary-500" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                            stroke="currentColor" aria-hidden="true">
+                                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
                                 </button>
-                                <button type="button" @click="await $wire.setPerPage(50); open = false"
-                                    for="per-page-50"
+                                <button type="button" for="per-page-50"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         <span class="font-bold text-white">50</span> produits par page
@@ -1399,8 +913,7 @@
                                     <div class="w-4 mr-0 shrink-0">
                                     </div>
                                 </button>
-                                <button type="button" @click="await $wire.setPerPage(100); open = false"
-                                    for="per-page-100"
+                                <button type="button" for="per-page-100"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         <span class="font-bold text-white">100</span> produits par page
@@ -1413,7 +926,7 @@
                     </div>
 
                     <div class="relative text-left lg:mr-auto lg:ml-4" x-data="{ 'open': false }">
-                        <button class="button group w-full px-4 --is-secondary" type="button" @click="open = !open">
+                        <button class="button group w-full px-4 --is-secondary" type="button">
 
 
                             <span class="button__caption">
@@ -1454,7 +967,7 @@
                             role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 
                             <div class="">
-                                <button type="button" @click="await $wire.sort(':'); open = false"
+                                <button type="button"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         Tri: <span class="font-bold text-white">Par défaut</span>
@@ -1467,7 +980,7 @@
                                         </svg>
                                     </div>
                                 </button>
-                                <button type="button" @click="await $wire.sort('price:asc'); open = false"
+                                <button type="button"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         Tri: <span class="font-bold text-white">Prix croissant</span>
@@ -1475,7 +988,7 @@
                                     <div class="w-4 mr-0 shrink-0">
                                     </div>
                                 </button>
-                                <button type="button" @click="await $wire.sort('price:desc'); open = false"
+                                <button type="button"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         Tri: <span class="font-bold text-white">Prix décroissant</span>
@@ -1483,7 +996,7 @@
                                     <div class="w-4 mr-0 shrink-0">
                                     </div>
                                 </button>
-                                <button type="button" @click="await $wire.sort('title:asc'); open = false"
+                                <button type="button"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         Tri: <span class="font-bold text-white">Nom de A à Z</span>
@@ -1491,7 +1004,7 @@
                                     <div class="w-4 mr-0 shrink-0">
                                     </div>
                                 </button>
-                                <button type="button" @click="await $wire.sort('title:desc'); open = false"
+                                <button type="button"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         Tri: <span class="font-bold text-white">Nom de Z à A</span>
@@ -1499,7 +1012,7 @@
                                     <div class="w-4 mr-0 shrink-0">
                                     </div>
                                 </button>
-                                <button type="button" @click="await $wire.sort('code:asc'); open = false"
+                                <button type="button"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         Tri: <span class="font-bold text-white">Référence de A à Z</span>
@@ -1507,7 +1020,7 @@
                                     <div class="w-4 mr-0 shrink-0">
                                     </div>
                                 </button>
-                                <button type="button" @click="await $wire.sort('code:desc'); open = false"
+                                <button type="button"
                                     class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
                                     <div class="w-full pr-2 text-right">
                                         Tri: <span class="font-bold text-white">Référence de Z à A</span>
@@ -1520,7 +1033,7 @@
                     </div>
 
                     <div class="hidden grid-cols-2 gap-2 lg:grid">
-                        <button class="button group --has-trailing h-full --is-small --is-primary" type="button"
+                        <button class="button group --has-trailing h-full --is-small  " type="button"
                             wire:click="setDisplay('grid')">
 
 
@@ -1581,23 +1094,16 @@
 
                     @foreach ($produits as $produit)
                         <li>
-                            <a wire:id="OHJ9N9cNvvAv4oaZuiEp"
-                                wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;OHJ9N9cNvvAv4oaZuiEp&quot;,&quot;name&quot;:&quot;website.products.item&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;distributeur-san-simple-controleur&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;6a8f510a&quot;,&quot;data&quot;:{&quot;product&quot;:[],&quot;viewName&quot;:&quot;website.products.livewire.item.forGrid&quot;,&quot;quantity&quot;:1},&quot;dataMeta&quot;:{&quot;models&quot;:{&quot;product&quot;:{&quot;class&quot;:&quot;App\\Domain\\Products\\Models\\Product&quot;,&quot;id&quot;:39128,&quot;relations&quot;:[&quot;url&quot;,&quot;media&quot;,&quot;brand&quot;,&quot;brand.media&quot;,&quot;promotion&quot;,&quot;arrival&quot;],&quot;connection&quot;:&quot;mysql&quot;}}},&quot;checksum&quot;:&quot;9391a15e655718d6fd76ce58ea8167c43825fed5bfa2dfb98b4c118a6603d2ca&quot;}}"
-                                href="https://sqp.fr/distributeur-san-simple-controleur/qsan-xcubesan-xs3212s-2u-12-baies-simple-controleur-chassis-nu"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
+                            <a href="{{ route('produits.show', $produit->slug) }}"
+                                class="productLink flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
                                 <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
-                                    <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/39128/medias/17927/responsive-images/qs-xs3212s-39128___media_library_original_1024_645.jpg 1024w, https://sqp.fr/storage/products/products/39128/medias/17927/responsive-images/qs-xs3212s-39128___media_library_original_856_539.jpg 856w, https://sqp.fr/storage/products/products/39128/medias/17927/responsive-images/qs-xs3212s-39128___media_library_original_716_450.jpg 716w, https://sqp.fr/storage/products/products/39128/medias/17927/responsive-images/qs-xs3212s-39128___media_library_original_599_377.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA2NDUiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjY0NSIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FGQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVTR1QjFOQUI1aSt0QUI1aSt0QUJ2QjcwQWZGMzdTUDdXZXZmRFRYenArbmFmSk1vL2lWU2FRSGpjSDdmM2pCTnU3U1p6bi9BR1RSY0IwLzdmM2k5M0lUU1p4L3dFMEFldS9zNGZ0YmVJUGlYNG1HbTZqcDhrS2YzbVVpbUI5RStMdmhsNGI4UTN4bXY5TWl1SlA3ekFVZ01EL2hTSGd3Zjh3U0RqL1pIK0ZNQlA4QWhTUGd6T2Y3RWcvNzVGQUc3NFArR1hodncvZmlldzB5SzNsL3ZLQlFCLy9aIj4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
-                                        sizes="1px"
-                                        src="https://sqp.fr/storage/products/products/39128/medias/17927/qs-xs3212s-39128.jpg"
-                                        width="1024" height="645">
+                                    <img class="h-full w-full object-contain" sizes="1px"
+                                        src="{{ $produit->photosUrl[0] }}" width="1024" height="645">
 
                                     <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
-                                        <img class="block object-contain object-left w-auto h-full mb-2"
-                                            srcset="https://sqp.fr/storage/products/brands/39/medias/29/responsive-images/qsan___media_library_original_289_82.png 289w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjg5IDgyIj4KCTxpbWFnZSB3aWR0aD0iMjg5IiBoZWlnaHQ9IjgyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNRQWdBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QSs2L0ZuaVpOSlZaWXJtNXVJNXB4RkJhUWdNbHdDUnVYN3ZNaCtZS29ZRm1BVlZabUFJQmExaSt0ZFJ0azAvVDQ1cnFXOFVNNi9hRERKa2JzcVdJTEw5d2duYWR2QTRKRkFFVUF0Ym1mTDMwSzN5YWhrUjV6dGorNzVlZWdjeG42YmpuR09LQU15WHdYNUZscGZoOFhrRGZiRlF1R0pVdEpCTEU3RmZYN3FncWZWRG5nZ2dDZkZiL2tVTlUvN0N6L0FQbytnRHViUC9rWWIvOEE2K1pmNTBBWWYvTkd6LzJHdi9jdFFCYXV2K1BmdzMvMk1jbi9BS1QzRkFILzJRPT0iPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
-                                            sizes="1px"
-                                            src="https://sqp.fr/storage/products/brands/39/medias/29/qsan.png"
-                                            width="289" height="82">
+                                        <img class="block object-contain object-left w-auto h-full mb-2" sizes="1px"
+                                            src="{{ asset($produit->brand->logo_url) }}" width="289"
+                                            height="82">
 
                                     </div>
                                 </div>
@@ -1619,6 +1125,12 @@
                                         class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">QSAN
                                         {{ $produit->description }}</span>
 
+                                    <div class="mb-4">
+                                        <p class="text-2xl font-bold text-center uppercase text-primary-500">
+                                            {{ $produit->price }} DT HT</p>
+                                        <p class="mt-1 text-xs font-bold text-center uppercase text-secondary-300">+0,02DT
+                                            d'éco-participation</p>
+                                    </div>
 
                                     <div class="mb-2">
                                         <p class="text-xs font-bold text-center uppercase text-secondary-300">
@@ -1633,8 +1145,7 @@
 
                                     <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
                                         <button class="button group --is-outlined --is-small --is-tertiary"
-                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
-                                            type="button">
+                                            wire:loading.class="--is-loading" type="button">
 
 
                                             <span class="button__caption">
@@ -1655,9 +1166,9 @@
                                             </span>
                                         </button>
 
-                                        <button class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:click.prevent="addToCart" wire:loading.class="--is-loading"
-                                            type="button">
+                                        <button id="{{ $produit->id }}"
+                                            class="addToCart button group w-full px-4 text-center --is-small --is-tertiary"
+                                            wire:loading.class="--is-loading" type="button">
 
 
                                             <span class="button__caption">
@@ -1686,15 +1197,88 @@
                                 </div>
                             </a>
 
-                            <!-- Livewire Component wire-end:OHJ9N9cNvvAv4oaZuiEp -->
                         </li>
                     @endforeach
                 </ul>
 
-                <div x-data="{}">
-                </div>
-
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('dist/js/jquery.toast.min.js') }}"></script>
+
+    <script>
+        $('.addToCart').on('click', function() {
+            $(".productLink").click(function(e) {
+                e.preventDefault();
+            });
+            var product_id = $(this).attr('id');
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('addToCart') }}",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                data: {
+                    'product_id': product_id
+                },
+                success: function(data) {
+                    $.toast({
+                        text: data.message, // Text that is to be shown in the toast
+                        heading: 'Panier', // Optional heading to be shown on the toast
+                        icon: 'success', // Type of toast icon
+                        showHideTransition: 'fade', // fade, slide or plain
+                        allowToastClose: true, // Boolean value true or false
+                        hideAfter: 3000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                        stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                        position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+
+
+
+                        textAlign: 'center', // Text alignment i.e. left, right or center
+                        loader: true, // Whether to show loader or not. True by default
+                        loaderBg: '#9EC600', // Background color of the toast loader
+                        beforeShow: function() {}, // will be triggered before the toast is shown
+                        afterShown: function() {}, // will be triggered after the toat has been shown
+                        beforeHide: function() {}, // will be triggered before the toast gets hidden
+                        afterHidden: function() {} // will be triggered after the toast has been hidden
+                    });
+                    $('#lblCartCount').text(<?php count((array) session('cart')); ?>);
+                },
+                error: function(data) {
+                    $.toast({
+                        text: data.error, // Text that is to be shown in the toast
+                        heading: 'Panier', // Optional heading to be shown on the toast
+                        icon: 'error', // Type of toast icon
+                        showHideTransition: 'fade', // fade, slide or plain
+                        allowToastClose: true, // Boolean value true or false
+                        hideAfter: 3000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                        stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                        position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+
+
+
+                        textAlign: 'center', // Text alignment i.e. left, right or center
+                        loader: true, // Whether to show loader or not. True by default
+                        loaderBg: '#9EC600', // Background color of the toast loader
+                        beforeShow: function() {}, // will be triggered before the toast is shown
+                        afterShown: function() {}, // will be triggered after the toat has been shown
+                        beforeHide: function() {}, // will be triggered before the toast gets hidden
+                        afterHidden: function() {} // will be triggered after the toast has been hidden
+                    });
+                }
+            });
+        });
+        $(".productLink").unbind('click');
+
+        $('#search').keypress(function(e) {
+            var key = e.which;
+            var searchField = $(this).val();
+            if (key == 13) // the enter key code
+            {
+                e.preventDefault();
+                location.href = `{{ route('recherche') }}?searchQuery=${searchField}`
+            }
+        });
+    </script>
 @endsection

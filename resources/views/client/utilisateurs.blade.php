@@ -5,7 +5,7 @@
         <header class="flex flex-col items-center w-full px-2 mb-8">
             <ol class="flex justify-center text-xs uppercase">
                 <li class="flex items-center h-8">
-                    <a href="https://sqp.fr">Accueil</a>
+                    <a href="{{ route('home') }}">Accueil</a>
                 </li>
 
                 <li class="flex items-center h-8 pl-2">
@@ -16,7 +16,7 @@
                                 d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
                         </svg> </span>
-                    <a href="https://sqp.fr/espace-client">Mon compte</a>
+                    <a href="{{ route('client.index') }}">Mon compte</a>
                 </li>
             </ol>
 
@@ -75,7 +75,7 @@
                             d="M17.492 15.432c-.433 0-.855-.087-1.253-.259l.467-1.082c.25.107.514.162.786.162.222 0 .441-.037.651-.11l.388 1.112c-.334.118-.683.177-1.039.177zM6.57 15.41c-.373 0-.741-.066-1.093-.195l.407-1.105c.221.081.451.122.686.122.26 0 .514-.05.754-.148l.447 1.09c-.382.157-.786.236-1.201.236zm8.67-.783-1.659-.945.583-1.024 1.66.945-.584 1.024zm-6.455-.02-.605-1.011 1.639-.981.605 1.011-1.639.981zm3.918-1.408c-.243-.101-.5-.153-.764-.153-.23 0-.457.04-.674.119l-.401-1.108c.346-.125.708-.188 1.075-.188.42 0 .83.082 1.217.244l-.453 1.086zm7.327-.163c-.534 0-.968.433-.968.968 0 .535.434.968.968.968.535 0 .969-.434.969-.968 0-.535-.434-.968-.969-.968zm-16.061 0c-.535 0-.969.433-.969.968 0 .535.434.968.969.968s.969-.434.969-.968c0-.535-.434-.968-.969-.968zM22 12.204v6.683l-4 2.479V17h-1v4.141l-4-2.885V15h-2v3.255L7 21.14V17H6v4.365l-4-2.479V5.592l4 2.479V12h1V8.073l4-2.886V10h2V5.187l1.577 1.138C14.238 5.624 14 4.807 14 3.801l.019-.345L12 2 6.455 6 0 2v18l6.455 4L12 20l5.545 4L24 20V8.382l-.039.047c-.831.982-1.614 1.918-1.961 3.775zm2-8.403C24 1.702 22.1 0 20 0s-4 1.702-4 3.801c0 3.121 3.188 3.451 4 8.199.812-4.748 4-5.078 4-8.199zM18.5 4c0-.829.672-1.5 1.5-1.5s1.5.671 1.5 1.5-.672 1.5-1.5 1.5-1.5-.671-1.5-1.5zm-.548 8c-.212-.992-.547-1.724-.952-2.334V12h.952z">
                         </path>
                     </svg>
-                    <p class="text-xs font-semibold text-center uppercase ">Adresses de livraison</p>
+                    <p class="text-xs font-semibold text-center uppercase text-white">Adresses de livraison</p>
                 </a>
                 <a href="{{ route('client.factures') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
@@ -99,7 +99,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Informations société</p>
                 </a>
                 <a href="{{ route('client.utilisateurs') }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-primary-500 pointer-events-none">
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md  bg-primary-400 text-white pointer-events-none">
                     <svg class="w-10 h-10 mr-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -118,20 +118,6 @@
                         </path>
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Service après-vente</p>
-                </a>
-                <a href="https://sqp.fr/espace-client/nasexchange" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600"
-                    style="background-color: #299E8E">
-                    <svg class="w-10 h-10 mr-auto text-white" height="473pt" viewBox="-17 0 473 473.54" width="473pt"
-                        xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                        <path
-                            d="m438.46875 187.96875v64.589844l-47.859375 4.601562c-4.640625 20.945313-13.039063 40.878906-24.789063 58.828125l30.558594 36.902344-34.558594 30.539063-51.398437-71.238282c50.765625-50.769531 50.765625-133.082031-.003906-183.847656-50.765625-50.769531-133.078125-50.769531-183.847657 0-50.765624 50.765625-50.765624 133.078125 0 183.847656l-49.660156 71.25-34.550781-30.5625 30.5625-36.898437c-11.753906-17.949219-20.152344-37.875-24.792969-58.820313l-47.859375-4.601562v-64.578125l47.859375-4.621094c4.53125-20.976563 12.945313-40.921875 24.800782-58.808594l-30.558594-36.902343 45.550781-45.558594 36.898437 30.570312c17.941407-11.757812 37.867188-20.160156 58.808594-24.800781l4.621094-47.859375h62.25l4.609375 47.859375c20.945313 4.640625 40.875 13.042969 58.820313 24.800781l36.898437-30.558594 45.550781 45.546876-30.558594 36.902343c11.851563 17.890625 20.257813 37.835938 24.789063 58.808594zm0 0">
-                        </path>
-                        <path
-                            d="m239.269531 366.710938c24.25 7.320312 38.441407 28.367187 38.441407 53.527343-.230469 24.941407-14.191407 46.210938-38.660157 53.300781l3.230469-38.890624-.292969-.21875c-11.171875-8.5-26.667969-8.410157-37.738281.21875h-.011719l3.011719 38.671874c-27.460938-6.871093-40.949219-28.140624-40.949219-53.308593-.230469-23.101563 15.089844-43.011719 33.167969-51.472657v-131.507812c-24.25-7.320312-38.4375-28.359375-38.4375-53.53125s13.957031-46.441406 38.4375-53.53125l-3.238281 38.890625.300781.230469c11.167969 8.5 26.660156 8.410156 37.730469-.21875l.007812-.011719-3.007812-38.660156c27.910156 6.410156 41.410156 27.679687 41.410156 52.851562 0 22.871094-15.101563 43.007813-33.402344 51.699219zm0 0">
-                        </path>
-                    </svg>
-                    <p class="text-xs font-semibold text-center text-white uppercase ">NASEXCHANGE</p>
                 </a>
 
                 <a href="{{ route('logout') }}"
@@ -348,7 +334,7 @@
     </div>
 
     <div class="flex col-span-full">
-        <button id="addUserButton" class="button group --has-trailing ml-auto --is-primary --is-small">
+        <button id="addUserButton" class="button group --has-trailing ml-auto   --is-small">
 
 
             <span class="button__caption">
@@ -635,7 +621,7 @@
         </div>
         <div
             class="flex flex-col items-center justify-between w-full px-4 py-8 bg-secondary-600 sm:px-6 sm:flex-row-reverse">
-            <button class="button group --has-trailing --is-primary --is-small" type="submit"
+            <button class="button group --has-trailing   --is-small" type="submit"
                 wire:loading.class="--is-loading">
 
 

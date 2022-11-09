@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdresseLivraison;
+use App\Models\Catalogue;
+use App\Models\Commande;
+use App\Models\Devis;
+use App\Models\Facture;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,22 +31,38 @@ class ClientController extends Controller
 
     public function commandes()
     {
-        return view('client.commandes');
+        $commandes = auth()->user()->commandes;
+
+        return view('client.commandes', [
+            'commandes' => $commandes
+        ]);
     }
 
     public function paniers()
     {
-        return view('client.paniers');
+        $paniers = auth()->user()->savedCarts;
+
+        return view('client.paniers', [
+            'paniers' => $paniers
+        ]);
     }
 
     public function devis()
     {
-        return view('client.devis');
+        $devis = auth()->user()->devis;
+
+        return view('client.devis', [
+            'devis' => $devis
+        ]);
     }
 
     public function cataloguesTarifs()
     {
-        return view('client.cataloguesTarifs');
+        $catalogues = Catalogue::all();
+
+        return view('client.cataloguesTarifs', [
+            'catalogues' => $catalogues
+        ]);
     }
 
     public function adresses()
@@ -56,7 +76,11 @@ class ClientController extends Controller
 
     public function factures()
     {
-        return view('client.factures');
+        $factures = auth()->user()->factures;
+
+        return view('client.factures', [
+            'factures' => $factures
+        ]);
     }
 
     public function informationsSociete()
@@ -71,6 +95,10 @@ class ClientController extends Controller
 
     public function sav()
     {
-        return view('client.sav');
+        $savs = auth()->user()->societe->savs;
+
+        return view('client.sav', [
+            'savs' => $savs
+        ]);
     }
 }

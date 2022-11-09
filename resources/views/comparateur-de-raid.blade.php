@@ -1,16 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div wire:id="LgqPgheDoiptbttG9IwQ"
-        wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;LgqPgheDoiptbttG9IwQ&quot;,&quot;name&quot;:&quot;website.products.raidSelector&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;comparateur-de-raid&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[],&quot;path&quot;:&quot;https:\/\/sqp.fr\/comparateur-de-raid?&quot;},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;fca9227a&quot;,&quot;data&quot;:{&quot;disks&quot;:[],&quot;slots&quot;:null,&quot;queryString&quot;:{&quot;slots&quot;:{&quot;except&quot;:&quot;&quot;},&quot;disks&quot;:{&quot;except&quot;:[]}}},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;63852c59203945d43180e9d9970e58a9d67be0db5d84eb24dc2f26f16b0c1132&quot;}}"
-        class="w-full px-4">
+    <div class="w-full px-4">
         <div class="gap-8 mx-auto mt-8 sm:grid sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 max-w-big">
 
             <div class="col-span-full">
                 <div>
                     <ol class="flex text-xs text-white uppercase jusitfy-center" wire:ignore>
                         <li class="flex items-center h-8">
-                            <a href="https://sqp.fr/">Accueil</a>
+                            <a href="{{ route('home') }}">Accueil</a>
                         </li>
 
                     </ol>
@@ -152,10 +150,183 @@
                     </div>
                 </div>
 
+                <div class="relative mb-3 text-left" id="capaciteDD">
+                    <div class="px-2 py-4 rounded-sm bg-secondary-600">
+                        <div
+                            class="w-full px-2 mb-4 overflow-hidden text-xl font-medium text-left text-white normal-case text-ellipsis whitespace-nowrap">
+                            Capacité des disques durs</div>
+
+                        <p class="px-2 mt-8 text-sm text-white">Choisisez les disques à utiliser</p>
+                        <div class="flex flex-wrap">
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(1000)" onClick="addDisk(this.innerHTML)">1 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(2000)" onClick="addDisk(this.innerHTML)"">2 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(3000)" onClick="addDisk(this.innerHTML)"">3 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(4000)" onClick="addDisk(this.innerHTML)"">4 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(6000)" onClick="addDisk(this.innerHTML)"">6 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(8000)" onClick="addDisk(this.innerHTML)"">8 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(10000)" onClick="addDisk(this.innerHTML)"">10 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(12000)" onClick="addDisk(this.innerHTML)">12 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(14000)" onClick="addDisk(this.innerHTML)">14 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(16000)" onClick="addDisk(this.innerHTML)">16 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(18000)" onClick="addDisk(this.innerHTML)">18 TB</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-primary-500 hover:bg-primary-600"
+                                    wire:click="selectDisk(20000)" onClick="addDisk(this.innerHTML)">20 TB</div>
+                            </div>
+                        </div>
+                        <p class="px-2 mt-8 text-sm text-white">Disques sélectionnés</p>
+                        <p class="px-2 text-xs text-white">(Cliquer sur un disque pour le retirer)</p>
+                        <div class="flex flex-wrap" id="selectedDiskWrapper">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative mb-3 text-left" id="comparatifRaid">
+                    <div class="px-2 py-4 rounded-sm bg-secondary-600">
+                        <div
+                            class="w-full px-2 mb-4 overflow-hidden text-xl font-medium text-left text-white normal-case text-ellipsis whitespace-nowrap">
+                            Comparatif RAID</div>
+
+                        <ul class="grid gap-4 px-2 mt-8 mb-8 text-xs text-white md:grid-cols-5">
+                            <li class="flex items-center space-x-4">
+                                <div class="w-5 h-5 border border-white rounded-full bg-primary-500"></div>
+                                <div> Espace disponible *</div>
+                            </li>
+                            <li class="flex items-center space-x-4">
+                                <div class="w-5 h-5 border border-white rounded-full bg-primary-700"></div>
+                                <div> Espace de protection</div>
+                            </li>
+                            <li class="flex items-center space-x-4">
+                                <div class="w-5 h-5 border border-white rounded-full bg-secondary-500"></div>
+                                <div> Espace inutilisé</div>
+                            </li>
+                        </ul>
+
+                        <p class="px-2 text-xs text-secondary-100">* Capacité de stockage disponible avant formatage,
+                            capacité brute. Pour avoir une capacité de stockage utile, prévoir la perte d’espace dûe au
+                            formatage (environ 10%)</p>
+
+                        <ul class="grid gap-4 px-2 mt-8 mb-8">
+                            <li class="flex items-center gap-4">
+                                <label for="raid-0"
+                                    class="items-center w-full px-3 py-2 space-y-2 text-sm cursor-pointer sm:flex">
+                                    <div class="flex">
+                                        <div class="w-48 pl-2 text-white">
+                                            RAID 0
+                                        </div>
+                                    </div>
+                                    <div class="flex w-full">
+                                        <div class="flex items-center justify-center flex-1 h-8 text-sm text-white md:flex-auto bg-primary-500"
+                                            style="width: 100%" id="raid-0">
+                                            14 TB
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <label for="raid-1"
+                                    class="items-center w-full px-3 py-2 space-y-2 text-sm cursor-pointer sm:flex">
+                                    <div class="flex">
+                                        <div class="w-48 pl-2 text-white">
+                                            RAID 1
+                                        </div>
+                                    </div>
+                                    <div class="flex w-full">
+                                        <div class="flex items-center justify-center flex-1 h-8 text-sm text-white md:flex-auto bg-primary-500"
+                                            style="width: 42.857142857143%">
+                                            6 TB
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
             </div>
         </div>
     </div>
 
-    <!-- Livewire Component wire-end:LgqPgheDoiptbttG9IwQ -->
+    <script>
+        $("#capaciteDD").hide();
+        $("#comparatifRaid").hide();
+
+        var lastIndex = 0;
+        var totalValue = 0;
+
+        var addDisk = (value) => {
+            var intVal = parseInt(value.split(" ")[0])
+            totalValue += intVal;
+
+            $(`#selectedDisk${lastIndex}`).empty();
+            $(`#selectedDisk${lastIndex}`).append(
+                `<div class="flex items-center justify-center w-12 h-16 text-sm text-white cursor-pointer bg-secondary-500 hover:bg-secondary-700" onClick="removeDisk(this.innerHTML)" wire:click="removeDisk(1)">${value}</div>`
+            );
+            lastIndex++;
+
+            $("#raid-0").text(totalValue + " TB");
+        }
+
+        var removeDisk = (value) => {
+            var intVal = parseInt(value.split(" ")[0])
+            totalValue -= intVal;
+
+            if (!lastIndex == 0) {
+                $(`#selectedDisk${lastIndex}`).empty();
+                lastIndex--;
+            }
+
+            $("#raid-0").text(totalValue + " TB");
+        }
+
+        $("input[name=slots]").change(function() {
+            $("#selectedDiskWrapper").empty();
+            lastIndex = 0;
+            for (var index = 0; index < $(this).val(); index++) {
+                var element = `<div class="p-2" id="selectedDisk${index}">
+                                <div
+                                    class="flex items-center justify-center w-12 h-16 text-sm text-white bg-opacity-25 cursor-pointer bg-secondary-500">
+                                </div>
+                            </div>`;
+                $('#selectedDiskWrapper').append(element);
+            }
+
+            $("#capaciteDD").show();
+            $("#comparatifRaid").show();
+        });
+    </script>
 @endsection

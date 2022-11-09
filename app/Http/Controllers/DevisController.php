@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Devis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class DevisController extends Controller
 {
@@ -33,9 +34,20 @@ class DevisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $total = app('\App\Http\Controllers\ProduitController')->getCartTotal();
+
+        Devis::create([
+            'DateDeDevis' => now(),
+            'DateDeValidite' => now()->addDays(30),
+            'TotalHT' => $total,
+            'TotalTTC' => $total + $total * 0.02,
+            'donnees_panier' => session()->get('cart'),
+            'user_id' => auth()->user()->id
+        ]);
+
+        return response()->json(['msg' => 'Devis Enregistré dans la rubrique Mon Compte / Devis']);
     }
 
     /**

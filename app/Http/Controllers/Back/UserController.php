@@ -47,4 +47,20 @@ class UserController extends Controller
         $user->delete();
         return back()->with('status', 'Utilisateur ' . $user->nom_utilisateur . 'supprimé');
     }
+
+    public function activation(Request $request)
+    {
+
+        $user = User::findOrFail($request->user_id);
+
+        $user->active = !$user->active;
+        $user->save();
+
+        return response()->json([
+            'data' => [
+                'success' => $user->active ? 'Utilisateur ' . $user->title . ' activé' : 'Utilisateur ' . $user->title . ' desactivé',
+                'user_active' => $user->active
+            ]
+        ]);
+    }
 }

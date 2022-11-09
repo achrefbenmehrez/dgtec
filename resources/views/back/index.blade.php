@@ -19,8 +19,8 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Gains (Total)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">4562 DT</div>
+                                    Nombre de Commandes en cours</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $enCours }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -37,8 +37,8 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Nombre d'utilisateurs</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">652</div>
+                                    Nombre de Commandes Livrés</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $livres }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -54,11 +54,11 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Dernier produit créé
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Dernier produit ajouté
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">aaaaaaaa
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $dernierProduit }}
                                         </div>
                                     </div>
                                 </div>
@@ -78,8 +78,8 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Meilleure chaine de discussions</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">aaaaaaaaa</div>
+                                    Nombre d'utilisateurs</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $userCount }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -127,11 +127,11 @@
                                 <i class="fas fa-circle text-primary"></i> Clients
                             </span>
                             <span class="mr-2">
-                                <i class="fas fa-circle text-info"></i> Tuteurs
+                                <i class="fas fa-circle text-info"></i> Administrateurs
                             </span>
                             <br>
                             <span class="mr-2">
-                                <i class="fas fa-circle text-muted"></i> Administrateurs
+                                <i class="fas fa-circle text-muted"></i> Super Admins
                             </span>
                         </div>
                     </div>

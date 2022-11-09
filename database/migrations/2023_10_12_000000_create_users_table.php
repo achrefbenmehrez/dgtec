@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer('fax')->nullable();
             $table->string("moyen_payement")->nullable();
             $table->string("transporteur")->nullable();
+            $table->boolean("active")->default(0);
 
             $table->foreignId('societe_id')
                 ->constrained('societes')

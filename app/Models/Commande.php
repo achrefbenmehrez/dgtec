@@ -7,6 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Commande extends Model
 {
+    protected $fillable = [
+        'donnees_panier',
+        'user_id',
+        'adresse_livraison_id',
+        'etat',
+        'type',
+        'livraisonPartielle',
+        'referenceClient'
+    ];
+
+    protected $casts = [
+        'donnees_panier' => 'array'
+    ];
+
     use HasFactory;
 
     public function user()
@@ -14,8 +28,13 @@ class Commande extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function produits()
+    public function adresseLivraison()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsTo(AdresseLivraison::class);
+    }
+
+    public function facture()
+    {
+        return $this->hasOne(Facture::class);
     }
 }

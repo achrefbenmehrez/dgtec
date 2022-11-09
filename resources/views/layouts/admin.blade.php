@@ -35,7 +35,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
+            <img class="animation__shake" src="{{ asset('storage/img/DGTEC Logo blue.png') }}" alt="AdminLTELogo" height="60"
                 width="60">
         </div>
 
@@ -82,6 +82,8 @@
     <script src="{{ url('back/dist/js/demo.js') }}"></script>
     <!-- adminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ url('back/dist/js/pages/dashboard.js') }}"></script>
+
+    <script src="{{ asset('dist/js/jquery.toast.min.js') }}"></script>
 
     <script>
         $(function() {

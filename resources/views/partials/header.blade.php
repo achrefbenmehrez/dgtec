@@ -2,7 +2,26 @@
 $categories = App\Models\Category::all();
 $brands = App\Models\Brand::all();
 ?>
-<header class="fixed z-30 w-full pb-4 -relative sm:pb-0" style="background-color: rgb(98, 121, 158);">
+<style>
+    #lblCartCount {
+        font-size: 13px;
+        background: #0a1c78;
+        color: #fff;
+        padding: 0 5px;
+        vertical-align: top;
+        margin-left: 0px;
+        margin-top: -30px;
+    }
+
+    .badge {
+        padding-left: 9px;
+        padding-right: 9px;
+        -webkit-border-radius: 9px;
+        -moz-border-radius: 9px;
+        border-radius: 9px;
+    }
+</style>
+<header class="fixed z-30 w-full pb-4 -relative sm:pb-0" style="background-color: #343a40b8;">
     <div class="mx-auto max-w-big">
         <div class="flex flex-wrap items-center justify-between sm:h-16 md:justify-start">
             <div class="flex justify-center w-full px-4 py-4 sm:w-auto sm:py-0 sm:justify-start sm:px-6">
@@ -13,7 +32,7 @@ $brands = App\Models\Brand::all();
             </div>
 
             <div class="hidden mr-8 lg:flex lg:flex-1">
-                <form class="relative w-full text-secondary-700" action="https://sqp.fr/recherche">
+                <form class="relative w-full text-secondary-700" action="{{ route('recherche') }}">
                     <button class="absolute inset-y-0 flex items-center right-2" aria-hidden="true">
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             aria-hidden="true">
@@ -21,14 +40,14 @@ $brands = App\Models\Brand::all();
                                 d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
                                 clip-rule="evenodd" />
                         </svg> </button>
-                    <input id="query" name="query"
-                        class="block w-full h-full py-2 pl-8 pr-8 placeholder-opacity-50 rounded-sm text-secondary-300 placeholder-secondary-300 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm"
+                    <input id="query" name="searchQuery"
+                        class="block w-full h-full py-2 pl-8 pr-8 placeholder-opacity-50 rounded-sm text-secondary-400 placeholder-primary-400 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm"
                         placeholder="Rechercher parmi plus de 13000 références..." type="search">
                 </form>
             </div>
 
             <div class="flex items-center justify-around flex-1 h-full lg:justify-end" x-data>
-                <a href="https://sqp.fr/recherche"
+                <a href="{{ route('recherche') }}"
                     class="inline-flex items-center justify-center h-full px-8 py-2 text-xs font-semibold uppercase transition shadow-sm lg:hidden whitespace-nowra hover:bg-black hover:bg-opacity-25">
                     <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -38,7 +57,7 @@ $brands = App\Models\Brand::all();
                 </a>
 
                 <a href="tel:+216 36 208 694"
-                    class="inline-flex items-center justify-center flex-1 h-full px-8 py-2 text-sm font-semibold uppercase transition shadow-sm whitespace-nowrap hover:bg-black hover:bg-opacity-25">
+                    class="text-white inline-flex items-center justify-center flex-1 h-full px-8 py-2 text-sm font-semibold uppercase transition shadow-sm whitespace-nowrap hover:bg-black hover:bg-opacity-25">
                     <svg class="w-8 h-8 xl:mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="2" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -52,7 +71,7 @@ $brands = App\Models\Brand::all();
                 @if (!Auth::check())
                     <div class="relative h-full group">
                         <a href="{{ route('connexion') }}"
-                            class="relative inline-flex items-center justify-center h-full px-8 py-2 text-xs font-semibold uppercase transition shadow-sm whitespace-nowrap hover:bg-black hover:bg-opacity-25">
+                            class="text-white relative inline-flex items-center justify-center h-full px-8 py-2 text-xs font-semibold uppercase transition shadow-sm whitespace-nowrap hover:bg-black hover:bg-opacity-25">
                             <svg class="w-6 h-6 shrink-0 lg:mr-2" transform="scale(1.2,1.2)"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.727 31.727">
                                 <path fill="currentColor"
@@ -61,7 +80,7 @@ $brands = App\Models\Brand::all();
                         </a>
                     </div>
                 @else
-                    <div class="relative h-full group">
+                    <div class="text-white relative h-full group">
                         <a href="{{ route('client.index') }}"
                             class="relative inline-flex items-center justify-center h-full px-8 py-2 text-xs font-semibold  uppercase transition shadow-sm whitespace-nowrap hover:bg-black hover:bg-opacity-25">
                             <svg class="w-6 h-6 shrink-0 lg:mr-2" transform="scale(1.2,1.2)"
@@ -79,7 +98,7 @@ $brands = App\Models\Brand::all();
                         <div
                             class="absolute right-0 z-50 hidden bg-gray-100 rounded shadow-lg top-16 lg:group-hover:block">
                             <a href="{{ route('client.commandes') }}" target="_self" rel=""
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500">
+                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-secondary-400">
                                 <svg class="w-5 h-5 mx-auto  shrink-0" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
                                     viewBox="0 0 24 24">
@@ -91,7 +110,7 @@ $brands = App\Models\Brand::all();
                                     de commande</p>
                             </a>
                             <a href="{{ route('client.paniers') }}" target="_self" rel=""
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500">
+                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-secondary-400">
                                 <svg class="w-5 h-5 mx-auto  shrink-0" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path
@@ -102,7 +121,7 @@ $brands = App\Models\Brand::all();
                                 </p>
                             </a>
                             <a href="{{ route('client.devis') }}" target="_self" rel=""
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500">
+                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-secondary-400">
                                 <svg class="w-5 h-5 mx-auto  shrink-0" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path
@@ -112,7 +131,7 @@ $brands = App\Models\Brand::all();
                                 <p class="w-full pl-4 text-xs font-semibold text-right  uppercase">Devis</p>
                             </a>
                             <a href="{{ route('client.cataloguesTarifs') }}" target="_self" rel=""
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500">
+                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-secondary-400">
                                 <svg class="w-5 h-5 mx-auto  shrink-0" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path
@@ -123,7 +142,7 @@ $brands = App\Models\Brand::all();
                                     catalogues</p>
                             </a>
                             <a href="{{ route('client.adresses') }}" target="_self" rel=""
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500">
+                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-secondary-400">
                                 <svg class="w-5 h-5 mx-auto  shrink-0" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path
@@ -134,7 +153,7 @@ $brands = App\Models\Brand::all();
                                     de livraison</p>
                             </a>
                             <a href="{{ route('client.factures') }}" target="_self" rel=""
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500">
+                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-secondary-400">
                                 <svg class="w-5 h-5 mx-auto  shrink-0" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path
@@ -145,7 +164,7 @@ $brands = App\Models\Brand::all();
                                     avoirs et échéances</p>
                             </a>
                             <a href="{{ route('client.informationsSociete') }}" target="_self" rel=""
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500">
+                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-secondary-400">
                                 <svg class="w-5 h-5 mx-auto  shrink-0" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
                                     viewBox="0 0 24 24">
@@ -157,7 +176,7 @@ $brands = App\Models\Brand::all();
                                     Informations société</p>
                             </a>
                             <a href="{{ route('client.utilisateurs') }}" target="_self" rel=""
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500">
+                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-secondary-400">
                                 <svg class="w-5 h-5 mx-auto  shrink-0" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path
@@ -168,7 +187,7 @@ $brands = App\Models\Brand::all();
                                     des utilisateurs</p>
                             </a>
                             <a href="{{ route('client.sav') }}" target="_self" rel=""
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500">
+                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-secondary-400">
                                 <svg class="w-5 h-5 mx-auto  shrink-0" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24">
@@ -179,24 +198,8 @@ $brands = App\Models\Brand::all();
                                 <p class="w-full pl-4 text-xs font-semibold text-right  uppercase">Service
                                     après-vente</p>
                             </a>
-                            <a href="https://sqp.fr/espace-client/nasexchange" target="_blank"
-                                rel="noopener noreferrer"
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500"
-                                style="background-color: #299E8E">
-                                <svg class="w-5 h-5 mx-auto  shrink-0" height="473pt" viewBox="-17 0 473 473.54"
-                                    width="473pt" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                                    <path
-                                        d="m438.46875 187.96875v64.589844l-47.859375 4.601562c-4.640625 20.945313-13.039063 40.878906-24.789063 58.828125l30.558594 36.902344-34.558594 30.539063-51.398437-71.238282c50.765625-50.769531 50.765625-133.082031-.003906-183.847656-50.765625-50.769531-133.078125-50.769531-183.847657 0-50.765624 50.765625-50.765624 133.078125 0 183.847656l-49.660156 71.25-34.550781-30.5625 30.5625-36.898437c-11.753906-17.949219-20.152344-37.875-24.792969-58.820313l-47.859375-4.601562v-64.578125l47.859375-4.621094c4.53125-20.976563 12.945313-40.921875 24.800782-58.808594l-30.558594-36.902343 45.550781-45.558594 36.898437 30.570312c17.941407-11.757812 37.867188-20.160156 58.808594-24.800781l4.621094-47.859375h62.25l4.609375 47.859375c20.945313 4.640625 40.875 13.042969 58.820313 24.800781l36.898437-30.558594 45.550781 45.546876-30.558594 36.902343c11.851563 17.890625 20.257813 37.835938 24.789063 58.808594zm0 0">
-                                    </path>
-                                    <path
-                                        d="m239.269531 366.710938c24.25 7.320312 38.441407 28.367187 38.441407 53.527343-.230469 24.941407-14.191407 46.210938-38.660157 53.300781l3.230469-38.890624-.292969-.21875c-11.171875-8.5-26.667969-8.410157-37.738281.21875h-.011719l3.011719 38.671874c-27.460938-6.871093-40.949219-28.140624-40.949219-53.308593-.230469-23.101563 15.089844-43.011719 33.167969-51.472657v-131.507812c-24.25-7.320312-38.4375-28.359375-38.4375-53.53125s13.957031-46.441406 38.4375-53.53125l-3.238281 38.890625.300781.230469c11.167969 8.5 26.660156 8.410156 37.730469-.21875l.007812-.011719-3.007812-38.660156c27.910156 6.410156 41.410156 27.679687 41.410156 52.851562 0 22.871094-15.101563 43.007813-33.402344 51.699219zm0 0">
-                                    </path>
-                                </svg>
-                                <p class="w-full pl-4 text-xs font-semibold text-right  uppercase">
-                                    NASEXCHANGE</p>
-                            </a>
                             <a href="{{ route('logout') }}" target="_self" rel=""
-                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-primary-500">
+                                class="flex py-2 pl-8 pr-4 transition bg-secondary-600 whitespace-nowrap hover:!bg-secondary-400">
                                 <svg class="w-5 h-5 mx-auto  shrink-0" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
                                     viewBox="0 0 24 24">
@@ -212,24 +215,24 @@ $brands = App\Models\Brand::all();
                 @endif
 
 
-                <div wire:id="bD6b1YTtJ4U8BfxTkdWR"
-                    wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;bD6b1YTtJ4U8BfxTkdWR&quot;,&quot;name&quot;:&quot;website.cart.cart&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;cart.updateProducts&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;30a63869&quot;,&quot;data&quot;:{&quot;comment&quot;:&quot;&quot;,&quot;viewName&quot;:&quot;website._layouts.components.cart&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;fbec6cf4e062794ebea67fe0c977c78e302b360b58dee931417cbcac7d57a2ee&quot;}}"
-                    class="relative h-full">
-                    <a href="https://sqp.fr/mon-panier"
-                        class="relative inline-flex items-center justify-center h-full px-8 py-2 text-xs font-semibold uppercase transition shadow-sm whitespace-nowrap hover:bg-black hover:bg-opacity-25">
+                <div class="relative h-full">
+                    <a href="{{ route('mon-panier') }}"
+                        class="text-white relative inline-flex items-center justify-center h-full px-8 py-2 text-xs font-semibold uppercase transition shadow-sm whitespace-nowrap hover:bg-black hover:bg-opacity-25">
                         <svg class="w-8 h-8 shrink-0 xl:mr-2" transform="scale(-1,1)" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
                         </svg> <span class="sr-only xl:not-sr-only xl:whitespace-nowrap">Mon panier</span>
+                        @if (session('cart'))
+                            <span class='badge badge-info'
+                                id='lblCartCount'>{{ count((array) session('cart')) }}</span>
+                        @endif
                     </a>
 
                 </div>
 
                 @role('admin')
-                    <div wire:id="bD6b1YTtJ4U8BfxTkdWR"
-                        wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;bD6b1YTtJ4U8BfxTkdWR&quot;,&quot;name&quot;:&quot;website.cart.cart&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;cart.updateProducts&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;30a63869&quot;,&quot;data&quot;:{&quot;comment&quot;:&quot;&quot;,&quot;viewName&quot;:&quot;website._layouts.components.cart&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;fbec6cf4e062794ebea67fe0c977c78e302b360b58dee931417cbcac7d57a2ee&quot;}}"
-                        class="relative h-full">
+                    <div class="relative h-full text-white">
                         <a href="{{ route('admin.dashboard') }}"
                             class="relative inline-flex items-center justify-center h-full px-8 py-2 text-xs font-semibold uppercase transition shadow-sm whitespace-nowrap hover:bg-black hover:bg-opacity-25">
                             <span class="sr-only xl:not-sr-only xl:whitespace-nowrap">Dashboard Admin</span>
@@ -239,7 +242,7 @@ $brands = App\Models\Brand::all();
 
                 <!-- Livewire Component wire-end:bD6b1YTtJ4U8BfxTkdWR -->
                 <a href="#"
-                    class="items-center justify-center hidden h-full px-4 py-2 text-xs font-semibold uppercase shadow-sm sm:inline-flex whitespace-nowrap hover:bg-black hover:bg-opacity-25">
+                    class="text-white items-center justify-center hidden h-full px-4 py-2 text-xs font-semibold uppercase shadow-sm sm:inline-flex whitespace-nowrap hover:bg-black hover:bg-opacity-25">
                     🇫🇷
                     <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                         fill="currentColor" aria-hidden="true">
@@ -249,7 +252,7 @@ $brands = App\Models\Brand::all();
                     </svg> </a>
 
                 <a href="#" @click.prevent="$dispatch('togglemegamenu')"
-                    class="inline-flex items-center justify-center h-full px-4 py-2 text-xs font-semibold uppercase transition shadow-sm md:hidden whitespace-nowrap hover:bg-black hover:bg-opacity-25">
+                    class="text-white inline-flex items-center justify-center h-full px-4 py-2 text-xs font-semibold uppercase transition shadow-sm md:hidden whitespace-nowrap hover:bg-black hover:bg-opacity-25">
                     <svg class="w-6 h-6 shrink-0 lg:mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -266,29 +269,27 @@ $brands = App\Models\Brand::all();
 <div class="fixed z-20 hidden w-full h-12 bg-gray-100 shadow-lg md:flex mt-4">
     <div class="relative flex flex-no-wrap items-center justify-center w-full h-full mx-auto">
         <div
-            class="inline-flex items-center h-full px-4 py-2 text-xs font-semibold text-center uppercase shadow-sm whitespace-nowrap hover:bg-secondary-700 hover:text-white group">
-            Nos marques
-
+            class="hidden md:inline-flex items-center h-full px-4 py-2 text-xs font-semibold uppercase shadow-sm hover:bg-secondary-700 hover:text-white group text-center">
+            <a href="{{ route('produits.index') }}" style="color: black;">Nos Marques</a>
             <div class="absolute left-0 right-0 z-50 hidden pt-4 pb-8 shadow-lg group-hover:flex top-12"
                 style="background-color: rgb(135, 165, 212);">
                 <div class="flex w-full mx-auto max-w-7xl">
-                    @foreach ($brands as $brand)
-                        <ul class="px-4 mx-auto overflow-hidden text-black">
-                            <li class="mb-4 text-dark">
-                                <a class="mb-2 font-bold text-black"
-                                    href="{{ route('produits.index', $category) }}">{{ $brand->title }}</a>
+                    <ul class="px-4 mx-auto overflow-hidden">
+                        @foreach ($brands as $brand)
+                            <li>
+                                <a class="font-bold"
+                                    href="{{ route('produits.index', $brand->slug) }}">{{ $brand->title }}</a>
                             </li>
-                        </ul>
-                    @endforeach
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
-
         @foreach ($categories as $category)
             @if (!$category->parent_id)
                 <div
                     class="hidden md:inline-flex items-center h-full px-4 py-2 text-xs font-semibold uppercase shadow-sm hover:bg-secondary-700 hover:text-white group text-center">
-                    <a href="{{ route('produits.index', $category) }}"
+                    <a href="{{ route('produits.index', $category->slug) }}"
                         style="color: black;">{{ $category->title }}</a>
                     @if ($category->children->count())
                         <div class="absolute left-0 right-0 z-50 hidden pt-4 pb-8 shadow-lg group-hover:flex top-12"
@@ -297,14 +298,14 @@ $brands = App\Models\Brand::all();
                                 <ul class="px-4 mx-auto overflow-hidden">
                                     @foreach ($category->children as $child)
                                         <li>
-                                            <a class="font-bold" style="color: black;"
-                                                href="{{ route('produits.index', $category) }}">{{ $child->title }}</a>
+                                            <a class="font-bold"
+                                                href="{{ route('produits.index', $child->slug) }}">{{ $child->title }}</a>
                                             @if ($child->children->count())
                                                 <ul class="mt-2">
                                                     @foreach ($child->children as $subChild)
-                                                        <li class="mb-2 font-light text-dark" style="color: black;">
+                                                        <li class="mb-2 font-light">
                                                             <a
-                                                                href="{{ route('produits.index', $category) }}">{{ $subChild->title }}</a>
+                                                                href="{{ route('produits.index', $subChild->slug) }}">{{ $subChild->title }}</a>
                                                         </li>
                                                     @endforeach
                                                 </ul>
@@ -330,92 +331,16 @@ $brands = App\Models\Brand::all();
     class="absolute top-0 left-0 right-0 z-50 mt-32 shadow-lg sm:mt-16" x-show="display" style="display: none">
     <div class="py-4 bg-gray-100 md:hidden" @click.outside="display = false">
         <ul class="p-4 space-y-2">
-            <li>
-                <a href="#"
-                    class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
-                    Nos marques
-                </a>
-            </li>
-            <li>
-                <a href="https://sqp.fr/distributeur-stockage-nas"
-                    class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
-                    Stockage NAS
-                </a>
-            </li>
-            <li>
-                <a href="https://sqp.fr/distributeur-stockage-san"
-                    class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
-                    Stockage SAN
-                </a>
-            </li>
-            <li>
-                <a href="https://sqp.fr/distributeur-stockage-externe"
-                    class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
-                    Stockage externe
-                </a>
-            </li>
-            <li>
-                <a href="https://sqp.fr/distributeur-stockage-interne"
-                    class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
-                    Stockage interne
-                </a>
-            </li>
-            <li>
-                <a href="https://sqp.fr/distributeur-memoires"
-                    class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
-                    Mémoires
-                </a>
-            </li>
-            <li>
-                <a href="https://sqp.fr/distributeur-connectiques"
-                    class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
-                    Connectiques
-                </a>
-            </li>
-            <li>
-                <a href="https://sqp.fr/distributeur-reseau"
-                    class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
-                    Réseau
-                </a>
-            </li>
-            <li>
-                <a href="https://sqp.fr/distributeur-accessoires"
-                    class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
-                    Accessoires
-                </a>
-            </li>
-            <li>
-                <a href="https://sqp.fr/distributeur-autres"
-                    class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
-                    Autres
-                </a>
-            </li>
+            @foreach ($categories as $category)
+                @if (!$category->parent_id)
+                    <li>
+                        <a href="#"
+                            class="block w-full px-2 py-2 text-lg font-bold text-center uppercase focus:bg-gray-100 hover:bg-gray-200">
+                            {{ $category->title }}
+                        </a>
+                    </li>
+                @endif
+            @endforeach
         </ul>
-    </div>
-</div>
-
-<div class="relative hidden shadow-lg bg-primary-500 md:block" x-data="{ displayFeaturedPost: true }" x-show="displayFeaturedPost">
-    <div class="flex items-center justify-center h-8 mx-auto max-w-big sm:px-6 lg:px-8 pt-2 mt-4">
-        <div class="pr-16 sm:text-center sm:px-16">
-            <p class="text-xs">
-                <span class="hidden md:inline">
-                    La garantie J+1 et le service premium NASExchange
-                </span>
-                <span class="block sm:ml-2 sm:inline-block">
-                    <a href="https://sqp.fr/la-garantie-j1-et-le-service-premium-nasexchange"
-                        class="font-bold underline"> Lire la suite <span aria-hidden="true">&rarr;</span></a>
-                </span>
-            </p>
-        </div>
-        <div class="absolute inset-y-0 right-0 flex items-start">
-            <button type="button"
-                class="flex p-2 rounded-md hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-white"
-                @click="displayFeaturedPost = false">
-                <span class="sr-only">Fermer</span>
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke-width="2" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg> </button>
-        </div>
     </div>
 </div>

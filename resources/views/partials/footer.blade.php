@@ -718,12 +718,12 @@
 <footer>
     <div class="px-4 py-12 mx-auto max-w-big sm:px-6 lg:py-16 lg:px-8">
         <div class="flex flex-col items-center justify-center w-full mb-16">
-            <a class="mb-4" href="https://sqp.fr/">
-                <span class="sr-only">SQP</span>
+            <a class="mb-4" href="{{ route('home') }}">
+                <span class="sr-only">DGTEC</span>
                 <img class="w-auto h-8 " src="{{ asset('storage/img/DGTEC Logo blue.png') }}" alt="">
             </a>
             <h3 class="text-sm font-bold uppercase">
-                leader Tunisien de la mémoire spécifique
+                leader Tunisien de la mémoire spécifique, depuis 1986
             </h3>
         </div>
         <div class="grid grid-cols-6 pb-8 lg:grid-cols-12 xl:gap-12">
@@ -1188,6 +1188,7 @@
             <div
                 class="grid order-last col-span-6 gap-8 mt-8 xl:mt-0 lg:col-span-12 md:grid-cols-2 xl:grid-cols-none xl:col-span-5 xl:flex xl:flex-col">
                 <div class="flex w-full h-full p-12 mb-8 bg-gray-100 xl:h-auto">
+                    
                     <div class="flex flex-col">
                         <p class="mb-2 font-bold uppercase text-primary-500">
                             Où acheter nos produits ?
@@ -1195,7 +1196,7 @@
                         <p class="mb-2 text-sm">Vous recherchez un <b>revendeur</b> de produits DGTEC <b>dans
                                 votre région ?</b></p>
                         <a class="button group --has-trailing mt-4 mr-auto --is-small --translate-icon-on-hover text-dark"
-                            href="https://sqp.fr/contacter-revendeur">
+                            href="http://dgtec.tn">
 
 
                             <span class="button__caption">
@@ -1225,9 +1226,7 @@
                     </div>
                 </div>
 
-                <div wire:id="ohtmJNTzs7OT4Buy92ib"
-                    wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;ohtmJNTzs7OT4Buy92ib&quot;,&quot;name&quot;:&quot;website.newsletter.registrationForm&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;bf3265f0&quot;,&quot;data&quot;:{&quot;form&quot;:[],&quot;honeyInputs&quot;:{&quot;honey_present&quot;:null,&quot;honey_time&quot;:&quot;eyJpdiI6IjRXYWZ4T2xtTzNvRWF6b3hOb2tpMlE9PSIsInZhbHVlIjoiYUd4d2JNQU1nUDNDdGlQbFBOUmwreWcwMWtGc2c1R2JXbzhJb1FzNE9tUT0iLCJtYWMiOiI1ODBjODczN2FhY2U1ZWYzZTdhMmVhNmRiNzQ5ZjZjYmVkM2ZjNmEzODVkZThmNjc5M2NmOTViYTQ5MjlmZTMyIiwidGFnIjoiIn0=&quot;,&quot;honey_javascript&quot;:null,&quot;honey_recaptcha_token&quot;:null}},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;18098e5396b27d8f93d1d4c747e0a773dee9668e63f3a3c80a9b5488b450a5f0&quot;}}"
-                    class="flex flex-col w-full h-full p-12 xl:h-auto bg-gray-100">
+                <div class="flex flex-col w-full h-full p-12 xl:h-auto bg-gray-100">
                     <p class="mb-2 font-bold text-center uppercase ">newsletter</p>
                     <p class="mb-2 text-base">Inscrivez vous à la newsletter, et <b>recevez
                             gratuitement</b> les offres spéciales par e-mail.</p>
@@ -1358,8 +1357,7 @@
 
                 <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4">
 
-                    <div wire:id="F3as1lNarYWAMo5VAP5v"
-                        wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;F3as1lNarYWAMo5VAP5v&quot;,&quot;name&quot;:&quot;website.comparator.table&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;comparator.toggleProduct&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;0c0f2e35&quot;,&quot;data&quot;:[],&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;f4e025828673f79de1dffaacda8df4b67e686f3cce3255a079e3052a746db1db&quot;}}">
+                    <div>
                         <table>
                             <tr class="align-baseline">
                                 <td></td>
@@ -1405,30 +1403,3 @@
         </div>
     </div>
 </div>
-
-<script src="https://sqp.fr/livewire/livewire.js?id=de3fca26689cb5a39af4" data-turbo-eval="false"
-    data-turbolinks-eval="false"></script>
-<script data-turbo-eval="false" data-turbolinks-eval="false">
-    window.livewire = new Livewire();
-    window.Livewire = window.livewire;
-    window.livewire_app_url = 'https://sqp.fr/';
-    window.livewire_token = 'PCIdl4vqyR7f17boKPzp7XDmnYufdBcoxmVZdNqE';
-    window.deferLoadingAlpine = function(callback) {
-        window.addEventListener('livewire:load', function() {
-            callback();
-        });
-    };
-    let started = false;
-    window.addEventListener('alpine:initializing', function() {
-        if (!started) {
-            window.livewire.start();
-            started = true;
-        }
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-        if (!started) {
-            window.livewire.start();
-            started = true;
-        }
-    });
-</script>

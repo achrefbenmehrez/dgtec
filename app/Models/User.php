@@ -26,7 +26,8 @@ class User extends Authenticatable
         'password',
         'societe_id',
         'login',
-        'adresse_facturation_id'
+        'adresse_facturation_id',
+        'active'
     ];
 
     /**
@@ -66,5 +67,25 @@ class User extends Authenticatable
     public function panier()
     {
         return $this->belongsTo(Panier::class);
+    }
+
+    public function savedCarts()
+    {
+        return $this->hasMany(SavedCart::class);
+    }
+
+    public function devis()
+    {
+        return $this->hasMany(Devis::class);
+    }
+
+    public function commandes()
+    {
+        return $this->hasMany(Commande::class);
+    }
+
+    public function factures()
+    {
+        return $this->hasMany(Facture::class);
     }
 }

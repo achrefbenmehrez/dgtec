@@ -19,18 +19,31 @@ class Category extends Model
     {
         return $this->belongsTo(Category::class, 'parent_id'); // belongsTo = 1:N
     }
-    public function categories()
+
+    public function children()
     {
         return $this->hasMany(Category::class, 'parent_id'); // hasMany = N:1
     }
 
-    public function children()
-    {
-        return $this->hasMany(Category::class, 'parent_id')->with('categories'); // hasMany = N:1
-    }
-
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'category_product', 'category_id', 'product_id'); // belongsToMany = N:N
+        return $this->hasMany(Product::class); // hasMany = N:1
+    }
+
+    public function getParentsNames()
+    {
+
+        $parents = collect([]);
+
+        if ($this->parent) {
+            $parent = $this->parent;
+            while (!is_null($parent)) {
+                $parents->push($parent);
+                $parent = $parent->parent;
+            }
+            return $parents;
+        } else {
+            return $this->name;
+        }
     }
 }

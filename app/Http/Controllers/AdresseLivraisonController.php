@@ -35,7 +35,25 @@ class AdresseLivraisonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'address1' => 'required',
+            'postcode' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'name' => 'required'
+        ]);
+
+        AdresseLivraison::create([
+            'destinataire' => $data['name'],
+            'adresse' => $data['address1'],
+            'complement' => $request->address2,
+            'code_postal' => $data['postcode'],
+            'ville' => $data['city'],
+            'pays' => $data['country'],
+            'user_id' => auth()->user()->id
+        ]);
+
+        return redirect()->back()->with('status', 'Adresse de livraison ajoutée avec succés');
     }
 
     /**

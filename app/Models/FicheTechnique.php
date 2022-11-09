@@ -17,8 +17,27 @@ class FicheTechnique extends Model
         'interfaceDisque',
         'TBW',
         'tempsEntrePannes',
-        'typeDD'
+        'typeDD',
+        'categorie',
+        'frequence',
+        'type',
+        'alimentationDD',
+        'plateformeCompatible',
+        'voltage',
+        'organisation',
+        'emplacementsMemoire',
+        'nbreBaies',
+        'typeBoitier',
+        'emplacements_memoire',
+        'taille_memoire_base',
+        'taille_memoire_max',
+        'nbreDD'
     ];
 
     use HasFactory;
+
+    public function product()
+    {
+        return $this->hasOne(Product::class);
+    }
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer("numTel");
             $table->string("siteWeb")->nullable();
             $table->string("identifiantUnique");
-            $table->string("RNE");
+            $table->string("rne");
             $table->string("formeJuridique")->nullable();
             $table->string("nomComptable")->nullable();
             $table->string("emailComptable")->nullable();

@@ -8,4 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Facture extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'etat',
+        'type',
+        'total',
+        'commande_id',
+        'user_id'
+    ];
+
+    public function commande()
+    {
+        return $this->belongsTo(Commande::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

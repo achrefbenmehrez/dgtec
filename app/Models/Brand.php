@@ -9,7 +9,7 @@ class Brand extends Model
 {
     use HasFactory;
 
-    public $fillable = ['title']; // Ici on défini les champs que l'on veut pouvoir remplir
+    public $fillable = ['title', 'slug', 'logo_url']; // Ici on défini les champs que l'on veut pouvoir remplir
 
     public function products()
     {

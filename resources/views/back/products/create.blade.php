@@ -34,7 +34,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <form action="{{ route('admin.produits.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
@@ -65,18 +65,44 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputClientCompany">Quantite stock *</label>
-                                    <input min="0" type="number" name="stock" value="{{ old('quantiteStock') }}"
-                                        id="inputClientCompany" class="form-control">
+                                    <input min="0" type="number" name="quantiteStock"
+                                        value="{{ old('quantiteStock') }}" id="inputClientCompany" class="form-control">
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2">
-                                        Categories *
+                                        Categorie *
                                     </label>
 
                                     <div class="col-sm-10">
-                                        <select multiple="multiple" class="multiple-select" name="categories[]">
+                                        <select class="multiple-select" name="category_id">
                                             @foreach ($categories as $categorie)
                                                 <option value="{{ $categorie->id }}">{{ $categorie->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2">
+                                        Marque *
+                                    </label>
+
+                                    <div class="col-sm-10">
+                                        <select class="multiple-select" name="marque_id">
+                                            @foreach ($marques as $marque)
+                                                <option value="{{ $marque->id }}">{{ $marque->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2">
+                                        Famille
+                                    </label>
+
+                                    <div class="col-sm-10">
+                                        <select class="multiple-select" name="famille_id">
+                                            @foreach ($familles as $famille)
+                                                <option value="{{ $famille->id }}">{{ $famille->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -101,8 +127,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputClientCompany">Date de fin de promotion</label>
-                                    <input min="" type="date" name="dateFinPromo" value="{{ old('dateFinPromo') }}"
-                                        id="inputClientCompany" class="form-control">
+                                    <input min="" type="date" name="dateFinPromo"
+                                        value="{{ old('dateFinPromo') }}" id="inputClientCompany" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputClientCompany">Ref Fabricant *</label>
@@ -112,6 +138,16 @@
                                 <div class="form-group">
                                     <label for="inputClientCompany">EAN *</label>
                                     <input type="number" name="EAN" value="{{ old('EAN') }}"
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Annee de production *</label>
+                                    <select name="annee_productionn" id="">
+                                        <option value="Debut">Debut</option>
+                                        <option value="Mi">Mi</option>
+                                        <option value="Fin">Fin</option>
+                                    </select>
+                                    <input type="number" min="1900" max="2022" name="annee_production" value="{{ old('annee_production') }}"
                                         id="inputClientCompany" class="form-control">
                                 </div>
                             </div>
@@ -124,7 +160,7 @@
                                 <h1>Fiche Technique</h1>
                                 <div class="form-group">
                                     <label for="inputClientCompany">Capacite *</label>
-                                    <input type="text" name="capacite" value="{{ old('capacite') }}"
+                                    <input type="number" name="capacite" value="{{ old('capacite') }}"
                                         id="inputClientCompany" class="form-control">
                                 </div>
                                 <div class="form-group">
@@ -172,6 +208,86 @@
                                     <input type="text" name="typeDD" value="{{ old('typeDD') }}"
                                         id="inputClientCompany" class="form-control">
                                 </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Categorie </label>
+                                    <select class="multiple-select" name="categorie">
+                                        <option value="DDR3">DDR3</option>
+                                        <option value="DDR4">DDR4</option>
+                                        <option value="DDR5">DDR5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Frequence </label>
+                                    <input type="number" name="frequence" value="{{ old('frequence') }}"
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Type </label>
+                                    <select class="multiple-select" name="type">
+                                        <option value="LOAD REDUCED">LOAD REDUCED</option>
+                                        <option value="ECC/REGISTERED">ECC/REGISTERED</option>
+                                        <option value="UNBUFFERED">UNBUFFERED</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Alimentation Disque Dur </label>
+                                    <input type="text" name="alimentationDD" value="{{ old('alimentationDD') }}"
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Plateforme Compatible </label>
+                                    <input type="text" name="plateformeCompatible"
+                                        value="{{ old('plateformeCompatible') }}" id="inputClientCompany"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Voltage </label>
+                                    <input type="number" name="voltage" value="{{ old('voltage') }}"
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Organisation </label>
+                                    <input type="text" name="organisation" value="{{ old('organisation') }}"
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Nombre d'emplacements memoire </label>
+                                    <input type="number" name="emplacementsMemoire"
+                                        value="{{ old('emplacementsMemoire') }}" id="inputClientCompany"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Type Boitier </label>
+                                    <select class="multiple-select" name="typeBoitier">
+                                        <option value="Tour">Tour</option>
+                                        <option value="Rack">Rack</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Nombre de Baies </label>
+                                    <input type="number" name="nbreBaies" value="{{ old('nbreBaies') }}"
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Emplacements Memoire </label>
+                                    <input type="number" name="emplacements_memoire" value="{{ old('emplacements_memoire') }}"
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Taille memoire de base </label>
+                                    <input type="number" name="taille_memoire_base" value="{{ old('taille_memoire_base') }}"
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Taille memoire max </label>
+                                    <input type="number" name="taille_memoire_max" value="{{ old('taille_memoire_max') }}"
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Nombre de disques durs </label>
+                                    <input type="number" name="nbreDD" value="{{ old('nbreDD') }}"
+                                        id="inputClientCompany" class="form-control">
+                                </div>
                             </div>
                         </div>
 
@@ -185,7 +301,8 @@
                                     <div class="controls-telechargement">
                                         <div class="telechargement input-group upload-input-group">
                                             <input class="form-control" name="telechargements[]" type="file">
-                                            <button class="btn btn-upload btn-success btn-add-telechargement" type="button">
+                                            <button class="btn btn-upload btn-success btn-add-telechargement"
+                                                type="button">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </div>

@@ -29,18 +29,22 @@ class RegisterRequest extends FormRequest
             'billing_address_postcode' => 'required',
             'billing_address_city' => 'required',
             'billing_address_country' => 'required',
-            'form_company_kbis' => 'required',
             'company_name' => 'required',
             'business_name' => 'required',
             'company_phone' => 'required',
             'company_business_id' => 'required',
-            'form_company_kbis' => 'required',
             'nom' => 'required',
             'prenom' => 'required',
             'telephone' => 'required',
             'login' => 'required|unique:users',
             'email' => 'required',
-            'password' => 'required|confirmed|min:6'
+            'password' => 'required|confirmed|min:6',
+            'delivery_address_name' => '',
+            'delivery_address_address1' => '',
+            'delivery_address_address2' => '',
+            'delivery_address_postcode' => '',
+            'delivery_address_city' => '',
+            'delivery_address_country' => '',
         ];
     }
 }

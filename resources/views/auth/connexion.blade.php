@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div wire:id="4N6lNyWyhrWUPx34OZSv"
-        wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;4N6lNyWyhrWUPx34OZSv&quot;,&quot;name&quot;:&quot;website.auth.loginForm&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;connexion&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;6df856f9&quot;,&quot;data&quot;:{&quot;login&quot;:null,&quot;password&quot;:null,&quot;rememberMe&quot;:0,&quot;error&quot;:&quot;&quot;,&quot;honeyInputs&quot;:{&quot;honey_present&quot;:null,&quot;honey_time&quot;:&quot;eyJpdiI6IkJGNld2eDBQUW1nN3BCTExJWTByR1E9PSIsInZhbHVlIjoiaXdHaVBONWk5TkJSUWJKVzVkZVJzNnlwaVpRZG80Mm9DcUs4R050M1drTT0iLCJtYWMiOiIzNTgyMzBkN2RlODJhMTVlMGJmMGRlMWIzZGNmMjk4YzBkMGNhODhjMTE5YWU0MzFkYzExZmFjYjc3MzEzNTk2IiwidGFnIjoiIn0=&quot;,&quot;honey_javascript&quot;:null,&quot;honey_recaptcha_token&quot;:null}},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;63746a49825538155dece5766edb70a661a69b07da7412a88211f4ffbd6f3195&quot;}}"
-        class="w-full px-4">
+    <div class="w-full px-4">
         <form action="{{ route('connexion.post') }}" method="POST"
             class="max-w-5xl mx-auto mt-8 mb-16 overflow-hidden text-white bg-opacity-50 rounded-sm bg-secondary-600 sm:grid md:grid-cols-3 lg:grid-cols-2">
             @csrf

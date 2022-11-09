@@ -7,16 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public $fillable = ['title', 'description', 'price', 'category_id', 'brand_id', "stock", "garantie", "images", "ref_fabricant", "EAN"]; // Ici on défini les champs que l'on veut pouvoir remplir
+    protected $casts = [
+        'photosUrl' => 'array'
+    ];
 
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class, 'category_product', 'product_id', 'category_id'); // belongsToMany = N:N
-    }
+    protected $fillable = ['name', 'description', 'price', "quantiteStock", "ansGarantie", "photosUrl", "ref_fabricant", "EAN", 'slug', 'dateFinPromo', 'fiche_technique_id', 'telechargement_id', 'category_id', 'brand_id', 'annee_production', 'famille_id']; // Ici on défini les champs que l'on veut pouvoir remplir
 
-    public function brand()
+    public function category()
     {
-        return $this->belongsTo(Brand::class); // belongsTo = 1:N
+        return $this->belongsTo(Category::class); // belongsTo = 1:N
     }
 
     public function ficheTechnique()
@@ -32,5 +31,15 @@ class Product extends Model
     public function commandes()
     {
         return $this->belongsToMany(Commande::class);
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class); // belongsTo = 1:N
+    }
+
+    public function famille()
+    {
+        return $this->belongsTo(Famille::class); // belongsTo = 1:N
     }
 }

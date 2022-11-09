@@ -47,9 +47,9 @@ class RMAController extends Controller
                     RMA::create([
                         'type' => $data['type'],
                         'numero' => $data['numero'],
-                        'date' => now(),
                         'societe_id' => auth()->user()->societe_id,
                         'adresse_facturation_id' => auth()->user()->adresse_facturation_id,
+                        'user_id' => auth()->user()->id,
                         'facture_id' => $data['numero']
                     ]);
                     return redirect()->back()->with('success', 'Le RMA a bien été ajouté');
@@ -63,10 +63,10 @@ class RMAController extends Controller
                     RMA::create([
                         'type' => $data['type'],
                         'numero' => $data['numero'],
-                        'date' => now(),
                         'societe_id' => auth()->user()->societe_id,
                         'adresse_facturation_id' => auth()->user()->adresse_facturation_id,
-                        'rma_id' => $data['numero']
+                        'rma_id' => $data['numero'],
+                        'user_id' => auth()->user()->id,
                     ]);
                     return redirect()->back()->with('success', 'Le RMA a bien été ajouté');
                 }
@@ -78,10 +78,10 @@ class RMAController extends Controller
                     RMA::create([
                         'type' => $data['type'],
                         'numero' => $data['numero'],
-                        'date' => now(),
                         'societe_id' => auth()->user()->societe_id,
                         'adresse_facturation_id' => auth()->user()->adresse_facturation_id,
-                        'codart' => $data['numero']
+                        'codart' => $data['numero'],
+                        'user_id' => auth()->user()->id,
                     ]);
                     return redirect()->back()->with('success', 'Le RMA a bien été ajouté');
                 }
@@ -93,10 +93,10 @@ class RMAController extends Controller
                     RMA::create([
                         'type' => $data['type'],
                         'numero' => $data['numero'],
-                        'date' => now(),
                         'societe_id' => auth()->user()->societe_id,
                         'adresse_facturation_id' => auth()->user()->adresse_facturation_id,
-                        'commande_id' => $data['numero']
+                        'commande_id' => $data['numero'],
+                        'user_id' => auth()->user()->id,
                     ]);
                     return redirect()->back()->with('success', 'Le RMA a bien été ajouté');
                 }
@@ -108,10 +108,10 @@ class RMAController extends Controller
                     RMA::create([
                         'type' => $data['type'],
                         'numero' => $data['numero'],
-                        'date' => now(),
                         'societe_id' => auth()->user()->societe_id,
                         'adresse_facturation_id' => auth()->user()->adresse_facturation_id,
-                        'client_id' => $data['numero']
+                        'client_id' => $data['numero'],
+                        'user_id' => auth()->user()->id,
                     ]);
 
                     break;

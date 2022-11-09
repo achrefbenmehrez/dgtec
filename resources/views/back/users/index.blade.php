@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('dist/css/jquery.toast.min.css') }}">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -46,6 +48,7 @@
                                     <th>login</th>
                                     <th>Email</th>
                                     <th>Roles</th>
+                                    <th>Active</th>
                                     <th>Date creation</th>
                                     <th>Actions</th>
                                 </tr>
@@ -59,6 +62,7 @@
                                     <th>login</th>
                                     <th>Email</th>
                                     <th>Roles</th>
+                                    <th>Active</th>
                                     <th>Date creation</th>
                                     <th>Actions</th>
                                 </tr>
@@ -73,6 +77,13 @@
                                         <td>{{ $user->login }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->getRoleNames()->first() }}</td>
+                                        <td>
+                                            <label>Activer/Desactiver</label>
+                                            <input type="checkbox" name="" class="activateUser"
+                                                id="{{ $user->id }}" data-toggle="toggle" data-on="Utilisateur Activé"
+                                                data-off="Utilisateur désactivé"
+                                                @if ($user->active) checked @endif>
+                                        </td>
                                         <td>{{ $user->created_at }}</td>
                                         <td class="d-flex flex-row">
                                             <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
@@ -117,4 +128,49 @@
         </div>
         <!-- /.container-fluid -->
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" defer></script>
+    <script>
+        $(document).ready(function() {
+            $('input:checkbox').change(function() {
+                var user_id = $(this).attr('id');
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('admin.users.activation') }}",
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    data: {
+                        "user_id": user_id
+                    },
+                    success: function(data) {
+                        $.toast({
+                            text: data.data.success, // Text that is to be shown in the toast
+                            heading: 'Panier', // Optional heading to be shown on the toast
+                            icon: 'success', // Type of toast icon
+                            showHideTransition: 'fade', // fade, slide or plain
+                            allowToastClose: true, // Boolean value true or false
+                            hideAfter: 3000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                            stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                            position: 'top-right', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+
+
+
+                            textAlign: 'center', // Text alignment i.e. left, right or center
+                            loader: true, // Whether to show loader or not. True by default
+                            loaderBg: '#9EC600', // Background color of the toast loader
+                            beforeShow: function() {}, // will be triggered before the toast is shown
+                            afterShown: function() {}, // will be triggered after the toat has been shown
+                            beforeHide: function() {}, // will be triggered before the toast gets hidden
+                            afterHidden: function() {} // will be triggered after the toast has been hidden
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

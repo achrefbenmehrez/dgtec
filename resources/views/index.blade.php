@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('dist/css/jquery.toast.min.css') }}">
     <div class="relative overflow-x-hidden" x-data="{ swiper: null }" x-init="swiper = new Swiper($refs.container, {
         loop: true,
         autoHeight: true,
@@ -30,41 +31,33 @@
                             <div class="relative z-10 flex flex-col h-full px-8 py-16 mx-auto max-w-big" id="i3tl">
                                 <div class="flex flex-col items-center justify-center w-full p-8 text-center">
                                     <p class="text-4xl uppercase text-secondary-600 font-base"><b
-                                            class="lg:text-5xl">SQP,</b> présent sur le
+                                            class="lg:text-5xl">DGTEC,</b> présent sur le
                                     </p>
                                     <p class="text-3xl font-bold uppercase lg:text-5xl text-secondary-600">
-                                        Marché depuis 1986
+                                        Marché depuis 2022
                                     </p>
                                 </div>
-                                <img alt="" style="" class="object-contain m-auto md:block"
-                                    srcset="https://sqp.fr/storage/contents/slider__items/1/medias/45654/responsive-images/img___media_library_original_798_148.png 798w, https://sqp.fr/storage/contents/slider__items/1/medias/45654/responsive-images/img___media_library_original_667_124.png 667w, https://sqp.fr/storage/contents/slider__items/1/medias/45654/responsive-images/img___media_library_original_558_103.png 558w, https://sqp.fr/storage/contents/slider__items/1/medias/45654/responsive-images/img___media_library_original_467_87.png 467w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzk4IDE0OCI+Cgk8aW1hZ2Ugd2lkdGg9Ijc5OCIgaGVpZ2h0PSIxNDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBQmdBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBMlBoVjhTZFQxSDl0QVdxNkhZSnJPcGFuTnBsMURMcUU4dGhDVUpGdzZMdERTSUVoWXhSUGhWYlo5MEt1M1p3U2pjOGluSC9hWFBxemhQZ1Y4VVlQRC93aCtOTC9BUENPcnFOcFBvMXRCTzEzZkR6NFlaSi9zYUNGdklJRWcrMk81a0l3ZkxRQkJ5YU9SS3dVWUtuR29sMU0vVHZpbUlmMlhOZDBlUFRaa01QaXF4RWw2TDQ3NVpMaTF1bTI3UWdBaFVXU0h5eVd5N2w4cVZBSTRLOWpKVWw5WGNQTStpYmY0SCtOZjJrdmdoOEY5WjhNMm5oclNiUFNkTm10WkV2TlJtZ25taURwQUF6SmFTQjVDbHFqYjhBS3p1TmpEQnJOcEpuVFd3cXhOT0NmUS8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                <img alt="" style="" class="object-contain m-auto md:block" srcset=""
                                     onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                    sizes="1px"
-                                    src="https://sqp.fr/storage/contents/slider__items/1/medias/45654/img.png"
-                                    width="798" height="148">
+                                    sizes="1px" src="" width="798" height="148">
 
 
                                 <img alt="" style="" class="hidden object-contain mx-auto mt-4 md:block"
-                                    srcset="https://sqp.fr/storage/contents/slider__items/1/medias/45655/responsive-images/logos___media_library_original_1115_40.png 1115w, https://sqp.fr/storage/contents/slider__items/1/medias/45655/responsive-images/logos___media_library_original_932_33.png 932w, https://sqp.fr/storage/contents/slider__items/1/medias/45655/responsive-images/logos___media_library_original_780_28.png 780w, https://sqp.fr/storage/contents/slider__items/1/medias/45655/responsive-images/logos___media_library_original_653_23.png 653w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTExNSA0MCI+Cgk8aW1hZ2Ugd2lkdGg9IjExMTUiIGhlaWdodD0iNDAiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBQVFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBK1pici9rVDlKLzY2ci82RlFCMkdoLzhBSUdrLzY2eWYraEdnRG05VS93Q1ExYS9qL0tnRDZoL1pILzVIeUgvcmdmOEEwTnFBUC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                    srcset=""
                                     onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                    sizes="1px"
-                                    src="https://sqp.fr/storage/contents/slider__items/1/medias/45655/logos.png"
-                                    width="1115" height="40">
+                                    sizes="1px" src="" width="1115" height="40">
 
                             </div>
                             <img alt="" style="" class="absolute inset-0 object-cover w-full h-full"
-                                srcset="https://sqp.fr/storage/contents/slider__items/1/medias/45657/responsive-images/bg___media_library_original_1920_450.jpg 1920w, https://sqp.fr/storage/contents/slider__items/1/medias/45657/responsive-images/bg___media_library_original_1606_376.jpg 1606w, https://sqp.fr/storage/contents/slider__items/1/medias/45657/responsive-images/bg___media_library_original_1344_315.jpg 1344w, https://sqp.fr/storage/contents/slider__items/1/medias/45657/responsive-images/bg___media_library_original_1124_263.jpg 1124w, https://sqp.fr/storage/contents/slider__items/1/medias/45657/responsive-images/bg___media_library_original_940_220.jpg 940w, https://sqp.fr/storage/contents/slider__items/1/medias/45657/responsive-images/bg___media_library_original_787_184.jpg 787w, https://sqp.fr/storage/contents/slider__items/1/medias/45657/responsive-images/bg___media_library_original_658_154.jpg 658w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTkyMCA0NTAiPgoJPGltYWdlIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjQ1MCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FDQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvUTRiYzgwQVd0a2Zra25yUUJsVHNOMkJRQkdEelFCLy85az0iPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
+                                srcset=""
                                 onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="1px" src="https://sqp.fr/storage/contents/slider__items/1/medias/45657/bg.jpg"
-                                width="1920" height="450">
+                                sizes="1px" src="" width="1920" height="450">
 
 
                             <img alt="" style=""
-                                class="absolute inset-0 hidden object-cover w-full h-full md:block"
-                                srcset="https://sqp.fr/storage/contents/slider__items/1/medias/45656/responsive-images/bg2___media_library_original_1920_450.png 1920w, https://sqp.fr/storage/contents/slider__items/1/medias/45656/responsive-images/bg2___media_library_original_1606_376.png 1606w, https://sqp.fr/storage/contents/slider__items/1/medias/45656/responsive-images/bg2___media_library_original_1344_315.png 1344w, https://sqp.fr/storage/contents/slider__items/1/medias/45656/responsive-images/bg2___media_library_original_1124_263.png 1124w, https://sqp.fr/storage/contents/slider__items/1/medias/45656/responsive-images/bg2___media_library_original_940_220.png 940w, https://sqp.fr/storage/contents/slider__items/1/medias/45656/responsive-images/bg2___media_library_original_787_184.png 787w, https://sqp.fr/storage/contents/slider__items/1/medias/45656/responsive-images/bg2___media_library_original_658_154.png 658w, https://sqp.fr/storage/contents/slider__items/1/medias/45656/responsive-images/bg2___media_library_original_550_129.png 550w, https://sqp.fr/storage/contents/slider__items/1/medias/45656/responsive-images/bg2___media_library_original_460_108.png 460w, https://sqp.fr/storage/contents/slider__items/1/medias/45656/responsive-images/bg2___media_library_original_385_90.png 385w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTkyMCA0NTAiPgoJPGltYWdlIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjQ1MCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FDQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEErVnZFWHgxK0pud3grSngrSnVtZUtyMCtNNXBESmVYdDAzbWk3VWdMNWNxSDVXakNnS0V4aFFxaGR1MFk4K2pVNXB1NTVOQ1VsVWJrOXo5c2YyZFBHM2pINGkvQ0hRUEVQanJ3NlBDK3ZYOEt5dHA1eUhDRlJ0ZDBQTWJOeXhqUEs1QU9jWnIwRDFqUC9hcStDMTcrMEI4Qy9FbmdyVE5TajBuVmIxWTVMTzZtSkVRbGprVjFXUXFDZGpiZHB3Q2NIb2VoQVB3aHZySFUvaC80NTFqUUwrZDdiVzlFdjVMZHJpMVo0enZqY2dTeHNRckFIQVpXd0RnZzByQWYvOWs9Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
+                                class="absolute inset-0 hidden object-cover w-full h-full md:block" srcset=""
                                 onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="1px" src="https://sqp.fr/storage/contents/slider__items/1/medias/45656/bg2.png"
-                                width="1920" height="450">
+                                sizes="1px" src="" width="1920" height="450">
 
                         </div>
                     </div>
@@ -88,7 +81,7 @@
                             <div class="relative z-10 flex h-full px-8 mx-auto max-w-big">
                                 <div class="flex flex-col items-center justify-center w-full px-8 lg:items-start">
                                     <p class="text-4xl font-bold uppercase text-secondary-700">
-                                        Un NAS proposé par SQP
+                                        Un NAS proposé par DGTEC
                                     </p>
                                     <p class="text-2xl uppercase text-secondary-700 font-base">
                                         n&#039;est pas un bundle NAS + Disques
@@ -106,24 +99,20 @@
                                     <div class="mt-4">
                                         <div class="flex"><a title="Nos NAS"
                                                 href="https://sqp.fr/distributeur-stockage-nas"
-                                                class="button group --has-trailing --translate-icon-on-hover --is-primary">Découvrez
+                                                class="button group --has-trailing --translate-icon-on-hover text-dark">Découvrez
                                                 nos produits</a></div>
                                     </div>
                                 </div>
                                 <img alt="" style="max-width: 50%"
-                                    class="hidden object-contain w-auto h-full md:w-1/2 lg:block"
-                                    srcset="https://sqp.fr/storage/contents/slider__items/2/medias/45658/responsive-images/img___media_library_original_808_340.png 808w, https://sqp.fr/storage/contents/slider__items/2/medias/45658/responsive-images/img___media_library_original_676_284.png 676w, https://sqp.fr/storage/contents/slider__items/2/medias/45658/responsive-images/img___media_library_original_565_238.png 565w, https://sqp.fr/storage/contents/slider__items/2/medias/45658/responsive-images/img___media_library_original_473_199.png 473w, https://sqp.fr/storage/contents/slider__items/2/medias/45658/responsive-images/img___media_library_original_395_166.png 395w, https://sqp.fr/storage/contents/slider__items/2/medias/45658/responsive-images/img___media_library_original_331_139.png 331w, https://sqp.fr/storage/contents/slider__items/2/medias/45658/responsive-images/img___media_library_original_277_117.png 277w, https://sqp.fr/storage/contents/slider__items/2/medias/45658/responsive-images/img___media_library_original_231_97.png 231w, https://sqp.fr/storage/contents/slider__items/2/medias/45658/responsive-images/img___media_library_original_194_82.png 194w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgODA4IDM0MCI+Cgk8aW1hZ2Ugd2lkdGg9IjgwOCIgaGVpZ2h0PSIzNDAiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBRFFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBK21mSFA3ZTN3RzhGK0piM1JMZlNiN3hKZDJFMHR0ZVBwV2p4SWx0UEc3SThURzRhRXNRVlBLQmxQWnFBUHpVMXp4eDhPWk5SdVRvZndaOEo2ZFpnNWh0TDdXdGN1NVl4Nk5LdC9FR1B1RVg2VUFhbmkvNDZ4L0UxTlZQaUQ0ZitEWm4xQ2VhNmxNYytzUmhKWkNXWmtSZFFDTDh4TEJkcFVaeGpHQlZ0SzF4SHVYN052L0JRUzE4SlhmZ3I0WDNud2o4SmYyYlBxRmxvbGpkNlJKSlpwWnd5U0pFWkpVa1M0ZWQ4c1hadDZsaVRuSkpOUU16djIxajRGK0V2eFd1UEMwL3d4OE82eGF3UlJTdGQyZ2wwdTVsdUpnSGFSNUxkbDNMaHNiR3lTY3R1R2NVQWVEM2VtK0hOVTBXMmt0L0J1amFUTklWZHByT2ZVR2NqQitYOTdkT01INlo5NkFPbW10L0NKbGs4djRkK0gwamp0NDNLdGQ2b1NXS3JubjdZT056RTR4MDR5ZXRBRmZ3US9nOS9qSjRPMDZYNGFlR25OMXF0akQ1elRhaElFODJSUVQ1Y3QwNk1RSEdBeWtaSElQWUEvOWs9Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
+                                    class="hidden object-contain w-auto h-full md:w-1/2 lg:block" srcset=""
                                     onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                    sizes="1px"
-                                    src="https://sqp.fr/storage/contents/slider__items/2/medias/45658/img.png"
-                                    width="808" height="340">
+                                    sizes="1px" src="" width="808" height="340">
 
                             </div>
                             <img alt="" style="" class="absolute inset-0 object-cover w-full h-full"
-                                srcset="https://sqp.fr/storage/contents/slider__items/2/medias/45659/responsive-images/bg___media_library_original_1920_450.jpg 1920w, https://sqp.fr/storage/contents/slider__items/2/medias/45659/responsive-images/bg___media_library_original_1606_376.jpg 1606w, https://sqp.fr/storage/contents/slider__items/2/medias/45659/responsive-images/bg___media_library_original_1344_315.jpg 1344w, https://sqp.fr/storage/contents/slider__items/2/medias/45659/responsive-images/bg___media_library_original_1124_263.jpg 1124w, https://sqp.fr/storage/contents/slider__items/2/medias/45659/responsive-images/bg___media_library_original_940_220.jpg 940w, https://sqp.fr/storage/contents/slider__items/2/medias/45659/responsive-images/bg___media_library_original_787_184.jpg 787w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTkyMCA0NTAiPgoJPGltYWdlIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjQ1MCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FDQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEra1AyVmZqM2QvRlpIVzdRQmxyYVZyKzZTZlRjMFN1b3BJbGtUMmU2TWoxRkZ4V1BqVDlwMzlsclZQaVZyTFhkbE1BQ2VsUzFjYWRqLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                srcset=""
                                 onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="1px" src="https://sqp.fr/storage/contents/slider__items/2/medias/45659/bg.jpg"
-                                width="1920" height="450">
+                                sizes="1px" src="" width="1920" height="450">
 
                         </div>
                     </div>
@@ -142,8 +131,8 @@
                         <div class="relative h-128">
                             <div class="relative z-10 flex h-full px-8 mx-auto max-w-big">
                                 <div class="flex flex-col items-center justify-center w-full px-8 lg:items-start text-dark">
-                                    <p class="text-3xl uppercase text-secondary-600 font-base"><b>Depuis 1986,</b>
-                                        SQP est le leader français
+                                    <p class="text-3xl uppercase text-secondary-600 font-base">
+                                        DGTEC est le leader Tunisien
                                     </p>
                                     <p class="text-4xl font-bold uppercase text-secondary-600">
                                         De la mémoire spécifique
@@ -156,24 +145,20 @@
                                     <div class="mt-4">
                                         <div class="flex"><a title="Nos mémoires"
                                                 href="https://sqp.fr/selecteur-de-memoire"
-                                                class="button group --has-trailing --translate-icon-on-hover --is-primary">Découvrez
+                                                class="button group --has-trailing --translate-icon-on-hover text-dark">Découvrez
                                                 la gamme de mémoire</a></div>
                                     </div>
                                 </div>
                                 <img alt="" style=""
-                                    class="hidden object-contain w-auto h-full lg:w-1/2 lg:block"
-                                    srcset="https://sqp.fr/storage/contents/slider__items/3/medias/45660/responsive-images/img___media_library_original_720_405.png 720w, https://sqp.fr/storage/contents/slider__items/3/medias/45660/responsive-images/img___media_library_original_602_339.png 602w, https://sqp.fr/storage/contents/slider__items/3/medias/45660/responsive-images/img___media_library_original_504_284.png 504w, https://sqp.fr/storage/contents/slider__items/3/medias/45660/responsive-images/img___media_library_original_421_237.png 421w, https://sqp.fr/storage/contents/slider__items/3/medias/45660/responsive-images/img___media_library_original_352_198.png 352w, https://sqp.fr/storage/contents/slider__items/3/medias/45660/responsive-images/img___media_library_original_295_166.png 295w, https://sqp.fr/storage/contents/slider__items/3/medias/45660/responsive-images/img___media_library_original_246_138.png 246w, https://sqp.fr/storage/contents/slider__items/3/medias/45660/responsive-images/img___media_library_original_206_116.png 206w, https://sqp.fr/storage/contents/slider__items/3/medias/45660/responsive-images/img___media_library_original_172_97.png 172w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzIwIDQwNSI+Cgk8aW1hZ2Ugd2lkdGg9IjcyMCIgaGVpZ2h0PSI0MDUiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBRWdBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBKzNQMmdQMnh2Qlg3Ty9pZlMvRG10V0dzNnhyZW9XWnZsdDlKdDQyV0NMZVVScFhra1FBT3lTQWJOeEhsc1NCbGQyYzZrWWJtVTZzYWU1NEZybi9CU3J4RWRKbkdtL0RPd3RMNlNJL1o3aTYxMXJpS044Zkt6eExieGx3RDFVT3VmVVZ6ZldZczRsalZMUlJQQ3ZpRC93QUZIdmpyZWFUTEhiM1hodndxOFIzL0FHelI5S0x5c1A3cEZ6Sk1tUG91ZmVvZUpiZG9tVlhGMUkyU1I5dC9zRmZ0SDNQN1Nud0QwL1dkWnZZYnp4WnBzMGxocTd4SXNaZVJXT3lVb29DcVhUYXhDZ0RPY0FEQXJ1anF0VDFJTnVLYk9hL2FhL1lDMFg0MitLdFQ4YitIdGR1UERYamEvRVJ1WHVBWjdLNk1jY2NTYmsrOUdSSEdxNVE0N2xTYXdyVUZWMTZpbENNdHo4N3ZpLzhBRG40ay9zK2FzbHA0KzBTZlRySm5FY0dyd1ptc0xrNEpBU1lERzdBSjJOdGJBenRyenZxODZiMTFPT1ZIa1Y0bzRQUy9CZmpuOW9qVXBORStISGhiVXZGTnlQbG1tdGtDVzhKeG45NU81V09QMjNzTTlxNktWQjN1WTA2VTZqdkpINkhmOEU3ZjJMZmlwK3kvUGY2ajRvMVR3NWFXMnJoR3U5S3RHdUx1NUFBUHlzKzlZVVlISEtLK2NmZklHRDZSNnEwUHZLZ1pGZFdzTjdBME54REhQQzJOMGNxaGxPRGtaQjk2QUMxdFlMS0JZYmVHTzNoWE8yT0pRcWpKeWNBZTlBRXRBSC8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                    class="hidden object-contain w-auto h-full lg:w-1/2 lg:block" srcset=""
                                     onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                    sizes="1px"
-                                    src="https://sqp.fr/storage/contents/slider__items/3/medias/45660/img.png"
-                                    width="720" height="405">
+                                    sizes="1px" src="" width="720" height="405">
 
                             </div>
                             <img alt="" style="" class="absolute inset-0 object-cover w-full h-full"
-                                srcset="https://sqp.fr/storage/contents/slider__items/3/medias/45661/responsive-images/bg___media_library_original_1920_450.jpg 1920w, https://sqp.fr/storage/contents/slider__items/3/medias/45661/responsive-images/bg___media_library_original_1606_376.jpg 1606w, https://sqp.fr/storage/contents/slider__items/3/medias/45661/responsive-images/bg___media_library_original_1344_315.jpg 1344w, https://sqp.fr/storage/contents/slider__items/3/medias/45661/responsive-images/bg___media_library_original_1124_263.jpg 1124w, https://sqp.fr/storage/contents/slider__items/3/medias/45661/responsive-images/bg___media_library_original_940_220.jpg 940w, https://sqp.fr/storage/contents/slider__items/3/medias/45661/responsive-images/bg___media_library_original_787_184.jpg 787w, https://sqp.fr/storage/contents/slider__items/3/medias/45661/responsive-images/bg___media_library_original_658_154.jpg 658w, https://sqp.fr/storage/contents/slider__items/3/medias/45661/responsive-images/bg___media_library_original_550_129.jpg 550w, https://sqp.fr/storage/contents/slider__items/3/medias/45661/responsive-images/bg___media_library_original_460_108.jpg 460w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTkyMCA0NTAiPgoJPGltYWdlIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjQ1MCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FDQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEFyZkNINDE2eFA0MWkrMm5KbVlBaXVDalU1cEhsVVpTOXBxZmR1alhUMzFoRk1COTVRYTd6MVN4SU9lVHpTQWpwZ2YvWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                srcset=""
                                 onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="1px" src="https://sqp.fr/storage/contents/slider__items/3/medias/45661/bg.jpg"
-                                width="1920" height="450">
+                                sizes="1px" src="" width="1920" height="450">
 
                         </div>
                     </div>
@@ -201,32 +186,26 @@
                                     <div class="mt-4">
                                         <div class="flex"><a title="Nos disques durs et SSD"
                                                 href="https://sqp.fr/distributeur-stockage-interne"
-                                                class="button group --has-trailing --translate-icon-on-hover --is-primary">Découvrir
+                                                class="button group --has-trailing --translate-icon-on-hover text-dark">Découvrir
                                                 la gamme</a></div>
                                     </div>
                                 </div>
                                 <img alt="" style=""
-                                    class="hidden object-contain w-auto h-full lg:w-1/2 lg:block"
-                                    srcset="https://sqp.fr/storage/contents/slider__items/4/medias/45662/responsive-images/img___media_library_original_871_445.png 871w, https://sqp.fr/storage/contents/slider__items/4/medias/45662/responsive-images/img___media_library_original_728_372.png 728w, https://sqp.fr/storage/contents/slider__items/4/medias/45662/responsive-images/img___media_library_original_609_311.png 609w, https://sqp.fr/storage/contents/slider__items/4/medias/45662/responsive-images/img___media_library_original_510_261.png 510w, https://sqp.fr/storage/contents/slider__items/4/medias/45662/responsive-images/img___media_library_original_426_218.png 426w, https://sqp.fr/storage/contents/slider__items/4/medias/45662/responsive-images/img___media_library_original_357_182.png 357w, https://sqp.fr/storage/contents/slider__items/4/medias/45662/responsive-images/img___media_library_original_298_152.png 298w, https://sqp.fr/storage/contents/slider__items/4/medias/45662/responsive-images/img___media_library_original_249_127.png 249w, https://sqp.fr/storage/contents/slider__items/4/medias/45662/responsive-images/img___media_library_original_209_107.png 209w, https://sqp.fr/storage/contents/slider__items/4/medias/45662/responsive-images/img___media_library_original_174_89.png 174w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgODcxIDQ0NSI+Cgk8aW1hZ2Ugd2lkdGg9Ijg3MSIgaGVpZ2h0PSI0NDUiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBRUFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBK3JQalYvd1ViK0ZQd2Z1Ynl3aW52UEZXc1draGltczlKakJWR0dReXRJMkZWbFlZWlNkd3dlT2dJQjhEL0dUL0FJS0NmRUQ5b3VhT3cwOHQ0SzBHM2xNcTIybVhiaWFVN2R2N3lWZHAyOVR0L3dCbzhtcGs3SUROL1oxdXZGSGlYeDhseTNqSFhMWFVMZHc4VjBtb1NzUVIwemxpRDBIQnlLSXU1Tno3NCtIbnh0OFkvQzNVTGx2aURxZDE0cDhNVFlDWDBNTWYyaTFjc28zT28yN293dVNRdkk3S3hOTW8vT3o5cHo5bHo0cGFYOGZQRm5oL3czNE4xWHhCcDEvcWt0eFlYdG5ic1luV1o5d1ZtUENuTFk1UG9RU0RtaXc3bk9lSVAyUS9pMThCL0QxaHIvaXZ3elBKYlhjalJ5V2Vubzg4MXRqYmd5YlYyNEpZREtsdWV1TWpPTldNcEwzVEthazE3cHBmREw0MldQdzcxdEpIMEhVTGQ4Zk9aYloxSTl6a1ZuUmpVaDhUTTZjWkw0ajdJK0FSOFJmdEwvRVRSclc3MCs1ZzhBV0xMcVdwVHpSTWkzS2dNWWJjWlJsWVNPbzNBNEJqV1FCZ3hUUFdkQi8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                    class="hidden object-contain w-auto h-full lg:w-1/2 lg:block" srcset=""
                                     onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                    sizes="1px"
-                                    src="https://sqp.fr/storage/contents/slider__items/4/medias/45662/img.png"
-                                    width="871" height="445">
+                                    sizes="1px" src="" width="871" height="445">
 
 
                                 <img alt="" style="" class="absolute bottom-16"
-                                    srcset="https://sqp.fr/storage/contents/slider__items/4/medias/45663/responsive-images/logos___media_library_original_899_40.png 899w, https://sqp.fr/storage/contents/slider__items/4/medias/45663/responsive-images/logos___media_library_original_752_33.png 752w, https://sqp.fr/storage/contents/slider__items/4/medias/45663/responsive-images/logos___media_library_original_629_28.png 629w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgODk5IDQwIj4KCTxpbWFnZSB3aWR0aD0iODk5IiBoZWlnaHQ9IjQwIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUFRQWdBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QStlL0J2L0grZitCZitpb2FBTkhXditQZ2ZRMEFaWGhyL2o2MVgvcnV2OG5vQSt6djJMZitQN1VQOTJIL0FORnJRQi8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                    srcset="
                                     onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                    sizes="1px"
-                                    src="https://sqp.fr/storage/contents/slider__items/4/medias/45663/logos.png"
-                                    width="899" height="40">
+                                    sizes="1px" src="" width="899" height="40">
 
                             </div>
                             <img alt="" style="" class="absolute inset-0 object-cover w-full h-full"
-                                srcset="https://sqp.fr/storage/contents/slider__items/4/medias/45664/responsive-images/bg___media_library_original_1920_450.jpg 1920w, https://sqp.fr/storage/contents/slider__items/4/medias/45664/responsive-images/bg___media_library_original_1606_376.jpg 1606w, https://sqp.fr/storage/contents/slider__items/4/medias/45664/responsive-images/bg___media_library_original_1343_315.jpg 1343w, https://sqp.fr/storage/contents/slider__items/4/medias/45664/responsive-images/bg___media_library_original_1124_263.jpg 1124w, https://sqp.fr/storage/contents/slider__items/4/medias/45664/responsive-images/bg___media_library_original_940_220.jpg 940w, https://sqp.fr/storage/contents/slider__items/4/medias/45664/responsive-images/bg___media_library_original_787_184.jpg 787w, https://sqp.fr/storage/contents/slider__items/4/medias/45664/responsive-images/bg___media_library_original_658_154.jpg 658w, https://sqp.fr/storage/contents/slider__items/4/medias/45664/responsive-images/bg___media_library_original_550_129.jpg 550w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTkyMCA0NTAiPgoJPGltYWdlIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjQ1MCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FDQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEErbFBoWjQwc2RVMTZDMkxibWM4VTRUNWtjMTc2bjAzUHBFVjFwNFVEK0hpbW5ZMGNGSkhrbmlqVDVkUHVwRTZxYTZZeWJQTnF3akYzUEpmSEhoWnZFU0dKajhuY1ZFbGM2S1Rzcm8vLzJRPT0iPgoJPC9pbWFnZT4KPC9zdmc+ 32w"
+                                srcset=""
                                 onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="1px" src="https://sqp.fr/storage/contents/slider__items/4/medias/45664/bg.jpg"
-                                width="1920" height="450">
+                                sizes="1px" src="" width="1920" height="450">
 
                         </div>
                     </div>
@@ -244,12 +223,9 @@
                         </style>
                         <div class="relative h-128">
                             <div class="relative z-10 flex h-full px-8 mx-auto max-w-big" id="i2go">
-                                <img alt="" style="" class="hidden w-auto h-full xl:block"
-                                    srcset="https://sqp.fr/storage/contents/slider__items/5/medias/45666/responsive-images/img___media_library_original_429_447.png 429w, https://sqp.fr/storage/contents/slider__items/5/medias/45666/responsive-images/img___media_library_original_358_373.png 358w, https://sqp.fr/storage/contents/slider__items/5/medias/45666/responsive-images/img___media_library_original_300_313.png 300w, https://sqp.fr/storage/contents/slider__items/5/medias/45666/responsive-images/img___media_library_original_251_262.png 251w, https://sqp.fr/storage/contents/slider__items/5/medias/45666/responsive-images/img___media_library_original_210_219.png 210w, https://sqp.fr/storage/contents/slider__items/5/medias/45666/responsive-images/img___media_library_original_175_182.png 175w, https://sqp.fr/storage/contents/slider__items/5/medias/45666/responsive-images/img___media_library_original_147_153.png 147w, https://sqp.fr/storage/contents/slider__items/5/medias/45666/responsive-images/img___media_library_original_123_128.png 123w, https://sqp.fr/storage/contents/slider__items/5/medias/45666/responsive-images/img___media_library_original_103_107.png 103w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDI5IDQ0NyI+Cgk8aW1hZ2Ugd2lkdGg9IjQyOSIgaGVpZ2h0PSI0NDciIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBSVFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBK2x2aVorMUw0YytHM3hSMGZ3alBQNG51b0o3aUcxMURVZjdZalg3STh3VXhlV2dWbG1HSFVzUTY3UWVOeEJVWXVxbFBrT3FPSGxLbTZoNWIrM29JTlQxNzRkNmJMcWVxejZadHZyaDB2dFFqbmllVWVRcWtMR3hYY29MOG5uRWh4akp5NmsrUlhLdzlCMVpOSFFmc0orTnhxZmhIeE40VXV0VzFlR3k4T1g2aXcreTNzTnZHc000YVFvUE1aZHhFZ2tiak9BNEhURk9FdVpYTXExTjBwOHJPbDhMZnRIWFUzeHIxandYNG1tMVRUTEFhakpZYWJOYjZodG00SjhsNVhkdkxkWmwya0ZNQlN3SHpaSkVLbzFQbFpicEwyYW5GK3A4ay9IMkJadmlYNHF1bHZiblM5Y3NQRWQ5SXV5ZGxuZ1lYTWhRaVFIZHdDTU1EeU1IMHJ6WlQ1S3o1blkrL3lyQVZNVGhGS2xUNXREemJSZkMrb2VJTlZNc2w1Y1hUeVR2Y3lQTkt6czhyNE1rakVubG13TXNlVGdacjBhanBSaHpONkh6dUlxMXNMV2NKd3Rib2V6ZUU5WjFUNFZRbTYwUHhKcTJoT1pCTExGWTNyeHd5dUJnTkpFRHNrNDQrWUdvOXBUcFE1cjZDcFlldm5GVlU2VU5TMTQyK05FdmlTNjhQYXBxMnRTYTM0aHRycTNqc3p0eXp5QzQzcTVUTzB1Y29ueXFvS3hJQ0NRU2ZOamlIaUt5NWRrZTdqK0hLK1U0VnpycTF6MWY5c3I5bFc5OGZYdHQ0eCtIVCtIMDFxQ1B5ci9TbDFkZDk4aWo1R1ZuVlFYVURiOHh5UVFNNFZRTy9FNFdOZGVaand2eFJVeUNvMUpjMEgwN0h6VjRmdHRZOENTU1FhM3BrMm1hcENRazFyT0J1UWtBanBrRUVFRUVjRUVWakxEeG5TOWxKN0Y4UlpoUnpURWZXY1BHeVptL0UzeEJQQm9jY3NNRTF4Tk8rMUlZVUx1N0hvQUJ5VFhQaUtIdElLbkJudDhJWmxoc25xU3hHSld4Ni93RHNZL3NqNnhxdmlyVC9BSWtmRXA3TFNiZlQzODNTL0RXbzNuMmVkcENEaVdZWUpUYUNNTGpPVG5LbGNWMllYQ1J3Njh6eHVLdUtxdWZWWEdPa0VmUlg3VUh4WHZmaDlwV2lhTll3K0c3WnRmTTZTYXhvMFFlVzBTTHl5WTFKR0VlUVNIRDlRRWNyaHNNdVdZNGlwUXBYcHJWbnpXVVlTbGk2OXFyMFhUdWZISGpUeHU5M2ZTUjJtaTZqclZ5eE1rajIxdkpjeU14eVN6RUFrazhuSjY4MThyaG9ZbkVOdFNQdWNYV3dlRFNpNDJMZmdYeCtMZS90NTNzcjdRZFZzMjN3eVR3TkRMR2VoK1ZoeUNNZ2dnZ2drRUVFaW5XV0x3czFKU0ZSZUN4OU54NWREN0gvQUdmdmo1Yi9BQllYVU5FdWJUd2xEcjJqeG8xeGNYZHNJVXVvMk9Fa0FCd0hKQkRLQmpJeU1CZ28rdHdPSmxpYWQ1cXpSOEJtV0RqZzYzTEIzVEszL0JTUC9rbm5nei9zT2Y4QXRGNmpNdjRETmNuL0FONlI0Nyt3MS95Y3RGLzJBTHYvQU5HUTE0K1RmeEplaDlCeEQvQ2g2bEg5dVA4QTVPVzFIL3NGV244bXJYTlA0aTlDY2gvaFM5Uy8vd0FFeWY4QWt1SHhMLzdCRnIvNk9hdS9MZjRiUEd6bitNZi8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
+                                <img alt="" style="" class="hidden w-auto h-full xl:block" srcset=""
                                     onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                    sizes="1px"
-                                    src="https://sqp.fr/storage/contents/slider__items/5/medias/45666/img.png"
-                                    width="429" height="447">
+                                    sizes="1px" src="" width="429" height="447">
 
                                 <div class="flex flex-col items-center justify-center w-full p-8 lg:px-20 xl:items-start">
                                     <p class="text-5xl font-bold text-center uppercase lg:text-left text-secondary-700">
@@ -263,34 +239,28 @@
                                         <br /> avec un impact <b class="text-primary-500">minimal sur votre
                                             production</b>
                                     </p>
-                                    <img alt="" style="" class="block h-10 my-4"
-                                        srcset="https://sqp.fr/storage/contents/slider__items/5/medias/45668/responsive-images/logo___media_library_original_292_46.png 292w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkyIDQ2Ij4KCTxpbWFnZSB3aWR0aD0iMjkyIiBoZWlnaHQ9IjQ2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUJRQWdBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QStndEw4Q2FwOFN2Rk4zNGYwRHhSZWVCdFR1TkRsbFRXdE9EbWFOVXVyVXNueVNSdGh1KzExNkRPUmtIcm03Ym8rSHkyakt0S1VZVGNkT25xaTRmMkpQaXN6RmorMDc0dDVPY0JiNEQvQU5PRlpjOGY1VDIvN1B4SC9RVEwrdm1ObS9ZWitJMDhsbmN0KzBUNGhPcVdxenhSNm1ZYjQzSWhsTVJlRU1kUitWQzBDTVFvRzRnYmkyMU5wenIrVVg5blY5SDlZbGYrdk04MDF2NE9mRTNSUGo5b0h3cWI0OWVNTGlmV05NT3BEV2hlM3FDSEF1VHM4ajdZZDMvSHQxM2o3L1RqblJPTGc1Y3A1RlNsaW9ZNkdGV0lsYVNidjkvbjVILy8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
+                                    <img alt="" style="" class="block h-10 my-4" srcset=""
                                         onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="1px"
-                                        src="https://sqp.fr/storage/contents/slider__items/5/medias/45668/logo.png"
-                                        width="292" height="46">
+                                        sizes="1px" src="" width="292" height="46">
 
                                     <div>
                                         <div class="flex items-center"><a href="https://sqp.fr/types-de-contrats-sqp"
                                                 title="Nos garanties"
-                                                class="block button group --has-trailing --translate-icon-on-hover --is-primary">En
+                                                class="block button group --has-trailing --translate-icon-on-hover text-dark">En
                                                 savoir plus</a>
                                             <img alt="" style="" class="hidden ml-8 lg:block h-18"
-                                                srcset="https://sqp.fr/storage/contents/slider__items/5/medias/45669/responsive-images/slogan___media_library_original_252_82.png 252w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjUyIDgyIj4KCTxpbWFnZSB3aWR0aD0iMjUyIiBoZWlnaHQ9IjgyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWdBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QStqdkRmN2NuaHZ4aHJJdDlBK0hmeEU4UjJpd1NTVG5RNW52YnFGdk5DeDdvWTV5Qkd5a2xuTGphd0NnTUR1RnVOanpZWTZOU1ZveGYzSG0zL0RZdnhFajhQZUc3L1Y5RjBYUm1zOVhFZXMzOXY0bmtsaHVZaXR5dmtQWUxMTGRXb3dvY1M1YkxRQWhXV1RZWHk2bk5MSHk1Rk5SVzl0LzAzT1UwTDQzL0FCR2hlSHdmcHZ4UTFyeFplNmVsMHNsMzRHMHlmeERkM2JDNGNsajlwYUl5S0FTRmtoSWpFWWl3V0pPSFpXdVkrM3hEcUtrcFhYZEsvd0NaMi93UC9aZTFYNHhXR3JhLzRvOFErTk5KMVZQRWNJdkxiVzBBbjFUVDRvUWtUelF5U0Y0cmdlWktvZG5rRWFoMFZYT1RRNVcyTGhnZnJFSDdadmZyMVMyT24vNEtRc1p0UitHRnBJVEphdjhBMm5LOERjb3pyOWtDc1Y2RWdNd0I3Ymo2bWludVRuRGFweHMrNXY4QTdJbndwOEUrT1BCZXR6K0kvQjJnZUlKNHIveTQ1ZFUwdUM1WkU4dGZsQmRTUVBhblVlcGxrMEl5b3ljbGQzUGZQZzVwVmxwbGg0cWF6czRMUnJyeE5xZHhjR0NKVU0wcG5ZRjN3UG1ZaFZHVHp3UFNzbWZRVTBsZTNkbm9GSTFQLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                                srcset=""
                                                 onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                                sizes="1px"
-                                                src="https://sqp.fr/storage/contents/slider__items/5/medias/45669/slogan.png"
-                                                width="252" height="82">
+                                                sizes="1px" src="" width="252" height="82">
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <img alt="" style="" class="absolute inset-0 object-cover w-full h-full"
-                                srcset="https://sqp.fr/storage/contents/slider__items/5/medias/45665/responsive-images/bg___media_library_original_1920_450.jpg 1920w, https://sqp.fr/storage/contents/slider__items/5/medias/45665/responsive-images/bg___media_library_original_1606_376.jpg 1606w, https://sqp.fr/storage/contents/slider__items/5/medias/45665/responsive-images/bg___media_library_original_1344_315.jpg 1344w, https://sqp.fr/storage/contents/slider__items/5/medias/45665/responsive-images/bg___media_library_original_1124_263.jpg 1124w, https://sqp.fr/storage/contents/slider__items/5/medias/45665/responsive-images/bg___media_library_original_940_220.jpg 940w, https://sqp.fr/storage/contents/slider__items/5/medias/45665/responsive-images/bg___media_library_original_787_184.jpg 787w, https://sqp.fr/storage/contents/slider__items/5/medias/45665/responsive-images/bg___media_library_original_658_154.jpg 658w, https://sqp.fr/storage/contents/slider__items/5/medias/45665/responsive-images/bg___media_library_original_550_129.jpg 550w, https://sqp.fr/storage/contents/slider__items/5/medias/45665/responsive-images/bg___media_library_original_460_108.jpg 460w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTkyMCA0NTAiPgoJPGltYWdlIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjQ1MCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FDQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEErclBqYjhVQkd6YU5wdk54UDhwUDFyeVkwbzBwWFc1OHptZVl2K0RBMFAyZnZoQkZvRERXTHo1cnViNTY3NmNiYXMweTNCK3pYdEpiczlpOGUyZjlvZUhiaUpHMnNGT0s2NE8wcm52eVdsanlMd0I0eXZkSzh5eW5VbEVZZ05Ya1pyam9ZV1NiTHcxT1VsWm4vOWs9Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
+                                srcset=""
                                 onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="1px" src="https://sqp.fr/storage/contents/slider__items/5/medias/45665/bg.jpg"
-                                width="1920" height="450">
+                                sizes="1px" src="" width="1920" height="450">
 
                         </div>
                     </div>
@@ -321,23 +291,19 @@
                                     <div class="mt-4">
                                         <div class="flex"><a title="Nos accessoires"
                                                 href="https://sqp.fr/distributeur-accessoires"
-                                                class="button group --has-trailing --translate-icon-on-hover --is-primary">Découvrir
+                                                class="button group --has-trailing --translate-icon-on-hover text-dark">Découvrir
                                                 la gamme</a></div>
                                     </div>
                                 </div>
-                                <img alt="" style="" class="hidden w-auto h-full lg:block"
-                                    srcset="https://sqp.fr/storage/contents/slider__items/6/medias/45671/responsive-images/img___media_library_original_694_450.png 694w, https://sqp.fr/storage/contents/slider__items/6/medias/45671/responsive-images/img___media_library_original_580_376.png 580w, https://sqp.fr/storage/contents/slider__items/6/medias/45671/responsive-images/img___media_library_original_485_314.png 485w, https://sqp.fr/storage/contents/slider__items/6/medias/45671/responsive-images/img___media_library_original_406_263.png 406w, https://sqp.fr/storage/contents/slider__items/6/medias/45671/responsive-images/img___media_library_original_340_220.png 340w, https://sqp.fr/storage/contents/slider__items/6/medias/45671/responsive-images/img___media_library_original_284_184.png 284w, https://sqp.fr/storage/contents/slider__items/6/medias/45671/responsive-images/img___media_library_original_238_154.png 238w, https://sqp.fr/storage/contents/slider__items/6/medias/45671/responsive-images/img___media_library_original_199_129.png 199w, https://sqp.fr/storage/contents/slider__items/6/medias/45671/responsive-images/img___media_library_original_166_108.png 166w, https://sqp.fr/storage/contents/slider__items/6/medias/45671/responsive-images/img___media_library_original_139_90.png 139w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNjk0IDQ1MCI+Cgk8aW1hZ2Ugd2lkdGg9IjY5NCIgaGVpZ2h0PSI0NTAiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBRlFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBOTgxNzl2TDRidDRSdkxyUWZFT3FhanJwdDJhMzB0ckRVWW44emFOcXRJMHhqSEo2NUkrVTlzWkFQelk4ZGF4cVdzeXlhcDRyMU82MUhVNVgzdGNUekZtVG5nTDJVRGpBR0FNY1VDUHEzOW16OW92eFY0VjhQV0VXbmEyZkV1aVd0dThRMEs2dURiL01jRlhXYUxEN2dRQjgrOEZTUmpPMHJkcmtjMW1mYi93eitMUGhqNHBXTHlhZDRyVFRkUmlMK2ZvK3JUWEZ2ZXdoU29MbVA3WWR5Zk9uem9XWExZenVCQWt1OXo4YnZFMnZYSHdmOFYrSXZDT29rVDZqcGwwOXVzL2w3UE9RSDVaQXB6Z01NSDhhUXptNGwxUHhqRkkwOERHSitoYWdEMGZRcnkwOE8rSHRCRm5veDBqWDlQQmp2TlV0NzNFT29SWllydnQvTEFXUlFVRzhQODIwbGdTdzJ1NUxWelkvNFhWZTZuOFFQQ1ZuWmEwdmhxOG0xR0czR3RMTzhEVzI5Z2hiekk4TXVReEdjZ2M4a0RKRHVKSSs4UGlSK3oxOEpQaS80cGc4UWVLdkNONXFXc0tOcjNmOXArVzh3ei95MEt4QXNldk9jKy9BeEpaK2RmaWJUWmZoNXErdmFESGNDOE9rWDA5ajlwOHZ5L044cVJrMzdjbmJuYm5HVGpQVTBtQnpId3IwTFZmanQ4U29mQ1kxcit3bG1CUDJvVzMyakhJL2gzcDYrdENBKzZQaFord2Q4S3ZBMm8yMnErSW9kWjhiYXJiUEZOQzk3ZkxCYnh5bzI3ZUlVand3eUI4cmx4NjVwZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                <img alt="" style="" class="hidden w-auto h-full lg:block" srcset=""
                                     onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                    sizes="1px"
-                                    src="https://sqp.fr/storage/contents/slider__items/6/medias/45671/img.png"
-                                    width="694" height="450">
+                                    sizes="1px" src="" width="694" height="450">
 
                             </div>
                             <img alt="" style="" class="absolute inset-0 object-cover w-full h-full"
-                                srcset="https://sqp.fr/storage/contents/slider__items/6/medias/45670/responsive-images/bg___media_library_original_1920_450.jpg 1920w, https://sqp.fr/storage/contents/slider__items/6/medias/45670/responsive-images/bg___media_library_original_1606_376.jpg 1606w, https://sqp.fr/storage/contents/slider__items/6/medias/45670/responsive-images/bg___media_library_original_1343_315.jpg 1343w, https://sqp.fr/storage/contents/slider__items/6/medias/45670/responsive-images/bg___media_library_original_1124_263.jpg 1124w, https://sqp.fr/storage/contents/slider__items/6/medias/45670/responsive-images/bg___media_library_original_940_220.jpg 940w, https://sqp.fr/storage/contents/slider__items/6/medias/45670/responsive-images/bg___media_library_original_787_184.jpg 787w, https://sqp.fr/storage/contents/slider__items/6/medias/45670/responsive-images/bg___media_library_original_658_154.jpg 658w, https://sqp.fr/storage/contents/slider__items/6/medias/45670/responsive-images/bg___media_library_original_550_129.jpg 550w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTkyMCA0NTAiPgoJPGltYWdlIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjQ1MCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FDQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEErdmZBUHhHZ1RWQmJYSzdDeHdLcXhITWV2K0o5VHN0UDhPU1gwaCtRSnVGWnQyUm5XcXFsRnlaOGU2M2IzUHhqOFcrUkh4Wnh2WEp6ZTBrZkZ5bkxNYTFsc2RUNCsrRU9zUitIYmJUdEVsOHBRQUdyclNzajdMRDBWUmdvby8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                srcset=""
                                 onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                sizes="1px" src="https://sqp.fr/storage/contents/slider__items/6/medias/45670/bg.jpg"
-                                width="1920" height="450">
+                                sizes="1px" src="" width="1920" height="450">
 
                         </div>
                     </div>
@@ -369,14 +335,14 @@
 
     <div class="relative py-8 mb-16 bg-secondary-700" x-data>
         <div class="mx-auto text-white max-w-big" style="color: black;">
-            <h3 class="text-xl font-semibold text-center">Leader français de la mémoire spécifique, depuis 1986
+            <h3 class="text-xl font-semibold text-center">Leader Tunisien de la mémoire spécifique, depuis 1986
             </h3>
             <p class="mt-4 text-center">Facilitez vos achats, grâce aux configurateurs :</p>
             <div class="flex flex-row flex-wrap w-full text-dark">
 
                 <div class="w-full p-4 mt-16 sm:w-1/2 xl:w-1/5">
                     <div
-                        class="flex flex-col items-center justify-between w-full h-full px-12 py-8 border-2 border-primary-500">
+                        class="flex flex-col items-center justify-between w-full h-full px-12 py-8 border-2 border-primary-400">
                         <div class="w-24 h-24 -mt-16 bg-secondary-700">
                             <svg class="w-16 h-16 m-auto transition-transform transform text-primary-500 featured-icon-translate-top"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 944">
@@ -420,7 +386,7 @@
 
                 <div class="w-full p-4 mt-16 sm:w-1/2 xl:w-1/5">
                     <div
-                        class="flex flex-col items-center justify-between w-full h-full px-12 py-8 border-2 border-primary-500">
+                        class="flex flex-col items-center justify-between w-full h-full px-12 py-8 border-2 border-primary-400">
                         <div class="w-24 h-24 -mt-16 bg-secondary-700">
                             <svg class="w-16 h-16 m-auto transition-transform transform text-primary-500 featured-icon-translate-top"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504 504">
@@ -465,7 +431,7 @@
 
                 <div class="w-full p-4 mt-16 sm:w-1/2 xl:w-1/5">
                     <div
-                        class="flex flex-col items-center justify-between w-full h-full px-12 py-8 border-2 border-primary-500">
+                        class="flex flex-col items-center justify-between w-full h-full px-12 py-8 border-2 border-primary-400">
                         <div class="w-24 h-24 -mt-16 bg-secondary-700">
                             <svg class="w-16 h-16 m-auto transition-transform transform text-primary-500 featured-icon-translate-top"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -597,7 +563,7 @@
 
                 <div class="w-full p-4 mt-16 sm:w-1/2 xl:w-1/5">
                     <div
-                        class="flex flex-col items-center justify-between w-full h-full px-12 py-8 border-2 border-primary-500">
+                        class="flex flex-col items-center justify-between w-full h-full px-12 py-8 border-2 border-primary-400">
                         <div class="w-24 h-24 -mt-16 bg-secondary-700">
                             <svg class="w-16 h-16 m-auto transition-transform transform text-primary-500 featured-icon-translate-top"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -743,7 +709,7 @@
 
                 <div class="w-full p-4 mt-16 sm:w-1/2 xl:w-1/5">
                     <div
-                        class="flex flex-col items-center justify-between w-full h-full px-12 py-8 border-2 border-primary-500">
+                        class="flex flex-col items-center justify-between w-full h-full px-12 py-8 border-2 border-primary-400">
                         <div class="w-24 h-24 -mt-16 bg-secondary-700">
                             <svg class="w-16 h-16 m-auto transition-transform transform text-primary-500 featured-icon-translate-top"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -851,8 +817,7 @@
             </div>
             <div class="flex flex-row flex-wrap justify-center w-full">
 
-                <a class="button group w-full mx-2 mt-4 lg:w-auto --is-rounded --is-small --is-secondary"
-                    href="https://sqp.fr/guide-dachat-nas">
+                <a class="button group w-full mx-2 mt-4 lg:w-auto --is-rounded --is-small --is-secondary" href="">
 
 
                     <span class="button__caption">
@@ -872,8 +837,7 @@
                     </span>
                 </a>
                 </li>
-                <a class="button group w-full mx-2 mt-4 lg:w-auto --is-rounded --is-small --is-secondary"
-                    href="https://sqp.fr/guide-dachat-san">
+                <a class="button group w-full mx-2 mt-4 lg:w-auto --is-rounded --is-small --is-secondary" href="">
 
 
                     <span class="button__caption">
@@ -893,8 +857,7 @@
                     </span>
                 </a>
                 </li>
-                <a class="button group w-full mx-2 mt-4 lg:w-auto --is-rounded --is-small --is-secondary"
-                    href="https://sqp.fr/guide-dachat-memoire-ram">
+                <a class="button group w-full mx-2 mt-4 lg:w-auto --is-rounded --is-small --is-secondary" href="">
 
 
                     <span class="button__caption">
@@ -923,66 +886,204 @@
             <div class="relative flex justify-center w-full lg:justify-start">
                 <hr class="absolute w-full border-secondary-600" style="z-index: -1">
                 <a href="#" @click.prevent="tab = 0; swiper.slideTo(1)"
-                    class="inline-flex items-center h-8 px-4 mx-2 -mt-4 text-sm font-bold uppercase lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700"
-                    :class="tab == 0 ? 'text-tertiary-500' : 'text-gray-300 hover:text-white'" x-cloak>Promotions</a>
+                    class="inline-flex items-center h-8 px-4 mx-2 -mt-4 text-sm font-bold uppercase lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700 text-tertiary-500"
+                    :class="tab == 0 ? 'text-tertiary-500' : 'text-gray-300 hover:text-white'">Promotions</a>
                 <a href="#" @click.prevent="tab = 1; swiper.slideTo(2)"
-                    class="inline-flex items-center h-8 px-4 mx-2 -mt-4 text-sm font-bold uppercase lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700"
-                    :class="tab == 1 ? 'text-tertiary-500' : 'text-gray-300 hover:text-white'" x-cloak>Nouveautés</a>
+                    class="inline-flex items-center h-8 px-4 mx-2 -mt-4 text-sm font-bold uppercase lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700 text-gray-300 hover:text-white"
+                    :class="tab == 1 ? 'text-tertiary-500' : 'text-gray-300 hover:text-white'">Nouveautés</a>
             </div>
 
-            <div class="overflow-x-hidden swiper-container" x-ref="container">
-                <div class="swiper-wrapper">
-                    <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4">
+            <div class="overflow-x-hidden swiper-container swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
+                x-ref="container">
+                <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1317px, 0px, 0px);"
+                    id="swiper-wrapper-154a72c872d65b66" aria-live="polite">
+                    <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4 swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next"
+                        data-swiper-slide-index="1" style="width: 1317px;" role="group" aria-label="2 / 2">
 
-                        @foreach ($homePromos as $promo)
-                            <a wire:id="ZEZUkSEQmNA0GkvMpaJX"
-                                wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;ZEZUkSEQmNA0GkvMpaJX&quot;,&quot;name&quot;:&quot;website.products.item&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;da7ad6ef&quot;,&quot;data&quot;:{&quot;product&quot;:[],&quot;viewName&quot;:&quot;website.products.livewire.item.forGrid&quot;,&quot;quantity&quot;:1},&quot;dataMeta&quot;:{&quot;models&quot;:{&quot;product&quot;:{&quot;class&quot;:&quot;App\\Domain\\Products\\Models\\Product&quot;,&quot;id&quot;:60604,&quot;relations&quot;:[&quot;url&quot;,&quot;media&quot;,&quot;media.model&quot;,&quot;brand&quot;,&quot;brand.media&quot;,&quot;promotion&quot;],&quot;connection&quot;:&quot;mysql&quot;}}},&quot;checksum&quot;:&quot;a2b35a4ee1f5d03a92cbb4465fa195b04ca6449e545894eb3b1dddbbb4077885&quot;}}"
-                                href="https://sqp.fr/distributeur-25/ssd-samsung-870-qvo-25-1tb-sata-6gbps-033-dwpd-promo-jusquau-3108-sur-stock-dispo"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
+                        @foreach ($homeNouveautes as $nouveaute)
+                            <a wire:id="7g27qcyVCW2fMwnH6Ooh" href="{{ route('produits.show', $nouveaute->slug) }}"
+                                class="productLink flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
                                 <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
                                     <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_768_768.jpg 768w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_642_642.jpg 642w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_537_537.jpg 537w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_449_449.jpg 449w, https://sqp.fr/storage/products/products/60604/medias/43297/responsive-images/ssd1t-sam870qvopromo-60604___media_library_original_376_376.jpg 376w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzY4IDc2OCI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2OCIgaGVpZ2h0PSI3NjgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBSUFBZ0F3RVJBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBL1JMeEY4WXREOE5YWnQ3dTRWSkIySnFsRnNEbjUvMmxmQ2x1UG12Rkg0MCtSaU0rWDlyRHdaRVNHdmsvNzZvNVdNMS9DZjdSZmhmeGhxSzJWamRxOHpkQURTY1dnUGtYOXBUVjJnOFp6TDVoSHRtdWlHeExQblB4RDRvTWU1VE13UDFxd09JdU5Za3ZKU0VtWS9qU0E5dy9aSk0vL0N5TGZkSXhIb1RVVDJCSFFmdFdhaE5INCtuVlZZajJGRU5nWjgzNjlPU2hrbGpjajZWYkFUUWRPKzJoWkk0bXdmYWdSOUwvQUxLK2d5UWVPN2VReGtmaFV6MkdqN244Vy9zN2VHZkdPb3RlWDFxcnlucVNLNTFKb281dTUvWTc4RDNTYlpMQkdIMHA4ekFtc1AyUnZCV25vRmlzVVVEL0FHYVhNd09zOEwvQXp3LzRVdkZ1Yk8yVkpCMElGRGsyQi8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
                                         onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="1px"
-                                        src="https://sqp.fr/storage/products/products/60604/medias/43297/ssd1t-sam870qvopromo-60604.jpg"
-                                        width="768" height="768">
+                                        sizes="22vw" src="{{ asset($nouveaute->photosUrl[0]) }}" width="768"
+                                        height="768">
 
                                     <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
                                         <img class="block object-contain object-left w-auto h-full mb-2"
-                                            srcset="https://sqp.fr/storage/products/brands/11/medias/30/responsive-images/samsung___media_library_original_290_96.png 290w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjkwIDk2Ij4KCTxpbWFnZSB3aWR0aD0iMjkwIiBoZWlnaHQ9Ijk2IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUNnQWRBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9RdXp0dkhHdkkyN1dwTkV0OGdvL3dCa2dhNWJCT2R3S3NpZzhjRGNSajczUEFCcitGZmg5QjRZbFc0azFQVk5WdUZVcUpkVHY1YmtwbkdkdTlqdHpnWnhqb0tBTlBWdkdPa2FLam04djRJTm5VTTRCb0E4NTFqKzFQRk9yUzMrbTZacU9tUk1nVDdTODk1Wm01QUxZK1dHTmlRT2NGd09IeXVRU2FBUFh3T2FBR3ovQU9xYjZVQWMvd0NIdkNlaG1KTlRPamFmL2FVOFpTVzgreXA1MGk3czRaOFpJNEhVOWhRQnB0NFcwVmlTZElzQ1QzTnNuK0ZBSC8vWiI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
+                                            srcset="https://sqp.fr/storage/products/brands/3/medias/3/responsive-images/qnap___media_library_original_296_53.png 296w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMjk2IDU0Ij4KCTxpbWFnZSB3aWR0aD0iMjk2IiBoZWlnaHQ9IjU0IiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUVBWUFCZ0FBRC8vZ0E3UTFKRlFWUlBVam9nWjJRdGFuQmxaeUIyTVM0d0lDaDFjMmx1WnlCSlNrY2dTbEJGUnlCMk9EQXBMQ0J4ZFdGc2FYUjVJRDBnT1RBSy85c0FRd0FEQWdJREFnSURBd01EQkFNREJBVUlCUVVFQkFVS0J3Y0dDQXdLREF3TENnc0xEUTRTRUEwT0VRNExDeEFXRUJFVEZCVVZGUXdQRnhnV0ZCZ1NGQlVVLzlzQVF3RURCQVFGQkFVSkJRVUpGQTBMRFJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVUvOEFBRVFnQUJRQWJBd0VSQUFJUkFRTVJBZi9FQUI4QUFBRUZBUUVCQVFFQkFBQUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVRQUFJQkF3TUNCQU1GQlFRRUFBQUJmUUVDQXdBRUVRVVNJVEZCQmhOUllRY2ljUlF5Z1pHaENDTkNzY0VWVXRId0pETmljb0lKQ2hZWEdCa2FKU1luS0NrcU5EVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnNFNGaG9lSWlZcVNrNVNWbHBlWW1acWlvNlNscHFlb3FhcXlzN1MxdHJlNHVickN3OFRGeHNmSXljclMwOVRWMXRmWTJkcmg0dVBrNWVibjZPbnE4Zkx6OVBYMjkvajUrdi9FQUI4QkFBTUJBUUVCQVFFQkFRRUFBQUFBQUFBQkFnTUVCUVlIQ0FrS0MvL0VBTFVSQUFJQkFnUUVBd1FIQlFRRUFBRUNkd0FCQWdNUkJBVWhNUVlTUVZFSFlYRVRJaktCQ0JSQ2thR3h3UWtqTTFMd0ZXSnkwUW9XSkRUaEpmRVhHQmthSmljb0tTbzFOamM0T1RwRFJFVkdSMGhKU2xOVVZWWlhXRmxhWTJSbFptZG9hV3B6ZEhWMmQzaDVlb0tEaElXR2g0aUppcEtUbEpXV2w1aVptcUtqcEtXbXA2aXBxckt6dExXMnQ3aTV1c0xEeE1YR3g4akp5dExUMU5YVzE5aloydUxqNU9YbTUranA2dkx6OVBYMjkvajUrdi9hQUF3REFRQUNFUU1SQUQ4QS9TaFhlMGE3bUIzRkVac0hQUDYveW9BNC9Udkc5M2IrRGRiMW93eG01dGJXSzVSUmtMKzh0MG4yOStoa3hudmpQR2NVQWFROFM2elpMcmVuM04xQmMzdGhkUld5M2FRR05XOHlPTnczbDdqakhtWXh1NXgyendBU1A0TThmczdGZkhlbktwUEEvc0Jqai95YW9BLy8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
                                             onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                            sizes="1px"
-                                            src="https://sqp.fr/storage/products/brands/11/medias/30/samsung.png"
+                                            sizes="10vw"
+                                            src="https://sqp.fr/storage/products/brands/3/medias/3/qnap.png"
+                                            width="296" height="53">
+
+                                    </div>
+                                </div>
+                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
+
+                                    <table class="w-full text-xs uppercase border-separate"
+                                        style="border-spacing: 0 .25rem">
+                                        <tbody>
+                                            <tr class="text-primary-500">
+                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. DGTEC:</td>
+                                                <th>{{ $nouveaute->id }}</th>
+                                            </tr>
+                                            <tr class="text-secondary-300">
+                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
+                                                <th>{{ $nouveaute->ref_fabricant }}</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <span
+                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">{{ $nouveaute->name }}</span>
+
+
+                                    <div class="mb-2">
+                                        <p class="text-xs font-bold text-center uppercase text-secondary-300">
+                                            @if ($nouveaute->quantiteStock > 0)
+                                                Disponible
+                                            @else
+                                                Épuisé provisoirement
+                                            @endif
+                                        </p>
+                                    </div>
+
+                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
+                                        <button class="button group --is-outlined --is-small --is-tertiary"
+                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
+                                            type="button">
+
+
+                                            <span class="button__caption">
+                                                Comparer
+                                            </span>
+
+
+                                            <span class="button__spinner">
+                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24">
+                                                    <circle class="opacity-25" cx="12" cy="12"
+                                                        r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                    <path class="opacity-75" fill="currentColor"
+                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </button>
+
+                                        <button id="{{ $nouveaute->id }}"
+                                            class="addToCart button group w-full px-4 text-center --is-small --is-tertiary"
+                                            wire:loading.class="--is-loading" type="button">
+
+
+                                            <span class="button__caption">
+                                                <span class="sr-only">Ajouter au panier</span>
+                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+
+
+                                            <span class="button__spinner">
+                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24">
+                                                    <circle class="opacity-25" cx="12" cy="12"
+                                                        r="10" stroke="currentColor" stroke-width="4">
+                                                    </circle>
+                                                    <path class="opacity-75" fill="currentColor"
+                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+
+                        <!-- Livewire Component wire-end:CR21Xr9LIkUwq94owrYn -->
+                        <div class="grid col-span-full">
+                            <a class="button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover "
+                                href="https://sqp.fr/nouveautes-stockage-professionnel">
+
+
+                                <span class="button__caption">
+                                    Toutes les nouveautés ({{ $nouveautesCount }} produits)
+                                </span>
+
+                                <span class="button__trailing">
+                                    <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </span>
+
+                                <span class="button__spinner">
+                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10"
+                                            stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4 swiper-slide-active"
+                        data-swiper-slide-index="0" style="width: 1317px;" role="group" aria-label="1 / 2">
+
+                        @foreach ($homePromos as $nouveaute)
+                            <a wire:id="R29ZoJfYlB1GqjAAqIv3" href="{{ route('produits.show', $nouveaute->slug) }}"
+                                class="productLink flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
+                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
+                                    <img class="h-full w-full object-contain"
+                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
+                                        sizes="22vw" src="{{ asset($nouveaute->photosUrl[0]) }}" width="768"
+                                        height="768">
+
+                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
+                                        <img class="block object-contain object-left w-auto h-full mb-2"
+                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
+                                            sizes="6vw" src="{{ asset($nouveaute->brand->logo_url) }}"
                                             width="290" height="96">
 
                                     </div>
                                 </div>
                                 <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
-                                    <div
-                                        class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
-                                        Promo jusqu&#039;au 04/11/2022
-                                    </div>
 
                                     <table class="w-full text-xs uppercase border-separate"
                                         style="border-spacing: 0 .25rem">
-                                        <tr class="text-primary-500">
-                                            <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                            <th>SSD1T-SAM870QVO/PROMO</th>
-                                        </tr>
-                                        <tr class="text-secondary-300">
-                                            <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                            <th>MZ-77Q1T0BW-PROMO</th>
-                                        </tr>
+                                        <tbody>
+                                            <tr class="text-primary-500">
+                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. DGTEC:</td>
+                                                <th>{{ $nouveaute->id }}</th>
+                                            </tr>
+                                            <tr class="text-secondary-300">
+                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
+                                                <th>{{ $nouveaute->ref_fabricant }}</th>
+                                            </tr>
+                                        </tbody>
                                     </table>
 
                                     <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Samsung 870 QVO - 2,5&quot; 1TB - SATA 6Gbps - 0.33 DWPD - Promo jusqu&#039;au
-                                        31/08 sur stock dispo</span>
+                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">{{ $nouveaute->name }}</span>
 
 
                                     <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-primary-500">En stock
+                                        <p class="text-xs font-bold text-center uppercase text-primary-500">
+                                            @if ($nouveaute->quantiteStock > 0)
+                                                En stock
+                                            @else
+                                                Rupture de stock
+                                            @endif
                                         </p>
                                     </div>
 
@@ -1010,9 +1111,9 @@
                                             </span>
                                         </button>
 
-                                        <a class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:loading.class="--is-loading" type="button"
-                                            href="{{ route('addToCart', $promo->slug) }}">
+                                        <button id="{{ $nouveaute->id }}"
+                                            class="button group w-full px-4 text-center --is-small --is-tertiary addToCart"
+                                            wire:loading.class="--is-loading" type="button">
 
 
                                             <span class="button__caption">
@@ -1020,7 +1121,8 @@
                                                 <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                                     <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
+                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
+                                                    </path>
                                                 </svg>
                                             </span>
 
@@ -1036,15 +1138,15 @@
                                                     </path>
                                                 </svg>
                                             </span>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </a>
                         @endforeach
 
-                        <!-- Livewire Component wire-end:PDNgyxQn71w9dxjF72qM -->
+                        <!-- Livewire Component wire-end:fFIMINK933s6KqTpV4Rr -->
                         <div class="grid col-span-full">
-                            <a class="button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover --is-primary"
+                            <a class="productLink button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover "
                                 href="https://sqp.fr/promotions-stockage-professionnel">
 
 
@@ -1057,7 +1159,7 @@
                                         fill="currentColor" aria-hidden="true">
                                         <path fill-rule="evenodd"
                                             d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                            clip-rule="evenodd" />
+                                            clip-rule="evenodd"></path>
                                     </svg>
                                 </span>
 
@@ -1075,44 +1177,54 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4 swiper-slide-next swiper-slide-duplicate-prev"
+                        data-swiper-slide-index="1" style="width: 1317px;" role="group" aria-label="2 / 2">
 
                         @foreach ($homeNouveautes as $nouveaute)
-                            <a wire:id="oGjxfKfWqwWrIj7jkipc"
-                                wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;oGjxfKfWqwWrIj7jkipc&quot;,&quot;name&quot;:&quot;website.products.item&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;aa3f45af&quot;,&quot;data&quot;:{&quot;product&quot;:[],&quot;viewName&quot;:&quot;website.products.livewire.item.forGrid&quot;,&quot;quantity&quot;:1},&quot;dataMeta&quot;:{&quot;models&quot;:{&quot;product&quot;:{&quot;class&quot;:&quot;App\\Domain\\Products\\Models\\Product&quot;,&quot;id&quot;:65278,&quot;relations&quot;:[&quot;url&quot;,&quot;media&quot;,&quot;media.model&quot;,&quot;brand&quot;,&quot;brand.media&quot;,&quot;promotion&quot;,&quot;arrival&quot;],&quot;connection&quot;:&quot;mysql&quot;}}},&quot;checksum&quot;:&quot;555740e3daa22ed5a7706d0a1e838e69447d319fa3ecd938064aea16b1763ac5&quot;}}"
-                                href="https://sqp.fr/distributeur-m2/ssd-crucial-p3-plus-m2-2280-1tb-pcie-40-x4-nvme-012-dwpd"
-                                class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
+                            <a wire:id="R29ZoJfYlB1GqjAAqIv3" href="{{ route('produits.show', $nouveaute->slug) }}"
+                                class="productLink flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
                                 <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
                                     <img class="h-full w-full object-contain"
-                                        srcset="https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_1024_768.jpg 1024w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_856_642.jpg 856w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_716_537.jpg 716w, https://sqp.fr/storage/products/products/65278/medias/46580/responsive-images/ssd1t-crucp3-65278___media_library_original_599_449.jpg 599w, data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTAyNCA3NjgiPgoJPGltYWdlIHdpZHRoPSIxMDI0IiBoZWlnaHQ9Ijc2OCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQVlBQmdBQUQvL2dBN1ExSkZRVlJQVWpvZ1oyUXRhbkJsWnlCMk1TNHdJQ2gxYzJsdVp5QkpTa2NnU2xCRlJ5QjJPREFwTENCeGRXRnNhWFI1SUQwZ09UQUsvOXNBUXdBREFnSURBZ0lEQXdNREJBTURCQVVJQlFVRUJBVUtCd2NHQ0F3S0RBd0xDZ3NMRFE0U0VBME9FUTRMQ3hBV0VCRVRGQlVWRlF3UEZ4Z1dGQmdTRkJVVS85c0FRd0VEQkFRRkJBVUpCUVVKRkEwTERSUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVLzhBQUVRZ0FHQUFnQXdFUkFBSVJBUU1SQWYvRUFCOEFBQUVGQVFFQkFRRUJBQUFBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUUFBSUJBd01DQkFNRkJRUUVBQUFCZlFFQ0F3QUVFUVVTSVRGQkJoTlJZUWNpY1JReWdaR2hDQ05Dc2NFVlV0SHdKRE5pY29JSkNoWVhHQmthSlNZbktDa3FORFUyTnpnNU9rTkVSVVpIU0VsS1UxUlZWbGRZV1ZwalpHVm1aMmhwYW5OMGRYWjNlSGw2ZzRTRmhvZUlpWXFTazVTVmxwZVltWnFpbzZTbHBxZW9xYXF5czdTMXRyZTR1YnJDdzhURnhzZkl5Y3JTMDlUVjF0ZlkyZHJoNHVQazVlYm42T25xOGZMejlQWDI5L2o1K3YvRUFCOEJBQU1CQVFFQkFRRUJBUUVBQUFBQUFBQUJBZ01FQlFZSENBa0tDLy9FQUxVUkFBSUJBZ1FFQXdRSEJRUUVBQUVDZHdBQkFnTVJCQVVoTVFZU1FWRUhZWEVUSWpLQkNCUkNrYUd4d1Frak0xTHdGV0p5MFFvV0pEVGhKZkVYR0JrYUppY29LU28xTmpjNE9UcERSRVZHUjBoSlNsTlVWVlpYV0ZsYVkyUmxabWRvYVdwemRIVjJkM2g1ZW9LRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVMajVPWG01K2pwNnZMejlQWDI5L2o1K3YvYUFBd0RBUUFDRVFNUkFEOEEvVEMvOGQ2SnBrdmwzT29RUlA2TTRGSzQ3RlVmRTN3MmYrWXJiZjhBZndVWEVJZmloNGFCL3dDUXRiZjkvQlRBdWFiNDUwWFY1Zkx0TCtHWi9SSEJwWEhZL0xmOXF3ZVBMbjRqeXBwajNxV2c3eDV4VVJSVFBCdFRnK0tsdS84QW84bXBPUDhBZ1ZhRUZPMWgrSzhrbjcwNmt2OEEzMVFCOUwvc2EyWGo5ZkhLTnFyWGh0eC96MXppc2Fua2F3dDFQMDB2dkFXaDZsTVpiblQ0SlhQOFRJRFd4a1Z2K0ZZK0cvOEFvRlczL2ZBb0FQOEFoV0hodi9vRTIzL2ZzVUFYdE44RjZQcEQ3N1N4aGhiMVZRS1ZyZ2YvMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4= 32w"
                                         onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
-                                        sizes="1px"
-                                        src="https://sqp.fr/storage/products/products/65278/medias/46580/ssd1t-crucp3-65278.jpg"
-                                        width="1024" height="768">
+                                        sizes="22vw" src="{{ asset($nouveaute->photosUrl[0]) }}" width="768"
+                                        height="768">
 
+                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
+                                        <img class="block object-contain object-left w-auto h-full mb-2"
+                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
+                                            sizes="6vw" src="{{ asset($nouveaute->brand->logo_url) }}"
+                                            width="290" height="96">
+
+                                    </div>
                                 </div>
                                 <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
 
                                     <table class="w-full text-xs uppercase border-separate"
                                         style="border-spacing: 0 .25rem">
-                                        <tr class="text-primary-500">
-                                            <td class="w-0 pr-2 whitespace-nowrap">Ref. SQP:</td>
-                                            <th>SSD1T-CRUCP3+</th>
-                                        </tr>
-                                        <tr class="text-secondary-300">
-                                            <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
-                                            <th>CT1000P3PSSD8</th>
-                                        </tr>
+                                        <tbody>
+                                            <tr class="text-primary-500">
+                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. DGTEC:</td>
+                                                <th>{{ $nouveaute->id }}</th>
+                                            </tr>
+                                            <tr class="text-secondary-300">
+                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
+                                                <th>{{ $nouveaute->ref_fabricant }}</th>
+                                            </tr>
+                                        </tbody>
                                     </table>
 
                                     <span
-                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">SSD
-                                        Crucial P3 Plus - M.2 2280 1TB - PCIe 4.0 x4 NVMe - 0.12 DWPD</span>
+                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">{{ $nouveaute->name }}</span>
 
 
                                     <div class="mb-2">
-                                        <p class="text-xs font-bold text-center uppercase text-secondary-300">Épuisé
-                                            provisoirement</p>
+                                        <p class="text-xs font-bold text-center uppercase text-primary-500">
+                                            @if ($nouveaute->quantiteStock > 0)
+                                                En stock
+                                            @else
+                                                Rupture de stock
+                                            @endif
+                                        </p>
                                     </div>
 
                                     <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
@@ -1139,9 +1251,9 @@
                                             </span>
                                         </button>
 
-                                        <a class="button group w-full px-4 text-center --is-small --is-tertiary"
-                                            wire:loading.class="--is-loading"
-                                            href="{{ route('addToCart', $nouveaute->slug) }}" type="button">
+                                        <button id="{{ $nouveaute->id }}"
+                                            class="addToCart button group w-full px-4 text-center --is-small --is-tertiary"
+                                            wire:loading.class="--is-loading" type="button">
 
 
                                             <span class="button__caption">
@@ -1149,7 +1261,8 @@
                                                 <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                                     <path
-                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
+                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
+                                                    </path>
                                                 </svg>
                                             </span>
 
@@ -1165,14 +1278,15 @@
                                                     </path>
                                                 </svg>
                                             </span>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </a>
                         @endforeach
 
+                        <!-- Livewire Component wire-end:CR21Xr9LIkUwq94owrYn -->
                         <div class="grid col-span-full">
-                            <a class="button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover --is-primary"
+                            <a class="productLink button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover "
                                 href="https://sqp.fr/nouveautes-stockage-professionnel">
 
 
@@ -1185,7 +1299,149 @@
                                         fill="currentColor" aria-hidden="true">
                                         <path fill-rule="evenodd"
                                             d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                            clip-rule="evenodd" />
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </span>
+
+                                <span class="button__spinner">
+                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10"
+                                            stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-8 mt-8 swiper-slide sm:grid-cols-2 lg:grid-cols-4 swiper-slide-duplicate swiper-slide-duplicate-active"
+                        data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 1317px;">
+                        @foreach ($homePromos as $nouveaute)
+                            <a wire:id="R29ZoJfYlB1GqjAAqIv3" href="{{ route('produits.show', $nouveaute->slug) }}"
+                                class="productLink flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
+                                <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
+                                    <img class="h-full w-full object-contain"
+                                        onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
+                                        sizes="22vw" src="{{ asset($nouveaute->photosUrl[0]) }}" width="768"
+                                        height="768">
+
+                                    <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
+                                        <img class="block object-contain object-left w-auto h-full mb-2"
+                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
+                                            sizes="6vw" src="{{ asset($nouveaute->brand->logo_url) }}"
+                                            width="290" height="96">
+
+                                    </div>
+                                </div>
+                                <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
+                                    <div
+                                        class="w-full px-4 py-2 mb-4 text-xs font-medium text-right border-l-4 rounded-sm bg-secondary-700 border-primary-500 text-primary-500">
+                                        {{ $nouveaute->dateFinPromo }}
+                                    </div>
+
+                                    <table class="w-full text-xs uppercase border-separate"
+                                        style="border-spacing: 0 .25rem">
+                                        <tbody>
+                                            <tr class="text-primary-500">
+                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. DGTEC:</td>
+                                                <th>{{ $nouveaute->id }}</th>
+                                            </tr>
+                                            <tr class="text-secondary-300">
+                                                <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
+                                                <th>{{ $nouveaute->ref_fabricant }}</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <span
+                                        class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">{{ $nouveaute->name }}</span>
+
+
+                                    <div class="mb-2">
+                                        <p class="text-xs font-bold text-center uppercase text-primary-500">
+                                            @if ($nouveaute->quantiteStock > 0)
+                                                En stock
+                                            @else
+                                                Rupture de stock
+                                            @endif
+                                        </p>
+                                    </div>
+
+                                    <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
+                                        <button class="button group --is-outlined --is-small --is-tertiary"
+                                            wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
+                                            type="button">
+
+
+                                            <span class="button__caption">
+                                                Comparer
+                                            </span>
+
+
+                                            <span class="button__spinner">
+                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24">
+                                                    <circle class="opacity-25" cx="12" cy="12"
+                                                        r="10" stroke="currentColor" stroke-width="4">
+                                                    </circle>
+                                                    <path class="opacity-75" fill="currentColor"
+                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </button>
+
+                                        <button id="{{ $nouveaute->id }}"
+                                            class="addToCart button group w-full px-4 text-center --is-small --is-tertiary"
+                                            wire:loading.class="--is-loading" type="button">
+
+
+                                            <span class="button__caption">
+                                                <span class="sr-only">Ajouter au panier</span>
+                                                <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+
+
+                                            <span class="button__spinner">
+                                                <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24">
+                                                    <circle class="opacity-25" cx="12" cy="12"
+                                                        r="10" stroke="currentColor" stroke-width="4">
+                                                    </circle>
+                                                    <path class="opacity-75" fill="currentColor"
+                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+
+                        <!-- Livewire Component wire-end:fFIMINK933s6KqTpV4Rr -->
+                        <div class="grid col-span-full">
+                            <a class="button group --has-trailing w-full mx-auto mt-4 lg:w-auto --translate-icon-on-hover "
+                                href="https://sqp.fr/promotions-stockage-professionnel">
+
+
+                                <span class="button__caption">
+                                    Toutes les promotions ({{ $promosCount }} produits)
+                                </span>
+
+                                <span class="button__trailing">
+                                    <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
                                     </svg>
                                 </span>
 
@@ -1203,7 +1459,75 @@
                         </div>
                     </div>
                 </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
             </div>
         </div>
     </div>
+    <script src="{{ asset('dist/js/jquery.toast.min.js') }}"></script>
+
+    <script>
+        $('.addToCart').on('click', function() {
+            $(".productLink").click(function(e) {
+                e.preventDefault();
+            });
+
+            var product_id = $(this).attr('id');
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('addToCart') }}",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                data: {
+                    'product_id': product_id
+                },
+                success: function(data) {
+                    $.toast({
+                        text: data.message, // Text that is to be shown in the toast
+                        heading: 'Panier', // Optional heading to be shown on the toast
+                        icon: 'success', // Type of toast icon
+                        showHideTransition: 'fade', // fade, slide or plain
+                        allowToastClose: true, // Boolean value true or false
+                        hideAfter: 3000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                        stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                        position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+
+
+
+                        textAlign: 'center', // Text alignment i.e. left, right or center
+                        loader: true, // Whether to show loader or not. True by default
+                        loaderBg: '#9EC600', // Background color of the toast loader
+                        beforeShow: function() {}, // will be triggered before the toast is shown
+                        afterShown: function() {}, // will be triggered after the toat has been shown
+                        beforeHide: function() {}, // will be triggered before the toast gets hidden
+                        afterHidden: function() {} // will be triggered after the toast has been hidden
+                    });
+                    $('#lblCartCount').text(count((array) session('cart')));
+                },
+                error: function(data) {
+                    $.toast({
+                        text: data.error, // Text that is to be shown in the toast
+                        heading: 'Panier', // Optional heading to be shown on the toast
+                        icon: 'error', // Type of toast icon
+                        showHideTransition: 'fade', // fade, slide or plain
+                        allowToastClose: true, // Boolean value true or false
+                        hideAfter: 3000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                        stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                        position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+
+
+
+                        textAlign: 'center', // Text alignment i.e. left, right or center
+                        loader: true, // Whether to show loader or not. True by default
+                        loaderBg: '#9EC600', // Background color of the toast loader
+                        beforeShow: function() {}, // will be triggered before the toast is shown
+                        afterShown: function() {}, // will be triggered after the toat has been shown
+                        beforeHide: function() {}, // will be triggered before the toast gets hidden
+                        afterHidden: function() {} // will be triggered after the toast has been hidden
+                    });
+                }
+            });
+        });
+        $(".productLink").unbind('click');
+    </script>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Commande;
 use App\Models\Panier;
 use Illuminate\Http\Request;
 
@@ -17,69 +18,13 @@ class PanierController extends Controller
         return view('paniers.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function livraison()
     {
-        //
+        return view('paniers.livraison');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function payement()
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Panier  $panier
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Panier $panier)
-    {
-        
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Panier  $panier
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Panier $panier)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Panier  $panier
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Panier $panier)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Panier  $panier
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Panier $panier)
-    {
-        //
+        return view('paniers.payement');
     }
 }

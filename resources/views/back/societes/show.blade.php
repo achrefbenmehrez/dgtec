@@ -27,22 +27,18 @@
                                                     class="font-weight-bold">Site Web : </label>
                                                 <h5>{{ $societe->siteWeb }}</h5>
                                             </div>
-                                            <div class="form-group"> <label for="email" class="font-weight-bold">Siret:
+                                            <div class="form-group"> <label for="email" class="font-weight-bold">Identifiant Unique:
                                                 </label>
-                                                <h5>{{ $societe->siret }}</h5>
+                                                <h5>{{ $societe->identifiantUnique }}</h5>
                                             </div>
-                                            <div class="form-group"> <label for="password" class="font-weight-bold">Kbis :
+                                            <div class="form-group"> <label for="password" class="font-weight-bold">RNE :
                                                 </label>
-                                                <h5>{{ $societe->kbis }}</h5>
+                                                <h5>{{ $societe->rne }}</h5>
                                             </div>
                                             <div class="form-group"> <label for="password" class="font-weight-bold">Forme
                                                     juridique :
                                                 </label>
                                                 <h5>{{ $societe->formeJuridique }}</h5>
-                                            </div>
-                                            <div class="form-group"> <label for="password" class="font-weight-bold">Ape :
-                                                </label>
-                                                <h5>{{ $societe->ape }}</h5>
                                             </div>
                                             <div class="form-group"> <label for="password" class="font-weight-bold">Nom
                                                     comptable :

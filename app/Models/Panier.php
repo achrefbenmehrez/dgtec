@@ -9,7 +9,7 @@ class Panier extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'donnees_panier'];
+    protected $fillable = ['user_id', 'donnees_panier', 'commentaire'];
 
     protected $casts = [
         'donnees_panier' => 'array'

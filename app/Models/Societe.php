@@ -12,10 +12,9 @@ class Societe extends Model
         'nomCommercial',
         'numTel',
         'siteWeb',
-        'siret',
-        'kbis',
+        'identifiantUnique',
+        'rne',
         'formeJuridique',
-        'ape',
         'nomComptable',
         'emailComptable',
         'formatPapier',
@@ -26,5 +25,10 @@ class Societe extends Model
     public function employes()
     {
         return $this->hasMany(User::class);
+    }
+
+    public function savs()
+    {
+        return $this->hasMany(RMA::class);
     }
 }

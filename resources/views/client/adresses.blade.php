@@ -5,7 +5,7 @@
         <header class="flex flex-col items-center w-full px-2 mb-8">
             <ol class="flex justify-center text-xs uppercase">
                 <li class="flex items-center h-8">
-                    <a href="https://sqp.fr">Accueil</a>
+                    <a href="{{ route('home') }}">Accueil</a>
                 </li>
 
                 <li class="flex items-center h-8 pl-2">
@@ -119,20 +119,6 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Service après-vente</p>
                 </a>
-                <a href="https://sqp.fr/espace-client/nasexchange" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600"
-                    style="background-color: #299E8E">
-                    <svg class="w-10 h-10 mr-auto text-white" height="473pt" viewBox="-17 0 473 473.54" width="473pt"
-                        xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                        <path
-                            d="m438.46875 187.96875v64.589844l-47.859375 4.601562c-4.640625 20.945313-13.039063 40.878906-24.789063 58.828125l30.558594 36.902344-34.558594 30.539063-51.398437-71.238282c50.765625-50.769531 50.765625-133.082031-.003906-183.847656-50.765625-50.769531-133.078125-50.769531-183.847657 0-50.765624 50.765625-50.765624 133.078125 0 183.847656l-49.660156 71.25-34.550781-30.5625 30.5625-36.898437c-11.753906-17.949219-20.152344-37.875-24.792969-58.820313l-47.859375-4.601562v-64.578125l47.859375-4.621094c4.53125-20.976563 12.945313-40.921875 24.800782-58.808594l-30.558594-36.902343 45.550781-45.558594 36.898437 30.570312c17.941407-11.757812 37.867188-20.160156 58.808594-24.800781l4.621094-47.859375h62.25l4.609375 47.859375c20.945313 4.640625 40.875 13.042969 58.820313 24.800781l36.898437-30.558594 45.550781 45.546876-30.558594 36.902343c11.851563 17.890625 20.257813 37.835938 24.789063 58.808594zm0 0">
-                        </path>
-                        <path
-                            d="m239.269531 366.710938c24.25 7.320312 38.441407 28.367187 38.441407 53.527343-.230469 24.941407-14.191407 46.210938-38.660157 53.300781l3.230469-38.890624-.292969-.21875c-11.171875-8.5-26.667969-8.410157-37.738281.21875h-.011719l3.011719 38.671874c-27.460938-6.871093-40.949219-28.140624-40.949219-53.308593-.230469-23.101563 15.089844-43.011719 33.167969-51.472657v-131.507812c-24.25-7.320312-38.4375-28.359375-38.4375-53.53125s13.957031-46.441406 38.4375-53.53125l-3.238281 38.890625.300781.230469c11.167969 8.5 26.660156 8.410156 37.730469-.21875l.007812-.011719-3.007812-38.660156c27.910156 6.410156 41.410156 27.679687 41.410156 52.851562 0 22.871094-15.101563 43.007813-33.402344 51.699219zm0 0">
-                        </path>
-                    </svg>
-                    <p class="text-xs font-semibold text-center text-white uppercase ">NASEXCHANGE</p>
-                </a>
 
                 <a href="{{ route('logout') }}"
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md bg-secondary-600 hover:bg-primary-500">
@@ -161,6 +147,11 @@
                         <table class="w-full">
                             <tbody>
                                 <tr>
+                                    @if (session()->has('status'))
+                                        <div class="alert alert-success">
+                                            <h4>{{ session()->get('status') }}</h4>
+                                        </div>
+                                    @endif
                                     <td colspan="7">
                                         <div
                                             class="flex flex-col items-center justify-center w-full py-8 bg-secondary-700">
@@ -199,9 +190,8 @@
                                 </tr>
 
                                 <tr>
-                                    <th class="hidden px-12 text-xs text-left uppercase lg:table-cell text-dark">Libellé
+                                    <th class="hidden text-xs text-left uppercase lg:table-cell text-dark">Destinataire
                                     </th>
-                                    <th class="hidden text-xs text-left uppercase lg:table-cell text-dark">Destinataire</th>
                                     <th class="hidden text-xs text-left uppercase lg:table-cell text-dark">Adresse</th>
                                     <th class="hidden text-xs text-left uppercase lg:table-cell text-dark">Code postal</th>
                                     <th class="hidden text-xs text-left uppercase lg:table-cell text-dark">Ville</th>
@@ -209,113 +199,50 @@
                                     <th class="hidden px-12 text-xs text-center uppercase lg:table-cell text-dark"><span
                                             class="sr-only">Actions</span></th>
                                 </tr>
-                                <tr class="border-t-4 border-secondary-700 w-full bg-secondary-600 bg-opacity-75">
-                                    @foreach ($adresses as $adresse)
-                                    <td>
-                                            <div class="py-8 text-center lg:pl-12 lg:text-left">
+                                @foreach ($adresses as $adresse)
+                                    <tr class="border-t-4 border-secondary-700 w-full bg-secondary-600 bg-opacity-75">
+                                        <td class="hidden text-xs text-secondary-300 lg:table-cell">
+                                            <span>
+                                                {{ $adresse->destinataire }}
+                                            </span>
+                                        </td>
 
-                                                {{ $adresse->complement }}
-
-                                                <div class="mt-4 text-xs text-secondary-300 lg:hidden">
-                                                    GENERAL TRANSPORTS SERVICES <br>
-                                                    NELLY PARRIMOND Tel +33 4.91.58.48.86 <br>
-                                                    36 RUE EMMANUEL EYDOUX <br>
-                                                    13016 / MARSEILLE / FR
-                                                </div>
-
-                                                <div class="flex items-center justify-center mt-4 lg:hidden">
-                                                </div>
+                                        <td class="hidden text-xs text-secondary-300 lg:table-cell">
+                                            <div>
+                                                {{ $adresse->adresse }}
                                             </div>
-                                    </td>
+                                        </td>
 
-                                    <td class="hidden text-xs text-secondary-300 lg:table-cell">
-                                        <span>
-                                            {{ $adresse->destinataire }}
-                                        </span>
-                                    </td>
+                                        <td class="hidden text-xs text-secondary-300 lg:table-cell">
+                                            <span>
+                                                {{ $adresse->code_postal }}
+                                            </span>
+                                        </td>
 
-                                    <td class="hidden text-xs text-secondary-300 lg:table-cell">
-                                        <div>
-                                            {{ $adresse->adresse }}
-                                        </div>
-                                    </td>
+                                        <td class="hidden text-xs text-secondary-300 lg:table-cell">
+                                            <span>
+                                                {{ $adresse->ville }}
+                                            </span>
+                                        </td>
 
-                                    <td class="hidden text-xs text-secondary-300 lg:table-cell">
-                                        <span>
-                                            {{ $adresse->code_postal }}
-                                        </span>
-                                    </td>
+                                        <td class="hidden text-xs text-secondary-300 lg:table-cell">
+                                            <span>
+                                                {{ $adresse->pays }}
+                                            </span>
+                                        </td>
 
-                                    <td class="hidden text-xs text-secondary-300 lg:table-cell">
-                                        <span>
-                                            {{ $adresse->ville }}
-                                        </span>
-                                    </td>
-
-                                    <td class="hidden text-xs text-secondary-300 lg:table-cell">
-                                        <span>
-                                            {{ $adresse->pays }}
-                                        </span>
-                                    </td>
-
-                                    <td class="hidden w-0 lg:table-cell">
-                                        <div class="flex justify-center px-12 py-8">
-                                        </div>
-                                    </td>
-                                    @endforeach
-                                </tr>
-
-                                <tr>
-                                    <td colspan="7">
-                                        <div
-                                            class="flex flex-col items-center justify-center w-full py-8 mt-16 bg-secondary-700">
-                                            <div
-                                                class="flex items-center justify-center w-16 h-16 rounded-full bg-secondary-600">
-                                                <svg class="w-8 h-8 text-white" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M12 3c2.131 0 4 1.73 4 3.702 0 2.05-1.714 4.941-4 8.561-2.286-3.62-4-6.511-4-8.561C8 4.73 9.869 3 12 3zm0-2C8.852 1 6 3.553 6 6.702 6 9.85 8.602 13.609 12 19c3.398-5.391 6-9.15 6-12.298C18 3.553 15.149 1 12 1zm0 8c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2zm8 6h-3.135c-.385.641-.798 1.309-1.232 2h3.131l.5 1H15l-.344.544-.289.456h.558l.858 2H8.295l.858-2h.479l-.289-.456L9 18H6.958l-1.011-1h2.42c-.435-.691-.848-1.359-1.232-2H4l-4 8h24l-4-8zM7.206 21h-3.97L5 17.472 6.516 19h1.549l-.859 2zm8.808-2h3.75l1 2h-3.892l-.858-2z">
-                                                    </path>
-                                                </svg>
+                                        <td class="hidden w-0 lg:table-cell">
+                                            <div class="flex justify-center px-12 py-8">
                                             </div>
-                                            <span class="mt-4 text-sm font-bold uppercase">Adresses de livraison
-                                                directe</span>
-                                        </div>
-                                        <div class="w-auto p-4 mt-4 mb-8 rounded-sm bg-secondary-500">
-                                            <div class="flex">
-                                                <div class="mx-4 shrink-0">
-                                                    <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                        <path fill-rule="evenodd"
-                                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                                                            clip-rule="evenodd"></path>
-                                                    </svg>
-                                                </div>
-                                                <div class="flex-1 ml-3 md:flex md:justify-between">
-                                                    <p class="text-sm font-light text-white">
-                                                        <span class="font-medium">Ce service est facturé 12€ par
-                                                            commande</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="7">
-                                        <div
-                                            class="flex flex-col items-center justify-center w-full mb-16 bg-secondary-700 text-dark">
-                                            <span class="mt-4 text-sm">Aucune adresse de livraison directe</span>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
 
                     <div class="flex col-span-full">
-                        <button class="button group --has-trailing ml-auto --is-primary"
+                        <button class="button group --has-trailing ml-auto  "
                             @click.prevent="add_address = !add_address">
 
 
@@ -360,7 +287,7 @@
                             <!-- This element is to trick the browser into centering the modal contents. -->
                             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">​</span>
 
-                            <form wire:id="mhf32OTnbhSZtvWU6UsW" wire:submit.prevent="submit"
+                            <form method="POST" action="{{ route('adresseLivraison.store') }}"
                                 class="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-sm shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
                                 x-show="edit_address" x-transition:enter="ease-out duration-300"
                                 x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -369,6 +296,7 @@
                                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                                 style="display: none">
+                                @csrf
                                 <div class="px-4 pt-5 pb-4 bg-secondary-700 sm:p-6 sm:pb-4">
 
                                     <h3 class="text-lg font-medium leading-6 text-center" id="modal-title">
@@ -376,27 +304,6 @@
                                     </h3>
 
                                     <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4">
-
-                                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
-                                            <label for="address.label"
-                                                class="py-2 flex flex-col text-sm font-medium text-white sm:mt-px ">
-                                                Libellé
-                                                <span class="mt-1 text-xs text-secondary-300 font-base">Facultatif</span>
-                                            </label>
-
-                                            <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                                <div class="relative flex max-w-lg bg-red-400 rounded-md shadow-sm">
-
-                                                    <input
-                                                        class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                        id="address.label" wire:loading.disabled="wire:loading.disabled"
-                                                        wire:model.defer="address.label">
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
                                             <label for="address.name"
@@ -418,25 +325,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
-                                            <label for="address.phone"
-                                                class="py-2 flex flex-col text-sm font-medium text-white sm:mt-px ">
-                                                Téléphone
-                                            </label>
-
-                                            <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                                <div class="relative flex max-w-lg bg-red-400 rounded-md shadow-sm">
-
-                                                    <input
-                                                        class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                        id="address.phone" wire:loading.disabled="wire:loading.disabled"
-                                                        type="phone" wire:model.defer="address.phone">
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
                                             <label for="address.address1"
@@ -532,6 +420,7 @@
                                                     id="country" name="country" autocomplete="country"
                                                     class="block w-full border-transparent rounded-sm shadow-sm bg-secondary-600 focus:ring-primary-500 focus:border-primary-500 sm:text-sm">
                                                     <option selected="" value="FR">France</option>
+
                                                 </select>
                                             </div>
                                         </div>
@@ -540,7 +429,7 @@
                                 </div>
                                 <div
                                     class="flex flex-col items-center justify-between w-full px-4 py-8 bg-secondary-600 sm:px-6 sm:flex-row-reverse">
-                                    <button class="button group --has-trailing --is-primary --is-small" type="submit"
+                                    <button class="button group --has-trailing   --is-small" type="submit"
                                         wire:loading.class="--is-loading">
 
 
@@ -627,7 +516,8 @@
                             <!-- This element is to trick the browser into centering the modal contents. -->
                             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">​</span>
 
-                            <form wire:id="4vaSBe72UkKfZ0BkHqWs" wire:submit.prevent="submit"
+                            <form wire:id="4vaSBe72UkKfZ0BkHqWs" action="{{ route('adresseLivraison.store') }}"
+                                method="POST"
                                 class="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-sm shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
                                 x-show="add_address" @address-created="add_address = false"
                                 x-transition:enter="ease-out duration-300"
@@ -637,6 +527,7 @@
                                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                                 style="display: none">
+                                @csrf
                                 <div class="px-4 pt-5 pb-4 bg-secondary-700 sm:p-6 sm:pb-4">
 
                                     <h3 class="text-lg font-medium leading-6 text-center" id="modal-title">
@@ -644,26 +535,6 @@
                                     </h3>
 
                                     <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4">
-
-                                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
-                                            <label for="newAddress.label"
-                                                class="py-2 flex flex-col text-sm font-medium text-white sm:mt-px ">
-                                                Libellé
-                                                <span class="mt-1 text-xs text-secondary-300 font-base">Facultatif</span>
-                                            </label>
-
-                                            <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                                <div class="relative flex max-w-lg bg-red-400 rounded-md shadow-sm">
-
-                                                    <input
-                                                        class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                        id="newAddress.label" wire:model.defer="newAddress.label">
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
                                             <label for="newAddress.name"
@@ -676,27 +547,7 @@
 
                                                     <input
                                                         class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                        id="newAddress.name" wire:model.defer="newAddress.name">
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
-                                            <label for="newAddress.phone"
-                                                class="py-2 flex flex-col text-sm font-medium text-white sm:mt-px ">
-                                                Téléphone
-                                            </label>
-
-                                            <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                                <div class="relative flex max-w-lg bg-red-400 rounded-md shadow-sm">
-
-                                                    <input
-                                                        class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                        id="newAddress.phone" type="phone"
-                                                        wire:model.defer="newAddress.phone">
+                                                        id="newAddress.name" name="name">
 
 
 
@@ -715,7 +566,7 @@
 
                                                     <input
                                                         class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                        id="newAddress.address1" wire:model.defer="newAddress.address1">
+                                                        id="newAddress.address1" name="address1">
 
 
 
@@ -734,7 +585,7 @@
 
                                                     <input
                                                         class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                        id="newAddress.address2" wire:model.defer="newAddress.address2">
+                                                        id="newAddress.address2" name="address2">
 
 
 
@@ -753,7 +604,7 @@
 
                                                     <input
                                                         class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                        id="newAddress.postcode" wire:model.defer="newAddress.postcode">
+                                                        id="newAddress.postcode" name="postcode">
 
 
 
@@ -772,7 +623,7 @@
 
                                                     <input
                                                         class="bg-secondary-600 max-w-full outline-none block flex-1 px-4 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-transparent appearance-none sm:text-sm sm:leading-5 focus:ring-1 focus:border-transparent  focus:ring-primary-500 focus:border-primary-500 rounded-l-sm rounded-r-sm"
-                                                        id="newAddress.city" wire:model.defer="newAddress.city">
+                                                        id="newAddress.city" name="city">
 
 
 
@@ -787,10 +638,45 @@
                                             </label>
 
                                             <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                                <select wire:model.defer="newAddress.country" id="country"
-                                                    name="country" autocomplete="country"
+                                                <select id="country" name="country" autocomplete="country"
                                                     class="block w-full border-transparent rounded-sm shadow-sm bg-secondary-600 focus:ring-primary-500 focus:border-primary-500 sm:text-sm">
-                                                    <option selected="" value="FR">France</option>
+                                                    <option selected="" value="Tunisie">Tunisie</option>
+                                                    <option value="France">France</option>
+                                                    <option value="Algérie">Algérie</option>
+                                                    <option value="Maroc">Maroc</option>
+                                                    <option value="Italie">Italie</option>
+                                                    <option value="Espagne">Espagne</option>
+                                                    <option value="Portugal">Portugal</option>
+                                                    <option value="Belgique">Belgique</option>
+                                                    <option value="Suisse">Suisse</option>
+                                                    <option value="Luxembourg">Luxembourg</option>
+                                                    <option value="Allemagne">Allemagne</option>
+                                                    <option value="Pays-Bas">Pays-Bas</option>
+                                                    <option value="Autriche">Autriche</option>
+                                                    <option value="Danemark">Danemark</option>
+                                                    <option value="Suède">Suède</option>
+                                                    <option value="Norvège">Norvège</option>
+                                                    <option value="Finlande">Finlande</option>
+                                                    <option value="Grèce">Grèce</option>
+                                                    <option value="Royaume-Uni">Royaume-Uni</option>
+                                                    <option value="Irlande">Irlande</option>
+                                                    <option value="Monaco">Monaco</option>
+                                                    <option value="Andorre">Andorre</option>
+                                                    <option value="Liechtenstein">Liechtenstein</option>
+                                                    <option value="Slovaquie">Slovaquie</option>
+                                                    <option value="Slovénie">Slovénie</option>
+                                                    <option value="Hongrie">Hongrie</option>
+                                                    <option value="République tchèque">République tchèque</option>
+                                                    <option value="Pologne">Pologne</option>
+                                                    <option value="Estonie">Estonie</option>
+                                                    <option value="Lettonie">Lettonie</option>
+                                                    <option value="Lituanie">Lituanie</option>
+                                                    <option value="Bulgarie">Bulgarie</option>
+                                                    <option value="Roumanie">Roumanie</option>
+                                                    <option value="Serbie">Serbie</option>
+                                                    <option value="Monténégro">Monténégro</option>
+                                                    <option value="Bosnie-Herzégovine">Bosnie-Herzégovine</option>
+                                                    <option value="Croatie">Croatie</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -799,7 +685,7 @@
                                 </div>
                                 <div
                                     class="flex flex-col items-center justify-between w-full px-4 py-8 bg-secondary-600 sm:px-6 sm:flex-row-reverse">
-                                    <button class="button group --has-trailing --is-primary --is-small" type="submit"
+                                    <button class="button group --has-trailing   --is-small" type="submit"
                                         wire:loading.class="--is-loading">
 
 

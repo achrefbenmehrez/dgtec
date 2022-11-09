@@ -6,10 +6,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route("admin.dashboard") }}" class="nav-link">Home</a>
+        <a href="{{ route("admin.dashboard") }}" class="nav-link">Accueil</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route("home") }}" class="nav-link">Client Home</a>
+        <a href="{{ route("home") }}" class="nav-link">Accueil Client</a>
       </li>
     </ul>
 

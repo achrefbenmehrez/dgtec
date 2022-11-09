@@ -5,7 +5,7 @@
         <header class="flex flex-col items-center w-full px-2 mb-8">
             <ol class="flex justify-center text-xs text-white uppercase">
                 <li class="flex items-center h-8 text-dark">
-                    <a href="https://sqp.fr">Accueil</a>
+                    <a href="{{ route('home') }}">Accueil</a>
                 </li>
 
                 <li class="flex items-center h-8 pl-2 text-dark">
@@ -16,7 +16,7 @@
                                 d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
                         </svg> </span>
-                    <a href="https://sqp.fr/espace-client">Mon compte</a>
+                    <a href="{{ route('client.index') }}">Mon compte</a>
                 </li>
             </ol>
 
@@ -27,7 +27,7 @@
 
         <div class="grid grid-cols-4">
             <div class="hidden lg:block lg:col-span-1">
-                <a href="{{ route("client.commandes") }}" target="_self" rel=""
+                <a href="{{ route('client.commandes') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Historique de commande</p>
                 </a>
-                <a href="{{ route("client.paniers") }}" target="_self" rel=""
+                <a href="{{ route('client.paniers') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -47,8 +47,8 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Paniers</p>
                 </a>
-                <a href="{{ route("client.devis") }}" target="_self" rel=""
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-primary-500 pointer-events-none">
+                <a href="{{ route('client.devis') }}" target="_self" rel=""
+                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md  bg-primary-400 text-white pointer-events-none">
                     <svg class="w-10 h-10 mr-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -57,7 +57,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center uppercase ">Devis</p>
                 </a>
-                <a href="{{ route("client.cataloguesTarifs") }}" target="_self" rel=""
+                <a href="{{ route('client.cataloguesTarifs') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -67,7 +67,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Tarifs et catalogues</p>
                 </a>
-                <a href="{{ route("client.adresses") }}" target="_self" rel=""
+                <a href="{{ route('client.adresses') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -77,7 +77,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Adresses de livraison</p>
                 </a>
-                <a href="{{ route("client.factures") }}" target="_self" rel=""
+                <a href="{{ route('client.factures') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -88,7 +88,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Factures, avoirs et
                         échéances</p>
                 </a>
-                <a href="{{ route("client.informationsSociete") }}" target="_self" rel=""
+                <a href="{{ route('client.informationsSociete') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -98,7 +98,7 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Informations société</p>
                 </a>
-                <a href="{{ route("client.utilisateurs") }}" target="_self" rel=""
+                <a href="{{ route('client.utilisateurs') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -109,7 +109,7 @@
                     <p class="text-xs font-semibold text-center text-white uppercase ">Gestion des utilisateurs
                     </p>
                 </a>
-                <a href="{{ route("client.sav") }}" target="_self" rel=""
+                <a href="{{ route('client.sav') }}" target="_self" rel=""
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" viewBox="0 0 24 24">
@@ -119,22 +119,8 @@
                     </svg>
                     <p class="text-xs font-semibold text-center text-white uppercase ">Service après-vente</p>
                 </a>
-                <a href="https://sqp.fr/espace-client/nasexchange" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md hover:!bg-primary-500 bg-secondary-600"
-                    style="background-color: #299E8E">
-                    <svg class="w-10 h-10 mr-auto text-white" height="473pt" viewBox="-17 0 473 473.54" width="473pt"
-                        xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                        <path
-                            d="m438.46875 187.96875v64.589844l-47.859375 4.601562c-4.640625 20.945313-13.039063 40.878906-24.789063 58.828125l30.558594 36.902344-34.558594 30.539063-51.398437-71.238282c50.765625-50.769531 50.765625-133.082031-.003906-183.847656-50.765625-50.769531-133.078125-50.769531-183.847657 0-50.765624 50.765625-50.765624 133.078125 0 183.847656l-49.660156 71.25-34.550781-30.5625 30.5625-36.898437c-11.753906-17.949219-20.152344-37.875-24.792969-58.820313l-47.859375-4.601562v-64.578125l47.859375-4.621094c4.53125-20.976563 12.945313-40.921875 24.800782-58.808594l-30.558594-36.902343 45.550781-45.558594 36.898437 30.570312c17.941407-11.757812 37.867188-20.160156 58.808594-24.800781l4.621094-47.859375h62.25l4.609375 47.859375c20.945313 4.640625 40.875 13.042969 58.820313 24.800781l36.898437-30.558594 45.550781 45.546876-30.558594 36.902343c11.851563 17.890625 20.257813 37.835938 24.789063 58.808594zm0 0">
-                        </path>
-                        <path
-                            d="m239.269531 366.710938c24.25 7.320312 38.441407 28.367187 38.441407 53.527343-.230469 24.941407-14.191407 46.210938-38.660157 53.300781l3.230469-38.890624-.292969-.21875c-11.171875-8.5-26.667969-8.410157-37.738281.21875h-.011719l3.011719 38.671874c-27.460938-6.871093-40.949219-28.140624-40.949219-53.308593-.230469-23.101563 15.089844-43.011719 33.167969-51.472657v-131.507812c-24.25-7.320312-38.4375-28.359375-38.4375-53.53125s13.957031-46.441406 38.4375-53.53125l-3.238281 38.890625.300781.230469c11.167969 8.5 26.660156 8.410156 37.730469-.21875l.007812-.011719-3.007812-38.660156c27.910156 6.410156 41.410156 27.679687 41.410156 52.851562 0 22.871094-15.101563 43.007813-33.402344 51.699219zm0 0">
-                        </path>
-                    </svg>
-                    <p class="text-xs font-semibold text-center text-white uppercase ">NASEXCHANGE</p>
-                </a>
 
-                <a href="{{ route("logout") }}"
+                <a href="{{ route('logout') }}"
                     class="flex items-center px-4 py-4 mb-1 transition rounded-sm shadow-md bg-secondary-600 hover:bg-primary-500">
                     <svg class="w-10 h-10 mr-auto text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24">
@@ -174,16 +160,176 @@
 
                     <div class="relative mt-4 overflow-y-auto col-span-full">
 
-                        <table class="w-full mb-4 text-dark">
+                        <table class="w-full mb-4">
                             <tbody>
                                 <tr>
-                                    <td colspan="5">
-                                        <div
-                                            class="flex flex-col items-center justify-center w-full mb-16 bg-secondary-700">
-                                            <span class="mt-4 text-sm">Aucun devis</span>
+                                    <th wire:click="sortBy('quotation_number')"
+                                        class="hidden text-xs font-semibold text-left uppercase cursor-pointer sm:pl-12 sm:table-cell">
+                                        <div class="flex items-center">
+                                            N.
+                                            <svg viewBox="0 0 20 20" aria-hidden="true"
+                                                class="hidden
+                                                            rotate-90 'h-4 w-4 transform">
+                                                <path d="M6 6L14 10L6 14V6Z" fill="currentColor"></path>
+                                            </svg>
                                         </div>
-                                    </td>
+                                    </th>
+                                    <th wire:click="sortBy('quotation_date')"
+                                        class="hidden text-xs font-semibold text-center uppercase cursor-pointer sm:table-cell">
+                                        <div class="flex items-center justify-center">
+                                            Date de devis
+                                            <svg viewBox="0 0 20 20" aria-hidden="true"
+                                                class="hidden
+                                                            rotate-90 'h-4 w-4 transform">
+                                                <path d="M6 6L14 10L6 14V6Z" fill="currentColor"></path>
+                                            </svg>
+                                        </div>
+                                    </th>
+                                    <th wire:click="sortBy('quotation_due_date')"
+                                        class="hidden text-xs font-semibold text-center uppercase cursor-pointer sm:table-cell">
+                                        <div class="flex items-center justify-center">
+                                            Date de validité
+                                            <svg viewBox="0 0 20 20" aria-hidden="true"
+                                                class="hidden
+                                                            rotate-90 'h-4 w-4 transform">
+                                                <path d="M6 6L14 10L6 14V6Z" fill="currentColor"></path>
+                                            </svg>
+                                        </div>
+                                    </th>
+                                    <th wire:click="sortBy('total')"
+                                        class="hidden text-xs font-semibold text-right uppercase cursor-pointer sm:table-cell">
+                                        <div class="flex items-center justify-end">
+                                            Total HT
+                                            <svg viewBox="0 0 20 20" aria-hidden="true"
+                                                class="hidden
+                                                            rotate-90 'h-4 w-4 transform">
+                                                <path d="M6 6L14 10L6 14V6Z" fill="currentColor"></path>
+                                            </svg>
+                                        </div>
+                                    </th>
+                                    <th wire:click="sortBy('total_with_vat')"
+                                        class="hidden text-xs font-semibold text-right uppercase cursor-pointer sm:table-cell">
+                                        <div class="flex items-center justify-end">
+                                            Total TTC
+                                            <svg viewBox="0 0 20 20" aria-hidden="true"
+                                                class="hidden
+                                                            rotate-90 'h-4 w-4 transform">
+                                                <path d="M6 6L14 10L6 14V6Z" fill="currentColor"></path>
+                                            </svg>
+                                        </div>
+                                    </th>
+                                    <th class="hidden sr-only sm:table-cell">Actions</th>
                                 </tr>
+
+                                @if (count($devis) > 0)
+                                    @foreach ($devis as $devi)
+                                        <tr class="border-t-4 border-secondary-700 w-full bg-secondary-600 bg-opacity-75">
+                                            <td>
+                                                <div class="py-4 text-2xl text-center sm:pl-12 sm:text-base sm:text-left">
+
+                                                    {{ $devi->id }}
+
+                                                    <div class="flex flex-col items-center mt-4 sm:hidden">
+                                                        <div class="text-base text-center text-secondary-300">
+                                                            <span>
+                                                                {{ $devi->DateDeDevis }}
+                                                            </span>
+                                                        </div>
+
+                                                        <div class="mt-4 text-xl text-right text-secondary-300">
+                                                            <span>
+                                                                {{ $devi->TotalHT }} DT HT
+                                                            </span>
+                                                        </div>
+
+                                                        <div class="mt-4 text-xl text-right text-secondary-300">
+                                                            <span>
+                                                                {{ $devi->TotalTTC }} DT TTC
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flex items-center justify-center mt-4 sm:hidden">
+                                                        <div class="px-12 py-4">
+                                                            <button type="button" class="flex items-center"
+                                                                @click="await $wire.viewDetails(332956).then((e) => {view_details = true})">
+                                                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                                                    fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                                                    stroke="currentColor" aria-hidden="true">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+                                                                    </path>
+                                                                </svg> <span class="ml-4 text-sm uppercase sm:sr-only">Voir
+                                                                    le
+                                                                    devis</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td class="hidden text-xs text-center text-secondary-300 sm:table-cell">
+                                                <span>
+                                                    {{ $devi->DateDeDevis }}
+                                                </span>
+                                            </td>
+
+                                            <td class="hidden text-xs text-center text-secondary-300 sm:table-cell">
+                                                <span>
+                                                    {{ $devi->DateDeValidite }}
+                                                </span>
+                                            </td>
+
+                                            <td class="hidden text-sm text-right text-secondary-300 sm:table-cell">
+                                                <span>
+                                                    {{ $devi->TotalHT }} DT HT
+                                                </span>
+                                            </td>
+
+                                            <td class="hidden text-sm text-right text-secondary-300 sm:table-cell">
+                                                <span>
+                                                    {{ $devi->TotalTTC }} DT TTC
+                                                </span>
+                                            </td>
+
+                                            <td class="hidden w-0 sm:table-cell">
+                                                <div class="flex justify-center px-12 py-4">
+                                                    <div class="px-4 py-4">
+                                                        <button type="button" @click="$wire.viewDetails(332956)"
+                                                            class="text-white transition-colors hover:text-primary-500">
+                                                            <span class="sr-only">Voir le devis</span>
+                                                            <svg wire:loading.class="hidden"
+                                                                wire:target="viewDetails(332956)" class="w-5 h-5"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24" stroke-width="2"
+                                                                stroke="currentColor" aria-hidden="true">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                                            </svg> <svg class="hidden w-5 h-5 text-white animate-spin"
+                                                                wire:loading.class.remove="hidden"
+                                                                wire:target="viewDetails(332956)"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 24 24">
+                                                                <circle class="opacity-25" cx="12" cy="12"
+                                                                    r="10" stroke="currentColor"
+                                                                    stroke-width="4">
+                                                                </circle>
+                                                                <path class="opacity-75" fill="currentColor"
+                                                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td>Aucun Devis</td>
+                                    </tr>
+                                @endif
+
                             </tbody>
                         </table>
 
@@ -304,11 +450,11 @@
                                                     <tbody>
                                                         <tr>
                                                             <td class="py-2">Total HT</td>
-                                                            <th class="text-right"> € HT</th>
+                                                            <th class="text-right"> DT HT</th>
                                                         </tr>
                                                         <tr>
                                                             <td class="py-2 text-xl">Total TTC</td>
-                                                            <th class="text-xl text-right"> € TTC</th>
+                                                            <th class="text-xl text-right"> DT TTC</th>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -319,7 +465,7 @@
                                 </div>
                                 <div
                                     class="flex items-center justify-between w-full px-4 py-8 bg-secondary-600 sm:px-6 sm:flex-row-reverse">
-                                    <button class="button group --has-trailing --is-primary --is-small" id="order-again-"
+                                    <button class="button group --has-trailing   --is-small" id="order-again-"
                                         wire:click="orderAgain([])" wire:target="orderAgain"
                                         wire:loading.class="--is-loading">
 

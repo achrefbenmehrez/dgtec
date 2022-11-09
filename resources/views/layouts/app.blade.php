@@ -22,7 +22,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="noindex,nofollow">
-    <title>DGTEC, leader français de la mémoire spécifique</title>
+    <title>DGTEC, leader Tunisien de la mémoire spécifique</title>
     <meta name="description"
         content="Depuis 1986, nous sommes leader français de la mémoire spécifique. Nous sommes également spécialistes en solution stockage, sauvegarde et archivage de l&#039;information.">
 
@@ -120,14 +120,13 @@
             visibility: hidden !important;
         }
     </style>
+    @livewireStyles
 </head>
 
 <body class="bg-secondary-700">
     <div class="relative">
 
-        <div wire:id="9JWpcMsvd3I9NjaIVMBi"
-            wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;9JWpcMsvd3I9NjaIVMBi&quot;,&quot;name&quot;:&quot;website.core.notificationBag&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;notification&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;28be57e1&quot;,&quot;data&quot;:{&quot;notifications&quot;:[]},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;772979995dee5ede43b302a9688b8b593efb8c544c083d60590c71fe4e94f82a&quot;}}"
-            aria-live="assertive"
+        <div aria-live="assertive"
             class="fixed inset-0 z-50 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start">
             <div class="flex flex-col items-center w-full space-y-4 sm:items-end">
             </div>
@@ -145,7 +144,10 @@
 
         @include('partials.footer')
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+            integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous">
+        </script>
     </div>
 
+    @livewireScripts
 </body>

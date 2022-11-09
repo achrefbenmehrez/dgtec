@@ -44,10 +44,9 @@
                                     <th>Nom Commercial</th>
                                     <th>Num tel</th>
                                     <th>Site Web</th>
-                                    <th>Siret</th>
-                                    <th>Kbis</th>
+                                    <th>Identifiant Unique</th>
+                                    <th>RNE</th>
                                     <th>Forme juridique</th>
-                                    <th>Ape</th>
                                     <th>Nom comptable</th>
                                     <th>Email comptable</th>
                                     <th>Format papier</th>
@@ -62,10 +61,9 @@
                                     <th>Nom Commercial</th>
                                     <th>Num tel</th>
                                     <th>Site Web</th>
-                                    <th>Siret</th>
-                                    <th>Kbis</th>
+                                    <th>Identifiant Unique</th>
+                                    <th>RNE</th>
                                     <th>Forme juridique</th>
-                                    <th>Ape</th>
                                     <th>Nom comptable</th>
                                     <th>Email comptable</th>
                                     <th>Format papier</th>
@@ -81,13 +79,12 @@
                                         <td>{{ $societe->nomCommercial }}</td>
                                         <td>{{ $societe->numTel }}</td>
                                         <td>{{ $societe->siteWeb }}</td>
-                                        <td>{{ $societe->siret }}</td>
+                                        <td>{{ $societe->identifiantUnique }}</td>
                                         <td>
                                             <img width="100" height="100"
-                                                src="{{ asset('images/register/' . $societe->kbis) }}" alt="">
+                                                src="{{ asset('images/register/' . $societe->rne) }}" alt="">
                                         </td>
                                         <td>{{ $societe->formeJuridique }}</td>
-                                        <td>{{ $societe->ape }}</td>
                                         <td>{{ $societe->nomComptable }}</td>
                                         <td>{{ $societe->emailComptable }}</td>
                                         <td>{{ $societe->formatPapier }}</td>

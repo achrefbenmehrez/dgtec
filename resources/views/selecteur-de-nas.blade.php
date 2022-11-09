@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-    <div wire:id="aWmq6d7AxD4KRcIVB3ER"
-        wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;aWmq6d7AxD4KRcIVB3ER&quot;,&quot;name&quot;:&quot;website.products.nasSelectorListing&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;path&quot;:&quot;selecteur-de-nas&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[],&quot;path&quot;:&quot;https:\/\/sqp.fr\/selecteur-de-nas?&quot;},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;1500af58&quot;,&quot;data&quot;:{&quot;viewName&quot;:&quot;website.products.livewire.nas_selector.main&quot;,&quot;query&quot;:&quot;nas&quot;,&quot;sortBy&quot;:null,&quot;sortDirection&quot;:null,&quot;display&quot;:&quot;grid&quot;,&quot;perPage&quot;:20,&quot;filters&quot;:[],&quot;family&quot;:null,&quot;page&quot;:1,&quot;paginators&quot;:{&quot;page&quot;:1}},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;bc06bb5b234f63ca72c22c1fec4cf1de7215a99770a7349b30a7d8d52691231d&quot;}}"
-        class="w-full px-4">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <div class="w-full px-4">
         <div class="gap-8 mx-auto mt-8 sm:grid sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 max-w-big">
             <div class="relative pt-1 col-span-full md:col-span-1">
                 <div class="hidden md:block">
                     <div class="relative w-full mb-4">
-                        <hr class="absolute w-full top-3 border-primary-500" style="z-index: -1">
+                        <hr class="absolute w-full top-3 border-primary4500" style="z-index: -1">
                         <p
                             class="inline-flex items-center h-5 px-4 mx-2 text-sm font-bold text-white uppercase lg:pr-4 lg:px-0 lg:mx-0 bg-secondary-700">
                             Configurateurs</p>
                     </div>
 
-                    <a href="https://sqp.fr/selecteur-de-memoire-apple"
-                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-500 hover:border-white">
+                    <a href="{{ route('selecteurApple') }}"
+                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-400 hover:border-white">
                         <h3 class="mb-4 text-xs font-semibold uppercase col-span-full text-primary-500">
                             Mémoires Apple
                         </h3>
@@ -34,7 +34,7 @@
                     </a>
 
                     <a href="https://sqp.fr/selecteur-de-memoire"
-                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-500 hover:border-white">
+                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-400 hover:border-white">
                         <h3 class="mb-4 text-xs font-semibold uppercase col-span-full text-primary-500">
                             Configurateur mémoire
                         </h3>
@@ -54,8 +54,8 @@
                     </a>
 
 
-                    <a href="https://sqp.fr/configurateur-de-nas"
-                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-500 hover:border-white">
+                    <a href="{{ route('configurateurNas') }}"
+                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-400 hover:border-white">
                         <h3 class="mb-4 text-xs font-semibold uppercase col-span-full text-primary-500">
                             Configurateur NAS
                         </h3>
@@ -159,8 +159,8 @@
                         </p>
                     </a>
 
-                    <a href="https://sqp.fr/selecteur-de-nas"
-                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-500 hover:border-white">
+                    <a href="{{ route('selecteurNas') }}"
+                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-400 hover:border-white">
                         <h3 class="mb-4 text-xs font-semibold uppercase col-span-full text-primary-500">
                             Sélecteur NAS
                         </h3>
@@ -280,8 +280,8 @@
                         </p>
                     </a>
 
-                    <a href="https://sqp.fr/comparateur-de-raid"
-                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-500 hover:border-white">
+                    <a href="{{ route('comparateurRaid') }}"
+                        class="grid w-full h-full grid-cols-3 px-2 pt-2 pb-8 mb-4 border-2 cursor-pointer border-primary-400 hover:border-white">
                         <h3 class="mb-4 text-xs font-semibold uppercase col-span-full text-primary-500">
                             Comparateur RAID
                         </h3>
@@ -368,7 +368,7 @@
                 <div>
                     <ol class="flex text-xs text-white uppercase jusitfy-center" wire:ignore>
                         <li class="flex items-center h-8">
-                            <a href="https://sqp.fr/">Accueil</a>
+                            <a href="{{ route('home') }}">Accueil</a>
                         </li>
 
                     </ol>
@@ -378,15 +378,14 @@
 
                 <div>
 
-                    <form action="#" method="get" x-ref="filterForm"
+                    <form action="#" method="get"
                         class="w-full pb-8 shadow-lg md:relative md:w-auto bg-secondary-700 md:shadow-none md:block"
-                        @click.outside="if ($event.target.closest('button') != $refs.filterButton) filterMenu = false"
-                        x-show="filterMenu" x-transition:enter="transition ease-out duration-100"
-                        x-transition:enter-start="transform h-0 " x-transition:enter-end="transform h-full scale-100""
+                        x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform h-0 "
+                        x-transition:enter-end="transform h-full scale-100""
                         x-transition:leave=" transition ease-in duration-75"
                         x-transition:leave-start="transform h-full scale-100"" x-transition:leave-end=" transform h-0 ">
 
-                        <div class="relative mb-3 text-left">
+                        <div class="relative mb-3 text-left" id="typeNas">
                             <div class="px-2 py-4 rounded-sm bg-secondary-600">
                                 <div
                                     class="w-full px-2 mb-4 overflow-hidden text-xl font-medium text-left text-white normal-case text-ellipsis whitespace-nowrap">
@@ -395,35 +394,311 @@
                                 <div class="grid grid-flow-col grid-rows-1 py-4 pt-2">
                                     <label
                                         for='nas-rackoutour-rack'class="flex items-center px-3 py-2 text-sm cursor-pointer">
-                                        <input id='nas-rackoutour-rack' name='filters[NAS_RackOuTour][0]' type="radio"
-                                            wire:model='filters.NAS_RackOuTour.0'
+                                        <input id='nas-rackoutour-rack' name='filters1' type="radio"
                                             class="w-4 h-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-500"
-                                            value="Rack" wire:change="filter('NAS_RackOuTour')">
+                                            value="Rack">
 
                                         <span
                                             class="pl-4 mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">Rack
                                         </span>
-                                        <small class="w-8 text-center text-secondary-300">(1315)</small>
+                                        <small class="w-8 text-center text-secondary-300">({{ $countRacks }})</small>
                                     </label>
                                     <label
                                         for='nas-rackoutour-tour'class="flex items-center px-3 py-2 text-sm cursor-pointer">
-                                        <input id='nas-rackoutour-tour' name='filters[NAS_RackOuTour][0]' type="radio"
-                                            wire:model='filters.NAS_RackOuTour.0'
+                                        <input id='nas-rackoutour-tour' name='filters1' type="radio"
                                             class="w-4 h-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-500"
-                                            value="Tour" wire:change="filter('NAS_RackOuTour')">
+                                            value="Tour">
 
                                         <span
                                             class="pl-4 mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">Tour
                                         </span>
-                                        <small class="w-8 text-center text-secondary-300">(1620)</small>
+                                        <small class="w-8 text-center text-secondary-300">({{ $countTour }})</small>
                                     </label>
                                 </div>
                             </div>
                         </div>
 
 
+                        <div class="relative mb-3 text-left" id="capacite">
+                            <div class="px-2 py-4 pb-16 rounded-sm bg-secondary-600">
+                                <div
+                                    class="w-full px-2 mb-4 overflow-hidden text-xl font-medium text-left text-white normal-case text-ellipsis whitespace-nowrap">
+                                    Capacité totale</div>
+
+                                <input type="text" id="amount" readonly
+                                    style="color: rgb(26, 56, 117); font-weight:bold;">
+
+                                <div id="slider-range" class="px-6"></div>
+                            </div>
+                        </div>
 
 
+                        <div class="relative mb-3 text-left" id="nbreDisques">
+                            <div class="px-2 py-4 rounded-sm bg-secondary-600">
+                                <div
+                                    class="w-full px-2 mb-4 overflow-hidden text-xl font-medium text-left text-white normal-case text-ellipsis whitespace-nowrap">
+                                    Nombre de disques</div>
+
+                                <div class="grid grid-flow-col grid-rows-4 py-4 pt-2" id="nbDisquesContainer">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative mb-3 text-left" id="typeDD">
+                            <div class="px-2 py-4 rounded-sm bg-secondary-600">
+                                <div
+                                    class="w-full px-2 mb-4 overflow-hidden text-xl font-medium text-left text-white normal-case text-ellipsis whitespace-nowrap">
+                                    Type de disques</div>
+
+                                <div class="grid grid-flow-col py-4 pt-2 grid-rows-8" id="typeDDWrapper">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative mb-3 text-left" id="marqueDD">
+                            <div class="px-2 py-4 rounded-sm bg-secondary-600">
+                                <div
+                                    class="w-full px-2 mb-4 overflow-hidden text-xl font-medium text-left text-white normal-case text-ellipsis whitespace-nowrap">
+                                    Marque des disques</div>
+
+                                <div class="grid grid-flow-col grid-rows-1 py-4 pt-2" id="marqueDDWrapper">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative mb-3 text-left" id="marqueNas">
+                            <div class="px-2 py-4 rounded-sm bg-secondary-600">
+                                <div
+                                    class="w-full px-2 mb-4 overflow-hidden text-xl font-medium text-left text-white normal-case text-ellipsis whitespace-nowrap">
+                                    Marque du NAS</div>
+
+                                <div class="grid grid-flow-col grid-rows-1 py-4 pt-2">
+                                    <label for="brand-qnap" class="flex items-center px-3 py-2 text-sm cursor-pointer">
+                                        <input id="brand-qnap" name="filters5" type="radio"
+                                            wire:model="filters.brand.0"
+                                            class="w-4 h-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-500"
+                                            value="QNAP" wire:change="filter('brand')">
+
+                                        <span
+                                            class="pl-4 mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">QNAP
+                                        </span>
+                                        <small class="w-8 text-center text-secondary-300">(12)</small>
+                                    </label>
+                                    <label for="brand-qsan" class="flex items-center px-3 py-2 text-sm cursor-pointer">
+                                        <input id="brand-qsan" name="filters5" type="radio"
+                                            wire:model="filters.brand.0"
+                                            class="w-4 h-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-500"
+                                            value="QSAN" wire:change="filter('brand')">
+
+                                        <span
+                                            class="pl-4 mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">QSAN
+                                        </span>
+                                        <small class="w-8 text-center text-secondary-300">(16)</small>
+                                    </label>
+                                    <label for="brand-synology"
+                                        class="flex items-center px-3 py-2 text-sm cursor-pointer">
+                                        <input id="brand-synology" name="filters5" type="radio"
+                                            wire:model="filters.brand.0"
+                                            class="w-4 h-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-500"
+                                            value="Synology" wire:change="filter('brand')">
+
+                                        <span
+                                            class="pl-4 mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">Synology
+                                        </span>
+                                        <small class="w-8 text-center text-secondary-300">(8)</small>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid flex-wrap items-center justify-between w-full grid-cols-1 gap-4 lg:flex" id="filterProducts">
+                            <div class="text-lg text-white"><span class="text-primary-500" id="productNumber"></span> produits</div>
+                        
+                            <div class="relative text-left lg:ml-4" x-data="{'open' : false}">
+                                <button class="button group w-full px-4 --is-secondary" type="button" @click="open = !open">
+                        
+                            
+                            <span class="button__caption">
+                                <div class="w-full pr-4 overflow-hidden text-left normal-case text-ellipsis whitespace-nowrap">20 produits par page</div>
+                                    <span class="absolute top-0 inline-flex items-center justify-center h-full ml-2 -mr-2 transition-transform transform right-4">
+                                        <svg class="h-5 text-primary-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>            </span>
+                                </span>
+                            
+                                
+                                <span class="button__spinner">
+                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                            
+                                    <div @click.outside="open = false" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave=" transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end=" transform opacity-0 scale-95" style="display: none" class="absolute right-0 z-10 mt-2 origin-top-left rounded-sm shadow-lg bg-secondary-600 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                            
+                                        <div class="">
+                                                            <button type="button" @click="await $wire.setPerPage(10); open = false" for="per-page-10" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    <span class="font-bold text-white">10</span> produits par page
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                                        </div>
+                                            </button>
+                                                            <button type="button" @click="await $wire.setPerPage(20); open = false" for="per-page-20" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    <span class="font-bold text-white">20</span> produits par page
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                    <svg class="h-4 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                            </svg>                    </div>
+                                            </button>
+                                                            <button type="button" @click="await $wire.setPerPage(50); open = false" for="per-page-50" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    <span class="font-bold text-white">50</span> produits par page
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                                        </div>
+                                            </button>
+                                                            <button type="button" @click="await $wire.setPerPage(100); open = false" for="per-page-100" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    <span class="font-bold text-white">100</span> produits par page
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                                        </div>
+                                            </button>
+                                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="relative text-left lg:mr-auto lg:ml-4" x-data="{'open' : false}">
+                                    <button class="button group w-full px-4 --is-secondary" type="button" @click="open = !open">
+                            
+                                
+                                <span class="button__caption">
+                                    <div class="w-full pr-4 overflow-hidden text-left normal-case text-ellipsis whitespace-nowrap">Tri: Par défaut</div>
+                                        <span class="absolute top-0 inline-flex items-center justify-center h-full ml-2 -mr-2 transition-transform transform right-4">
+                                            <svg class="h-5 text-primary-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>            </span>
+                                </span>
+                            
+                                
+                                <span class="button__spinner">
+                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                            
+                                    <div @click.outside="open = false" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" "="" x-transition:leave=" transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end=" transform opacity-0 scale-95" style="display: none" class="absolute left-0 z-10 mt-2 origin-top-left rounded-sm shadow-lg bg-secondary-600 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                            
+                                        <div class="">
+                                                            <button type="button" @click="await $wire.sort(':'); open = false" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    Tri: <span class="font-bold text-white">Par défaut</span>
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                    <svg class="h-4 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                            </svg>                    </div>
+                                            </button>
+                                                            <button type="button" @click="await $wire.sort('price:asc'); open = false" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    Tri: <span class="font-bold text-white">Prix croissant</span>
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                                        </div>
+                                            </button>
+                                                            <button type="button" @click="await $wire.sort('price:desc'); open = false" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    Tri: <span class="font-bold text-white">Prix décroissant</span>
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                                        </div>
+                                            </button>
+                                                            <button type="button" @click="await $wire.sort('title:asc'); open = false" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    Tri: <span class="font-bold text-white">Nom de A à Z</span>
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                                        </div>
+                                            </button>
+                                                            <button type="button" @click="await $wire.sort('title:desc'); open = false" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    Tri: <span class="font-bold text-white">Nom de Z à A</span>
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                                        </div>
+                                            </button>
+                                                            <button type="button" @click="await $wire.sort('code:asc'); open = false" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    Tri: <span class="font-bold text-white">Référence de A à Z</span>
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                                        </div>
+                                            </button>
+                                                            <button type="button" @click="await $wire.sort('code:desc'); open = false" class="flex items-center justify-between px-4 py-3 text-sm text-left cursor-pointer w-52 text-secondary-300 hover:bg-secondary-700">
+                                                <div class="w-full pr-2 text-right">
+                                                    Tri: <span class="font-bold text-white">Référence de Z à A</span>
+                                                </div>
+                                                <div class="w-4 mr-0 shrink-0">
+                                                                        </div>
+                                            </button>
+                                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="hidden grid-cols-2 gap-2 lg:grid">
+                                    <button class="button group --has-trailing h-full --is-small" type="button" wire:click="setDisplay('grid')">
+                            
+                                
+                                <span class="button__caption">
+                                    Grille
+                                </span>
+                            
+                                    <span class="button__trailing">
+                                    <svg class="h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                            </svg>
+                                </span>
+                                
+                                <span class="button__spinner">
+                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                                    <button class="button group --has-trailing h-full --is-small --is-secondary" type="button" wire:click="setDisplay('list')">
+                            
+                                
+                                <span class="button__caption">
+                                    Liste
+                                </span>
+                            
+                                    <span class="button__trailing">
+                                    <svg class="h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                            </svg>
+                                </span>
+                                
+                                <span class="button__spinner">
+                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                            </div>
+                        </div>
+
+                        <ul class="gap-4 mt-8 mb-8 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="choixBoitier">
+
+                        </ul>
 
                     </form>
                 </div>
@@ -433,5 +708,257 @@
         </div>
     </div>
 
-    <!-- Livewire Component wire-end:aWmq6d7AxD4KRcIVB3ER -->
+    <script>
+        $("#capacite").hide();
+        $("#nbreDisques").hide();
+        $("#typeDD").hide();
+        $("#marqueDD").hide();
+        $("#marqueNas").hide();
+        $("#choixBoitier").hide();
+        $("#filterProducts").hide();
+
+        $("input[name=filters1]").change(function() {
+            $("#capacite").show();
+        });
+
+        $("#slider-range").on("slidechange", function(event, ui) {
+            $("#nbDisquesContainer").empty();
+            $.ajax({
+                url: "{{ route('getProductsByCapaciteInterval') }}",
+                type: "POST",
+                data: {
+                    min: ui.values[0],
+                    max: ui.values[1],
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(response) {
+                    $.each(response.products, function(key, value) {
+                        var element = `<label for="nas-nbdisquedur-${key}"
+                                        class="flex items-center justify-between w-32 px-3 py-2 text-sm cursor-pointer">
+                                        <input id="nas-nbdisquedur-${key}" name="filters2" type="checkbox"
+                                            class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
+                                            value="${value.nbreDD}" onChange="getTypeDD(this.value)">
+                                        <span
+                                            class="pl-4 mx-3 font-medium text-right text-white text-ellipsis whitespace-nowrap">${value.nbreDD}
+                                        </span>
+                                        <small class="w-8 text-center text-secondary-300">(17)</small>
+                                    </label>`;
+                        $('#nbDisquesContainer').append(element);
+                    });
+                }
+            });
+            $("#nbreDisques").show();
+        });
+
+        var getTypeDD = (nbreDD) => {
+            $('#typeDDWrapper').empty();
+            $.ajax({
+                url: "{{ route('getProductsByNbreDD') }}",
+                type: "POST",
+                data: {
+                    nbreDD: nbreDD,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $.each(result.products, function(key, value) {
+                        var element = `<label for="ddinterne-seriehdd-seagate-exos"
+                                        class="flex items-center px-3 py-2 text-sm cursor-pointer">
+                                        <input id="ddinterne-seriehdd-seagate-exos" name="filters3" type="radio"
+                                            class="w-4 h-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-500"
+                                            value="${value.typeDD}" onChange="getMarqueDD(this.value)">
+                                        <span
+                                            class="pl-4 mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">${value.typeDD}
+                                        </span>
+                                        <small class="w-8 text-center text-secondary-300">(20)</small>
+                                    </label>`;
+                        $('#typeDDWrapper').append(element);
+
+                    });
+                    $("#typeDD").show();
+                }
+            });
+        }
+
+        var getMarqueDD = (typeDD) => {
+            $('#marqueDDWrapper').empty();
+            $.ajax({
+                url: "{{ route('getProductsByTypeDDNbDD') }}",
+                type: "POST",
+                data: {
+                    typeDD: typeDD,
+                    nbreDD: $("input[name=filters2]:checked").val(),
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $.each(result.brands, function(key, value) {
+                        var element = `<label for="hdd-brand-seagate" class="flex items-center px-3 py-2 text-sm cursor-pointer">
+                                <input id="hdd-brand-seagate" name="filters4" type="radio" wire:model="filters.hdd_brand"
+                                    class="w-4 h-4 border-gray-300 rounded-full text-primary-600 focus:ring-primary-500"
+                                    value="${value.title}"
+                                    onChange="getProducts(this.value)">
+                                <span
+                                    class="pl-4 mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">${value.title}
+                                </span>
+                                <small class="text-xs text-center opacity-50 text-secondary-300">8 disques</small>
+                            </label>`;
+                        $('#marqueDDWrapper').append(element);
+                    });
+                    $("#marqueDD").show();
+                }
+            });
+        }
+
+        var getProducts = (marqueDD) => {
+            $.ajax({
+                url: "{{ route('getProductsByMarqueTypeNbre') }}",
+                type: "POST",
+                data: {
+                    marqueDD: marqueDD,
+                    typeDD: $("input[name=filters3]:checked").val(),
+                    nbreDD: $("input[name=filters2]:checked").val(),
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#choixBoitier').empty();
+                    $("#filterProducts").show();
+                    $("#productNumber").text(result.products.length)
+                    $.each(result.products, function(key, value) {
+                        var stock = value.quantiteStock > 0 ? 'En stock' : 'Rupture de stock';
+                        var id = value.slug
+                        var url = "{{ route('produits.show', ':id') }}"
+                        url = url.replace(':id', id);
+                        var element = `<li>
+                                <a
+                                    href="${url}"
+                                    class="flex flex-col h-full max-w-full overflow-hidden rounded-sm shadow-lg bg-secondary-600 hover:bg-secondary-700">
+                                    <div class="relative h-48 p-2 bg-white sm:h-64 lg:max-h-full">
+                                        <img class="h-full w-full object-contain"
+                                            onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
+                                            sizes="18vw"
+                                            src="{{ asset("") }}${value.photosUrl[0]}"
+                                            width="1024" height="640">
+
+                                        <div class="absolute h-6 bg-gray-100 bottom-2 left-2">
+                                            <img class="block object-contain object-left w-auto h-full mb-2"
+                                                onload="window.requestAnimationFrame(function(){if(!(size=getBoundingClientRect().width))return;onload=null;sizes=Math.ceil(size/window.innerWidth*100)+'vw';});"
+                                                sizes="10vw"
+                                                src="{{ asset("")  }}${result.brand.logo_url}" width="296" height="53">
+
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col flex-1 px-4 pt-4 pb-8">
+
+                                        <table class="w-full text-xs uppercase border-separate"
+                                            style="border-spacing: 0 .25rem">
+                                            <tbody>
+                                                <tr class="text-primary-500">
+                                                    <td class="w-0 pr-2 whitespace-nowrap">Ref. DGTEC:</td>
+                                                    <th>${value.id}</th>
+                                                </tr>
+                                                <tr class="text-secondary-300">
+                                                    <td class="w-0 pr-2 whitespace-nowrap">Ref. Fabricant:</td>
+                                                    <th>${value.ref_fabricant}</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <span
+                                            class="flex-1 mt-2 mb-4 overflow-hidden text-xs text-white uppercase break-all ">
+                                            ${value.name}
+                                            </span>
+
+                                        <div class="mb-4">
+                                            <p class="text-2xl font-bold text-center uppercase text-primary-500">${value.price} DT HT</p>
+                                            <p class="mt-1 text-xs font-bold text-center uppercase text-secondary-300">
+                                                +2,50 DT d'éco-participation</p>
+                                        </div>
+
+                                        <div class="mb-2">
+                                            <p class="text-xs font-bold text-center uppercase text-primary-500">${stock}</p>
+                                        </div>
+
+                                        <div class="flex justify-between w-full mt-auto mb-0 space-x-2">
+                                            <button class="button group --is-outlined --is-small --is-tertiary"
+                                                wire:click.prevent="toggleCompare" wire:loading.class="--is-loading"
+                                                type="button">
+
+
+                                                <span class="button__caption">
+                                                    Comparer
+                                                </span>
+
+
+                                                <span class="button__spinner">
+                                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24">
+                                                        <circle class="opacity-25" cx="12" cy="12"
+                                                            r="10" stroke="currentColor" stroke-width="4">
+                                                        </circle>
+                                                        <path class="opacity-75" fill="currentColor"
+                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+
+                                            <button class="button group w-full px-4 text-center --is-small --is-tertiary"
+                                                wire:click.prevent="addToCart" wire:loading.class="--is-loading"
+                                                type="button">
+
+
+                                                <span class="button__caption">
+                                                    <span class="sr-only">Ajouter au panier</span>
+                                                    <svg class="h-6 mx-auto" transform="scale(-1,1)" fill="currentColor"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M19.029 13H22l-.266 1h-2.992l.287-1zm.863-3h2.812L23 9h-2.821l-.287 1zm-.576 2h4.387L24 11h-4.396l-.288 1zM22 3l-.743 2h-1.929l-3.474 12H4.615L0 6h14.812l-.564 2H3.008l2.938 7h8.428l3.432-12H22zM7.5 18c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5S9 20.329 9 19.5c0-.828-.672-1.5-1.5-1.5zm5.9-7-.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+
+
+                                                <span class="button__spinner">
+                                                    <svg class="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24">
+                                                        <circle class="opacity-25" cx="12" cy="12"
+                                                            r="10" stroke="currentColor" stroke-width="4">
+                                                        </circle>
+                                                        <path class="opacity-75" fill="currentColor"
+                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>`;
+                        $('#choixBoitier').append(element);
+                    })
+                    $("#choixBoitier").show();
+                }
+            });
+        }
+    </script>
+
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#slider-range").slider({
+                range: true,
+                min: {{ $minCapacite }},
+                max: {{ $maxCapacite }},
+                values: [{{ $minCapacite }}, {{ $maxCapacite }}],
+                slide: function(event, ui) {
+                    $("#amount").val(ui.values[0] + "TB - " + ui.values[1] + "TB");
+                }
+            });
+            $("#amount").val($("#slider-range").slider("values", 0) +
+                "TB - " + $("#slider-range").slider("values", 1) + "TB");
+        });
+    </script>
 @endsection
