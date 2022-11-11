@@ -14,7 +14,7 @@ class DashboardController extends Controller
     {
         $livres = Commande::where('etat', 'Livré')->count();
         $enCours = Commande::where('etat', 'En cours')->count();
-        $dernierProduit = Product::latest()->first()->name;
+        $dernierProduit = Product::latest()->first() ? Product::latest()->first()->name : 'First Product';
         $userCount = User::count();
 
         return view('back.index', [

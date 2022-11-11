@@ -1,5 +1,6 @@
-<x-admin-layout>
+@extends('layouts.admin')
 
+@section('content')
     <form action="{{ route('admin.users.store') }}" method="POST" id="formmmmm">
         @csrf
         <div class="container">
@@ -67,5 +68,4 @@
             </div>
         </div>
     </form>
-
-</x-admin-layout>
+@endsection

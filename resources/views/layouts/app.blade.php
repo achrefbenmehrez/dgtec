@@ -31,7 +31,7 @@
         content="Depuis 1986, nous sommes leader français de la mémoire spécifique. Nous sommes également spécialistes en solution stockage, sauvegarde et archivage de l&#039;information." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ route('home') }}" />
-    <meta property="og:image" content="{{ asset('storage/img/logo_primary.png') }}" />
+    <meta property="og:image" content="{{ asset('assets/img/logo_primary.png') }}" />
     <meta property="og:locale" content="fr" />
     <meta property="og:site_name" content="DGTEC" />
 
@@ -39,24 +39,24 @@
     <meta name="twitter:title" content="DGTEC, leader français de la mémoire spécifique">
     <meta name=" twitter:description"
         content="Depuis 1986, nous sommes leader français de la mémoire spécifique. Nous sommes également spécialistes en solution stockage, sauvegarde et archivage de l&#039;information.">
-    <meta name="twitter:image:src" content="{{ asset('storage/img/logo_primary.png') }}">
+    <meta name="twitter:image:src" content="{{ asset('assets/img/logo_primary.png') }}">
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('storage/css/inter.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/inter.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com/">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link href="{{ asset('storage/css/flatpickr.css') }}" rel="stylesheet" />
-    <link href="{{ asset('storage/css/nouislider.css') }}" rel="stylesheet" />
-    <link href="{{ asset('storage/css/app.css') }}" rel="stylesheet" />
-    <link href="{{ asset('storage/css/cms.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/flatpickr.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/nouislider.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/cms.css') }}" rel="stylesheet" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/favicon/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('storage/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('storage/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('storage/favicon/site.webmanifest') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('assets/favicon/site.webmanifest') }}">
 
     <style>
         [wire\:loading],
@@ -102,9 +102,9 @@
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-    <script src="{{ asset('storage/js/index.js') }}"></script>
+    <script src="{{ asset('assets/js/index.js') }}"></script>
 
-    <script defer src="{{ asset('storage/dist/cdn.min.js') }}"></script>
+    <script defer src="{{ asset('assets/dist/cdn.min.js') }}"></script>
 
 
     <style>

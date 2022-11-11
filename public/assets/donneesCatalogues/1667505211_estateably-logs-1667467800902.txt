@@ -1,0 +1,89 @@
+2022-11-03T09:26:27.197018+00:00 app[web.1]:   requestId: 'req_9Ue6rCJU2aHuzm',
+2022-11-03T09:26:27.197018+00:00 app[web.1]:   statusCode: 400,
+2022-11-03T09:26:27.197018+00:00 app[web.1]:   charge: undefined,
+2022-11-03T09:26:27.197018+00:00 app[web.1]:   decline_code: undefined,
+2022-11-03T09:26:27.197018+00:00 app[web.1]:   payment_intent: undefined,
+2022-11-03T09:26:27.197018+00:00 app[web.1]:   payment_method: undefined,
+2022-11-03T09:26:27.197019+00:00 app[web.1]:   payment_method_type: undefined,
+2022-11-03T09:26:27.197019+00:00 app[web.1]:   setup_intent: undefined,
+2022-11-03T09:26:27.197019+00:00 app[web.1]:   source: undefined
+2022-11-03T09:26:27.197019+00:00 app[web.1]: }
+2022-11-03T09:27:35.723206+00:00 heroku[router]: at=info method=GET path="/js/autocomplete.js" host=estateably.herokuapp.com request_id=486d3007-7704-4ab5-a41c-f630cc44279d fwd="196.178.51.74" dyno=web.1 connect=0ms service=2ms status=304 bytes=269 protocol=https
+2022-11-03T09:27:35.719444+00:00 heroku[router]: at=info method=GET path="/js/checkout.js" host=estateably.herokuapp.com request_id=e0bd27bf-6ed4-4790-8d3e-114e8dea8ec9 fwd="196.178.51.74" dyno=web.1 connect=0ms service=4ms status=304 bytes=270 protocol=https
+2022-11-03T09:27:35.821880+00:00 heroku[router]: at=info method=GET path="/js/form.js" host=estateably.herokuapp.com request_id=90f0c71b-33d5-460c-8470-ec1e669b1fab fwd="196.178.51.74" dyno=web.1 connect=0ms service=1ms status=304 bytes=270 protocol=https
+2022-11-03T09:27:36.202178+00:00 heroku[router]: at=info method=OPTIONS path="/create-payment-intent" host=estateably.herokuapp.com request_id=ef0ece33-0747-4b3c-9ea0-852be3cba1a0 fwd="196.178.51.74" dyno=web.1 connect=0ms service=1ms status=204 bytes=301 protocol=https
+2022-11-03T09:27:36.442531+00:00 heroku[router]: at=info method=GET path="/affidavit-price" host=estateably.herokuapp.com request_id=5b269eeb-e35b-449d-9357-e4badb784050 fwd="196.178.51.74" dyno=web.1 connect=0ms service=141ms status=304 bytes=181 protocol=https
+2022-11-03T09:27:36.557946+00:00 heroku[router]: at=info method=GET path="/token" host=estateably.herokuapp.com request_id=4f466770-b563-4094-b575-61b5376003d4 fwd="196.178.51.74" dyno=web.1 connect=0ms service=359ms status=200 bytes=516 protocol=https
+2022-11-03T09:27:36.435244+00:00 heroku[router]: at=info method=GET path="/notice-price" host=estateably.herokuapp.com request_id=77737cbf-76ac-41c5-a2d5-080e75c58f97 fwd="196.178.51.74" dyno=web.1 connect=0ms service=137ms status=304 bytes=181 protocol=https
+2022-11-03T09:27:36.907360+00:00 heroku[router]: at=info method=POST path="/create-payment-intent" host=estateably.herokuapp.com request_id=babb1550-b0e1-4688-9a9d-fefc3564fba0 fwd="196.178.51.74" dyno=web.1 connect=0ms service=557ms status=200 bytes=365 protocol=https
+2022-11-03T09:28:43.811767+00:00 heroku[router]: at=info method=OPTIONS path="/update" host=estateably.herokuapp.com request_id=4fe32810-8572-48d1-be52-7639db68b1a2 fwd="196.178.51.74" dyno=web.1 connect=0ms service=1ms status=204 bytes=301 protocol=https
+2022-11-03T09:28:44.235249+00:00 heroku[router]: at=info method=POST path="/update" host=estateably.herokuapp.com request_id=e721742b-bc95-415a-abba-b2e33fd7eccd fwd="196.178.51.74" dyno=web.1 connect=0ms service=265ms status=200 bytes=347 protocol=https
+2022-11-03T09:28:46.530807+00:00 heroku[router]: at=info method=OPTIONS path="/payment" host=estateably.herokuapp.com request_id=530b9ead-7e52-4a4d-ae12-b86c15c7f587 fwd="196.178.51.74" dyno=web.1 connect=0ms service=1ms status=204 bytes=343 protocol=https
+2022-11-03T09:28:48.600110+00:00 heroku[router]: at=info method=POST path="/payment" host=estateably.herokuapp.com request_id=2cd2cad0-5c9c-4b82-9b84-a82fc64c5c2d fwd="196.178.51.74" dyno=web.1 connect=0ms service=1910ms status=500 bytes=2481 protocol=https
+2022-11-03T09:28:48.599270+00:00 app[web.1]: StripeInvalidRequestError: When `automatic_tax[enabled]=true`, enough customer location information must be provided to accurately determine tax rates for the customer.
+2022-11-03T09:28:48.599275+00:00 app[web.1]:     at StripeError.generate (/app/node_modules/stripe/lib/Error.js:40:16)
+2022-11-03T09:28:48.599294+00:00 app[web.1]:     at res.toJSON.then.StripeAPIError.message (/app/node_modules/stripe/lib/StripeResource.js:226:35)
+2022-11-03T09:28:48.599296+00:00 app[web.1]:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2022-11-03T09:28:48.599298+00:00 app[web.1]:   type: 'StripeInvalidRequestError',
+2022-11-03T09:28:48.599299+00:00 app[web.1]:   raw: {
+2022-11-03T09:28:48.599300+00:00 app[web.1]:     code: 'customer_tax_location_invalid',
+2022-11-03T09:28:48.599300+00:00 app[web.1]:     doc_url: 'https://stripe.com/docs/error-codes/customer-tax-location-invalid',
+2022-11-03T09:28:48.599301+00:00 app[web.1]:     message: 'When `automatic_tax[enabled]=true`, enough customer location information must be provided to accurately determine tax rates for the customer.',
+2022-11-03T09:28:48.599302+00:00 app[web.1]:     request_log_url: 'https://dashboard.stripe.com/test/logs/req_ACCfvgpiJGUMJB?t=1667467728',
+2022-11-03T09:28:48.599302+00:00 app[web.1]:     type: 'invalid_request_error',
+2022-11-03T09:28:48.599302+00:00 app[web.1]:     headers: {
+2022-11-03T09:28:48.599306+00:00 app[web.1]:       server: 'nginx',
+2022-11-03T09:28:48.599306+00:00 app[web.1]:       date: 'Thu, 03 Nov 2022 09:28:48 GMT',
+2022-11-03T09:28:48.599307+00:00 app[web.1]:       'content-type': 'application/json',
+2022-11-03T09:28:48.599308+00:00 app[web.1]:       'content-length': '443',
+2022-11-03T09:28:48.599308+00:00 app[web.1]:       connection: 'keep-alive',
+2022-11-03T09:28:48.599309+00:00 app[web.1]:       'access-control-allow-credentials': 'true',
+2022-11-03T09:28:48.599310+00:00 app[web.1]:       'access-control-allow-methods': 'GET, POST, HEAD, OPTIONS, DELETE',
+2022-11-03T09:28:48.599310+00:00 app[web.1]:       'access-control-allow-origin': '*',
+2022-11-03T09:28:48.599310+00:00 app[web.1]:       'access-control-expose-headers': 'Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required',
+2022-11-03T09:28:48.599311+00:00 app[web.1]:       'access-control-max-age': '300',
+2022-11-03T09:28:48.599311+00:00 app[web.1]:       'cache-control': 'no-cache, no-store',
+2022-11-03T09:28:48.599311+00:00 app[web.1]:       'idempotency-key': '2e09e495-e3ee-4f6a-8c46-49f0cd1c6739',
+2022-11-03T09:28:48.599311+00:00 app[web.1]:       'original-request': 'req_ACCfvgpiJGUMJB',
+2022-11-03T09:28:48.599312+00:00 app[web.1]:       'request-id': 'req_ACCfvgpiJGUMJB',
+2022-11-03T09:28:48.599312+00:00 app[web.1]:       'stripe-should-retry': 'false',
+2022-11-03T09:28:48.599312+00:00 app[web.1]:       'stripe-version': '2020-08-27',
+2022-11-03T09:28:48.599312+00:00 app[web.1]:       'strict-transport-security': 'max-age=63072000; includeSubDomains; preload'
+2022-11-03T09:28:48.599313+00:00 app[web.1]:     },
+2022-11-03T09:28:48.599313+00:00 app[web.1]:     statusCode: 400,
+2022-11-03T09:28:48.599313+00:00 app[web.1]:     requestId: 'req_ACCfvgpiJGUMJB'
+2022-11-03T09:28:48.599313+00:00 app[web.1]:   },
+2022-11-03T09:28:48.599313+00:00 app[web.1]:   rawType: 'invalid_request_error',
+2022-11-03T09:28:48.599314+00:00 app[web.1]:   code: 'customer_tax_location_invalid',
+2022-11-03T09:28:48.599314+00:00 app[web.1]:   doc_url: 'https://stripe.com/docs/error-codes/customer-tax-location-invalid',
+2022-11-03T09:28:48.599314+00:00 app[web.1]:   param: undefined,
+2022-11-03T09:28:48.599314+00:00 app[web.1]:   detail: undefined,
+2022-11-03T09:28:48.599315+00:00 app[web.1]:   headers: {
+2022-11-03T09:28:48.599315+00:00 app[web.1]:     server: 'nginx',
+2022-11-03T09:28:48.599315+00:00 app[web.1]:     date: 'Thu, 03 Nov 2022 09:28:48 GMT',
+2022-11-03T09:28:48.599316+00:00 app[web.1]:     'content-type': 'application/json',
+2022-11-03T09:28:48.599316+00:00 app[web.1]:     'content-length': '443',
+2022-11-03T09:28:48.599316+00:00 app[web.1]:     connection: 'keep-alive',
+2022-11-03T09:28:48.599316+00:00 app[web.1]:     'access-control-allow-credentials': 'true',
+2022-11-03T09:28:48.599317+00:00 app[web.1]:     'access-control-allow-methods': 'GET, POST, HEAD, OPTIONS, DELETE',
+2022-11-03T09:28:48.599317+00:00 app[web.1]:     'access-control-allow-origin': '*',
+2022-11-03T09:28:48.599317+00:00 app[web.1]:     'access-control-expose-headers': 'Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required',
+2022-11-03T09:28:48.599318+00:00 app[web.1]:     'access-control-max-age': '300',
+2022-11-03T09:28:48.599318+00:00 app[web.1]:     'cache-control': 'no-cache, no-store',
+2022-11-03T09:28:48.599318+00:00 app[web.1]:     'idempotency-key': '2e09e495-e3ee-4f6a-8c46-49f0cd1c6739',
+2022-11-03T09:28:48.599318+00:00 app[web.1]:     'original-request': 'req_ACCfvgpiJGUMJB',
+2022-11-03T09:28:48.599319+00:00 app[web.1]:     'request-id': 'req_ACCfvgpiJGUMJB',
+2022-11-03T09:28:48.599319+00:00 app[web.1]:     'stripe-should-retry': 'false',
+2022-11-03T09:28:48.599319+00:00 app[web.1]:     'stripe-version': '2020-08-27',
+2022-11-03T09:28:48.599319+00:00 app[web.1]:     'strict-transport-security': 'max-age=63072000; includeSubDomains; preload'
+2022-11-03T09:28:48.599319+00:00 app[web.1]:   },
+2022-11-03T09:28:48.599320+00:00 app[web.1]:   requestId: 'req_ACCfvgpiJGUMJB',
+2022-11-03T09:28:48.599320+00:00 app[web.1]:   statusCode: 400,
+2022-11-03T09:28:48.599320+00:00 app[web.1]:   charge: undefined,
+2022-11-03T09:28:48.599320+00:00 app[web.1]:   decline_code: undefined,
+2022-11-03T09:28:48.599321+00:00 app[web.1]:   payment_intent: undefined,
+2022-11-03T09:28:48.599321+00:00 app[web.1]:   payment_method: undefined,
+2022-11-03T09:28:48.599321+00:00 app[web.1]:   payment_method_type: undefined,
+2022-11-03T09:28:48.599321+00:00 app[web.1]:   setup_intent: undefined,
+2022-11-03T09:28:48.599322+00:00 app[web.1]:   source: undefined
+2022-11-03T09:28:48.599322+00:00 app[web.1]: }

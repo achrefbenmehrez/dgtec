@@ -1,5 +1,6 @@
-<x-admin-layout>
+@extends('layouts.admin')
 
+@section('content')
     <form action="{{ route('admin.users.update', $user->id) }}" method="POST" id="formmmmm">
         @csrf
         @method('PUT')
@@ -54,5 +55,4 @@
         </div>
     </div>
 </form>
-
-</x-admin-layout>
+@endsection

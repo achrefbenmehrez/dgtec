@@ -720,7 +720,7 @@
         <div class="flex flex-col items-center justify-center w-full mb-16">
             <a class="mb-4" href="{{ route('home') }}">
                 <span class="sr-only">DGTEC</span>
-                <img class="w-auto h-8 " src="{{ asset('storage/img/DGTEC Logo blue.png') }}" alt="">
+                <img class="w-auto h-8 " src="{{ asset('assets/img/DGTEC Logo blue.png') }}" alt="">
             </a>
             <h3 class="text-sm font-bold uppercase">
                 leader Tunisien de la mémoire spécifique, depuis 1986

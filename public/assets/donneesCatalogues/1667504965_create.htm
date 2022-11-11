@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin | Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/back/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet"
+        href="http://127.0.0.1:8000/back/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/back/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/back/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/back/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/back/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/back/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/back/plugins/summernote/summernote-bs4.min.css">
+<link rel='stylesheet' type='text/css' property='stylesheet' href='//127.0.0.1:8000/_debugbar/assets/stylesheets?v=1667216361&theme=auto' data-turbolinks-eval='false' data-turbo-eval='false'><script src='//127.0.0.1:8000/_debugbar/assets/javascript?v=1667216361' data-turbolinks-eval='false' data-turbo-eval='false'></script><script data-turbo-eval="false">jQuery.noConflict(true);</script>
+<script> Sfdump = window.Sfdump || (function (doc) { var refStyle = doc.createElement('style'), rxEsc = /([.*+?^${}()|\[\]\/\\])/g, idRx = /\bsf-dump-\d+-ref[012]\w+\b/, keyHint = 0 <= navigator.platform.toUpperCase().indexOf('MAC') ? 'Cmd' : 'Ctrl', addEventListener = function (e, n, cb) { e.addEventListener(n, cb, false); }; refStyle.innerHTML = '.phpdebugbar pre.sf-dump .sf-dump-compact, .sf-dump-str-collapse .sf-dump-str-collapse, .sf-dump-str-expand .sf-dump-str-expand { display: none; }'; (doc.documentElement.firstElementChild || doc.documentElement.children[0]).appendChild(refStyle); refStyle = doc.createElement('style'); (doc.documentElement.firstElementChild || doc.documentElement.children[0]).appendChild(refStyle); if (!doc.addEventListener) { addEventListener = function (element, eventName, callback) { element.attachEvent('on' + eventName, function (e) { e.preventDefault = function () {e.returnValue = false;}; e.target = e.srcElement; callback(e); }); }; } function toggle(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className, arrow, newClass; if (/\bsf-dump-compact\b/.test(oldClass)) { arrow = '▼'; newClass = 'sf-dump-expanded'; } else if (/\bsf-dump-expanded\b/.test(oldClass)) { arrow = '▶'; newClass = 'sf-dump-compact'; } else { return false; } if (doc.createEvent && s.dispatchEvent) { var event = doc.createEvent('Event'); event.initEvent('sf-dump-expanded' === newClass ? 'sfbeforedumpexpand' : 'sfbeforedumpcollapse', true, false); s.dispatchEvent(event); } a.lastChild.innerHTML = arrow; s.className = s.className.replace(/\bsf-dump-(compact|expanded)\b/, newClass); if (recursive) { try { a = s.querySelectorAll('.'+oldClass); for (s = 0; s < a.length; ++s) { if (-1 == a[s].className.indexOf(newClass)) { a[s].className = newClass; a[s].previousSibling.lastChild.innerHTML = arrow; } } } catch (e) { } } return true; }; function collapse(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-expanded\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function expand(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-compact\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function collapseAll(root) { var a = root.querySelector('a.sf-dump-toggle'); if (a) { collapse(a, true); expand(a); return true; } return false; } function reveal(node) { var previous, parents = []; while ((node = node.parentNode || {}) && (previous = node.previousSibling) && 'A' === previous.tagName) { parents.push(previous); } if (0 !== parents.length) { parents.forEach(function (parent) { expand(parent); }); return true; } return false; } function highlight(root, activeNode, nodes) { resetHighlightedNodes(root); Array.from(nodes||[]).forEach(function (node) { if (!/\bsf-dump-highlight\b/.test(node.className)) { node.className = node.className + ' sf-dump-highlight'; } }); if (!/\bsf-dump-highlight-active\b/.test(activeNode.className)) { activeNode.className = activeNode.className + ' sf-dump-highlight-active'; } } function resetHighlightedNodes(root) { Array.from(root.querySelectorAll('.sf-dump-str, .sf-dump-key, .sf-dump-public, .sf-dump-protected, .sf-dump-private')).forEach(function (strNode) { strNode.className = strNode.className.replace(/\bsf-dump-highlight\b/, ''); strNode.className = strNode.className.replace(/\bsf-dump-highlight-active\b/, ''); }); } return function (root, x) { root = doc.getElementById(root); var indentRx = new RegExp('^('+(root.getAttribute('data-indent-pad') || ' ').replace(rxEsc, '\\$1')+')+', 'm'), options = {"maxDepth":1,"maxStringLength":160,"fileLinkFormat":false}, elt = root.getElementsByTagName('A'), len = elt.length, i = 0, s, h, t = []; while (i < len) t.push(elt[i++]); for (i in x) { options[i] = x[i]; } function a(e, f) { addEventListener(root, e, function (e, n) { if ('A' == e.target.tagName) { f(e.target, e); } else if ('A' == e.target.parentNode.tagName) { f(e.target.parentNode, e); } else { n = /\bsf-dump-ellipsis\b/.test(e.target.className) ? e.target.parentNode : e.target; if ((n = n.nextElementSibling) && 'A' == n.tagName) { if (!/\bsf-dump-toggle\b/.test(n.className)) { n = n.nextElementSibling || n; } f(n, e, true); } } }); }; function isCtrlKey(e) { return e.ctrlKey || e.metaKey; } function xpathString(str) { var parts = str.match(/[^'"]+|['"]/g).map(function (part) { if ("'" == part) { return '"\'"'; } if ('"' == part) { return "'\"'"; } return "'" + part + "'"; }); return "concat(" + parts.join(",") + ", '')"; } function xpathHasClass(className) { return "contains(concat(' ', normalize-space(@class), ' '), ' " + className +" ')"; } addEventListener(root, 'mouseover', function (e) { if ('' != refStyle.innerHTML) { refStyle.innerHTML = ''; } }); a('mouseover', function (a, e, c) { if (c) { e.target.style.cursor = "pointer"; } else if (a = idRx.exec(a.className)) { try { refStyle.innerHTML = '.phpdebugbar pre.sf-dump .'+a[0]+'{background-color: #B729D9; color: #FFF !important; border-radius: 2px}'; } catch (e) { } } }); a('click', function (a, e, c) { if (/\bsf-dump-toggle\b/.test(a.className)) { e.preventDefault(); if (!toggle(a, isCtrlKey(e))) { var r = doc.getElementById(a.getAttribute('href').slice(1)), s = r.previousSibling, f = r.parentNode, t = a.parentNode; t.replaceChild(r, a); f.replaceChild(a, s); t.insertBefore(s, r); f = f.firstChild.nodeValue.match(indentRx); t = t.firstChild.nodeValue.match(indentRx); if (f && t && f[0] !== t[0]) { r.innerHTML = r.innerHTML.replace(new RegExp('^'+f[0].replace(rxEsc, '\\$1'), 'mg'), t[0]); } if (/\bsf-dump-compact\b/.test(r.className)) { toggle(s, isCtrlKey(e)); } } if (c) { } else if (doc.getSelection) { try { doc.getSelection().removeAllRanges(); } catch (e) { doc.getSelection().empty(); } } else { doc.selection.empty(); } } else if (/\bsf-dump-str-toggle\b/.test(a.className)) { e.preventDefault(); e = a.parentNode.parentNode; e.className = e.className.replace(/\bsf-dump-str-(expand|collapse)\b/, a.parentNode.className); } }); elt = root.getElementsByTagName('SAMP'); len = elt.length; i = 0; while (i < len) t.push(elt[i++]); len = t.length; for (i = 0; i < len; ++i) { elt = t[i]; if ('SAMP' == elt.tagName) { a = elt.previousSibling || {}; if ('A' != a.tagName) { a = doc.createElement('A'); a.className = 'sf-dump-ref'; elt.parentNode.insertBefore(a, elt); } else { a.innerHTML += ' '; } a.title = (a.title ? a.title+'\n[' : '[')+keyHint+'+click] Expand all children'; a.innerHTML += elt.className == 'sf-dump-compact' ? '<span>▶</span>' : '<span>▼</span>'; a.className += ' sf-dump-toggle'; x = 1; if ('sf-dump' != elt.parentNode.className) { x += elt.parentNode.getAttribute('data-depth')/1; } } else if (/\bsf-dump-ref\b/.test(elt.className) && (a = elt.getAttribute('href'))) { a = a.slice(1); elt.className += ' '+a; if (/[\[{]$/.test(elt.previousSibling.nodeValue)) { a = a != elt.nextSibling.id && doc.getElementById(a); try { s = a.nextSibling; elt.appendChild(a); s.parentNode.insertBefore(a, s); if (/^[@#]/.test(elt.innerHTML)) { elt.innerHTML += ' <span>▶</span>'; } else { elt.innerHTML = '<span>▶</span>'; elt.className = 'sf-dump-ref'; } elt.className += ' sf-dump-toggle'; } catch (e) { if ('&' == elt.innerHTML.charAt(0)) { elt.innerHTML = '…'; elt.className = 'sf-dump-ref'; } } } } } if (doc.evaluate && Array.from && root.children.length > 1) { root.setAttribute('tabindex', 0); SearchState = function () { this.nodes = []; this.idx = 0; }; SearchState.prototype = { next: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx < (this.nodes.length - 1) ? this.idx + 1 : 0; return this.current(); }, previous: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx > 0 ? this.idx - 1 : (this.nodes.length - 1); return this.current(); }, isEmpty: function () { return 0 === this.count(); }, current: function () { if (this.isEmpty()) { return null; } return this.nodes[this.idx]; }, reset: function () { this.nodes = []; this.idx = 0; }, count: function () { return this.nodes.length; }, }; function showCurrent(state) { var currentNode = state.current(), currentRect, searchRect; if (currentNode) { reveal(currentNode); highlight(root, currentNode, state.nodes); if ('scrollIntoView' in currentNode) { currentNode.scrollIntoView(true); currentRect = currentNode.getBoundingClientRect(); searchRect = search.getBoundingClientRect(); if (currentRect.top < (searchRect.top + searchRect.height)) { window.scrollBy(0, -(searchRect.top + searchRect.height + 5)); } } } counter.textContent = (state.isEmpty() ? 0 : state.idx + 1) + ' of ' + state.count(); } var search = doc.createElement('div'); search.className = 'sf-dump-search-wrapper sf-dump-search-hidden'; search.innerHTML = ' <input type="text" class="sf-dump-search-input"> <span class="sf-dump-search-count">0 of 0<\/span> <button type="button" class="sf-dump-search-input-previous" tabindex="-1"> <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 1331l-166 165q-19 19-45 19t-45-19L896 965l-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"\/><\/svg> <\/button> <button type="button" class="sf-dump-search-input-next" tabindex="-1"> <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 808l-742 741q-19 19-45 19t-45-19L109 808q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"\/><\/svg> <\/button> '; root.insertBefore(search, root.firstChild); var state = new SearchState(); var searchInput = search.querySelector('.sf-dump-search-input'); var counter = search.querySelector('.sf-dump-search-count'); var searchInputTimer = 0; var previousSearchQuery = ''; addEventListener(searchInput, 'keyup', function (e) { var searchQuery = e.target.value; /* Don't perform anything if the pressed key didn't change the query */ if (searchQuery === previousSearchQuery) { return; } previousSearchQuery = searchQuery; clearTimeout(searchInputTimer); searchInputTimer = setTimeout(function () { state.reset(); collapseAll(root); resetHighlightedNodes(root); if ('' === searchQuery) { counter.textContent = '0 of 0'; return; } var classMatches = [ "sf-dump-str", "sf-dump-key", "sf-dump-public", "sf-dump-protected", "sf-dump-private", ].map(xpathHasClass).join(' or '); var xpathResult = doc.evaluate('.//span[' + classMatches + '][contains(translate(child::text(), ' + xpathString(searchQuery.toUpperCase()) + ', ' + xpathString(searchQuery.toLowerCase()) + '), ' + xpathString(searchQuery.toLowerCase()) + ')]', root, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null); while (node = xpathResult.iterateNext()) state.nodes.push(node); showCurrent(state); }, 400); }); Array.from(search.querySelectorAll('.sf-dump-search-input-next, .sf-dump-search-input-previous')).forEach(function (btn) { addEventListener(btn, 'click', function (e) { e.preventDefault(); -1 !== e.target.className.indexOf('next') ? state.next() : state.previous(); searchInput.focus(); collapseAll(root); showCurrent(state); }) }); addEventListener(root, 'keydown', function (e) { var isSearchActive = !/\bsf-dump-search-hidden\b/.test(search.className); if ((114 === e.keyCode && !isSearchActive) || (isCtrlKey(e) && 70 === e.keyCode)) { /* F3 or CMD/CTRL + F */ if (70 === e.keyCode && document.activeElement === searchInput) { /* * If CMD/CTRL + F is hit while having focus on search input, * the user probably meant to trigger browser search instead. * Let the browser execute its behavior: */ return; } e.preventDefault(); search.className = search.className.replace(/\bsf-dump-search-hidden\b/, ''); searchInput.focus(); } else if (isSearchActive) { if (27 === e.keyCode) { /* ESC key */ search.className += ' sf-dump-search-hidden'; e.preventDefault(); resetHighlightedNodes(root); searchInput.value = ''; } else if ( (isCtrlKey(e) && 71 === e.keyCode) /* CMD/CTRL + G */ || 13 === e.keyCode /* Enter */ || 114 === e.keyCode /* F3 */ ) { e.preventDefault(); e.shiftKey ? state.previous() : state.next(); collapseAll(root); showCurrent(state); } } }); } if (0 >= options.maxStringLength) { return; } try { elt = root.querySelectorAll('.sf-dump-str'); len = elt.length; i = 0; t = []; while (i < len) t.push(elt[i++]); len = t.length; for (i = 0; i < len; ++i) { elt = t[i]; s = elt.innerText || elt.textContent; x = s.length - options.maxStringLength; if (0 < x) { h = elt.innerHTML; elt[elt.innerText ? 'innerText' : 'textContent'] = s.substring(0, options.maxStringLength); elt.className += ' sf-dump-str-collapse'; elt.innerHTML = '<span class=sf-dump-str-collapse>'+h+'<a class="sf-dump-ref sf-dump-str-toggle" title="Collapse"> ◀</a></span>'+ '<span class=sf-dump-str-expand>'+elt.innerHTML+'<a class="sf-dump-ref sf-dump-str-toggle" title="'+x+' remaining characters"> ▶</a></span>'; } } } catch (e) { } }; })(document); </script><style> .phpdebugbar pre.sf-dump { display: block; white-space: pre; padding: 5px; overflow: initial !important; } .phpdebugbar pre.sf-dump:after { content: ""; visibility: hidden; display: block; height: 0; clear: both; } .phpdebugbar pre.sf-dump span { display: inline; } .phpdebugbar pre.sf-dump a { text-decoration: none; cursor: pointer; border: 0; outline: none; color: inherit; } .phpdebugbar pre.sf-dump img { max-width: 50em; max-height: 50em; margin: .5em 0 0 0; padding: 0; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAHUlEQVQY02O8zAABilCaiQEN0EeA8QuUcX9g3QEAAjcC5piyhyEAAAAASUVORK5CYII=) #D3D3D3; } .phpdebugbar pre.sf-dump .sf-dump-ellipsis { display: inline-block; overflow: visible; text-overflow: ellipsis; max-width: 5em; white-space: nowrap; overflow: hidden; vertical-align: top; } .phpdebugbar pre.sf-dump .sf-dump-ellipsis+.sf-dump-ellipsis { max-width: none; } .phpdebugbar pre.sf-dump code { display:inline; padding:0; background:none; } .sf-dump-public.sf-dump-highlight, .sf-dump-protected.sf-dump-highlight, .sf-dump-private.sf-dump-highlight, .sf-dump-str.sf-dump-highlight, .sf-dump-key.sf-dump-highlight { background: rgba(111, 172, 204, 0.3); border: 1px solid #7DA0B1; border-radius: 3px; } .sf-dump-public.sf-dump-highlight-active, .sf-dump-protected.sf-dump-highlight-active, .sf-dump-private.sf-dump-highlight-active, .sf-dump-str.sf-dump-highlight-active, .sf-dump-key.sf-dump-highlight-active { background: rgba(253, 175, 0, 0.4); border: 1px solid #ffa500; border-radius: 3px; } .phpdebugbar pre.sf-dump .sf-dump-search-hidden { display: none !important; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper { font-size: 0; white-space: nowrap; margin-bottom: 5px; display: flex; position: -webkit-sticky; position: sticky; top: 5px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > * { vertical-align: top; box-sizing: border-box; height: 21px; font-weight: normal; border-radius: 0; background: #FFF; color: #757575; border: 1px solid #BBB; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > input.sf-dump-search-input { padding: 3px; height: 21px; font-size: 12px; border-right: none; border-top-left-radius: 3px; border-bottom-left-radius: 3px; color: #000; min-width: 15px; width: 100%; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next, .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-previous { background: #F2F2F2; outline: none; border-left: none; font-size: 0; line-height: 0; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next { border-top-right-radius: 3px; border-bottom-right-radius: 3px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next > svg, .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-previous > svg { pointer-events: none; width: 12px; height: 12px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-count { display: inline-block; padding: 0 5px; margin: 0; border-left: none; line-height: 21px; font-size: 12px; }.phpdebugbar pre.sf-dump, .phpdebugbar pre.sf-dump .sf-dump-default{word-wrap: break-word; white-space: pre-wrap; word-break: normal}.phpdebugbar pre.sf-dump .sf-dump-num{font-weight:bold; color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-const{font-weight:bold}.phpdebugbar pre.sf-dump .sf-dump-str{font-weight:bold; color:#3A9B26}.phpdebugbar pre.sf-dump .sf-dump-note{color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-ref{color:#7B7B7B}.phpdebugbar pre.sf-dump .sf-dump-public{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-protected{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-private{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-meta{color:#B729D9}.phpdebugbar pre.sf-dump .sf-dump-key{color:#3A9B26}.phpdebugbar pre.sf-dump .sf-dump-index{color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-ellipsis{color:#A0A000}.phpdebugbar pre.sf-dump .sf-dump-ns{user-select:none;}.phpdebugbar pre.sf-dump .sf-dump-ellipsis-note{color:#1299DA}</style>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
+                width="60">
+        </div>
+
+        <!-- Navbar -->
+ <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="http://127.0.0.1:8000/admin" class="nav-link">Accueil</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="http://127.0.0.1:8000" class="nav-link">Accueil Client</a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="http://127.0.0.1:8000/admin" class="brand-link">
+        <img src="http://127.0.0.1:8000/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light">DGTEC Dashboard</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="http://127.0.0.1:8000/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">achref</a>
+            </div>
+        </div>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                    aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                <li class="nav-item menu-open">
+                    <a href="http://127.0.0.1:8000/admin" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>
+                            Gestion des produits
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/admin/products" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tous les produits</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/admin/products/create" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Creer un produit
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>
+                            Gestion des categories
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/admin/categories" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Toutes les categories</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/admin/categories/create" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Creer une categorie
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>
+                            Service après vente
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/admin/services-apres-vente" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Toutes les remises a la caisse</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>
+                            Gestion des commandes
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/admin/commandes" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Toutes les commandes</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>
+                            Gestion des devis
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/admin/devis" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tous les devis</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>
+                            Gestion des sociétés
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/admin/societes" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Toutes les sociétés</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>
+                            Gestion des utilisateurs
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/admin/users" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Toutes les utilisateurs</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+                <link href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js" async></script>
+
+    <style>
+        select {
+            width: 100%;
+        }
+    </style>
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/back/plugins/dropzone/min/dropzone.min.css">
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="margin: 20px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Creer un produit</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                            <li class="breadcrumb-item active">Creer un produit</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <form action="http://127.0.0.1:8000/admin/products" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="fhRNYDSejG0GwyWkcBjTG1ZeV9dFiJ1kWvcrvOE3">                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-body">
+                                                                <div class="form-group">
+                                    <label for="inputName">Nom *</label>
+                                    <input type="text" name="name" id="inputName" value=""
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputDescription">Description *</label>
+                                    <textarea id="inputDescription" value="" name="description" class="form-control" rows="4"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName">Prix *</label>
+                                    <input type="number" name="price" value="" id="inputName"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Quantite stock *</label>
+                                    <input min="0" type="number" name="quantiteStock"
+                                        value="" id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2">
+                                        Categories *
+                                    </label>
+
+                                    <div class="col-sm-10">
+                                        <select class="multiple-select" name="category_id">
+                                                                                            <option value="1">Serveur</option>
+                                                                                            <option value="2">Stockage</option>
+                                                                                    </select>
+                                    </div>
+                                </div>
+                                <div class="control-group" id="fields">
+                                    <label class="control-label" for="field1">
+                                        Photos *
+                                    </label>
+                                    <div class="controls-photo">
+                                        <div class="entry input-group upload-input-group">
+                                            <input class="form-control" name="photosUrl[]" type="file">
+                                            <button class="btn btn-upload btn-success btn-add-photo" type="button">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Nombre d'ans de garantie</label>
+                                    <input min="0" type="number" name="garantie" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Date de fin de promotion</label>
+                                    <input min="" type="date" name="dateFinPromo"
+                                        value="" id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Ref Fabricant *</label>
+                                    <input type="number" name="ref_fabricant" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">EAN *</label>
+                                    <input type="number" name="EAN" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+
+                        <div class="card card-primary">
+                            <div class="card-body">
+                                <h1>Fiche Technique</h1>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Capacite *</label>
+                                    <input type="text" name="capacite" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">DWPD *</label>
+                                    <input type="text" name="DWPD" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Format *</label>
+                                    <input type="text" name="format" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Interface Interne *</label>
+                                    <input type="text" name="interfaceInterne" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Serie HDD *</label>
+                                    <input type="text" name="SerieHDD" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">SMART *</label>
+                                    <input type="text" name="SMART" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Interface Disque *</label>
+                                    <input type="text" name="interfaceDisque" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">TBW *</label>
+                                    <input type="number" name="TBW" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Temps Entre Pannes *</label>
+                                    <input type="number" name="tempsEntrePannes" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Type Disque Dur *</label>
+                                    <input type="text" name="typeDD" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Categorie </label>
+                                    <select class="multiple-select" name="categorie">
+                                        <option value="DDR3">DDR3</option>
+                                        <option value="DDR4">DDR4</option>
+                                        <option value="DDR5">DDR5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Frequence </label>
+                                    <input type="text" name="frequence" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Type </label>
+                                    <select class="multiple-select" name="type">
+                                        <option value="LOAD REDUCED">LOAD REDUCED</option>
+                                        <option value="ECC/REGISTERED">ECC/REGISTERED</option>
+                                        <option value="UNBUFFERED">UNBUFFERED</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Alimentation Disque Dur </label>
+                                    <input type="text" name="alimentationDD" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Plateforme Compatible </label>
+                                    <input type="text" name="plateformeCompatible"
+                                        value="" id="inputClientCompany"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Voltage </label>
+                                    <input type="text" name="voltage" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClientCompany">Organisation </label>
+                                    <input type="text" name="organisation" value=""
+                                        id="inputClientCompany" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card-primary">
+                            <div class="card-body">
+                                <h1>Telechargements</h1>
+                                <div class="control-group" id="fields">
+                                    <label class="control-label" for="field1">
+                                        Telechargements *
+                                    </label>
+                                    <div class="controls-telechargement">
+                                        <div class="telechargement input-group upload-input-group">
+                                            <input class="form-control" name="telechargements[]" type="file">
+                                            <button class="btn btn-upload btn-success btn-add-telechargement"
+                                                type="button">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="#" class="btn btn-secondary">Annuler</a>
+                        <input type="submit" value="Creer" class="btn btn-success float-right">
+                    </div>
+                </div>
+            </form>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+        </div>
+
+        <!-- /.content-wrapper -->
+<footer class="main-footer">
+    <strong>Copyright &copy; 2022- <a href="https://dgtec.tn">Dgtec.tn</a>.</strong>
+    All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+    </div>
+    <script type="text/javascript" src="/js/app.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="http://127.0.0.1:8000/back/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- ChartJS -->
+    <script src="http://127.0.0.1:8000/back/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="http://127.0.0.1:8000/back/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="http://127.0.0.1:8000/back/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="http://127.0.0.1:8000/back/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="http://127.0.0.1:8000/back/plugins/moment/moment.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="http://127.0.0.1:8000/back/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="http://127.0.0.1:8000/back/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="http://127.0.0.1:8000/back/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- adminLTE App -->
+    <script src="http://127.0.0.1:8000/back/dist/js/adminlte.js"></script>
+    <!-- adminLTE for demo purposes -->
+    <script src="http://127.0.0.1:8000/back/dist/js/demo.js"></script>
+    <!-- adminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="http://127.0.0.1:8000/back/dist/js/pages/dashboard.js"></script>
+
+    <script src="http://127.0.0.1:8000/dist/js/jquery.toast.min.js"></script>
+
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "ordering": true,
+                "info": true,
+                "paging": true,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+
+    <!-- DataTables  & Plugins -->
+    <script src="http://127.0.0.1:8000/back/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/jszip/jszip.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="http://127.0.0.1:8000/back/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+    <script>
+        $(function() {
+            $(document).on('click', '.btn-add-photo', function(e) {
+                e.preventDefault();
+
+                var controlForm = $('.controls-photo:first'),
+                    currentEntry = $(this).parents('.entry:first'),
+                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+                newEntry.find('input').val('');
+                controlForm.find('.entry:not(:last) .btn-add-photo')
+                    .removeClass('btn-add-photo').addClass('btn-remove-photo')
+                    .removeClass('btn-success').addClass('btn-danger')
+                    .html('<span class="fa fa-trash"></span>');
+            }).on('click', '.btn-remove-photo', function(e) {
+                $(this).parents('.entry:first').remove();
+
+                e.preventDefault();
+                return false;
+            });
+
+            $(document).on('click', '.btn-add-telechargement', function(e) {
+                e.preventDefault();
+
+                var controlForm = $('.controls-telechargement:first'),
+                    currentTelechargement = $(this).parents('.telechargement:first'),
+                    newTelechargement = $(currentTelechargement.clone()).appendTo(controlForm);
+
+                newTelechargement.find('input').val('');
+                controlForm.find('.telechargement:not(:last) .btn-add-telechargement')
+                    .removeClass('btn-add-telechargement').addClass('btn-remove-telechargement')
+                    .removeClass('btn-success').addClass('btn-danger')
+                    .html('<span class="fa fa-trash fa-remove-telechargement"></span>');
+            }).on('click', '.btn-remove-telechargement', function(e) {
+                $(this).parents('.telechargement:first').remove();
+
+                e.preventDefault();
+                return false;
+            });
+        });
+    </script>
+
+
+
+<script type="text/javascript">
+var phpdebugbar = new PhpDebugBar.DebugBar();
+phpdebugbar.addIndicator("php_version", new PhpDebugBar.DebugBar.Indicator({"icon":"code","tooltip":"PHP Version"}), "right");
+phpdebugbar.addTab("messages", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Messages", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addIndicator("time", new PhpDebugBar.DebugBar.Indicator({"icon":"clock-o","tooltip":"Request Duration"}), "right");
+phpdebugbar.addTab("timeline", new PhpDebugBar.DebugBar.Tab({"icon":"tasks","title":"Timeline", "widget": new PhpDebugBar.Widgets.TimelineWidget()}));
+phpdebugbar.addIndicator("memory", new PhpDebugBar.DebugBar.Indicator({"icon":"cogs","tooltip":"Memory Usage"}), "right");
+phpdebugbar.addTab("exceptions", new PhpDebugBar.DebugBar.Tab({"icon":"bug","title":"Exceptions", "widget": new PhpDebugBar.Widgets.ExceptionsWidget()}));
+phpdebugbar.addTab("views", new PhpDebugBar.DebugBar.Tab({"icon":"leaf","title":"Views", "widget": new PhpDebugBar.Widgets.TemplatesWidget()}));
+phpdebugbar.addTab("route", new PhpDebugBar.DebugBar.Tab({"icon":"share","title":"Route", "widget": new PhpDebugBar.Widgets.HtmlVariableListWidget()}));
+phpdebugbar.addIndicator("currentroute", new PhpDebugBar.DebugBar.Indicator({"icon":"share","tooltip":"Route"}), "right");
+phpdebugbar.addTab("queries", new PhpDebugBar.DebugBar.Tab({"icon":"database","title":"Queries", "widget": new PhpDebugBar.Widgets.LaravelSQLQueriesWidget()}));
+phpdebugbar.addTab("models", new PhpDebugBar.DebugBar.Tab({"icon":"cubes","title":"Models", "widget": new PhpDebugBar.Widgets.HtmlVariableListWidget()}));
+phpdebugbar.addTab("livewire", new PhpDebugBar.DebugBar.Tab({"icon":"bolt","title":"Livewire", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.addTab("gate", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Gate", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+phpdebugbar.addTab("session", new PhpDebugBar.DebugBar.Tab({"icon":"archive","title":"Session", "widget": new PhpDebugBar.Widgets.VariableListWidget()}));
+phpdebugbar.addTab("request", new PhpDebugBar.DebugBar.Tab({"icon":"tags","title":"Request", "widget": new PhpDebugBar.Widgets.HtmlVariableListWidget()}));
+phpdebugbar.setDataMap({
+"php_version": ["php.version", ],
+"messages": ["messages.messages", []],
+"messages:badge": ["messages.count", null],
+"time": ["time.duration_str", '0ms'],
+"timeline": ["time", {}],
+"memory": ["memory.peak_usage_str", '0B'],
+"exceptions": ["exceptions.exceptions", []],
+"exceptions:badge": ["exceptions.count", null],
+"views": ["views", []],
+"views:badge": ["views.nb_templates", 0],
+"route": ["route", {}],
+"currentroute": ["route.uri", ],
+"queries": ["queries", []],
+"queries:badge": ["queries.nb_statements", 0],
+"models": ["models.data", {}],
+"models:badge": ["models.count", 0],
+"livewire": ["livewire.data", {}],
+"livewire:badge": ["livewire.count", 0],
+"gate": ["gate.messages", []],
+"gate:badge": ["gate.count", null],
+"session": ["session", {}],
+"request": ["request", {}]
+});
+phpdebugbar.restoreState();
+phpdebugbar.ajaxHandler = new PhpDebugBar.AjaxHandler(phpdebugbar, undefined, true);
+phpdebugbar.ajaxHandler.bindToFetch();
+phpdebugbar.ajaxHandler.bindToXHR();
+phpdebugbar.setOpenHandler(new PhpDebugBar.OpenHandler({"url":"http:\/\/127.0.0.1:8000\/_debugbar\/open"}));
+phpdebugbar.addDataSet({"__meta":{"id":"X31892034d4d98e8c294a5ae00f8bbd14","datetime":"2022-11-02 10:29:45","utime":1667384985.190656,"method":"GET","uri":"\/admin\/products\/create","ip":"127.0.0.1"},"php":{"version":"8.0.18","interface":"cli-server"},"messages":{"count":0,"messages":[]},"time":{"start":1667384984.647297,"end":1667384985.190694,"duration":0.5433971881866455,"duration_str":"543ms","measures":[{"label":"Booting","start":1667384984.647297,"relative_start":0,"end":1667384985.03292,"relative_end":1667384985.03292,"duration":0.3856229782104492,"duration_str":"386ms","params":[],"collector":null},{"label":"Application","start":1667384985.033784,"relative_start":0.3864870071411133,"end":1667384985.190698,"relative_end":3.814697265625e-6,"duration":0.15691399574279785,"duration_str":"157ms","params":[],"collector":null}]},"memory":{"peak_usage":22562120,"peak_usage_str":"22MB"},"exceptions":{"count":0,"exceptions":[]},"views":{"nb_templates":5,"templates":[{"name":"back.products.create (\\resources\\views\\back\\products\\create.blade.php)","param_count":1,"params":["categories"],"type":"blade"},{"name":"layouts.admin (\\resources\\views\\layouts\\admin.blade.php)","param_count":7,"params":["__env","app","errors","categories","__currentLoopData","loop","categorie"],"type":"blade"},{"name":"partials.navbar (\\resources\\views\\partials\\navbar.blade.php)","param_count":7,"params":["__env","app","errors","categories","__currentLoopData","loop","categorie"],"type":"blade"},{"name":"partials.sidebar (\\resources\\views\\partials\\sidebar.blade.php)","param_count":7,"params":["__env","app","errors","categories","__currentLoopData","loop","categorie"],"type":"blade"},{"name":"partials.admin_footer (\\resources\\views\\partials\\admin_footer.blade.php)","param_count":7,"params":["__env","app","errors","categories","__currentLoopData","loop","categorie"],"type":"blade"}]},"route":{"uri":"GET admin\/products\/create","middleware":"web, role:admin","as":"admin.products.create","controller":"App\\Http\\Controllers\\Back\\ProductController@create","namespace":null,"prefix":"\/admin","where":[],"file":"<a href=\"phpstorm:\/\/open?file=C:\\Users\\HP\\Documents\\dgtec\\app\\Http\\Controllers\\Back\\ProductController.php&line=24\">\\app\\Http\\Controllers\\Back\\ProductController.php:24-31<\/a>"},"queries":{"nb_statements":3,"nb_failed_statements":0,"accumulated_duration":0.008069999999999999,"accumulated_duration_str":"8.07ms","statements":[{"sql":"select * from `users` where `id` = 1 limit 1","type":"query","params":[],"bindings":["1"],"hints":null,"show_copy":false,"backtrace":[{"index":15,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\EloquentUserProvider.php","line":59},{"index":16,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php","line":159},{"index":17,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\GuardHelpers.php","line":60},{"index":18,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\GuardHelpers.php","line":70},{"index":19,"namespace":"middleware","name":"role","line":15}],"duration":0.006,"duration_str":"6ms","stmt_id":"\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\EloquentUserProvider.php:59","connection":"dgtec","start_percent":0,"width_percent":74.349},{"sql":"select `roles`.*, `model_has_roles`.`model_id` as `pivot_model_id`, `model_has_roles`.`role_id` as `pivot_role_id`, `model_has_roles`.`model_type` as `pivot_model_type` from `roles` inner join `model_has_roles` on `roles`.`id` = `model_has_roles`.`role_id` where `model_has_roles`.`model_id` in (1) and `model_has_roles`.`model_type` = 'App\\Models\\User'","type":"query","params":[],"bindings":["App\\Models\\User"],"hints":null,"show_copy":false,"backtrace":[{"index":21,"namespace":null,"name":"\\vendor\\spatie\\laravel-permission\\src\\Traits\\HasRoles.php","line":192},{"index":22,"namespace":null,"name":"\\vendor\\spatie\\laravel-permission\\src\\Traits\\HasRoles.php","line":241},{"index":23,"namespace":"middleware","name":"role","line":23},{"index":24,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php","line":180},{"index":25,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php","line":50}],"duration":0.0011799999999999998,"duration_str":"1.18ms","stmt_id":"\\vendor\\spatie\\laravel-permission\\src\\Traits\\HasRoles.php:192","connection":"dgtec","start_percent":74.349,"width_percent":14.622},{"sql":"select * from `categories`","type":"query","params":[],"bindings":[],"hints":null,"show_copy":false,"backtrace":[{"index":17,"namespace":null,"name":"\\app\\Http\\Controllers\\Back\\ProductController.php","line":26},{"index":18,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php","line":54},{"index":19,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php","line":43},{"index":20,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php","line":260},{"index":21,"namespace":null,"name":"\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php","line":205}],"duration":0.0008900000000000001,"duration_str":"890\u03bcs","stmt_id":"\\app\\Http\\Controllers\\Back\\ProductController.php:26","connection":"dgtec","start_percent":88.971,"width_percent":11.029}]},"models":{"data":{"App\\Models\\Category":2,"Spatie\\Permission\\Models\\Role":1,"App\\Models\\User":1},"count":4},"livewire":{"data":[],"count":0},"gate":{"count":0,"messages":[]},"session":{"_token":"fhRNYDSejG0GwyWkcBjTG1ZeV9dFiJ1kWvcrvOE3","_previous":"array:1 [\n  \"url\" => \"http:\/\/127.0.0.1:8000\/admin\/products\/create\"\n]","_flash":"array:2 [\n  \"old\" => []\n  \"new\" => []\n]","login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d":"1","PHPDEBUGBAR_STACK_DATA":"[]"},"request":{"path_info":"\/admin\/products\/create","status_code":"<pre class=sf-dump id=sf-dump-1200298839 data-indent-pad=\"  \"><span class=sf-dump-num>200<\/span>\n<\/pre><script>Sfdump(\"sf-dump-1200298839\", {\"maxDepth\":0})<\/script>\n","status_text":"OK","format":"html","content_type":"text\/html; charset=UTF-8","request_query":"<pre class=sf-dump id=sf-dump-526330452 data-indent-pad=\"  \">[]\n<\/pre><script>Sfdump(\"sf-dump-526330452\", {\"maxDepth\":0})<\/script>\n","request_request":"<pre class=sf-dump id=sf-dump-1754078723 data-indent-pad=\"  \">[]\n<\/pre><script>Sfdump(\"sf-dump-1754078723\", {\"maxDepth\":0})<\/script>\n","request_headers":"<pre class=sf-dump id=sf-dump-362194862 data-indent-pad=\"  \"><span class=sf-dump-note>array:10<\/span> [<samp data-depth=1 class=sf-dump-expanded>\n  \"<span class=sf-dump-key>host<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"14 characters\">127.0.0.1:8000<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>connection<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"10 characters\">keep-alive<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>sec-fetch-site<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"11 characters\">same-origin<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>sec-fetch-mode<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"8 characters\">navigate<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>sec-fetch-dest<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"5 characters\">empty<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>referer<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"36 characters\">http:\/\/127.0.0.1:8000\/admin\/products<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>user-agent<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"111 characters\">Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/107.0.0.0 Safari\/537.36<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>accept-encoding<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"17 characters\">gzip, deflate, br<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>accept-language<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"44 characters\">en-GB,en-US;q=0.9,en;q=0.8,ar;q=0.7,fr;q=0.6<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>cookie<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"800 characters\">_ga=GA1.1.530730877.1666450379; _ga_V4P7T731G9=GS1.1.1667384136.54.1.1667384219.0.0.0; XSRF-TOKEN=eyJpdiI6IjNFWE01V1dqQTlKRTlrVjNjRkhqQ3c9PSIsInZhbHVlIjoidGFjcnNrV01HK2R5Z3lxd1kyb3plb1NpMnp0WU41em9VM2lMRkpVeWxhZEZUUm5XU3lGNFR2QjYzdUVadC9zc3VsSXI4MEJYSDFDVDhLR1JnMWRtTHhjVURKdHRSc3hydnlFN3N4VVozMS9QbElQUldJZTBNUzBjcEk1S0xEZFQiLCJtYWMiOiJkMTdlMzg1MjVkMzU0NTQyYTU5NjNhZThkZTRiYWMzODY2NGRkYmJlMjI4ZTVjNDk5ZjU1NjRmYzcxOWRmZjdiIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImhjbWMvQ1JjOFJXTk16ODBaZ1BhaWc9PSIsInZhbHVlIjoic01kcy9mYmlWeUpuK09ueEZLdXZZNjhoMThoOU5SL0p3MXhtaVYyeng3RnMvZFhiaHBvT3IrMEFVaVN1WjJicis3NTJxTXF3cko4TDZEYmwvWWo1L1hMbVFGSUtwY1l0MUtxQjd2dVkzUkhWNkxVbDY1cTJONEdVcFdEMmdyU0siLCJtYWMiOiI0ZjQ0ZWQ5ZTk3YzUzNTM1MjgxZmY4MmM3ZWJmNmUyNGM1NWY3NjAxYjA0ZTdiZjk1NTk2ZDVlMjUzZDQzNzA2IiwidGFnIjoiIn0%3D<\/span>\"\n  <\/samp>]\n<\/samp>]\n<\/pre><script>Sfdump(\"sf-dump-362194862\", {\"maxDepth\":0})<\/script>\n","request_server":"<pre class=sf-dump id=sf-dump-1312489544 data-indent-pad=\"  \"><span class=sf-dump-note>array:25<\/span> [<samp data-depth=1 class=sf-dump-expanded>\n  \"<span class=sf-dump-key>DOCUMENT_ROOT<\/span>\" => \"<span class=sf-dump-str title=\"34 characters\">C:\\Users\\HP\\Documents\\dgtec\\public<\/span>\"\n  \"<span class=sf-dump-key>REMOTE_ADDR<\/span>\" => \"<span class=sf-dump-str title=\"9 characters\">127.0.0.1<\/span>\"\n  \"<span class=sf-dump-key>REMOTE_PORT<\/span>\" => \"<span class=sf-dump-str title=\"5 characters\">57082<\/span>\"\n  \"<span class=sf-dump-key>SERVER_SOFTWARE<\/span>\" => \"<span class=sf-dump-str title=\"29 characters\">PHP 8.0.18 Development Server<\/span>\"\n  \"<span class=sf-dump-key>SERVER_PROTOCOL<\/span>\" => \"<span class=sf-dump-str title=\"8 characters\">HTTP\/1.1<\/span>\"\n  \"<span class=sf-dump-key>SERVER_NAME<\/span>\" => \"<span class=sf-dump-str title=\"9 characters\">127.0.0.1<\/span>\"\n  \"<span class=sf-dump-key>SERVER_PORT<\/span>\" => \"<span class=sf-dump-str title=\"4 characters\">8000<\/span>\"\n  \"<span class=sf-dump-key>REQUEST_URI<\/span>\" => \"<span class=sf-dump-str title=\"22 characters\">\/admin\/products\/create<\/span>\"\n  \"<span class=sf-dump-key>REQUEST_METHOD<\/span>\" => \"<span class=sf-dump-str title=\"3 characters\">GET<\/span>\"\n  \"<span class=sf-dump-key>SCRIPT_NAME<\/span>\" => \"<span class=sf-dump-str title=\"10 characters\">\/index.php<\/span>\"\n  \"<span class=sf-dump-key>SCRIPT_FILENAME<\/span>\" => \"<span class=sf-dump-str title=\"44 characters\">C:\\Users\\HP\\Documents\\dgtec\\public\\index.php<\/span>\"\n  \"<span class=sf-dump-key>PATH_INFO<\/span>\" => \"<span class=sf-dump-str title=\"22 characters\">\/admin\/products\/create<\/span>\"\n  \"<span class=sf-dump-key>PHP_SELF<\/span>\" => \"<span class=sf-dump-str title=\"32 characters\">\/index.php\/admin\/products\/create<\/span>\"\n  \"<span class=sf-dump-key>HTTP_HOST<\/span>\" => \"<span class=sf-dump-str title=\"14 characters\">127.0.0.1:8000<\/span>\"\n  \"<span class=sf-dump-key>HTTP_CONNECTION<\/span>\" => \"<span class=sf-dump-str title=\"10 characters\">keep-alive<\/span>\"\n  \"<span class=sf-dump-key>HTTP_SEC_FETCH_SITE<\/span>\" => \"<span class=sf-dump-str title=\"11 characters\">same-origin<\/span>\"\n  \"<span class=sf-dump-key>HTTP_SEC_FETCH_MODE<\/span>\" => \"<span class=sf-dump-str title=\"8 characters\">navigate<\/span>\"\n  \"<span class=sf-dump-key>HTTP_SEC_FETCH_DEST<\/span>\" => \"<span class=sf-dump-str title=\"5 characters\">empty<\/span>\"\n  \"<span class=sf-dump-key>HTTP_REFERER<\/span>\" => \"<span class=sf-dump-str title=\"36 characters\">http:\/\/127.0.0.1:8000\/admin\/products<\/span>\"\n  \"<span class=sf-dump-key>HTTP_USER_AGENT<\/span>\" => \"<span class=sf-dump-str title=\"111 characters\">Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/107.0.0.0 Safari\/537.36<\/span>\"\n  \"<span class=sf-dump-key>HTTP_ACCEPT_ENCODING<\/span>\" => \"<span class=sf-dump-str title=\"17 characters\">gzip, deflate, br<\/span>\"\n  \"<span class=sf-dump-key>HTTP_ACCEPT_LANGUAGE<\/span>\" => \"<span class=sf-dump-str title=\"44 characters\">en-GB,en-US;q=0.9,en;q=0.8,ar;q=0.7,fr;q=0.6<\/span>\"\n  \"<span class=sf-dump-key>HTTP_COOKIE<\/span>\" => \"<span class=sf-dump-str title=\"800 characters\">_ga=GA1.1.530730877.1666450379; _ga_V4P7T731G9=GS1.1.1667384136.54.1.1667384219.0.0.0; XSRF-TOKEN=eyJpdiI6IjNFWE01V1dqQTlKRTlrVjNjRkhqQ3c9PSIsInZhbHVlIjoidGFjcnNrV01HK2R5Z3lxd1kyb3plb1NpMnp0WU41em9VM2lMRkpVeWxhZEZUUm5XU3lGNFR2QjYzdUVadC9zc3VsSXI4MEJYSDFDVDhLR1JnMWRtTHhjVURKdHRSc3hydnlFN3N4VVozMS9QbElQUldJZTBNUzBjcEk1S0xEZFQiLCJtYWMiOiJkMTdlMzg1MjVkMzU0NTQyYTU5NjNhZThkZTRiYWMzODY2NGRkYmJlMjI4ZTVjNDk5ZjU1NjRmYzcxOWRmZjdiIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImhjbWMvQ1JjOFJXTk16ODBaZ1BhaWc9PSIsInZhbHVlIjoic01kcy9mYmlWeUpuK09ueEZLdXZZNjhoMThoOU5SL0p3MXhtaVYyeng3RnMvZFhiaHBvT3IrMEFVaVN1WjJicis3NTJxTXF3cko4TDZEYmwvWWo1L1hMbVFGSUtwY1l0MUtxQjd2dVkzUkhWNkxVbDY1cTJONEdVcFdEMmdyU0siLCJtYWMiOiI0ZjQ0ZWQ5ZTk3YzUzNTM1MjgxZmY4MmM3ZWJmNmUyNGM1NWY3NjAxYjA0ZTdiZjk1NTk2ZDVlMjUzZDQzNzA2IiwidGFnIjoiIn0%3D<\/span>\"\n  \"<span class=sf-dump-key>REQUEST_TIME_FLOAT<\/span>\" => <span class=sf-dump-num>1667384984.6473<\/span>\n  \"<span class=sf-dump-key>REQUEST_TIME<\/span>\" => <span class=sf-dump-num>1667384984<\/span>\n<\/samp>]\n<\/pre><script>Sfdump(\"sf-dump-1312489544\", {\"maxDepth\":0})<\/script>\n","request_cookies":"<pre class=sf-dump id=sf-dump-998980112 data-indent-pad=\"  \"><span class=sf-dump-note>array:4<\/span> [<samp data-depth=1 class=sf-dump-expanded>\n  \"<span class=sf-dump-key>_ga<\/span>\" => <span class=sf-dump-const>null<\/span>\n  \"<span class=sf-dump-key>_ga_V4P7T731G9<\/span>\" => <span class=sf-dump-const>null<\/span>\n  \"<span class=sf-dump-key>XSRF-TOKEN<\/span>\" => \"<span class=sf-dump-str title=\"40 characters\">fhRNYDSejG0GwyWkcBjTG1ZeV9dFiJ1kWvcrvOE3<\/span>\"\n  \"<span class=sf-dump-key>laravel_session<\/span>\" => \"<span class=sf-dump-str title=\"40 characters\">eZUc9PtXRlAyhTnyanXRAeQRA5sOPT5OLkHaicqp<\/span>\"\n<\/samp>]\n<\/pre><script>Sfdump(\"sf-dump-998980112\", {\"maxDepth\":0})<\/script>\n","response_headers":"<pre class=sf-dump id=sf-dump-1853021708 data-indent-pad=\"  \"><span class=sf-dump-note>array:5<\/span> [<samp data-depth=1 class=sf-dump-expanded>\n  \"<span class=sf-dump-key>content-type<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"24 characters\">text\/html; charset=UTF-8<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>cache-control<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"17 characters\">no-cache, private<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>date<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"29 characters\">Wed, 02 Nov 2022 10:29:45 GMT<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>set-cookie<\/span>\" => <span class=sf-dump-note>array:2<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"428 characters\">XSRF-TOKEN=eyJpdiI6IlQwUXlGQ3NUZnpHZkxIWjYxcFdac2c9PSIsInZhbHVlIjoiU2JPSU41YiswWU1NUVdvbHlKYWZUU0lDaEkvdi9xSnF1QmdVdXpWY25JTGltWjQ3eGwxTEQ4TmtwQ0hwTy94Rk5zck5wZDlaakNHMlpSVkt0ajhEOHdOeFhmK1dHa0tmNUYvWHF0NGMxZFRCcU9tMWVHMlNpUG9tbTZaeFhZUUkiLCJtYWMiOiI4OTI1NzNiODQ5ZmQzOTI1YWFmZDU2NjJjMjE4MDIwYjliZTkzMmJiMjg1NTNjMTZkODRhMzFjN2U0ZWE3MTI5IiwidGFnIjoiIn0%3D; expires=Wed, 02-Nov-2022 12:29:45 GMT; Max-Age=7200; path=\/; samesite=lax<\/span>\"\n    <span class=sf-dump-index>1<\/span> => \"<span class=sf-dump-str title=\"443 characters\">laravel_session=eyJpdiI6IkIwTmpTdXlQb1liYUxEempOdTNTY1E9PSIsInZhbHVlIjoiVlZQU2IzQzRyV29jMk41Q3ZuZ2psSzYvbVVZK2RtMzJPcjA4a1lkalp0bVJvN3dwR3JSaHVENlArRGsrcFczUTBTM0xxTmgzN3RRODErVmJmblJtUytoK2NGNWtaZUlBaE4yNjlKVjdOTW1ERGp4eXRIUFBSZjJWUnZoNEJkdWQiLCJtYWMiOiIxYTlkY2E0Njk0OTVjMzI4YzE2NDVjNjM2OTEzZDYwZWYzOWIzYmE4NDE3MTk5OTk5MGUwOGMyNDMyOWU3ZWRkIiwidGFnIjoiIn0%3D; expires=Wed, 02-Nov-2022 12:29:45 GMT; Max-Age=7200; path=\/; httponly; samesite=lax<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>Set-Cookie<\/span>\" => <span class=sf-dump-note>array:2<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    <span class=sf-dump-index>0<\/span> => \"<span class=sf-dump-str title=\"400 characters\">XSRF-TOKEN=eyJpdiI6IlQwUXlGQ3NUZnpHZkxIWjYxcFdac2c9PSIsInZhbHVlIjoiU2JPSU41YiswWU1NUVdvbHlKYWZUU0lDaEkvdi9xSnF1QmdVdXpWY25JTGltWjQ3eGwxTEQ4TmtwQ0hwTy94Rk5zck5wZDlaakNHMlpSVkt0ajhEOHdOeFhmK1dHa0tmNUYvWHF0NGMxZFRCcU9tMWVHMlNpUG9tbTZaeFhZUUkiLCJtYWMiOiI4OTI1NzNiODQ5ZmQzOTI1YWFmZDU2NjJjMjE4MDIwYjliZTkzMmJiMjg1NTNjMTZkODRhMzFjN2U0ZWE3MTI5IiwidGFnIjoiIn0%3D; expires=Wed, 02-Nov-2022 12:29:45 GMT; path=\/<\/span>\"\n    <span class=sf-dump-index>1<\/span> => \"<span class=sf-dump-str title=\"415 characters\">laravel_session=eyJpdiI6IkIwTmpTdXlQb1liYUxEempOdTNTY1E9PSIsInZhbHVlIjoiVlZQU2IzQzRyV29jMk41Q3ZuZ2psSzYvbVVZK2RtMzJPcjA4a1lkalp0bVJvN3dwR3JSaHVENlArRGsrcFczUTBTM0xxTmgzN3RRODErVmJmblJtUytoK2NGNWtaZUlBaE4yNjlKVjdOTW1ERGp4eXRIUFBSZjJWUnZoNEJkdWQiLCJtYWMiOiIxYTlkY2E0Njk0OTVjMzI4YzE2NDVjNjM2OTEzZDYwZWYzOWIzYmE4NDE3MTk5OTk5MGUwOGMyNDMyOWU3ZWRkIiwidGFnIjoiIn0%3D; expires=Wed, 02-Nov-2022 12:29:45 GMT; path=\/; httponly<\/span>\"\n  <\/samp>]\n<\/samp>]\n<\/pre><script>Sfdump(\"sf-dump-1853021708\", {\"maxDepth\":0})<\/script>\n","session_attributes":"<pre class=sf-dump id=sf-dump-1247769335 data-indent-pad=\"  \"><span class=sf-dump-note>array:5<\/span> [<samp data-depth=1 class=sf-dump-expanded>\n  \"<span class=sf-dump-key>_token<\/span>\" => \"<span class=sf-dump-str title=\"40 characters\">fhRNYDSejG0GwyWkcBjTG1ZeV9dFiJ1kWvcrvOE3<\/span>\"\n  \"<span class=sf-dump-key>_previous<\/span>\" => <span class=sf-dump-note>array:1<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    \"<span class=sf-dump-key>url<\/span>\" => \"<span class=sf-dump-str title=\"43 characters\">http:\/\/127.0.0.1:8000\/admin\/products\/create<\/span>\"\n  <\/samp>]\n  \"<span class=sf-dump-key>_flash<\/span>\" => <span class=sf-dump-note>array:2<\/span> [<samp data-depth=2 class=sf-dump-compact>\n    \"<span class=sf-dump-key>old<\/span>\" => []\n    \"<span class=sf-dump-key>new<\/span>\" => []\n  <\/samp>]\n  \"<span class=sf-dump-key>login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d<\/span>\" => <span class=sf-dump-num>1<\/span>\n  \"<span class=sf-dump-key>PHPDEBUGBAR_STACK_DATA<\/span>\" => []\n<\/samp>]\n<\/pre><script>Sfdump(\"sf-dump-1247769335\", {\"maxDepth\":0})<\/script>\n"}}, "X31892034d4d98e8c294a5ae00f8bbd14");
+
+</script>
+</body>
+
+</html>

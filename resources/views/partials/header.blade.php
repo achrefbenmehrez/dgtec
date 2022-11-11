@@ -27,7 +27,7 @@ $brands = App\Models\Brand::all();
             <div class="flex justify-center w-full px-4 py-4 sm:w-auto sm:py-0 sm:justify-start sm:px-6">
                 <a href="{{ route('home') }}">
                     <span class="sr-only">DGTEC</span>
-                    <img class="w-auto h-12 " src="{{ asset('storage/img/DGTEC Logo blue.png') }}" alt="">
+                    <img class="w-auto h-12 " src="{{ asset('assets/img/DGTEC Logo blue.png') }}" alt="">
                 </a>
             </div>
 

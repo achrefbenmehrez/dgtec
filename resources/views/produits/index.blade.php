@@ -82,19 +82,21 @@
                                 role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 
                                 <div class="grid grid-flow-col pt-2 grid-rows-2">
-                                    @foreach ($brands as $brand)
-                                        <label
-                                            for='nas-capacitetotale-0'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                            <input id='nas-capacitetotale-0' name='filters[marque]' type="radio"
-                                                class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                                value="{{ $brand->id }}">
+                                    @if (isset($brands))
+                                        @foreach ($brands as $brand)
+                                            <label
+                                                for='nas-capacitetotale-0'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
+                                                <input id='nas-capacitetotale-0' name='filters[marque]' type="radio"
+                                                    class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
+                                                    value="{{ $brand->id }}">
 
-                                            <span
-                                                class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">{{ $brand->title }}
-                                            </span>
-                                            <small class="w-8 text-center text-secondary-300">(12)</small>
-                                        </label>
-                                    @endforeach
+                                                <span
+                                                    class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">{{ $brand->title }}
+                                                </span>
+                                                <small class="w-8 text-center text-secondary-300">(12)</small>
+                                            </label>
+                                        @endforeach
+                                    @endif
                                 </div>
 
                                 <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
@@ -173,19 +175,21 @@
                                 role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 
                                 <div class="grid grid-flow-col pt-2 grid-rows-2">
-                                    @foreach ($capacites as $capacite)
-                                        <label
-                                            for='nas-capacitetotale-0'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                            <input id='nas-capacitetotale-0' name='filters[capacite]' type="radio"
-                                                class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                                value="{{ $capacite }}">
+                                    @if (isset($capacites))
+                                        @foreach ($capacites as $capacite)
+                                            <label
+                                                for='nas-capacitetotale-0'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
+                                                <input id='nas-capacitetotale-0' name='filters[capacite]' type="radio"
+                                                    class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
+                                                    value="{{ $capacite }}">
 
-                                            <span
-                                                class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">{{ $capacite }}
-                                            </span>
-                                            <small class="w-8 text-center text-secondary-300">(12)</small>
-                                        </label>
-                                    @endforeach
+                                                <span
+                                                    class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">{{ $capacite }}
+                                                </span>
+                                                <small class="w-8 text-center text-secondary-300">(12)</small>
+                                            </label>
+                                        @endforeach
+                                    @endif
                                 </div>
 
                                 <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
@@ -264,19 +268,21 @@
                                 role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 
                                 <div class="grid grid-flow-col pt-2 grid-rows-2 grid-rows-4">
-                                    @foreach ($nbreBaies as $nbreBaie)
-                                        <label
-                                            for='nas-nbdisquedur-12'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
-                                            <input id='nas-nbdisquedur-12' name='filters[nbreBaies]' type="radio"
-                                                class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                                                value="{{ $nbreBaie }}">
+                                    @if (isset($nbreBaies))
+                                        @foreach ($nbreBaies as $nbreBaie)
+                                            <label
+                                                for='nas-nbdisquedur-12'class="flex items-center justify-between w-64 px-3 py-2 text-sm cursor-pointer hover:bg-secondary-700">
+                                                <input id='nas-nbdisquedur-12' name='filters[nbreBaies]' type="radio"
+                                                    class="w-4 h-4 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
+                                                    value="{{ $nbreBaie }}">
 
-                                            <span
-                                                class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">{{ $nbreBaie }}
-                                            </span>
-                                            <small class="w-8 text-center text-secondary-300">(3)</small>
-                                        </label>
-                                    @endforeach
+                                                <span
+                                                    class="mx-3 overflow-hidden font-medium text-white text-ellipsis whitespace-nowrap">{{ $nbreBaie }}
+                                                </span>
+                                                <small class="w-8 text-center text-secondary-300">(3)</small>
+                                            </label>
+                                        @endforeach
+                                    @endif
                                 </div>
 
                                 <div class="flex justify-end px-3 py-4" x-data="{ sending: false }">
@@ -414,7 +420,7 @@
                         </div>
 
                         <a class="button group --has-trailing w-full mt-4 --is-small --is-secondary md: " type="button"
-                            href="{{ $url }}">
+                            href="{{ isset($url) ? $url : '' }}">
 
 
                             <span class="button__caption">

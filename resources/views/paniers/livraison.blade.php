@@ -114,7 +114,7 @@
                     <label id="locale" for="collecting"
                         class="relative flex flex-col items-center col-span-full sm:col-span-1 rounded-sm py-8 cursor-pointer bg-secondary-600 shadow-lg hover:bg-secondary-700">
                         <div class="flex items-center justify-center w-32 h-32 mb-4 rounded-full  bg-secondary-700">
-                            <img class="w-auto h-8" src="{{ asset('storage/img/DGTEC Logo blue.png') }}" alt="">
+                            <img class="w-auto h-8" src="{{ asset('assets/img/DGTEC Logo blue.png') }}" alt="">
                         </div>
                         <p class="my-2 text-sm font-medium text-white uppercase">Enlèvement entrepôt DGTEC</p>
                         <p class="mt-auto text-2xl font-normal text-white uppercase">Gratuit</p>
